@@ -18,7 +18,7 @@ class CreateDokumentasiTable extends Migration
             $table->string('nama_kegiatan');
             $table->string('logo')->default('default.png');
             $table->string('penyelenggara');
-            $table->string('foto_kegiatan');
+            $table->string('foto_kegiatan')->default('default.png');
             $table->timestamps();
         });
     }

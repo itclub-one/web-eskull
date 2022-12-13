@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\dokumentasi;
+use Illuminate\Support\Str;
 
 
 class dokumentasiController extends Controller
@@ -34,16 +35,18 @@ class dokumentasiController extends Controller
         return view('layout.subnav.dokumentasi', compact('data')) ;
     }
 
-    
+
 
     public function insertdatadokumentasi(Request $request){
         $data = dokumentasi::create($request->all());
-        if($request->hasfile('logo')){
-            $request->file('logo')->move('logodokumentasi/', $request->file('logo')->getClientOriginalName());
+        if($request->hasfile('logo')) {
+            $random = Str::random(12);
+            $request->file('logo')->move('logodokumentasi/', $random . '.' . $request->file('logo')->getClientOriginalExtension());
             $data->logo = $request->file('logo')->getClientOriginalName();
             $data->save();
-        }if($request->hasfile('foto_kegiatan')){
-            $request->file('foto_kegiatan')->move('fotokegiatan/', $request->file('foto_kegiatan')->getClientOriginalName());
+        }if($request->hasfile('foto_kegiatan')) {
+            $random = Str::random(12);
+            $request->file('foto_kegiatan')->move('fotokegiatan/', $random . '.' . $request->file('foto_kegiatan')->getClientOriginalExtension());
             $data->foto_kegiatan = $request->file('foto_kegiatan')->getClientOriginalName();
             $data->save();
         }
@@ -63,7 +66,7 @@ class dokumentasiController extends Controller
             $data->logo = $request->file('logo')->getClientOriginalName();
             $data->save();
         }elseif($request->hasfile('foto_kegiatan')){
-            $request->file('foto_kegiatan')->move('fotokegiatan/', $request->file('foto_kegiatan')->getClientOriginalName());
+            $request->file('foto_kegiatan')->move('fotokegiatan/', $request->file('fotokegiatan')->getClientOriginalName());
             $data->foto_kegiatan = $request->file('foto_kegiatan')->getClientOriginalName();
             $data->save();
         }

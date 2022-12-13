@@ -182,24 +182,24 @@
 
                   @foreach ($dok as $row)
 
+                      <div class="swiper-slide">
+                          <div data-anim-child="slide-up delay-1">
 
-                  <div class="swiper-slide">
-                  <div data-anim-child="slide-up delay-1">
+                              <a href="" class=" coursesCard -type-1 px-10 py-10 border-light bg-white rounded-8">
+                                  <div class="relative">
+                                      <div class="coursesCard__image overflow-hidden rounded-8">
+                                          <img class="w-1/1" src="{{asset('fotokegiatan/'.$row->foto_kegiatan)}}"
+                                               alt="{{$row->nama_kegiatan}}">
+                                          <div class="coursesCard__image_overlay rounded-8"></div>
+                                      </div>
+                                      <div class="d-flex justify-between py-10 px-10 absolute-full-center z-3">
 
-                      <a href="courses-single-1.html" class=" coursesCard -type-1 px-10 py-10 border-light bg-white rounded-8">
-                      <div class="relative">
-                          <div class="coursesCard__image overflow-hidden rounded-8">
-                          <img class="w-1/1" src="{{asset('fotokegiatan/'.$row->foto_kegiatan)}}" alt="{{$row->foto_kegiatan}}">
-                          <div class="coursesCard__image_overlay rounded-8"></div>
-                          </div>
-                          <div class="d-flex justify-between py-10 px-10 absolute-full-center z-3">
+                                      </div>
+                                  </div>
 
-                          </div>
-                      </div>
+                                  <div class="h-100 px-10 pt-10">
 
-                      <div class="h-100 px-10 pt-10">
-
-                          <div class="text-17 lh-15 fw-500 text-dark-1 mt-10">{{$row->nama_kegiatan}}</div>
+                                      <div class="text-17 lh-15 fw-500 text-dark-1 mt-10">{{$row->nama_kegiatan}}</div>
 
                           <div class="d-flex x-gap-10 items-center pt-10">
 

@@ -190,52 +190,55 @@
               </div>
             </div>
 
-            <div class="header-menu js-mobile-menu-toggle pl-30 xl:pl-20">
-              <div class="header-menu__content">
-                <div class="mobile-bg js-mobile-bg"></div>
+              <div class="header-menu js-mobile-menu-toggle pl-30 xl:pl-20">
+                  <div class="header-menu__content">
+                      <div class="mobile-bg js-mobile-bg"></div>
 
-                <div class="menu js-navList">
-                  <ul class="menu__nav text-dark-1 -is-active">
-                    <li>
-                      <a data-barba class="" href="/">Home</a>
-                    </li>
+                      <div class="menu js-navList">
+                          <ul class="menu__nav text-dark-1 -is-active">
+                              <li>
+                                  <a data-barba class="" href="{{url("/")}}">Home</a>
+                              </li>
 
-                    <li class="menu-item-has-children dropdown" >
-                      <a data-barba  href="#">Tentang Kami <i class="icon-chevron-right dropdown-toggle text-13 ml-10"></i></a>
-                      <ul class="subnav dropdown-menu martoppp" >
+                              <li class="menu-item-has-children dropdown">
+                                  <a data-barba href="#">Tentang Kami <i
+                                          class="icon-chevron-right dropdown-toggle text-13 ml-10"></i></a>
+                                  <ul class="subnav dropdown-menu martoppp">
 
-                        <li><a class=" dropdown-item" href="kepala-sekolah">Sambutan Kepala Sekolah</a></li>
+                                      <li><a class=" dropdown-item" href="kepala-sekolah">Sambutan Kepala Sekolah</a>
+                                      </li>
 
-                        <li><a class=" dropdown-item" href="wakil-kepala-sekolah">Sambutan Wakasek Bidang Kesiswaan</a></li>
+                                      <li><a class=" dropdown-item" href="wakil-kepala-sekolah">Sambutan Wakasek Bidang
+                                              Kesiswaan</a></li>
 
-                        <li><a class=" dropdown-item" href="visi-misi-sejarah">Sejarah, Visi, dan Misi</a></li>
+                                      <li><a class=" dropdown-item" href="visi-misi-sejarah">Sejarah, Visi, dan Misi</a></li>
 
                         <li><a class=" dropdown-item" href="tentang-web-ini">Tentang Web Ini</a></li>
 
                       </ul>
                     </li>
 
-                    <li>
-                      <a class="" data-barba href="dokumentasi_">Dokumentasi</a>
-                    </li>
+                              <li>
+                                  <a class="" data-barba href="dokumentasi_">Dokumentasi</a>
+                              </li>
 
-                    <li>
-                      <a class="" data-barba href="news">Berita</a>
-                    </li>
+                              <li>
+                                  <a class="" data-barba href="news">Berita</a>
+                              </li>
 
-                    <li>
-                      <a class="" data-barba href="contact-person">Hubungi Kami</a>
-                    </li>
-                  </ul>
-                </div>
+                              <li>
+                                  <a class="" data-barba href="contact-person">Tentang Kami</a>
+                              </li>
+                          </ul>
+                      </div>
 
-                <div class="mobile-footer px-20 py-20 border-top-light js-mobile-footer">
-                  <div class="mobile-footer__number">
-                    <div class="text-17 fw-500 text-dark-1">Hubungi Kami</div>
-                    <div class="text-17 fw-500 text-purple-1">(0262) 233316</div>
-                  </div>
+                      <div class="mobile-footer px-20 py-20 border-top-light js-mobile-footer">
+                          <div class="mobile-footer__number">
+                              <div class="text-17 fw-500 text-dark-1">Hubungi Kami</div>
+                              <div class="text-17 fw-500 text-purple-1">(0262) 233316</div>
+                          </div>
 
-                  <div class="lh-2 mt-10">
+                          <div class="lh-2 mt-10">
                     <div>JALAN CIMANUK NO 309 A,<br> Kecamatan Tarogong Kidul <br> Kabupaten Garut <br> Provinsi Jawa Barat.</div>
                     <div>smknegeri1garut@ymail.com</div>
                   </div>
