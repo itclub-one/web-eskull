@@ -5,6 +5,7 @@ networks:
 services:
     db:
         image: mysql:8.0
+        container_name: "eskull-db"
         restart: unless-stopped
         environment:
             MYSQL_DATABASE: ${DB_DATABASE}
@@ -22,6 +23,7 @@ services:
             - eskull
     redis:
         image: redis:latest
+        container_name: "eskull-redis"
         restart: always
         command: redis-server --save 20 1 --loglevel warning
         ports:
@@ -39,6 +41,7 @@ services:
             context: ./
             dockerfile: Dockerfile
         image: eskull
+        container_name: "eskull-app"
         restart: unless-stopped
         working_dir: /var/www/
         volumes:
@@ -47,6 +50,7 @@ services:
             - eskull
     nginx:
         image: nginx:1.19.6
+        container_name: "eskull-nginx"
         restart: unless-stopped
         ports:
             - 8000:80
