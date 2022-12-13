@@ -23,7 +23,7 @@ services:
     redis:
         image: redis:latest
         container_name: "eskull-redis"
-        restart: always
+        restart: unless-stopped
         command: redis-server --save 20 1 --loglevel warning
 
         volumes:
