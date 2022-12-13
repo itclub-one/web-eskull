@@ -5,7 +5,6 @@ networks:
 services:
     db:
         image: mysql:8.0
-        container_name: eskull-db
         restart: unless-stopped
         environment:
             MYSQL_DATABASE: ${DB_DATABASE}
@@ -14,16 +13,21 @@ services:
             MYSQL_USER: ${DB_USERNAME}
             SERVICE_TAGS: dev
             SERVICE_NAME: mysql
+        ports:
+            - "5432:5432"
         volumes:
             - ./docker-compose/mysql:/docker-entrypoint-initdb.d
+            - ./docker-data/mysql:/var/lib/mysql
         networks:
             - eskull
-    cache:
-        image: redis:6.2
-        container_name: eskull-cache
+    redis:
+        image: redis:latest
         restart: always
-        command: redis-server --save 20 1 --loglevel warning --requirepass eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
-
+        command: redis-server --save 20 1 --loglevel warning
+        ports:
+            - "6379:6379"
+        volumes:
+            - ./docker-data/redis:/data
         networks:
             - eskull
 
@@ -35,7 +39,6 @@ services:
             context: ./
             dockerfile: Dockerfile
         image: eskull
-        container_name: eskull-app
         restart: unless-stopped
         working_dir: /var/www/
         volumes:
@@ -44,7 +47,6 @@ services:
             - eskull
     nginx:
         image: nginx:1.19.6
-        container_name: eskull-nginx
         restart: unless-stopped
         ports:
             - 8000:80
