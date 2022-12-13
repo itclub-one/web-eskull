@@ -42,10 +42,10 @@
     <meta content="{{$title}}" name="twitter:title">
     <meta content="{{$description}} | SMKN 1 Garut" name="twitter:description">
     <meta content="{{$image}}" property="og:image">
-    <meta content="{{$description}}" property="og:site_name">
+    <meta content="{{$site_name}}" property="og:site_name">
     <meta content="object" property="og:type">
     <meta content="{{$title}}" property="og:title">
-    <meta content="{{$title}}" property="og:description">
+    <meta content="{{$description}}" property="og:description">
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="{{asset('webex/css/main.css')}}">

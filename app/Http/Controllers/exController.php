@@ -17,7 +17,7 @@ use App\Models\Eskul;
         }
         $meta = array(
             'title' => $data->nama_eskul . ' - ' . config('app.name'),
-            'description' => $data->deskripsi_eskul,
+            'description' => "Eskul " . $data->nama_eskul . " di " . config('app.name'),
             'image' => asset('logoeskul/' . $data->logo),
             'site_name' => $data->nama_eskul,
         );
