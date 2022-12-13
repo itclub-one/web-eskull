@@ -16,7 +16,7 @@ class CreateDokumentasiTable extends Migration
         Schema::create('dokumentasis', function (Blueprint $table) {
             $table->id();
             $table->string('nama_kegiatan');
-            $table->string('logo');
+            $table->string('logo')->default('default.png');
             $table->string('penyelenggara');
             $table->string('foto_kegiatan');
             $table->timestamps();

@@ -1,5 +1,5 @@
 @extends ('admin.layout.header')
-  
+
 @section('content')
 
 <div class="content-wrapper">
@@ -22,7 +22,7 @@
 
 
 
-    
+
 
 
 
@@ -37,20 +37,17 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form action="/updateeskul/{{$data->id}}" method="POST" enctype="multipart/form-data">
+              <form action="{{url("/updateeskul/".$data->slug)}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="card-body">
+
                   <div class="form-group">
-                    <label for="exampleInputEmail1">id</label>
-                    <input type="text" class="form-control" value="{{$data->id}}" name="id" id="exampleInputEmail1" placeholder="Masukan id">
+                    <label for="">Nama Ekstrakurikuler</label>
+                    <input type="text" class="form-control" value="{{$data->nama_eskul}}" name="nama_eskul" id="" placeholder="Masukan Nama Ekstrakurikuler">
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Nama Ekstrakurikuler</label>
-                    <input type="text" class="form-control" value="{{$data->nama_eskul}}" name="nama_eskul" id="exampleInputEmail1" placeholder="Masukan Nama Ekstrakurikuler">
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Slug</label>
-                    <input type="text" class="form-control" value="{{$data->slug}}" name="slug" id="exampleInputEmail1" placeholder="Masukan Nama Ekstrakurikuler">
+                    <label for="">Slug</label>
+                    <input type="text" class="form-control" value="{{$data->slug}}" name="slug" id="" placeholder="Masukan Nama Ekstrakurikuler">
                   </div>
                   <div class="form-group">
                       <label for="exampleInputFile">Logo Ekstrakurikuler</label>
@@ -84,8 +81,8 @@
                     <label for="floatingTextarea2">Program Kerja</label>
                     <textarea class="form-control" name="program_kerja"  placeholder="Masukkan Program Kerja Ekstrakurikuler (Setiap garis baru tambahkan <br>)" id="floatingTextarea2" style="height: 100px">{{$data->program_kerja}}</textarea>
                 </div>
-                  
-                  
+
+
                   <div class="form-group">
                     <label for="exampleInputPassword1">Instagram</label>
                     <input type="text" class="form-control" value="{{$data->nama_instagram}}" name="nama_instagram" id="exampleInputPassword1" placeholder="Masukan Nama Instagram Contoh (@eskulP)">
@@ -101,4 +98,3 @@
                   <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
               </form>
-            

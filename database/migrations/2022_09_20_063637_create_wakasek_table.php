@@ -16,7 +16,7 @@ class CreateWakasekTable extends Migration
         Schema::create('wakaseks', function (Blueprint $table) {
             $table->id();
             $table->string('nama_wakasek');
-            $table->string('foto_sambutan');
+            $table->string('foto_wakasek')->default('default.png');
             $table->string('pembuka_sambutan');
             $table->string('isi_sambutan');
             $table->string('penutup_sambutan');

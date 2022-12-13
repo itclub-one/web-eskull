@@ -1,5 +1,5 @@
 @extends ('admin.layout.header')
-  
+
 @section('content')
 
 <div class="content-wrapper">
@@ -67,19 +67,19 @@
                       $no = 1;
                     @endphp
                     @foreach ($data as $row)
-                    
+
                       <tbody>
                       <tr>
                         <td>{{$no++}}</td>
                         <td>{{$row->pembuka}}</td>
                         <td>{{$row->isi}}</td>
                         <td>
-                          <img src="{{asset($row->foto)}}" width="120px" alt="">
+                          <img src="{{asset("logotentangweb/".$row->foto)}}" width="120px" alt="">
                         </td>
-                        
-                        
 
-                        
+
+
+
                         <td>
                           <a href="/edittentangweb/{{$row->id}}" class="btn btn-warning">Edit</a>
                           <a href="#" class="btn btn-danger delete" data-id="{{$row->id}}" data-nama="{{$row->pembuka}}"  id="delete">Delete</a>
@@ -90,13 +90,13 @@
                       </tr>
                     @endforeach
 
-                    
-                    
-                    
+
+
+
                   </table>
                 </div>
                 <!-- /.card-body -->
-                
+
               <!-- /.card -->
 
             <!-- /.col -->
@@ -119,7 +119,7 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form action="/insertdatatentangweb" method="POST" enctype="multipart/form-data">
+              <form action="{{url("/insertdatatentangweb")}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="card-body">
                    <div class="form-group">
@@ -136,9 +136,9 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleInputFile">Foto</label>
-                        <input required type="file" class="form-control" name="foto" >
+                        <input type="file" class="form-control" name="foto" >
                     </div>
-                    
+
                 </div>
                 <!-- /.card-body -->
 
@@ -151,7 +151,7 @@
           </div>
         </div>
       </div>
-      
+
 
               @push('script')
               <script>
@@ -177,12 +177,12 @@
                         });
                 });
               </script>
-              
+
               <script>
                 @if (Session:: has('success'))
                 toastr.success("{{ Session::get('success') }}")
                 @endif
               </script>
               @endpush
-              
+
 @endsection

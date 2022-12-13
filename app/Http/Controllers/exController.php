@@ -12,6 +12,9 @@ use App\Models\Eskul;
 
         $data = Eskul::find($id);
         // dd($data);
+        if(!$data){
+            abort(404);
+        }
         return view('layout.eskul.skul', compact('data')) ;
     }
 }

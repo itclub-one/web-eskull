@@ -145,7 +145,7 @@ Route::get('/deleteeskul/{id}', [eskulController::class, 'deleteeskul'])->name('
 
 
 //dokumentasi
-Route::get('/dokumentasi', [dokumentasiController::class, 'index'])->name('dokumentasi')->middleware('auth');
+Route::get('/administrator/dokumentasi', [dokumentasiController::class, 'index'])->name('dokumentasi')->middleware('auth');
 Route::post('/insertdatadokumentasi', [dokumentasiController::class, 'insertdatadokumentasi'])->name('insertdatadokumentasi');
 
 Route::get('/editdokumentasi/{id}', [dokumentasiController::class, 'editdokumentasi'])->name('editdokumentasi{id}')->middleware('auth');

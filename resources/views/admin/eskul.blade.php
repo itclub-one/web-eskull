@@ -42,101 +42,7 @@
                     </div>
                   </div>
                   @endif
-                  {{-- <table id="example2" class=" table table-data table-bordered table-hover">
-                    <thead>
 
-                      <div class="form-group col-4">
-                        <form action="administrator" method="GET">
-                          <input  type="search" class="form-control" name="search"  placeholder="Cari Nama Ekstrakurikuler">
-                        </form>
-                      </div>
-
-                      <tr>
-                        <th>no</th>
-                        <th>Ekstrakurikuler</th>
-                        <th>Slug</th>
-                        <th>id</th>
-                        <th>Logo Eskul</th>
-                        <th>Pembina</th>
-                        <th>Ketua</th>
-                        <th>Wakil Ketua</th>
-                        <th>Jadwal Eskul</th>
-
-                        <th>Aksi</th>
-                      </tr>
-                      </thead>
-
-                    @php
-                      $no = 1;
-                    @endphp
-                    @foreach ($data as $index => $row)
-
-                      <tbody>
-                      <tr>
-                        <td>{{$index + $data->firstitem()}}</td>
-                        <td>{{$row->nama_eskul}}</td>
-                        <td>{{$row->slug}}</td>
-                        <td>{{$row->id}}</td>
-                        <td>
-                          <img src="{{asset('logoeskul/'.$row->logo)}}" width="70px" alt="">
-                        </td>
-                        <td>{{$row->pembina}}</td>
-                        <td>{{$row->ketua}}</td>
-                        <td>{{$row->wakilketua}}</td>
-                        <td>{{$row->jadwal_kumpulan}}</td>
-
-
-
-                        <td>
-                          <a href="/editeskul/{{$row->id}}" class="btn btn-warning">Edit</a>
-                          <a href="#" class="btn btn-danger delete" data-id="{{$row->id}}" data-nama="{{$row->nama_eskul}}"  id="delete">Delete</a>
-
-                        </td>
-
-
-                      </tr>
-                    @endforeach
-
-                  </table>
-
-                  <div class="linkss mt-3">
-                    {{$data->links()}}
-                  </div>
-                  <table id="example2" class="mt-5 table table-bordered table-hover">
-                    <thead>
-                      <tr>
-                        <th>no</th>
-                        <th>Ekstrakurikuler</th>
-                        <th>Visi</th>
-                        <th>Misi</th>
-                        <th>Program Kerja</th>
-                        <th>Instagram</th>
-                        <th>Aksi</th>
-
-                      </tr>
-                    </thead>
-                    @php
-                      $number = 1;
-                    @endphp
-                    @foreach ($data as $index => $row)
-
-                    <tbody>
-                      <tr>
-                        <td>{{$index + $data->firstitem()}}</td>
-                        <td>{{$row->nama_eskul}}</td>
-                        <td>{{$row->visi}}</td>
-                        <td>{{$row->misi_eskul}}</td>
-                        <td>{{$row->program_kerja}}</td>
-                        <td>{{$row->nama_instagram}}</td>
-
-                        <td>
-                          <a href="/editeskul/{{$row->id}}" class="btn btn-warning">Edit</a>
-                          <a href="#" class="btn btn-danger delete" data-id="{{$row->id}}" data-nama="{{$row->nama_eskul}}"  id="delete">Delete</a>
-                        </td>
-                      </tr>
-                    </tbody>
-                    @endforeach
-                  </table> --}}
 
                   <div class="table-data">
                     <div class="order">
@@ -198,8 +104,8 @@
 
 
                         <td>
-                          <a href="/editeskul/{{$row->id}}" class="btn btn-warning">Edit</a>
-                          <a href="#" class="btn btn-danger delete" data-id="{{$row->id}}" data-nama="{{$row->nama_eskul}}"  id="delete">Delete</a>
+                          <a href="{{url("/editeskul/".$row->slug)}}" class="btn btn-warning">Edit</a>
+                          <a href="#" class="btn btn-danger delete" data-id="{{$row->slug}}" data-nama="{{$row->nama_eskul}}"  id="delete">Delete</a>
 
                         </td>
                           </tr>

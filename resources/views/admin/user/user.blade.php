@@ -1,5 +1,5 @@
 @extends ('admin.layout.header')
-  
+
 @section('content')
 
 <div class="content-wrapper">
@@ -32,7 +32,7 @@
                   {{-- <h3 class="card-title">DataTable with minimal features & hover style</h3> --}}
                 </div>
 
-                
+
                 <!-- /.card-header -->
                 <div class="table-data">
                   <div class="order">
@@ -63,7 +63,6 @@
                         <th>Username</th>
                         <th>Role</th>
                         <th>Email</th>
-                        <th>Password</th>
                         <th>Aksi</th>
                       </tr>
                       </thead>
@@ -72,7 +71,7 @@
                       $no = 1;
                     @endphp
                     @foreach ($data as $row)
-                    
+
                       <tbody>
                       <tr>
                         <td>{{$no++}}</td>
@@ -82,12 +81,12 @@
                         <td>{{$row->name}}</td>
                         <td>{{$row->role}}</td>
                         <td>{{$row->email}}</td>
-                        <td>{{$row->password}}</td>
-                        
-                        
-                        
 
-                        
+
+
+
+
+
                          <td>
                           <a href="/edituser/{{$row->id}}" class="btn btn-warning">Edit</a>
                           <a href="#" class="btn btn-danger delete" data-id="{{$row->id}}" data-nama="{{$row->nama_dokumentasi}}"  id="delete">Delete</a>
@@ -98,19 +97,19 @@
                       </tr>
                     @endforeach
 
-                    
-                    
-                    
+
+
+
                   </table>
 
                   <div class="linkss mt-3">
                     {{$data->links()}}
                   </div>
                 </div>
-                
+
               </div>
 
-                
+
 
             <!-- /.col -->
           </div>
@@ -121,7 +120,7 @@
 
 
 
-      
+
 
               @push('script')
               <script>
@@ -147,12 +146,12 @@
                         });
                 });
               </script>
-              
+
               <script>
                 @if (Session:: has('success'))
                 toastr.success("{{ Session::get('success') }}")
                 @endif
               </script>
               @endpush
-              
+
 @endsection

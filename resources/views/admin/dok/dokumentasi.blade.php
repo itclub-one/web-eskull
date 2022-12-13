@@ -1,5 +1,5 @@
 @extends ('admin.layout.header')
-  
+
 @section('content')
 
 <div class="content-wrapper">
@@ -31,7 +31,7 @@
                   <h3 class="card-title">DataTable with minimal features & hover style</h3>
                 </div>
 
-                
+
                 <!-- /.card-header -->
                 <div class="table-data">
                   <div class="order">
@@ -57,7 +57,7 @@
                   <table id="example2" class="table table-bordered table-hover">
                     <thead>
                       <tr>
-                        <th>no</th>
+                        <th>No</th>
                         <th>Nama Kegiatan</th>
                         <th>Logo dokumentasi</th>
                         <th>Penyelenggara</th>
@@ -70,7 +70,7 @@
                       $no = 1;
                     @endphp
                     @foreach ($data as $row)
-                    
+
                       <tbody>
                       <tr>
                         <td>{{$no++}}</td>
@@ -82,10 +82,10 @@
                         <td>
                           <img src="{{asset('fotokegiatan/'.$row->foto_kegiatan)}}" width="120px" alt="">
                         </td>
-                        
-                        
 
-                        
+
+
+
                          <td>
                           <a href="/editdokumentasi/{{$row->id}}" class="btn btn-warning">Edit</a>
                           <a href="#" class="btn btn-danger delete" data-id="{{$row->id}}" data-nama="{{$row->nama_dokumentasi}}"  id="delete">Delete</a>
@@ -96,19 +96,19 @@
                       </tr>
                     @endforeach
 
-                    
-                    
-                    
+
+
+
                   </table>
 
                   <div class="linkss mt-3">
                     {{$data->links()}}
                   </div>
                 </div>
-                
+
               </div>
 
-                
+
 
             <!-- /.col -->
           </div>
@@ -149,7 +149,7 @@
                         <label for="exampleInputFile">Foto Kegiatan</label>
                         <input required type="file" class="form-control" name="foto_kegiatan" >
                     </div>
-                    
+
                 </div>
                 <!-- /.card-body -->
 
@@ -182,12 +182,12 @@
                         });
                 });
               </script>
-              
+
               <script>
                 @if (Session:: has('success'))
                 toastr.success("{{ Session::get('success') }}")
                 @endif
               </script>
               @endpush
-              
+
 @endsection

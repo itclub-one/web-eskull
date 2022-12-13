@@ -17,7 +17,7 @@ class CreateEskulTable extends Migration
             $table->string('slug');
             $table->primary('slug');
             $table->string('nama_eskul');
-            $table->string('logo');
+            $table->string('logo')->default('default.png');
             $table->string('pembina');
             $table->string('ketua');
             $table->string('wakilketua');

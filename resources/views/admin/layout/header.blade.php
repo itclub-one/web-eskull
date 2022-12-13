@@ -117,7 +117,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{url('/administrator')}}" class="nav-link {{request()->is('dokumentasi') ? 'active' : ''}}">
+            <a href="{{url('/administrator/dokumentasi')}}" class="nav-link {{request()->is('dokumentasi') ? 'active' : ''}}">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Dokumentasi

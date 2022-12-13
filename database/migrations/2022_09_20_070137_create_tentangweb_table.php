@@ -17,7 +17,7 @@ class CreateTentangwebTable extends Migration
             $table->id();
             $table->string('pembuka');
             $table->string('isi');
-            $table->string('foto');
+            $table->string('foto')->default('default.png');
             $table->string('nama');
             $table->timestamps();
         });

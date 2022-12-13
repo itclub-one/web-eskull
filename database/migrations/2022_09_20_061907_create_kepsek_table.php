@@ -16,7 +16,7 @@ class CreateKepsekTable extends Migration
         Schema::create('kepseks', function (Blueprint $table) {
             $table->id();
             $table->string('nama_kepsek');
-            $table->string('foto_sambutan');
+            $table->string('foto_kepsek')->default('default.png');
             $table->string('pembuka_sambutan');
             $table->string('isi_sambutan');
             $table->string('penutup_sambutan');
