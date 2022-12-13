@@ -16,10 +16,10 @@ use App\Models\Eskul;
             abort(404);
         }
         $meta = array(
-            'title' => $data->nama_eskul,
+            'title' => $data->nama_eskul . ' - ' . config('app.name'),
             'description' => $data->deskripsi_eskul,
             'image' => asset('logoeskul/' . $data->logo),
-            'site_name' => $data->nama_eskul . ' - ' . config('app.name'),
+            'site_name' => $data->nama_eskul,
         );
         return view('layout.eskul.skul', compact('data', 'meta'));
     }

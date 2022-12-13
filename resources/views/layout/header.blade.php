@@ -26,13 +26,13 @@
     <?php
     $title = "Webex | SMKN 1 Garut";
     $description = "Webex";
-    $site_name = "Home - Webex | SMKN 1 Garut";
+    $site_name = "Webex";
     $image = asset('webex/img/general/smea.png');
     if (isset($meta)) {
-        $title = $meta->title;
-        $description = $meta->description;
-        $site_name = $meta->site_name;
-        $image = asset($meta->image);
+        $title = $meta['title'];
+        $description = $meta['description'];
+        $site_name = $meta['site_name'];
+        $image = $meta['image'];
     }
     ?>
     <link href="{{$image}}" rel="icon" type="image/x-icon">
@@ -50,7 +50,7 @@
     <!-- Stylesheets -->
     <link rel="stylesheet" href="{{asset('webex/css/main.css')}}">
     <link rel="stylesheet" href="{{asset('webex/css/vendors.css')}}">
-    <title>{{$site_name}}</title>
+    <title>{{$title}}</title>
 
 </head>
 
