@@ -23,23 +23,35 @@
           crossorigin=""/>
     <link rel="icon" type="image/x-icon" href="{{asset('logoeskul/smea.ico')}}">
 
-    <link href="{{asset('webex/img/general/smea.png')}}" rel="icon" type="image/x-icon">
-    <meta content="{{asset('webex/img/general/smea.png')}}" name="twitter:image:src">
-    <meta content="Webex" name="twitter:site">
+    <?php
+    $title = "Webex | SMKN 1 Garut";
+    $description = "Webex";
+    $site_name = "Home - Webex | SMKN 1 Garut";
+    $image = asset('webex/img/general/smea.png');
+    if (isset($meta)) {
+        $title = $meta->title;
+        $description = $meta->description;
+        $site_name = $meta->site_name;
+        $image = asset($meta->image);
+    }
+    ?>
+    <link href="{{$image}}" rel="icon" type="image/x-icon">
+    <meta content="{{$image}}" name="twitter:image:src">
+    <meta content="{{$site_name}}" name="twitter:site">
     <meta content=summary" name="twitter:card">
-    <meta content="Webex" name="twitter:title">
-    <meta content="Webex | SMKN 1 Garut" name="twitter:description">
-    <meta content="{{asset('webex/img/general/smea.png')}}" property="og:image">
-    <meta content="Webex" property="og:site_name">
+    <meta content="{{$title}}" name="twitter:title">
+    <meta content="{{$description}} | SMKN 1 Garut" name="twitter:description">
+    <meta content="{{$image}}" property="og:image">
+    <meta content="{{$description}}" property="og:site_name">
     <meta content="object" property="og:type">
-    <meta content="Webex" property="og:title">
-    <meta content="Webex | SMKN 1 Garut" property="og:description">
+    <meta content="{{$title}}" property="og:title">
+    <meta content="{{$title}}" property="og:description">
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="{{asset('webex/css/main.css')}}">
     <link rel="stylesheet" href="{{asset('webex/css/vendors.css')}}">
+    <title>{{$site_name}}</title>
 
-    <title>Home - Webex | SMKN 1 Garut</title>
 </head>
 
 <body class="preloader-visible" data-barba="wrapper">
