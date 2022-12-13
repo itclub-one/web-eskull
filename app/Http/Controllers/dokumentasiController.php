@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\dokumentasi;
+use App\Models\Dokumentasi;
 use Illuminate\Support\Str;
 
 
@@ -11,11 +11,11 @@ class dokumentasiController extends Controller
 {
     public function index(Request $request){
 
-        if($request->has('search')){
-            $data = dokumentasi::where('nama_kegiatan','like', '%' .$request->search. '%')->paginate(5);
-            $data = dokumentasi::orWhere('penyelenggara','like', '%' .$request->search. '%')->paginate(5);
+        if($request->has('search')) {
+            $data = Dokumentasi::where('nama_kegiatan', 'like', '%' . $request->search . '%')->paginate(5);
+            $data = Dokumentasi::orWhere('penyelenggara', 'like', '%' . $request->search . '%')->paginate(5);
         }else{
-            $data = dokumentasi::paginate(5);
+            $data = Dokumentasi::paginate(5);
         }
         // dd($data);
         return view('admin.dok.dokumentasi', compact('data')) ;
@@ -23,14 +23,14 @@ class dokumentasiController extends Controller
 
     public function dok(){
 
-        $data = dokumentasi::paginate(5);
+        $data = Dokumentasi::paginate(5);
         // dd($data);
         return view('layout.dokumentasi', compact('data')) ;
     }
 
     public function dokumentasi(){
 
-        $data = dokumentasi::paginate(50);
+        $data = Dokumentasi::paginate(50);
         // dd($data);
         return view('layout.subnav.dokumentasi', compact('data')) ;
     }
@@ -38,7 +38,7 @@ class dokumentasiController extends Controller
 
 
     public function insertdatadokumentasi(Request $request){
-        $data = dokumentasi::create($request->all());
+        $data = Dokumentasi::create($request->all());
         if($request->hasfile('logo')) {
             $random = Str::random(12);
             $request->file('logo')->move('logodokumentasi/', $random . '.' . $request->file('logo')->getClientOriginalExtension());
@@ -54,12 +54,12 @@ class dokumentasiController extends Controller
     }
 
     public function editdokumentasi($id){
-        $data = dokumentasi::find($id);
+        $data = Dokumentasi::find($id);
         return view('admin.dok.editdokumentasi', compact('data'));
     }
 
     public function updatedokumentasi(Request $request , $id){
-        $data = dokumentasi::find($id);
+        $data = Dokumentasi::find($id);
         $data->update($request->all());
         if($request->hasfile('logo')){
             $request->file('logo')->move('logodokumentasi/', $request->file('logo')->getClientOriginalName());
@@ -74,7 +74,7 @@ class dokumentasiController extends Controller
     }
 
     public function deletedokumentasi($id){
-        $data = dokumentasi::find($id);
+        $data = Dokumentasi::find($id);
         $data->delete();
         return redirect()->route('dokumentasi')->with('success',' Data Berhasil Di Delete');
     }

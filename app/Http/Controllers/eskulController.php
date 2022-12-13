@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Eskul;
-use App\Models\dokumentasi;
+use App\Models\Dokumentasi;
 use App\Models\berita;
 
 
@@ -30,7 +30,7 @@ class eskulController extends Controller
 
         $data = Eskul::all();
 
-        $dok = dokumentasi::all();
+        $dok = Dokumentasi::all();
 
         $news = berita::all();
 
