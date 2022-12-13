@@ -40,4 +40,7 @@ SESSION_DRIVER=redis
 
 - `docker-compose build app`
 - `docker-compose up -d`
+- `docker-compose exec app composer install --optimize-autoloader --no-dev`
+- `docker-compose exec app php artisan config:cache`
+- `docker-compose exec app php artisan migrate` if no database file
 - `docker-compose exec app php artisan db:seed` seeder

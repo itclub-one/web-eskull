@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE  html>
 <html lang="">
 
 
@@ -23,6 +23,17 @@
           crossorigin=""/>
     <link rel="icon" type="image/x-icon" href="{{asset('logoeskul/smea.ico')}}">
 
+    <link href="{{asset('webex/img/general/smea.png')}}" rel="icon" type="image/x-icon">
+    <meta content="{{asset('webex/img/general/smea.png')}}" name="twitter:image:src">
+    <meta content="Webex" name="twitter:site">
+    <meta content=summary" name="twitter:card">
+    <meta content="Webex" name="twitter:title">
+    <meta content="Webex | SMKN 1 Garut" name="twitter:description">
+    <meta content="{{asset('webex/img/general/smea.png')}}" property="og:image">
+    <meta content="Webex" property="og:site_name">
+    <meta content="object" property="og:type">
+    <meta content="Webex" property="og:title">
+    <meta content="Webex | SMKN 1 Garut" property="og:description">
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="{{asset('webex/css/main.css')}}">
