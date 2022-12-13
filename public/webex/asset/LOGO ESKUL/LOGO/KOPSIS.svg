@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW X7 -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="2362px" height="2362px" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 2362 2362"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .fil0 {fill:none}
+   ]]>
+  </style>
+   <clipPath id="id0">
+    <path d="M1181 733c261,0 472,207 472,463 0,256 -211,464 -472,464 -261,0 -472,-208 -472,-464 0,-256 211,-463 472,-463z"/>
+   </clipPath>
+    <clipPath id="id1">
+     <path d="M1181 733c261,0 472,207 472,463 0,235 -177,429 -408,460l-128 0c-231,-31 -408,-225 -408,-460 0,-256 211,-463 472,-463z"/>
+    </clipPath>
+    <clipPath id="id2">
+     <path d="M1181 733c261,0 472,207 472,463 0,256 -211,464 -472,464 -261,0 -472,-208 -472,-464 0,-256 211,-463 472,-463z"/>
+    </clipPath>
+ </defs>
+ <g id="Layer_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <g>
+  </g>
+  <g style="clip-path:url(#id0)">
+   <g>
+   </g>
+   <g style="clip-path:url(#id1)">
+    <image id="_1656749655378.png" x="344" y="716" width="1673" height="940" xlink:href="KOPSIS_Images\KOPSIS_ImgID1.png"/>
+   </g>
+   <g style="clip-path:url(#id2)">
+   </g>
+  </g>
+  <path class="fil0" d="M1181 733c261,0 472,207 472,463 0,256 -211,464 -472,464 -261,0 -472,-208 -472,-464 0,-256 211,-463 472,-463z"/>
+ </g>
+</svg>
