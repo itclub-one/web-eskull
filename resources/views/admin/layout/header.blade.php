@@ -6,7 +6,7 @@
   <title>Administrator | Dashboard </title>
 
   <!-- Google Font: Source Sans Pro -->
-  
+
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="{{asset('template/plugins/fontawesome-free/css/all.min.css')}}">
@@ -37,7 +37,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="/" class="nav-link">Home</a>
+        <a href="{{url('/')}}" class="nav-link">Home</a>
       </li>
     </ul>
 
@@ -65,7 +65,7 @@
         </div>
       </li>
 
-      
+
       <li class="nav-item">
         <a class="nav-link" data-widget="fullscreen" href="#" role="button">
           <i class="fas fa-expand-arrows-alt"></i>
@@ -83,7 +83,7 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="/" class="brand-link">
+    <a href="{{url("/")}}" class="brand-link">
       <img src="{{asset('logoeskul/smea.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light">Webeskul</span>
     </a>
@@ -100,16 +100,16 @@
         </div>
       </div>
 
-      
+
 
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          
+
           <li class="nav-item ">
-            <a href="/administrator" class="nav-link {{request()->is('administrator') ? 'active' : ''}} ">
+            <a href="{{url('/administrator')}}" class="nav-link {{request()->is('administrator') ? 'active' : ''}} ">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Widgets
@@ -117,7 +117,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="/dokumentasi" class="nav-link {{request()->is('dokumentasi') ? 'active' : ''}}">
+            <a href="{{url('/administrator')}}" class="nav-link {{request()->is('dokumentasi') ? 'active' : ''}}">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Dokumentasi
@@ -125,7 +125,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="/berita" class="nav-link {{request()->is('berita') ? 'active' : ''}}">
+            <a href="{{url('/berita')}}" class="nav-link {{request()->is('berita') ? 'active' : ''}}">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Berita
@@ -134,7 +134,7 @@
           </li>
           @if(auth()->user()->role=='root')
             <li class="nav-item">
-              <a href="/kepsek" class="nav-link {{request()->is('kepsek') ? 'active' : ''}}">
+              <a href="{{url('/kepsek')}}" class="nav-link {{request()->is('kepsek') ? 'active' : ''}}">
                 <i class="nav-icon fas fa-th"></i>
                 <p>
                   kepsek
@@ -142,7 +142,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="/wakasek" class="nav-link {{request()->is('wakasek') ? 'active' : ''}}">
+              <a href="{{url('/wakasek')}}" class="nav-link {{request()->is('wakasek') ? 'active' : ''}}">
                 <i class="nav-icon fas fa-th"></i>
                 <p>
                   wakasek
@@ -150,7 +150,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="/tentangweb" class="nav-link {{request()->is('tentangweb') ? 'active' : ''}}">
+              <a href="{{url('/tentangweb')}}" class="nav-link {{request()->is('tentangweb') ? 'active' : ''}}">
                 <i class="nav-icon fas fa-th"></i>
                 <p>
                   tentang web
@@ -158,7 +158,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="/tentanganggota" class="nav-link {{request()->is('tentanganggota') ? 'active' : ''}}">
+              <a href="{{url('/tentanganggota')}}" class="nav-link {{request()->is('tentanganggota') ? 'active' : ''}}">
                 <i class="nav-icon fas fa-th"></i>
                 <p>
                   tentang anggota
@@ -166,7 +166,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="/users" class="nav-link {{request()->is('users') ? 'active' : ''}}">
+              <a href="{{url('/users')}}" class="nav-link {{request()->is('users') ? 'active' : ''}}">
                 <i class="nav-icon fas fa-th"></i>
                 <p>
                   User Administrator
@@ -174,9 +174,9 @@
               </a>
             </li>
             @endif
-          
+
           <li class="nav-item">
-            <a href="/logout" class="nav-link">
+            <a href="{{url('/logout')}}" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Logout
@@ -185,16 +185,16 @@
           </li>
 
 
-          
+
           {{-- @foreach ($data as $row) --}}
 
           {{-- @endforeach --}}
-          
-          
+
+
         </ul>
 
-        
-          
+
+
       </nav>
       <!-- /.sidebar-menu -->
     </div>
@@ -208,12 +208,12 @@
   <!-- /.control-sidebar -->
 
 
-  
-  
-  
+
+
+
   @yield('content')
 
-  
+
 
   <!-- Main Footer -->
   <footer class="main-footer">

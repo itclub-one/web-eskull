@@ -45,34 +45,34 @@
 
     <div class="header__container heighttt py-10">
       <div class="row justify-between items-center">
-    
+
         <div class="col-auto">
           <div class="header-left d-flex items-center">
-     
+
             <div class="header__logo">
               <a>
-                <img style="height: 57px;" src="{{asset('webex/img/general/SMEA.png')}}" alt="logo">
+                <img style="height: 57px;" src="{{asset('webex/img/general/smea.png')}}" alt="logo">
               </a>
             </div>
-    
-    
+
+
             <div class="header__explore px-30 xl:px-20 -before-border -after-border xl:d-none">
               <a href="#" class="d-flex  items-center" data-el-toggle=".js-explore-toggle">
                 <i class="icon icon-explore mr-15"></i>
                 Jelajahi
               </a>
-    
+
               <div class="explore-content py-25 rounded-8 bg-white toggle-element js-explore-toggle">
-                
-    
+
+
                 <div class="explore__item">
                   <a href="mpk1" class="text-dark-1 ">MPK</a>
                 </div>
-    
+
                 <div class="explore__item">
                   <a href="osis2" class="text-dark-1 ">OSIS</a>
                 </div>
-    
+
                 <div class="explore__item">
                   <a href="#" class="d-flex  items-center justify-between text-dark-1">
                     Sekbid 1<div class="icon-chevron-right text-11"></div>
@@ -81,7 +81,7 @@
                     <a class="text-dark-1 " href="irma3">IRMA</a>
                   </div>
                 </div>
-    
+
                 <div class="explore__item">
                   <a href="#" class="d-flex  items-center justify-between text-dark-1">
                     Sekbid 2<div class="icon-chevron-right text-11"></div>
@@ -90,7 +90,7 @@
                     <a class="text-dark-1 " href="pks4">PKS</a>
                   </div>
                 </div>
-    
+
                 <div class="explore__item">
                   <a href="#" class="d-flex  items-center justify-between text-dark-1">
                     Sekbid 3<div class="icon-chevron-right text-11"></div>
@@ -101,7 +101,7 @@
                     <a class="text-dark-1 " href="paskibra7">PASKIBRA</a>
                   </div>
                 </div>
-    
+
                 <div class="explore__item">
                   <a href="#" class="d-flex  items-center justify-between text-dark-1">
                     Sekbid 4<div class="icon-chevron-right text-11"></div>
@@ -120,7 +120,7 @@
                     <a class="text-dark-1 " href="tarung-derajat18">TARUNG DERAJAT</a>
                   </div>
                 </div>
-    
+
                 <div class="explore__item">
                   <a href="#" class="d-flex  items-center justify-between text-dark-1">
                     Sekbid 5<div class="icon-chevron-right text-11"></div>
@@ -129,7 +129,7 @@
                     <a class="text-dark-1 " href="kir19">KIR</a>
                   </div>
                 </div>
-    
+
                 <div class="explore__item">
                   <a href="#" class="d-flex  items-center justify-between text-dark-1">
                     Sekbid 6<div class="icon-chevron-right text-11"></div>
@@ -138,7 +138,7 @@
                     <a class="text-dark-1 " href="kopsis20">KOPSIS</a>
                   </div>
                 </div>
-    
+
                 <div class="explore__item">
                   <a href="#" class="d-flex  items-center justify-between text-dark-1">
                     Sekbid 7<div class="icon-chevron-right text-11"></div>
@@ -147,7 +147,7 @@
                     <a class="text-dark-1 " href="pmr21">PMR</a>
                   </div>
                 </div>
-    
+
                 <div class="explore__item">
                   <a href="#" class="d-flex  items-center justify-between text-dark-1">
                     Sekbid 8<div class="icon-chevron-right text-11"></div>
@@ -162,7 +162,7 @@
                     <a class="text-dark-1 " href="seni-musik28">SENI MUSIK</a>
                   </div>
                 </div>
-    
+
                 <div class="explore__item">
                   <a href="#" class="d-flex  items-center justify-between text-dark-1">
                     Sekbid 9<div class="icon-chevron-right text-11"></div>
@@ -172,7 +172,7 @@
                     <a class="text-dark-1 " href="broadcast30">BROADCAST</a>
                   </div>
                 </div>
-    
+
                 <div class="explore__item">
                   <a href="#" class="d-flex  items-center justify-between text-dark-1">
                     Sekbid 10<div class="icon-chevron-right text-11"></div>
@@ -184,113 +184,113 @@
                     <a class="text-dark-1 " href="deutsch-club34">DEUTSCH CLUB</a>
                   </div>
                 </div>
-    
+
                 <div class="explore__item">
                 </div>
               </div>
             </div>
-            
+
             <div class="header-menu js-mobile-menu-toggle pl-30 xl:pl-20">
               <div class="header-menu__content">
                 <div class="mobile-bg js-mobile-bg"></div>
-    
+
                 <div class="menu js-navList">
                   <ul class="menu__nav text-dark-1 -is-active">
                     <li>
                       <a data-barba class="" href="/">Home</a>
                     </li>
-    
+
                     <li class="menu-item-has-children dropdown" >
                       <a data-barba  href="#">Tentang Kami <i class="icon-chevron-right dropdown-toggle text-13 ml-10"></i></a>
                       <ul class="subnav dropdown-menu martoppp" >
-    
+
                         <li><a class=" dropdown-item" href="kepala-sekolah">Sambutan Kepala Sekolah</a></li>
-    
+
                         <li><a class=" dropdown-item" href="wakil-kepala-sekolah">Sambutan Wakasek Bidang Kesiswaan</a></li>
-    
+
                         <li><a class=" dropdown-item" href="visi-misi-sejarah">Sejarah, Visi, dan Misi</a></li>
-    
+
                         <li><a class=" dropdown-item" href="tentang-web-ini">Tentang Web Ini</a></li>
-    
+
                       </ul>
                     </li>
-    
+
                     <li>
                       <a class="" data-barba href="dokumentasi_">Dokumentasi</a>
                     </li>
-    
+
                     <li>
                       <a class="" data-barba href="news">Berita</a>
                     </li>
-    
+
                     <li>
                       <a class="" data-barba href="contact-person">Hubungi Kami</a>
                     </li>
                   </ul>
                 </div>
-    
+
                 <div class="mobile-footer px-20 py-20 border-top-light js-mobile-footer">
                   <div class="mobile-footer__number">
                     <div class="text-17 fw-500 text-dark-1">Hubungi Kami</div>
                     <div class="text-17 fw-500 text-purple-1">(0262) 233316</div>
                   </div>
-    
+
                   <div class="lh-2 mt-10">
                     <div>JALAN CIMANUK NO 309 A,<br> Kecamatan Tarogong Kidul <br> Kabupaten Garut <br> Provinsi Jawa Barat.</div>
                     <div>smknegeri1garut@ymail.com</div>
                   </div>
-    
+
                   <div class="mobile-socials mt-10">
-    
+
                     <a href="#" class="d-flex items-center justify-center rounded-full size-40">
                       <i class="fa fa-facebook"></i>
                     </a>
-    
+
                     <a href="#" class="d-flex items-center justify-center rounded-full size-40">
                       <i class="fa fa-twitter"></i>
                     </a>
-    
+
                     <a href="#" class="d-flex items-center justify-center rounded-full size-40">
                       <i class="fa fa-instagram"></i>
                     </a>
-    
+
                     <a href="#" class="d-flex items-center justify-center rounded-full size-40">
                       <i class="fa fa-linkedin"></i>
                     </a>
-    
+
                   </div>
                 </div>
               </div>
-    
+
               <div class="header-menu-close" data-el-toggle=".js-mobile-menu-toggle">
                 <div class="size-40 d-flex items-center justify-center rounded-full bg-white">
                   <div class="icon-close text-dark-1 text-16"></div>
                 </div>
               </div>
-    
+
               <div class="header-menu-bg"></div>
             </div>
-    
+
           </div>
         </div>
-    
-    
+
+
         <div class="col-auto">
           <div class="header-right d-flex items-center">
             <div class="header-right__icons text-white d-flex items-center">
-    
+
               <div class="relative -before-border px-20 sm:px-15">
-    
+
               <div class="xl:d-block -before-border pl-20 sm:pl-15">
                 <button class="text-dark-1 items-center" data-el-toggle=".js-mobile-menu-toggle">
                   <i class="text-11 icon icon-mobile-menu"></i>
                 </button>
               </div>
-    
+
             </div>
           </div>
         </div>
-    
+
       </div>
 
       </div>
@@ -299,7 +299,7 @@
 
   @yield('content')
   @yield('dokumentasi')
-  
+
 
 
   <footer class="footer -type-1 -dark bg-light-9">

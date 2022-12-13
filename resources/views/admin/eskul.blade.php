@@ -1,6 +1,6 @@
 
 @extends ('admin.layout.header')
-  
+
 @section('content')
 
 <div class="content-wrapper">
@@ -61,7 +61,7 @@
                         <th>Ketua</th>
                         <th>Wakil Ketua</th>
                         <th>Jadwal Eskul</th>
-                        
+
                         <th>Aksi</th>
                       </tr>
                       </thead>
@@ -70,7 +70,7 @@
                       $no = 1;
                     @endphp
                     @foreach ($data as $index => $row)
-                    
+
                       <tbody>
                       <tr>
                         <td>{{$index + $data->firstitem()}}</td>
@@ -84,9 +84,9 @@
                         <td>{{$row->ketua}}</td>
                         <td>{{$row->wakilketua}}</td>
                         <td>{{$row->jadwal_kumpulan}}</td>
-                        
 
-                        
+
+
                         <td>
                           <a href="/editeskul/{{$row->id}}" class="btn btn-warning">Edit</a>
                           <a href="#" class="btn btn-danger delete" data-id="{{$row->id}}" data-nama="{{$row->nama_eskul}}"  id="delete">Delete</a>
@@ -119,7 +119,7 @@
                       $number = 1;
                     @endphp
                     @foreach ($data as $index => $row)
-                    
+
                     <tbody>
                       <tr>
                         <td>{{$index + $data->firstitem()}}</td>
@@ -158,7 +158,6 @@
                         <th>no</th>
                         <th>Ekstrakurikuler</th>
                         <th>Slug</th>
-                        <th>id</th>
                         <th>Logo Eskul</th>
                         <th>Pembina</th>
                         <th>Ketua</th>
@@ -168,45 +167,11 @@
                         <th>Misi</th>
                         <th>Program Kerja</th>
                         <th>Instagram</th>
-                        
+
                         <th>Aksi</th>
                           </tr>
                         </thead>
-                        @if (auth()->user()->role=='adminitc')
-                        <tbody>
-                          @php
-                            $no = 1;
-                          @endphp
-                          @foreach ($adminitc as $index => $row)
-                          <tr>
-                        <td>{{$no++}}</td>
-                        <td>{{$row->nama_eskul}}</td>
-                        <td>{{$row->slug}}</td>
-                        <td>{{$row->id}}</td>
-                        <td>
-                          <img src="{{asset('logoeskul/'.$row->logo)}}" width="70px" alt="">
-                        </td>
-                        <td>{{$row->pembina}}</td>
-                        <td>{{$row->ketua}}</td>
-                        <td>{{$row->wakilketua}}</td>
-                        <td>{{$row->jadwal_kumpulan}}</td>
-                        <td>{{$row->visi}}</td>
-                        <td>{{$row->misi_eskul}}</td>
-                        <td>{{$row->program_kerja}}</td>
-                        <td>{{$row->nama_instagram}}</td>
-                        
 
-                        
-                        <td>
-                          <a href="/editeskul/{{$row->id}}" class="btn btn-warning">Edit</a>
-                          <a href="#" class="btn btn-danger delete" data-id="{{$row->id}}" data-nama="{{$row->nama_eskul}}"  id="delete">Delete</a>
-
-                        </td>
-                          </tr>
-                          <tr>
-                            @endforeach
-                        </tbody>
-                        @endif
 
                         @if (auth()->user()->role=='root')
                         <tbody>
@@ -215,10 +180,9 @@
                           @endphp
                           @foreach ($data as $index => $row)
                           <tr>
-                        <td>{{$index + $data->firstitem()}}</td>
+                        <td>{{$no++}}</td>
                         <td>{{$row->nama_eskul}}</td>
                         <td>{{$row->slug}}</td>
-                        <td>{{$row->id}}</td>
                         <td>
                           <img src="{{asset('logoeskul/'.$row->logo)}}" width="70px" alt="">
                         </td>
@@ -230,9 +194,9 @@
                         <td>{{$row->misi_eskul}}</td>
                         <td>{{$row->program_kerja}}</td>
                         <td>{{$row->nama_instagram}}</td>
-                        
 
-                        
+
+
                         <td>
                           <a href="/editeskul/{{$row->id}}" class="btn btn-warning">Edit</a>
                           <a href="#" class="btn btn-danger delete" data-id="{{$row->id}}" data-nama="{{$row->nama_eskul}}"  id="delete">Delete</a>
@@ -244,13 +208,9 @@
                         </tbody>
                         @endif
                       </table>
-                      @if (auth()->user()->role=='root')
-                      <div class="linkss mt-3">
-                        {{$data->links()}}
-                      </div>
-                      @endif
+
                     </div>
-                    
+
                   </div>
 
 
@@ -322,9 +282,9 @@
                       <label for="floatingTextarea2">Program Kerja</label>
                       <textarea class="form-control" name="program_kerja"  placeholder="Masukkan Program Kerja Ekstrakurikuler (Setiap garis baru tambahkan <br>)" id="floatingTextarea2" style="height: 100px"></textarea>
                   </div>
-                  
-                  
-                  
+
+
+
                   <div class="form-group">
                     <label for="exampleInputPassword1">Instagram</label>
                     <input required type="text" class="form-control" name="nama_instagram" id="exampleInputPassword1" placeholder="Masukan Nama Instagram Contoh (@eskul)">
@@ -365,12 +325,12 @@
                         });
                 });
               </script>
-              
+
               <script>
                 @if (Session:: has('success'))
                 toastr.success("{{ Session::get('success') }}")
                 @endif
               </script>
               @endpush
-              
+
 @endsection

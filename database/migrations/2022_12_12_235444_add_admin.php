@@ -19,9 +19,10 @@ class AddAdmin extends Migration
     {
         DB::table('users')->insert([
             'name' => 'admin',
-            'email' => 'admin@example.com',
+            'email' => 'admin@localhost',
             'password' => bcrypt('password'),
-            'role' => 'admin',
+            'role' => 'root',
+            'foto' => 'default.png',
             'remember_token' => Str::random(60),
         ]);
 

@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Eskul;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -13,6 +14,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-
+        Eskul::factory()->count(5)->create();
     }
 }

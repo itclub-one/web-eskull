@@ -14,13 +14,16 @@ class CreateEskulTable extends Migration
     public function up()
     {
         Schema::create('eskuls', function (Blueprint $table) {
-            $table->id();
+            $table->string('slug');
+            $table->primary('slug');
             $table->string('nama_eskul');
             $table->string('logo');
             $table->string('pembina');
             $table->string('ketua');
             $table->string('wakilketua');
-            $table->string('jadwal_kumpulan');
+            //$table->time('jam_kumpulan');
+            //$table->enum('hari_kumpulan', ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu']);
+            $table->text('jadwal_kumpulan');
             $table->text('visi');
             $table->text('misi_eskul');
             $table->text('program_kerja');

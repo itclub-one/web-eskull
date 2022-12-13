@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\user;
+use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 
@@ -13,10 +13,10 @@ class userController extends Controller
 {
     public function index(Request $request){
         if($request->has('search')){
-            $data = user::where('slug','like', '%' .$request->search. '%')->
+            $data = User::where('slug','like', '%' .$request->search. '%')->
             orWhere('nama_eskul','like', '%' .$request->search. '%')->paginate(5);
         }else{
-            $data = user::paginate(5);
+            $data = User::paginate(5);
         }
 
         return view('admin.user.user', compact('data'));
@@ -66,7 +66,7 @@ class userController extends Controller
             $data->foto = $request->file('foto')->getClientOriginalName();
             $data->save();
         }
-        
+
         return redirect()->route('users')->with('success',' Data Berhasil Di Update');
     }
 
@@ -78,7 +78,7 @@ class userController extends Controller
     public function updatepassword(Request $request , $id){
         $data = user::find($id);
         $data->update([
-            
+
             'password' => bcrypt($request->password),
             'remember_token' => Str::random(60),
         ]);
