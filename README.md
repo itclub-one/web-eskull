@@ -27,6 +27,8 @@ php artisan db:seed
 - set `.env`
 
 ```dotenv
+APP_DEBUG=false
+
 DB_HOST=db
 
 REDIS_CLIENT=predis
@@ -38,9 +40,23 @@ QUEUE_CONNECTION=redis
 SESSION_DRIVER=redis
 ```
 
-- `docker-compose build app`
-- `docker-compose up -d`
-- `docker-compose exec app composer install --optimize-autoloader --no-dev`
-- `docker-compose exec app php artisan config:cache`
+```bash
+
+docker-compose build app
+docker-compose up -d
+
+docker-compose exec app composer install --optimize-autoloader --no-dev
+
+docker-compose exec app php artisan route:clear
+docker-compose exec app php artisan config:clear
+docker-compose exec app php artisan cache:clear
+docker-compose exec app php artisan view:clear
+
+docker-compose exec app php artisan route:cache
+docker-compose exec app php artisan config:cache
+docker-compose exec app php artisan view:cache
+docker-compose exec app php artisan optimize
+```
+
 - `docker-compose exec app php artisan migrate` if no database file
 - `docker-compose exec app php artisan db:seed` seeder
