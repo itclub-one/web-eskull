@@ -43,7 +43,7 @@ use App\Http\Controllers\userController;
 // Route::get('/login', function () {
 //     return view('admin.validation.login');
 // });
-Route::get('/', [eskulController::class, 'eskul'])->name('eskul');
+Route::get('/', [eskulController::class, 'eskul'])->middleware('page-cache');
 
 Route::get('/dokumentasi_', [dokumentasiController::class, 'dokumentasi'])->name('dokumentasi');
 
