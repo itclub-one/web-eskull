@@ -47,14 +47,14 @@ Route::get('/', [eskulController::class, 'eskul'])->name('eskul');
 
 Route::get('/dokumentasi_', [dokumentasiController::class, 'dokumentasi'])->name('dokumentasi');
 
-Route::get('/news', [beritaController::class, 'berita'])->name('berita');
+Route::get('/news', [beritaController::class, 'berita']);
 
 Route::get('/contact-person', [contactpersonController::class, 'contactperson'])->name('contactperson');
 
-Route::get('/kepala-sekolah', [kepsekController::class, 'kepsek'])->name('kepsek');
-Route::get('/wakil-kepala-sekolah', [wakasekController::class, 'wakasek'])->name('wakasek');
+Route::get('/kepala-sekolah', [kepsekController::class, 'kepsek']);
+Route::get('/wakil-kepala-sekolah', [wakasekController::class, 'wakasek']);
 Route::get('/visi-misi-sejarah', [eskulController::class, 'visimisisejarah'])->name('visimisisejarah');
-Route::get('/tentang-web-ini', [tentangwebController::class, 'tentangweb'])->name('tentangweb');
+Route::get('/tentang-web-ini', [tentangwebController::class, 'tentangweb']);
 
 
 // Route::get('/administrator', [administratorController::class, 'index'])->name('administrator');
@@ -132,7 +132,7 @@ Route::get('/logout', [authController::class, 'logout'])->name('logout');
 
 // //////////////////////////////////////////CRUD///////////////////////////////////////////// //
 //eskul
-Route::get('/administrator', [eskulController::class, 'index'])->name('eskul')->middleware('auth');
+Route::get('/administrator', [eskulController::class, 'index'])->middleware('auth');
 // Route::get('/admin', [eskulController::class, 'index'])->name('eskul')->middleware('auth');
 Route::post('/insertdataeskul', [eskulController::class, 'insertdataeskul'])->name('insertdataeskul');
 
@@ -145,7 +145,7 @@ Route::get('/deleteeskul/{id}', [eskulController::class, 'deleteeskul'])->name('
 
 
 //dokumentasi
-Route::get('/administrator/dokumentasi', [dokumentasiController::class, 'index'])->name('dokumentasi')->middleware('auth');
+Route::get('/administrator/dokumentasi', [dokumentasiController::class, 'index'])->middleware('auth');
 Route::post('/insertdatadokumentasi', [dokumentasiController::class, 'insertdatadokumentasi'])->name('insertdatadokumentasi');
 
 Route::get('/editdokumentasi/{id}', [dokumentasiController::class, 'editdokumentasi'])->name('editdokumentasi{id}')->middleware('auth');
