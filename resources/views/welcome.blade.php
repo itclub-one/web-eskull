@@ -41,7 +41,7 @@
                                             <img src="{{asset('webex/img/masthead/1.svg')}}" alt="icon">
                                         </div>
                                         <div class="ml-20">
-                                            <div class="text-orange-1 text-16 fw-500 lh-1">34+</div>
+                                            <div class="text-orange-1 text-16 fw-500 lh-1">{{$data->count() }}</div>
                                             <div class="mt-3">Ekstrakulikuler</div>
                                         </div>
                                     </div>

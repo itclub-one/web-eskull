@@ -146,7 +146,7 @@
                             <a href="{{url('/kepsek')}}" class="nav-link {{request()->is('kepsek') ? 'active' : ''}}">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
-                                    kepsek
+                                    Kepsek
                                 </p>
                             </a>
                         </li>
@@ -154,10 +154,11 @@
                             <a href="{{url('/wakasek')}}" class="nav-link {{request()->is('wakasek') ? 'active' : ''}}">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
-                                    wakasek
+                                    Wakasek
                                 </p>
                             </a>
                         </li>
+                    <!--
                         <li class="nav-item">
                             <a href="{{url('/tentangweb')}}"
                                class="nav-link {{request()->is('tentangweb') ? 'active' : ''}}">
@@ -167,12 +168,13 @@
                                 </p>
                             </a>
                         </li>
+                        -->
                         <li class="nav-item">
                             <a href="{{url('/tentanganggota')}}"
                                class="nav-link {{request()->is('tentanganggota') ? 'active' : ''}}">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
-                                    tentang anggota
+                                    Tentang Anggota
                                 </p>
                             </a>
                         </li>
