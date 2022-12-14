@@ -266,10 +266,11 @@
                                         <li>
                                             <a class="" data-barba href="news">Berita</a>
                                         </li>
-
+                                        <!--
                                         <li>
                                             <a class="" data-barba href="contact-person">Tentang Kami</a>
                                         </li>
+                                        -->
                                     </ul>
                                 </div>
 
