@@ -27,9 +27,11 @@
                         <div data-anim-child="slide-up delay-5" class="col-xl-5 col-lg-7 relative z-2">
                             <div class="masthead-image">
                                 <div class="masthead-image__img1">
+                                    <!--
                                     <div class="masthead-image__shape xl:d-none">
                                         <img src="{{asset('webex/img/home-4/masthead/shape.svg')}}" alt="image">
                                     </div>
+                                    -->
                                     <img data-move="20" class="js-mouse-move"
                                          src="{{asset('webex/img/logo/smeaa.png')}}" alt="image">
                                 </div>
