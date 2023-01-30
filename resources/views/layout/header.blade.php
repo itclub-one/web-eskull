@@ -67,11 +67,11 @@
                 
     
                 <div class="explore__item">
-                  <a href="/eskul/mpk1" class="text-dark-1 ">MPK</a>
+                  <a href="/eskul/mpk" class="text-dark-1 ">MPK</a>
                 </div>
     
                 <div class="explore__item">
-                  <a href="/eskul/osis2" class="text-dark-1 ">OSIS</a>
+                  <a href="/eskul/osis" class="text-dark-1 ">OSIS</a>
                 </div>
     
                 <div class="explore__item">
@@ -79,7 +79,7 @@
                     Sekbid 1<div class="icon-chevron-right text-11"></div>
                   </a>
                   <div class="explore__subnav rounded-8">
-                    <a class="text-dark-1 " href="/eskul/irma3">IRMA</a>
+                    <a class="text-dark-1 " href="/eskul/irma">IRMA</a>
                   </div>
                 </div>
     
@@ -88,7 +88,7 @@
                     Sekbid 2<div class="icon-chevron-right text-11"></div>
                   </a>
                   <div class="explore__subnav rounded-8">
-                    <a class="text-dark-1 " href="/eskul/pks4">PKS</a>
+                    <a class="text-dark-1 " href="/eskul/pks">PKS</a>
                   </div>
                 </div>
     
@@ -97,9 +97,9 @@
                     Sekbid 3<div class="icon-chevron-right text-11"></div>
                   </a>
                   <div class="explore__subnav rounded-8">
-                    <a class="text-dark-1 " href="/eskul/pramukaputra5">PRAMUKA PUTRA</a>
-                    <a class="text-dark-1 " href="/eskul/pramukaputri6">PRAMUKA PUTRI</a>
-                    <a class="text-dark-1 " href="/eskul/paskibra7">PASKIBRA</a>
+                    <a class="text-dark-1 " href="/eskul/pramukaputra">PRAMUKA PUTRA</a>
+                    <a class="text-dark-1 " href="/eskul/pramukaputri">PRAMUKA PUTRI</a>
+                    <a class="text-dark-1 " href="/eskul/paskibra">PASKIBRA</a>
                   </div>
                 </div>
     
@@ -108,17 +108,17 @@
                     Sekbid 4<div class="icon-chevron-right text-11"></div>
                   </a>
                   <div class="explore__subnav rounded-8">
-                    <a class="text-dark-1 " href="/eskul/volly8">VOLLY</a>
-                    <a class="text-dark-1 " href="/eskul/futsalputra9">FUTSAL PUTRA</a>
-                    <a class="text-dark-1 " href="/eskul/futsalputri10">FUTSAL PUTRI</a>
-                    <a class="text-dark-1 " href="/eskul/sepakbola35">SEPAK BOLA</a>
-                    <a class="text-dark-1 " href="/eskul/basket12">BASKET</a>
-                    <a class="text-dark-1 " href="/eskul/hockey13">HOCKEY</a>
-                    <a class="text-dark-1 " href="/eskul/badminton14">BADMINTON</a>
-                    <a class="text-dark-1 " href="/eskul/karate15">KARATE</a>
-                    <a class="text-dark-1 " href="/eskul/taekwondo16">TAEKWONDO</a>
-                    <a class="text-dark-1 " href="/eskul/silat17">SILAT</a>
-                    <a class="text-dark-1 " href="/eskul/tarungderajat18">TARUNG DERAJAT</a>
+                    <a class="text-dark-1 " href="/eskul/volly">VOLLY</a>
+                    <a class="text-dark-1 " href="/eskul/futsalputra">FUTSAL PUTRA</a>
+                    <a class="text-dark-1 " href="/eskul/futsalputri">FUTSAL PUTRI</a>
+                    <a class="text-dark-1 " href="/eskul/sepakbola">SEPAK BOLA</a>
+                    <a class="text-dark-1 " href="/eskul/basket">BASKET</a>
+                    <a class="text-dark-1 " href="/eskul/hockey">HOCKEY</a>
+                    <a class="text-dark-1 " href="/eskul/badminton">BADMINTON</a>
+                    <a class="text-dark-1 " href="/eskul/karate">KARATE</a>
+                    <a class="text-dark-1 " href="/eskul/taekwondo">TAEKWONDO</a>
+                    <a class="text-dark-1 " href="/eskul/silat">SILAT</a>
+                    <a class="text-dark-1 " href="/eskul/tarungderajat">TARUNG DERAJAT</a>
                   </div>
                 </div>
     
@@ -127,7 +127,7 @@
                     Sekbid 5<div class="icon-chevron-right text-11"></div>
                   </a>
                   <div class="explore__subnav rounded-8">
-                    <a class="text-dark-1 " href="/eskul/kir19">KIR</a>
+                    <a class="text-dark-1 " href="/eskul/kir">KIR</a>
                   </div>
                 </div>
     
@@ -136,7 +136,7 @@
                     Sekbid 6<div class="icon-chevron-right text-11"></div>
                   </a>
                   <div class="explore__subnav rounded-8">
-                    <a class="text-dark-1 " href="/eskul/kopsis20">KOPSIS</a>
+                    <a class="text-dark-1 " href="/eskul/kopsis">KOPSIS</a>
                   </div>
                 </div>
     
@@ -145,7 +145,7 @@
                     Sekbid 7<div class="icon-chevron-right text-11"></div>
                   </a>
                   <div class="explore__subnav rounded-8">
-                    <a class="text-dark-1 " href="/eskul/pmr21">PMR</a>
+                    <a class="text-dark-1 " href="/eskul/pmr">PMR</a>
                   </div>
                 </div>
     
@@ -154,13 +154,13 @@
                     Sekbid 8<div class="icon-chevron-right text-11"></div>
                   </a>
                   <div class="explore__subnav rounded-8">
-                    <a class="text-dark-1 " href="/eskul/senitari22">SENI TARI</a>
-                    <a class="text-dark-1 " href="/eskul/marching-band23">MARCHING BAND</a>
-                    <a class="text-dark-1 " href="/eskul/senikriya24">SENI KRIYA</a>
-                    <a class="text-dark-1 " href="/eskul/paduan-suara25">PADUAN SUARA</a>
-                    <a class="text-dark-1 " href="/eskul/karawitan26">KARAWITAN</a>
-                    <a class="text-dark-1 " href="/eskul/teater27">TEATER</a>
-                    <a class="text-dark-1 " href="/eskul/senimusik28">SENI MUSIK</a>
+                    <a class="text-dark-1 " href="/eskul/senitari">SENI TARI</a>
+                    <a class="text-dark-1 " href="/eskul/marching-band">MARCHING BAND</a>
+                    <a class="text-dark-1 " href="/eskul/senikriya">SENI KRIYA</a>
+                    <a class="text-dark-1 " href="/eskul/paduan-suara">PADUAN SUARA</a>
+                    <a class="text-dark-1 " href="/eskul/karawitan">KARAWITAN</a>
+                    <a class="text-dark-1 " href="/eskul/teater">TEATER</a>
+                    <a class="text-dark-1 " href="/eskul/senimusik">SENI MUSIK</a>
                   </div>
                 </div>
     
@@ -169,8 +169,8 @@
                     Sekbid 9<div class="icon-chevron-right text-11"></div>
                   </a>
                   <div class="explore__subnav rounded-8">
-                    <a class="text-dark-1 " href="/eskul/itclub29">IT-CLUB</a>
-                    <a class="text-dark-1 " href="/eskul/broadcast30">BROADCAST</a>
+                    <a class="text-dark-1 " href="/eskul/itclub">IT-CLUB</a>
+                    <a class="text-dark-1 " href="/eskul/broadcast">BROADCAST</a>
                   </div>
                 </div>
     
@@ -179,10 +179,10 @@
                     Sekbid 10<div class="icon-chevron-right text-11"></div>
                   </a>
                   <div class="explore__subnav rounded-8">
-                    <a class="text-dark-1 " href="/eskul/englishclub31">ENGLISH CLUB</a>
-                    <a class="text-dark-1 " href="/eskul/koreanclub32">KOREAN CLUB</a>
-                    <a class="text-dark-1 " href="/eskul/japanclub33">JAPAN CLUB</a>
-                    <a class="text-dark-1 " href="/eskul/deutschclub34">DEUTSCH CLUB</a>
+                    <a class="text-dark-1 " href="/eskul/englishclub">ENGLISH CLUB</a>
+                    <a class="text-dark-1 " href="/eskul/koreanclub">KOREAN CLUB</a>
+                    <a class="text-dark-1 " href="/eskul/japanclub">JAPAN CLUB</a>
+                    <a class="text-dark-1 " href="/eskul/deutschclub">DEUTSCH CLUB</a>
                   </div>
                 </div>
     

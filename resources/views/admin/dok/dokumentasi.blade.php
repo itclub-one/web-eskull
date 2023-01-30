@@ -44,6 +44,15 @@
                       </div>
                     </div>
                     @endif
+                    @if ($message = Session::get('error'))
+                    <div  style="width: 500px">
+                      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <i type="button" class="fa-solid fa-xmark mx-2" style="color: black; "  data-bs-dismiss="alert" aria-label="Close">
+                        </i>
+                        <strong>{{$message}}</strong>
+                      </div>
+                    </div>
+                    @endif
                     <div class="head">
                       <h3>Recent Orders</h3>
                       <i class='bx bx-search' ></i>
@@ -57,7 +66,7 @@
                   <table id="example2" class="table table-bordered table-hover">
                     <thead>
                       <tr>
-                        <th>no</th>
+                        <th>No</th>
                         <th>Nama Kegiatan</th>
                         <th>Logo dokumentasi</th>
                         <th>Penyelenggara</th>
@@ -147,9 +156,11 @@
                     <div class="form-group">
                         <label for="exampleInputPassword1">Penyelenggara</label>
                         <select class="custom-select rounded-0" name="penyelenggara" id="exampleSelectRounded0">
-                          <option selected>Open this select menu</option>
+                         
                           @foreach ($data_eskul as $row)
+                          @if (auth()->user()->role=='root' || $currentRole['eskul_id'] == $row->id)<!-- Perlihatkan eskul jika user adalah root atau user memiliki eskul tersebut -->
                           <option value="{{$row->id}}">{{$row->nama_eskul}}</option>
+                          @endif
                           @endforeach
                         </select>
                         {{-- <input required type="text" class="form-control" name="penyelenggara" id="exampleInputPassword1" placeholder="Masukan Penyelenggara"> --}}
