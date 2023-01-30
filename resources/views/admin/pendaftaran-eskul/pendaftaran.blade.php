@@ -59,15 +59,16 @@
                     </div>
                     @if (auth()->user()->role=='root')
                     @foreach ($on as $row)
-                        
+                    <div class="d-flex">
+                      <a href="/pendaftaran-eskul/export-excel" class="btn btn-success mb-2">Export Excel</a>
                       @if ($row->on == 0)
-                      <form action="/add-pendaftaran/{{$row->id}}" class="mb-2" method="post">
+                      <form action="/add-pendaftaran/{{$row->id}}" class="mb-2 mx-3" method="post">
                         @csrf
                         <input class="d-none" name="on" value="1">
                         <button type="submit" class="btn btn-primary ">Pendaftaran dibuka</button>
                       </form>
                       @else
-                      <form action="/add-pendaftaran/{{$row->id}}" class="mb-2" method="post">
+                      <form action="/add-pendaftaran/{{$row->id}}" class="mb-2 mx-3" method="post">
                         @csrf
                         <input class="d-none" name="on" value="0">
                         <button type="submit" class="btn btn-danger ">Pendaftaran ditutup</button>
@@ -75,7 +76,8 @@
                       @endif
                       @endforeach
                     @endif
-                    <a href="/pendaftaran-eskul/export-excel">Export Excel</a>
+                    </div>
+                        
                   <table id="example2" class="table table-bordered table-hover">
                     <thead>
                       <tr>
@@ -83,6 +85,8 @@
                         <th>Nama Pendaftar</th>
                         <th>Kelas Pendaftar</th>
                         <th>Nomor Induk Siswa</th>
+                        <th>Email</th>
+                        <th>Nomor Whatsapp</th>
                         <th>Alasan</th>
                         <th>Ekstrakurikuler</th>
                         <th>Aksi</th>
@@ -102,6 +106,8 @@
                         <td>{{$row->nama_calon_anggota}}</td>
                         <td>{{$row->kelas_calon_anggota .' - '. $row->jurusan}}</td>
                         <td>{{$row->nis}}</td>
+                        <td>{{$row->email}}</td>
+                        <td>{{$row->no_wa}}</td>
                         <td>{{$row->alasan}}</td>
 
                         
@@ -140,6 +146,8 @@
                         <td>{{$row->nama_calon_anggota}}</td>
                         <td>{{$row->kelas_calon_anggota}}</td>
                         <td>{{$row->nis}}</td>
+                        <td>{{$row->email}}</td>
+                        <td>{{$row->no_wa}}</td>
                         <td>{{$row->alasan}}</td>
 
                         
@@ -176,6 +184,8 @@
                         <td>{{$row->nama_calon_anggota}}</td>
                         <td>{{$row->kelas_calon_anggota}}</td>
                         <td>{{$row->nis}}</td>
+                        <td>{{$row->email}}</td>
+                        <td>{{$row->no_wa}}</td>
                         <td>{{$row->alasan}}</td>
 
                         
@@ -211,6 +221,8 @@
                         <td>{{$row->nama_calon_anggota}}</td>
                         <td>{{$row->kelas_calon_anggota}}</td>
                         <td>{{$row->nis}}</td>
+                        <td>{{$row->email}}</td>
+                        <td>{{$row->no_wa}}</td>
                         <td>{{$row->alasan}}</td>
 
                         
@@ -246,6 +258,8 @@
                         <td>{{$row->nama_calon_anggota}}</td>
                         <td>{{$row->kelas_calon_anggota}}</td>
                         <td>{{$row->nis}}</td>
+                        <td>{{$row->email}}</td>
+                        <td>{{$row->no_wa}}</td>
                         <td>{{$row->alasan}}</td>
 
                         
@@ -281,6 +295,8 @@
                         <td>{{$row->nama_calon_anggota}}</td>
                         <td>{{$row->kelas_calon_anggota}}</td>
                         <td>{{$row->nis}}</td>
+                        <td>{{$row->email}}</td>
+                        <td>{{$row->no_wa}}</td>
                         <td>{{$row->alasan}}</td>
 
                         
@@ -316,6 +332,8 @@
                         <td>{{$row->nama_calon_anggota}}</td>
                         <td>{{$row->kelas_calon_anggota}}</td>
                         <td>{{$row->nis}}</td>
+                        <td>{{$row->email}}</td>
+                        <td>{{$row->no_wa}}</td>
                         <td>{{$row->alasan}}</td>
 
                         
@@ -351,6 +369,8 @@
                         <td>{{$row->nama_calon_anggota}}</td>
                         <td>{{$row->kelas_calon_anggota}}</td>
                         <td>{{$row->nis}}</td>
+                        <td>{{$row->email}}</td>
+                        <td>{{$row->no_wa}}</td>
                         <td>{{$row->alasan}}</td>
 
                         
@@ -386,6 +406,8 @@
                         <td>{{$row->nama_calon_anggota}}</td>
                         <td>{{$row->kelas_calon_anggota}}</td>
                         <td>{{$row->nis}}</td>
+                        <td>{{$row->email}}</td>
+                        <td>{{$row->no_wa}}</td>
                         <td>{{$row->alasan}}</td>
 
                         
@@ -421,6 +443,8 @@
                         <td>{{$row->nama_calon_anggota}}</td>
                         <td>{{$row->kelas_calon_anggota}}</td>
                         <td>{{$row->nis}}</td>
+                        <td>{{$row->email}}</td>
+                        <td>{{$row->no_wa}}</td>
                         <td>{{$row->alasan}}</td>
 
                         
@@ -456,6 +480,8 @@
                         <td>{{$row->nama_calon_anggota}}</td>
                         <td>{{$row->kelas_calon_anggota}}</td>
                         <td>{{$row->nis}}</td>
+                        <td>{{$row->email}}</td>
+                        <td>{{$row->no_wa}}</td>
                         <td>{{$row->alasan}}</td>
 
                         
@@ -491,6 +517,8 @@
                         <td>{{$row->nama_calon_anggota}}</td>
                         <td>{{$row->kelas_calon_anggota}}</td>
                         <td>{{$row->nis}}</td>
+                        <td>{{$row->email}}</td>
+                        <td>{{$row->no_wa}}</td>
                         <td>{{$row->alasan}}</td>
 
                         
@@ -526,6 +554,8 @@
                         <td>{{$row->nama_calon_anggota}}</td>
                         <td>{{$row->kelas_calon_anggota}}</td>
                         <td>{{$row->nis}}</td>
+                        <td>{{$row->email}}</td>
+                        <td>{{$row->no_wa}}</td>
                         <td>{{$row->alasan}}</td>
 
                         
@@ -561,6 +591,8 @@
                         <td>{{$row->nama_calon_anggota}}</td>
                         <td>{{$row->kelas_calon_anggota}}</td>
                         <td>{{$row->nis}}</td>
+                        <td>{{$row->email}}</td>
+                        <td>{{$row->no_wa}}</td>
                         <td>{{$row->alasan}}</td>
 
                         
@@ -596,6 +628,8 @@
                         <td>{{$row->nama_calon_anggota}}</td>
                         <td>{{$row->kelas_calon_anggota}}</td>
                         <td>{{$row->nis}}</td>
+                        <td>{{$row->email}}</td>
+                        <td>{{$row->no_wa}}</td>
                         <td>{{$row->alasan}}</td>
 
                         
@@ -631,6 +665,8 @@
                         <td>{{$row->nama_calon_anggota}}</td>
                         <td>{{$row->kelas_calon_anggota}}</td>
                         <td>{{$row->nis}}</td>
+                        <td>{{$row->email}}</td>
+                        <td>{{$row->no_wa}}</td>
                         <td>{{$row->alasan}}</td>
 
                         
@@ -666,6 +702,8 @@
                         <td>{{$row->nama_calon_anggota}}</td>
                         <td>{{$row->kelas_calon_anggota}}</td>
                         <td>{{$row->nis}}</td>
+                        <td>{{$row->email}}</td>
+                        <td>{{$row->no_wa}}</td>
                         <td>{{$row->alasan}}</td>
 
                         
@@ -701,6 +739,8 @@
                         <td>{{$row->nama_calon_anggota}}</td>
                         <td>{{$row->kelas_calon_anggota}}</td>
                         <td>{{$row->nis}}</td>
+                        <td>{{$row->email}}</td>
+                        <td>{{$row->no_wa}}</td>
                         <td>{{$row->alasan}}</td>
 
                         
@@ -736,6 +776,8 @@
                         <td>{{$row->nama_calon_anggota}}</td>
                         <td>{{$row->kelas_calon_anggota}}</td>
                         <td>{{$row->nis}}</td>
+                        <td>{{$row->email}}</td>
+                        <td>{{$row->no_wa}}</td>
                         <td>{{$row->alasan}}</td>
 
                         
@@ -771,6 +813,8 @@
                         <td>{{$row->nama_calon_anggota}}</td>
                         <td>{{$row->kelas_calon_anggota}}</td>
                         <td>{{$row->nis}}</td>
+                        <td>{{$row->email}}</td>
+                        <td>{{$row->no_wa}}</td>
                         <td>{{$row->alasan}}</td>
 
                         
@@ -806,6 +850,8 @@
                         <td>{{$row->nama_calon_anggota}}</td>
                         <td>{{$row->kelas_calon_anggota}}</td>
                         <td>{{$row->nis}}</td>
+                        <td>{{$row->email}}</td>
+                        <td>{{$row->no_wa}}</td>
                         <td>{{$row->alasan}}</td>
 
                         
@@ -841,6 +887,8 @@
                         <td>{{$row->nama_calon_anggota}}</td>
                         <td>{{$row->kelas_calon_anggota}}</td>
                         <td>{{$row->nis}}</td>
+                        <td>{{$row->email}}</td>
+                        <td>{{$row->no_wa}}</td>
                         <td>{{$row->alasan}}</td>
 
                         
@@ -876,6 +924,8 @@
                         <td>{{$row->nama_calon_anggota}}</td>
                         <td>{{$row->kelas_calon_anggota}}</td>
                         <td>{{$row->nis}}</td>
+                        <td>{{$row->email}}</td>
+                        <td>{{$row->no_wa}}</td>
                         <td>{{$row->alasan}}</td>
 
                         
@@ -911,6 +961,8 @@
                         <td>{{$row->nama_calon_anggota}}</td>
                         <td>{{$row->kelas_calon_anggota}}</td>
                         <td>{{$row->nis}}</td>
+                        <td>{{$row->email}}</td>
+                        <td>{{$row->no_wa}}</td>
                         <td>{{$row->alasan}}</td>
 
                         
@@ -946,6 +998,8 @@
                         <td>{{$row->nama_calon_anggota}}</td>
                         <td>{{$row->kelas_calon_anggota}}</td>
                         <td>{{$row->nis}}</td>
+                        <td>{{$row->email}}</td>
+                        <td>{{$row->no_wa}}</td>
                         <td>{{$row->alasan}}</td>
 
                         
@@ -981,6 +1035,8 @@
                         <td>{{$row->nama_calon_anggota}}</td>
                         <td>{{$row->kelas_calon_anggota}}</td>
                         <td>{{$row->nis}}</td>
+                        <td>{{$row->email}}</td>
+                        <td>{{$row->no_wa}}</td>
                         <td>{{$row->alasan}}</td>
 
                         
@@ -1016,6 +1072,8 @@
                         <td>{{$row->nama_calon_anggota}}</td>
                         <td>{{$row->kelas_calon_anggota}}</td>
                         <td>{{$row->nis}}</td>
+                        <td>{{$row->email}}</td>
+                        <td>{{$row->no_wa}}</td>
                         <td>{{$row->alasan}}</td>
 
                         
@@ -1051,6 +1109,8 @@
                         <td>{{$row->nama_calon_anggota}}</td>
                         <td>{{$row->kelas_calon_anggota}}</td>
                         <td>{{$row->nis}}</td>
+                        <td>{{$row->email}}</td>
+                        <td>{{$row->no_wa}}</td>
                         <td>{{$row->alasan}}</td>
 
                         
@@ -1086,6 +1146,8 @@
                         <td>{{$row->nama_calon_anggota}}</td>
                         <td>{{$row->kelas_calon_anggota}}</td>
                         <td>{{$row->nis}}</td>
+                        <td>{{$row->email}}</td>
+                        <td>{{$row->no_wa}}</td>
                         <td>{{$row->alasan}}</td>
 
                         
@@ -1121,6 +1183,8 @@
                         <td>{{$row->nama_calon_anggota}}</td>
                         <td>{{$row->kelas_calon_anggota}}</td>
                         <td>{{$row->nis}}</td>
+                        <td>{{$row->email}}</td>
+                        <td>{{$row->no_wa}}</td>
                         <td>{{$row->alasan}}</td>
 
                         
@@ -1156,6 +1220,8 @@
                         <td>{{$row->nama_calon_anggota}}</td>
                         <td>{{$row->kelas_calon_anggota}}</td>
                         <td>{{$row->nis}}</td>
+                        <td>{{$row->email}}</td>
+                        <td>{{$row->no_wa}}</td>
                         <td>{{$row->alasan}}</td>
 
                         
@@ -1191,6 +1257,8 @@
                         <td>{{$row->nama_calon_anggota}}</td>
                         <td>{{$row->kelas_calon_anggota}}</td>
                         <td>{{$row->nis}}</td>
+                        <td>{{$row->email}}</td>
+                        <td>{{$row->no_wa}}</td>
                         <td>{{$row->alasan}}</td>
 
                         
@@ -1226,6 +1294,8 @@
                         <td>{{$row->nama_calon_anggota}}</td>
                         <td>{{$row->kelas_calon_anggota}}</td>
                         <td>{{$row->nis}}</td>
+                        <td>{{$row->email}}</td>
+                        <td>{{$row->no_wa}}</td>
                         <td>{{$row->alasan}}</td>
 
                         
@@ -1261,6 +1331,8 @@
                         <td>{{$row->nama_calon_anggota}}</td>
                         <td>{{$row->kelas_calon_anggota}}</td>
                         <td>{{$row->nis}}</td>
+                        <td>{{$row->email}}</td>
+                        <td>{{$row->no_wa}}</td>
                         <td>{{$row->alasan}}</td>
 
                         
@@ -1296,6 +1368,8 @@
                         <td>{{$row->nama_calon_anggota}}</td>
                         <td>{{$row->kelas_calon_anggota}}</td>
                         <td>{{$row->nis}}</td>
+                        <td>{{$row->email}}</td>
+                        <td>{{$row->no_wa}}</td>
                         <td>{{$row->alasan}}</td>
 
                         

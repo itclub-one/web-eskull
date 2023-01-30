@@ -330,7 +330,7 @@
                         <i class="fas fa-phone"></i>
                         <div class="cta-text">
                             <h4>Call us</h4>
-                            <a href="Phone:(0262) 233316">
+                            <a href="tel:(0262) 233316">
                               <span>(0262) 233316</span>
                             </a>
                         </div>

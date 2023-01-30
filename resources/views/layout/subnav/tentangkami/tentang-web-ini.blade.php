@@ -59,7 +59,7 @@
           <p class="text-dark-1 mt-30">Assalamualaikum Wr. wb.</p>
           <p class="text-dark-1 mt-30">Alhamdulillah Sistem Informasi Ekstrakurikuler SMKN 1 Garut Berbasis Website yang diberi nama Webex (Web Ekskul) dapat digunakan oleh seluruh ekstrakurikuler SMKN 1 Garut dalam melakukan manajemen setiap ekstrakurikuler di SMKN 1 Garut ,
             Sistem Informasi Ekstrakurikuler merupakan hasil dari kolaborasi antara OSIS dan seluruh ekstrakurikuler yang ada di SMKN 1 Garut yang dibangun oleh
-            Siswa kami yang bernama Naufal Rabani, Yofi Ilham Fauzi, Muhammad Ikhsan Nawawi dan Yusuf Sekhan dengan bimbingan bapak Andriansyah Maulana, S.Kom., M.Kom. sebagai pembimbing IT Club SMKN 1 Garut 
+            Siswa kami yang bernama Naufal Rabani, Yofi Ilham Fauzi, Mochammad Ikhsan Nawawi dan Yusuf Sekhan dengan bimbingan bapak Andriansyah Maulana, S.Kom., M.Kom. sebagai pembimbing IT Club SMKN 1 Garut 
             Periode 2020 - Sekarang yang termasuk program kerja dari kepengurusan IT Club 2022 yang dipimpin oleh Naufal Rabani dan Yusuf Sekhan
             dengan kolaborasi dengan OSIS dan seluruh ekstrakurikuler di SMKN 1 Garut.</p>
             

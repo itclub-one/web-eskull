@@ -29,7 +29,7 @@
             <div class="col-12">
               <div class="card">
                 <div class="card-header">
-                  <h3 class="card-title">DataTable with minimal features & hover style</h3>
+                  <h3 class="card-title">DataTable Anggota Ekstrakulikuler</h3>
                 </div>
 
                 <div class="form-group col-4">
@@ -48,7 +48,7 @@
                     </div>
                     @endif
                     <div class="head">
-                      <h3>Recent Orders</h3>
+                      <h3></h3>
                       <i class='bx bx-search' ></i>
                       <i class='bx bx-filter' ></i>
                       <div class="form-group col-4">

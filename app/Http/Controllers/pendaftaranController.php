@@ -9,6 +9,7 @@ use Illuminate\Support\Str;
 use App\Models\eskul;
 use Illuminate\Http\Request;
 use App\Exports\daftarCalonAnggota;
+use Maatwebsite\Excel\Facades\Excel;
 
 class pendaftaranController extends Controller
 {
@@ -185,9 +186,7 @@ class pendaftaranController extends Controller
     }
     public function export() 
     {
-        
-
-            return pendaftaran::download(new daftarCalonAnggota, 'daftar-calon-anggota.xlsx');
+            return Excel::download(new daftarCalonAnggota, 'daftar-calon-anggota.xlsx');
     }
     public function insertdatapendaftarantopendaftaran(Request $request){
 
