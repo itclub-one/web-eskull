@@ -75,7 +75,7 @@
                     @php
                       $no = 1;
                     @endphp
-                    @foreach ($data as $row)
+                    @foreach ($anggota as $row)
                     
                       <tr>
                         <td>{{$no++}}</td>
@@ -1143,9 +1143,7 @@
                     
                   </table>
 
-                  <div class="linkss mt-3">
-                    {{$data->links()}}
-                  </div>
+                
                 </div>
                 
               </div>

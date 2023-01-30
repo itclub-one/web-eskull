@@ -160,7 +160,7 @@ class eskulController extends Controller
     public function eskul(){
 
         $data = eskul::all();
-
+        
         $dok = dokumentasi::inRandomOrder()->get();
 
         $news1 = berita::inRandomOrder()->limit(1)->get();

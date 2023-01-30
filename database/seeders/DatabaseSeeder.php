@@ -307,119 +307,16 @@ class DatabaseSeeder extends Seeder
             'remember_token' => Str::random(60),
         ]);
 
-
-
+    
 
         administrator::create([
             'on' => '0'
         ]);
-
-
-
+        
+   
         role::create([
-            'role' => 'root'
-        ]);
-        role::create([
-            'role' => 'adminmpk'
-        ]);
-        role::create([
-            'role' => 'adminosis'
-        ]);
-        role::create([
-            'role' => 'adminirma'
-        ]);
-        role::create([
-            'role' => 'adminpks'
-        ]);
-        role::create([
-            'role' => 'adminpramukaputra'
-        ]);
-        role::create([
-            'role' => 'adminpramukaputri'
-        ]);
-        role::create([
-            'role' => 'adminmpkpaskibra'
-        ]);
-        role::create([
-            'role' => 'adminvolly'
-        ]);
-        role::create([
-            'role' => 'adminfutsalputra'
-        ]);
-        role::create([
-            'role' => 'adminfutsalputri'
-        ]);
-        role::create([
-            'role' => 'adminsepakbola'
-        ]);
-        role::create([
-            'role' => 'adminbasket'
-        ]);
-        role::create([
-            'role' => 'adminhockey'
-        ]);
-        role::create([
-            'role' => 'adminbadminton'
-        ]);
-        role::create([
-            'role' => 'adminkarate'
-        ]);
-        role::create([
-            'role' => 'admintaekwondo'
-        ]);
-        role::create([
-            'role' => 'adminsilat'
-        ]);
-        role::create([
-            'role' => 'admintarungderajat'
-        ]);
-        role::create([
-            'role' => 'adminkir'
-        ]);
-        role::create([
-            'role' => 'adminkopsis'
-        ]);
-        role::create([
-            'role' => 'adminpmr'
-        ]);
-        role::create([
-            'role' => 'adminsenitari'
-        ]);
-        role::create([
-            'role' => 'adminmarchingband'
-        ]);
-        role::create([
-            'role' => 'adminsenikriya'
-        ]);
-        role::create([
-            'role' => 'adminpaduansuara'
-        ]);
-        role::create([
-            'role' => 'adminkarawitan'
-        ]);
-        role::create([
-            'role' => 'adminteater'
-        ]);
-        role::create([
-            'role' => 'adminsenimusik'
-        ]);
-        role::create([
-            'role' => 'adminitclub'
-        ]);
-        role::create([
-            'role' => 'adminbroadcast'
-        ]);
-        role::create([
-            'role' => 'adminenglishclub'
-        ]);
-        role::create([
-            'role' => 'adminkoreanclub'
-        ]);
-        role::create([
-            'role' => 'adminjapanclub'
-        ]);
-        role::create([
-            'role' => 'admindeutschclub'
+            'role' => 'root',
+            'eskul_id' => "999"
         ]);
 
 
@@ -926,7 +823,14 @@ class DatabaseSeeder extends Seeder
         ]);
         
 
-
+        foreach(eskul::all() as $row){
+            echo $row['slug'];
+            echo "\n\r";
+            role::create([
+                'role' => 'admin'.$row['slug'],
+                'eskul_id' => $row['id']
+            ]);
+        }
 
 
 
