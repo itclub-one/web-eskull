@@ -16,7 +16,8 @@ class CreateBeritaTable extends Migration
         Schema::create('beritas', function (Blueprint $table) {
             $table->id();
             $table->string('judul_berita');
-            $table->string('foto_berita')->default('default.png');
+            $table->string('foto_berita');
+            $table->string('slug_berita')->unique();
             $table->date('tanggal_berita');
             $table->timestamps();
         });

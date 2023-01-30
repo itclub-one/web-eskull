@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Str;
 use App\Models\kepsek;
 
 
@@ -25,8 +26,9 @@ class kepsekController extends Controller
     public function insertdatakepsek(Request $request){
         $data = kepsek::create($request->all());
         if($request->hasfile('foto_kepsek')){
-            $request->file('foto_kepsek')->move('foto/', $request->file('foto_kepsek')->getClientOriginalName());
-            $data->foto_kepsek = $request->file('foto_kepsek')->getClientOriginalName();
+            $nama_baru = Str::random(10) . '.' . $request->file('foto_kepsek')->extension();
+            $request->file('foto_kepsek')->move('images/foto-kepsek/', $nama_baru);
+            $data->foto_kepsek = $nama_baru;
             $data->save();
         }
         return redirect()->route('kepsek')->with('success',' Data Berhasil Di Tambahkan');
@@ -39,10 +41,18 @@ class kepsekController extends Controller
 
     public function updatekepsek(Request $request , $id){
         $data = kepsek::find($id);
-        $data->update($request->all());
+
         if($request->hasfile('foto_kepsek')){
-            $request->file('foto_kepsek')->move('foto/', $request->file('foto_kepsek')->getClientOriginalName());
-            $data->foto_kepsek = $request->file('foto_kepsek')->getClientOriginalName();
+            if(File_exists(public_path('images/foto-kepsek/'.$data->foto_kepsek))){ //either you can use file path instead of $data->image
+                unlink(public_path('images/foto-kepsek/'.$data->foto_kepsek));//here you can also use path like as ('uploads/media/welcome/'. $data->image)
+            }
+        }
+
+        $data->update($request->all()); 
+        if($request->hasfile('foto_kepsek')){
+            $nama_baru = Str::random(10) . '.' . $request->file('foto_kepsek')->extension();
+            $request->file('foto_kepsek')->move('images/foto-kepsek/', $nama_baru);
+            $data->foto_kepsek = $nama_baru;
             $data->save();
         }
         return redirect()->route('kepsek')->with('success',' Data Berhasil Di Update');
@@ -50,6 +60,13 @@ class kepsekController extends Controller
 
     public function deletekepsek($id){
         $data = kepsek::find($id);
+
+        if(File_exists(public_path('images/foto-kepsek/'.$data->foto_kepsek))){ //either you can use file path instead of $data->image
+            unlink(public_path('images/foto-kepsek/'.$data->foto_kepsek));//here you can also use path like as ('uploads/media/welcome/'. $data->image)
+        }
+        // unlink(public_path('images/foto-kepsek/'.$data->foto_kepsek));
+        echo public_path('images/foto-kepsek/'.$data->foto_kepsek);
+
         $data->delete();
         return redirect()->route('kepsek')->with('success',' Data Berhasil Di Delete');
     }

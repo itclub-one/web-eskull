@@ -3,24 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Eskul;
+use App\Models\eskul;
 
 
-    class exController extends Controller
+class exController extends Controller
 {
-    public function ex($id){
+    public function ex($slug){
 
-        $data = Eskul::find($id);
+        $data = eskul::with('dokumentasi')->get()
+            ->where('slug', $slug)->first();
         // dd($data);
-        if (!$data) {
-            abort(404);
-        }
-        $meta = array(
-            'title' => $data->nama_eskul,
-            'description' => $data->nama_eskul . " di " . config('app.name'),
-            'image' => asset('logoeskul/' . $data->logo),
-            'site_name' => config('app.name'),
-        );
-        return view('layout.eskul.skul', compact('data', 'meta'));
+        return view('layout.eskul.skul', compact('data')) ;
     }
 }

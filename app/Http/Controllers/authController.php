@@ -18,15 +18,13 @@ class authController extends Controller
             'email' => ['required', 'email'],
             'password' => ['required'],
         ]);
-
+ 
         if (Auth::attempt($credentials)) {
-            //check role
-            if(Auth::user()->role == 'root') {
-                return redirect()->intended('administrator');
-            } else {
-                return redirect()->intended('');
-            }
+            $request->session()->regenerate();
+ 
+            return redirect()->intended('administrator');
         }
+        
         return back()->withErrors([
             'email' => 'The provided credentials do not match our records.',
         ])->onlyInput('email');

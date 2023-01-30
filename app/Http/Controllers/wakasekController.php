@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Str;
 use App\Models\wakasek;
 
 
@@ -25,8 +26,9 @@ class wakasekController extends Controller
     public function insertdatawakasek(Request $request){
         $data = wakasek::create($request->all());
         if($request->hasfile('foto_wakasek')){
-            $request->file('foto_wakasek')->move('foto/', $request->file('foto_wakasek')->getClientOriginalName());
-            $data->foto_wakasek = $request->file('foto_wakasek')->getClientOriginalName();
+            $nama_baru = Str::random(10) . '.' . $request->file('foto_wakasek')->extension();
+            $request->file('foto_wakasek')->move('images/foto-wakasek/', $nama_baru);
+            $data->foto_wakasek = $nama_baru;
             $data->save();
         }
         return redirect()->route('wakasek')->with('success',' Data Berhasil Di Tambahkan');
@@ -39,10 +41,17 @@ class wakasekController extends Controller
 
     public function updatewakasek(Request $request , $id){
         $data = wakasek::find($id);
-        $data->update($request->all());
         if($request->hasfile('foto_wakasek')){
-            $request->file('foto_wakasek')->move('foto/', $request->file('foto_wakasek')->getClientOriginalName());
-            $data->foto_wakasek = $request->file('foto_wakasek')->getClientOriginalName();
+            if(File_exists(public_path('images/foto-wakasek/'.$data->foto_wakasek))){ //either you can use file path instead of $data->image
+                unlink(public_path('images/foto-wakasek/'.$data->foto_wakasek));//here you can also use path like as ('uploads/media/welcome/'. $data->image)
+            }
+        }
+
+        $data->update($request->all()); 
+        if($request->hasfile('foto_wakasek')){
+            $nama_baru = Str::random(10) . '.' . $request->file('foto_wakasek')->extension();
+            $request->file('foto_wakasek')->move('images/foto-wakasek/', $nama_baru);
+            $data->foto_wakasek = $nama_baru;
             $data->save();
         }
         return redirect()->route('wakasek')->with('success',' Data Berhasil Di Update');
@@ -50,6 +59,13 @@ class wakasekController extends Controller
 
     public function deletewakasek($id){
         $data = wakasek::find($id);
+
+        if(File_exists(public_path('images/foto-wakasek/'.$data->foto_wakasek))){ //either you can use file path instead of $data->image
+            unlink(public_path('images/foto-wakasek/'.$data->foto_wakasek));//here you can also use path like as ('uploads/media/welcome/'. $data->image)
+        }
+        // unlink(public_path('images/foto-wakasek/'.$data->foto_wakasek));
+        echo public_path('images/foto-wakasek/'.$data->foto_wakasek);
+
         $data->delete();
         return redirect()->route('wakasek')->with('success',' Data Berhasil Di Delete');
     }

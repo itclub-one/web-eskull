@@ -906,6 +906,8 @@ const Tabs = (function() {
   11. Lazy loading
 ---------------------------------------------------*/
 
+
+
 function lazyLoading() {
   if (!document.querySelector('.js-lazy')) {
     return;
@@ -1275,7 +1277,7 @@ const RevealAnim = (function() {
     
     if (attrVal.includes('delay-')) {
       attrDelayPart = attrVal.split(' ').pop();
-      animDelay = attrDelayPart.substr(attrDelayPart.indexOf('-') + 1) / 10;
+      animDelay = attrDelayPart.substr(attrDelayPart.indexOf('-') + 1) / 5;
     }
   
     if (attrVal.includes('counter')) {
