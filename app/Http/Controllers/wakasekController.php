@@ -59,7 +59,9 @@ class wakasekController extends Controller
 
     public function deletewakasek($id){
         $data = wakasek::find($id);
-
+        if (auth()->user()->role != 'root') {
+            return redirect()->route('wakasek')->with('error', ' Data Gagal Di Delete');
+        }
         if(File_exists(public_path('images/foto-wakasek/'.$data->foto_wakasek))){ //either you can use file path instead of $data->image
             unlink(public_path('images/foto-wakasek/'.$data->foto_wakasek));//here you can also use path like as ('uploads/media/welcome/'. $data->image)
         }

@@ -120,7 +120,7 @@
         <div class="col-lg-3 col-sm-6">
           <div  class="teamCard -type-1 -teamCard-hover">
             <div class="teamCard__image">
-              <img style="width: 300px; height: 350px;" src="{{asset('tentang-kami/ikhsan.jpg')}}" alt="image">
+              <img style="width: 300px; height: 350px;" src="{{asset('images/tentang-web/ikhsan.png')}}" alt="image">
               <div class="teamCard__socials">
                 <div class="d-flex x-gap-20 y-gap-10 justify-center items-center h-100">
                   <a href="#"><i class="icon-facebook text-white"></i></a>
@@ -147,7 +147,7 @@
         <div class="col-lg-3 col-sm-6">
           <div  class="teamCard -type-1 -teamCard-hover">
             <div class="teamCard__image">
-              <img style="width: 300px; height: 350px;" src="{{asset('tentang-kami/ikhsan.jpg')}}" alt="image">
+              <img style="width: 300px; height: 350px;" src="{{asset('images/tentang-web/yusuf.png')}}" alt="image">
               <div class="teamCard__socials">
                 <div class="d-flex x-gap-20 y-gap-10 justify-center items-center h-100">
                   <a href="#"><i class="icon-facebook text-white"></i></a>
@@ -174,7 +174,7 @@
         <div class="col-lg-3 col-sm-6">
           <div  class="teamCard -type-1 -teamCard-hover">
             <div class="teamCard__image">
-              <img style="width: 300px; height: 350px;" src="{{asset('tentang-kami/ikhsan.jpg')}}" alt="image">
+              <img style="width: 300px; height: 350px;" src="{{asset('images/tentang-web/naufal.png')}}" alt="image">
               <div class="teamCard__socials">
                 <div class="d-flex x-gap-20 y-gap-10 justify-center items-center h-100">
                   <a href="#"><i class="icon-facebook text-white"></i></a>
@@ -201,7 +201,7 @@
         <div class="col-lg-3 col-sm-6">
           <div  class="teamCard -type-1 -teamCard-hover">
             <div class="teamCard__image">
-              <img style="width: 300px; height: 350px;" src="{{asset('tentang-kami/ikhsan.jpg')}}" alt="image">
+              <img style="width: 300px; height: 350px;" src="{{asset('images/tentang-web/')}}" alt="image">
               <div class="teamCard__socials">
                 <div class="d-flex x-gap-20 y-gap-10 justify-center items-center h-100">
                   <a href="#"><i class="icon-facebook text-white"></i></a>

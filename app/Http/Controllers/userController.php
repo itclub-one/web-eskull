@@ -102,7 +102,9 @@ class userController extends Controller
 
     public function deleteuser($id){
         $data = user::find($id);
-
+        if (auth()->user()->role != 'root') {
+            return redirect()->route('users')->with('error', ' Data Gagal Di Delete');
+        }
         if(File_exists(public_path('images/foto-user/'.$data->foto))){ //either you can use file path instead of $data->image
             unlink(public_path('images/foto-user/'.$data->foto));//here you can also use path like as ('uploads/media/welcome/'. $data->image)
         }

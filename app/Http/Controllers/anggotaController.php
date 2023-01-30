@@ -49,7 +49,7 @@ class anggotaController extends Controller
     public function detail_anggota($slug)
     {
 
-        $detail = anggota::where('slug_anggota', $slug)->first();
+        $detail = anggota::where('nis', $slug)->first();
         // dd($detail);
         return view('layout.subnav.detail-anggota', compact('detail'));
     }
@@ -64,30 +64,29 @@ class anggotaController extends Controller
             'jurusan' => 'required',
         ]);
         $data = anggota::create($request->all());
-        $data['slug_anggota'] = $data['nis'];
         $data->save();
         return redirect()->route('anggota')->with('success', ' Data Berhasil Di Tambahkan');
     }
 
     public function editanggota($id)
-    {
+    {   
+        $currentRole = role::where("role", "=", auth()->user()->role)->first();
         $data = anggota::find($id);
         $data_eskul = eskul::all();
-        return view('admin.anggota-eskul.editanggota', compact('data', 'data_eskul'));
+        return view('admin.anggota-eskul.editanggota', compact('data', 'data_eskul','currentRole'));
     }
 
     public function updateanggota(Request $request, $id)
     {
         $request->validate([
-            'nis' => 'required|unique:anggotas',
+            'nis' => 'required',
             'nama_anggota' => 'required',
             'kelas_anggota' => 'required',
             'id_eskul' => 'required',
             'jurusan' => 'required',
-            'slug_anggota' => 'required',
+            
         ]);
         $data = anggota::find($id);
-        $data->slug_anggota = Str::slug($request->get('judul_anggota'));
 
         $data->update($request->all());
 
@@ -97,10 +96,11 @@ class anggotaController extends Controller
 
     public function deleteanggota($id)
     {
-        
         $data = anggota::find($id);
-        
+        if (auth()->user()->id != $data['id_eskul']) {
+            return redirect()->route('anggota')->with('error', ' Data Gagal Di Hapus');
+        }
         $data->delete();
-        return redirect()->route('anggota')->with('success', ' Data Berhasil Di Delete');
+        return redirect()->route('anggota')->with('error', ' Data Berhasil Di Hapus');
     }
 }

@@ -16266,3 +16266,7 @@ table.table td {
   background-color: #f8d7da;
   border-color: #f5c6cb;
 }
+
+.data_anggota {
+  overflow-x: auto;
+}

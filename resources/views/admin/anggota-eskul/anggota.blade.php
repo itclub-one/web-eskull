@@ -47,6 +47,15 @@
                       </div>
                     </div>
                     @endif
+                    @if ($message = Session::get('error'))
+                    <div  style="width: 500px">
+                      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <i type="button" class="fa-solid fa-xmark mx-2" style="color: black; "  data-bs-dismiss="alert" aria-label="Close">
+                        </i>
+                        <strong>{{$message}}</strong>
+                      </div>
+                    </div>
+                    @endif
                     <div class="head">
                       <h3></h3>
                       <i class='bx bx-search' ></i>

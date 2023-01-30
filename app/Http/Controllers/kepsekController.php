@@ -60,7 +60,9 @@ class kepsekController extends Controller
 
     public function deletekepsek($id){
         $data = kepsek::find($id);
-
+        if (auth()->user()->role != 'root') {
+            return redirect()->route('kepsek')->with('error', ' Data Gagal Di Delete');
+        }
         if(File_exists(public_path('images/foto-kepsek/'.$data->foto_kepsek))){ //either you can use file path instead of $data->image
             unlink(public_path('images/foto-kepsek/'.$data->foto_kepsek));//here you can also use path like as ('uploads/media/welcome/'. $data->image)
         }

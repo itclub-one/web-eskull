@@ -20,7 +20,6 @@ class CreateAnggotasTable extends Migration
             $table->string('kelas_anggota');
             $table->string('jurusan');
             $table->foreignId('id_eskul');
-            $table->string('slug_anggota');
             $table->timestamps();
         });
     }

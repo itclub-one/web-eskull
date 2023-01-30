@@ -74,16 +74,16 @@
                         <button type="submit" class="btn btn-danger ">Pendaftaran ditutup</button>
                       </form>
                       @endif
+                    </div>
                       @endforeach
                     @endif
-                    </div>
-                        
-                  <table id="example2" class="table table-bordered table-hover">
-                    <thead>
-                      <tr>
-                        <th>no</th>
-                        <th>Nama Pendaftar</th>
-                        <th>Kelas Pendaftar</th>
+                    
+                    <table id="example2" class="table table-bordered table-hover">
+                      <thead>
+                        <tr>
+                          <th>no</th>
+                          <th>Nama Pendaftar</th>
+                          <th>Kelas Pendaftar</th>
                         <th>Nomor Induk Siswa</th>
                         <th>Email</th>
                         <th>Nomor Whatsapp</th>
@@ -91,11 +91,10 @@
                         <th>Ekstrakurikuler</th>
                         <th>Aksi</th>
                       </tr>
-                      </thead>
+                    </thead>
 
-                      <tbody>
-                      @if (auth()->user()->role=='root')
-                        
+                    <tbody>
+                      
                     @php
                       $no = 1;
                     @endphp
@@ -112,7 +111,7 @@
 
                         
                         <td>
-                          <img src="{{asset('images/logo-eskul/'.$row->eskul->logo)}}" width="50pxpx" alt="{{$row->eskul->logo}}">
+                          <img src="{{asset('images/logo-eskul/'.$row->eskul->logo)}}" width="50px" alt="{{$row->eskul->logo}}">
                           {{$row->eskul->nama_eskul}}
                         </td>
                         
@@ -120,31 +119,30 @@
                         
                         <td>
                           
-                                
-                              
+                          
+                          
                           <a href="/editpendaftaran/{{$row->id}}" class="btn btn-warning terima" >Terima</a>
                           <a href="#" class="btn btn-danger delete" data-id="{{$row->id}}" data-nama="{{$row->nama_calon_anggota}}"  id="delete">Tidak diterima</a>
-
+                          
                         </td>
-
-
+                        
+                        
                       </tr>
-                    @endforeach
-                    @endif
-
-
-
-                    
-
-
+                      @endforeach
+                      
+                      
+                      
+                      
+                      
+                      
                     </tbody>
-
+                    
                     
                     
                     
                   </table>
                   @if (auth()->user()->role == "root")
-
+                  
                   <div class="linkss mt-3">
                     {{$pendaftaran->links()}}
                   </div>
@@ -152,11 +150,13 @@
                 </div>
                 
               </div>
-                <!-- /.card-body -->
-              </div>
-              <!-- /.card -->
-
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+            
+          </div>
             <!-- /.col -->
+          </div>
           </div>
           <!-- /.row -->
         </div>

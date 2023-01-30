@@ -36,6 +36,9 @@
                 <h3 class="card-title">Edit Data</h3>
               </div>
               <!-- /.card-header -->
+              @foreach ($errors->all() as $error)
+                <div class="alert alert-danger">{{$error}}</div>
+            @endforeach
               <!-- form start -->
               <form action="/updateanggota/{{$data->id}}" method="POST" enctype="multipart/form-data">
                 @csrf
@@ -79,116 +82,16 @@
                   <div class="form-group">
                     <label for="exampleInputPassword1">Nama Ekstrakurikuler</label>
                     <select class="custom-select rounded-0" name="id_eskul" id="exampleSelectRounded0">
-                      
-                      @if (auth()->user()->role=='adminmpk')
-                        <option value="1" selected>Majelis Permusyawaratan Kelas</option>
-                      @endif
-                      @if (auth()->user()->role=='adminosis')
-                        <option value="2" selected>OSIS</option>
-                      @endif
-                      @if (auth()->user()->role=='adminirma')
-                        <option value="3" selected>IRMA</option>
-                      @endif
-                      @if (auth()->user()->role=='adminpks')
-                        <option value="4" selected>PKS</option>
-                      @endif
-                      @if (auth()->user()->role=='adminpramukaputra')
-                        <option value="5" selected>Pramuka Putra</option>
-                      @endif
-                      @if (auth()->user()->role=='adminpramukaputri')
-                        <option value="6" selected>Pramuka Putri</option>
-                      @endif
-                      @if (auth()->user()->role=='adminpaskibra')
-                        <option value="7" selected>Paskibra</option>
-                      @endif
-                      @if (auth()->user()->role=='adminvolly')
-                        <option value="8" selected>Volly</option>
-                      @endif
-                      @if (auth()->user()->role=='adminfutsalputra')
-                        <option value="9" selected>Futsal Putra</option>
-                      @endif
-                      @if (auth()->user()->role=='adminfutsalputri')
-                        <option value="10" selected>Futsal Putri</option>
-                      @endif
-                      @if (auth()->user()->role=='adminsepakbola')
-                        <option value="11" selected>Sepakbola</option>
-                      @endif
-                      @if (auth()->user()->role=='adminbasket')
-                        <option value="12" selected>Basket</option>
-                      @endif
-                      @if (auth()->user()->role=='adminHockey')
-                        <option value="13" selected>Hockey</option>
-                      @endif
-                      @if (auth()->user()->role=='adminbadminton')
-                        <option value="14" selected>Badminton</option>
-                      @endif
-                      @if (auth()->user()->role=='adminkarate')
-                        <option value="15" selected>Karate</option>
-                      @endif
-                      @if (auth()->user()->role=='admintaekwondo')
-                        <option value="16" selected>Taekwondo</option>
-                      @endif
-                      @if (auth()->user()->role=='adminsilat')
-                        <option value="17" selected>Silat</option>
-                      @endif
-                      @if (auth()->user()->role=='admintarungderajat')
-                        <option value="18" selected>Tarung Derajat</option>
-                      @endif
-                      @if (auth()->user()->role=='adminkir')
-                        <option value="19" selected>Karya Ilmiyah Remaja</option>
-                      @endif
-                      @if (auth()->user()->role=='adminkopsis')
-                        <option value="20" selected>Koperasi Siswa</option>
-                      @endif
-                      @if (auth()->user()->role=='adminpmr')
-                        <option value="21" selected>Palang Merah Remaja</option>
-                      @endif
-                      @if (auth()->user()->role=='adminsenitari')
-                        <option value="22" selected>Seni Tari</option>
-                      @endif
-                      @if (auth()->user()->role=='adminmarchingband')
-                        <option value="23" selected>Marching Band</option>
-                      @endif
-                      @if (auth()->user()->role=='adminsenikriya')
-                        <option value="24" selected>Seni Kriya</option>
-                      @endif
-                      @if (auth()->user()->role=='adminpaduansuara')
-                        <option value="25" selected>Paduan Suara</option>
-                      @endif
-                      @if (auth()->user()->role=='adminkarawitan')
-                        <option value="26" selected>Karawitan</option>
-                      @endif
-                      @if (auth()->user()->role=='adminteater')
-                        <option value="27" selected>Teater</option>
-                      @endif
-                      @if (auth()->user()->role=='adminsenimusik')
-                        <option value="28" selected>Seni Musik</option>
-                      @endif
-                      @if (auth()->user()->role=='adminitclub')
-                        <option value="29" selected>IT-Club</option>
-                      @endif
-                      @if (auth()->user()->role=='adminbroadcast')
-                        <option value="30" selected>Broadcast</option>
-                      @endif
-                      @if (auth()->user()->role=='adminenglishclub')
-                        <option value="31" selected>English Club</option>
-                      @endif
-                      @if (auth()->user()->role=='adminkoreanclub')
-                        <option value="32" selected>Korean Club</option>
-                      @endif
-                      @if (auth()->user()->role=='adminjapanclub')
-                        <option value="33" selected>Japan Club</option>
-                      @endif
-                      @if (auth()->user()->role=='admindeutschclub')
-                        <option value="34" selected>Deutsch Club</option>
-                        @endif
-                    @if (auth()->user()->role=='root')
-                    <option value="{{$data->id_eskul}}" selected>{{$data->eskul->nama_eskul}}</option>
                       @foreach ($data_eskul as $row)
+                      
+                      @if (auth()->user()->role=='root' || $currentRole['eskul_id'] == $row->id)<!-- Perlihatkan eskul jika user adalah root atau user memiliki eskul tersebut -->
+                      <option selected value="{{$data->id_eskul}}">{{$data->eskul->nama_eskul}}</option>
+                      
                       <option value="{{$row->id}}">{{$row->nama_eskul}}</option>
+                      @endif
                       @endforeach
-                    @endif
-                  </select>
+                        
+                    </select>
                   </div>
                   
                   

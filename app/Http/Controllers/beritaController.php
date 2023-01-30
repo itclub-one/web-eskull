@@ -11,6 +11,7 @@ class beritaController extends Controller
 {
     public function index(Request $request ){
 
+        
         if($request->has('search')){
             $data = berita::where('judul_berita','like', '%' .$request->search. '%')->paginate(5);
         }else{
@@ -75,6 +76,9 @@ class beritaController extends Controller
 
     public function deleteberita($id){
         $data = berita::find($id);  
+        if (auth()->user()->role != 'root') {
+            return redirect()->route('berita')->with('error', ' Data Gagal Di Delete');
+        }
 
         if(File_exists(public_path('images/foto-berita/'.$data->foto_berita))){ //either you can use file path instead of $data->image
             unlink(public_path('images/foto-berita/'.$data->foto_berita));//here you can also use path like as ('uploads/media/welcome/'. $data->image)
