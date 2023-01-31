@@ -125,6 +125,9 @@
                     
                   </table>
 
+                  {{-- @if (auth()->user()->role == 'root')
+                      
+                  @endif --}}
                   <div class="linkss mt-3">
                     {{$anggota->links()}}
                   </div>
@@ -160,25 +163,34 @@
                 <div class="card-body">
                   <div class="form-group">
                     <label for="exampleInputEmail1">Nama Anggota</label>
-                    <input required type="text" class="form-control" name="nama_anggota" id="exampleInputEmail1" placeholder="Masukan Nama Anggota">
+                    <input  type="text" class="form-control @error('nama_anggota') is-invalid @enderror" name="nama_anggota" id="exampleInputEmail1" placeholder="Masukan Nama Anggota">
+                    @error('nama_anggota')
+                      <span class="invalid-feedback">{{$message}}</span>
+                    @enderror
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Nomor Induk Siswa</label>
-                    <input required type="number" class="form-control" name="nis" id="exampleInputEmail1" placeholder="Masukan Nomor Induk Siswa">
+                    <input  type="number" class="form-control @error('nis') is-invalid @enderror" name="nis" id="exampleInputEmail1" placeholder="Masukan Nomor Induk Siswa">
+                    @error('nis')
+                      <span class="invalid-feedback">{{$message}}</span>
+                    @enderror
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Kelas Anggota</label>
-                    <select class="custom-select rounded-0" name="kelas_anggota" id="exampleSelectRounded0">
-                      <option selected>Open this select menu</option>
+                    <select class="custom-select rounded-0 @error('kelas_anggota') is-invalid @enderror" name="kelas_anggota" id="exampleSelectRounded0">
+                      <option value="" selected>Open this select menu</option>
                       <option value="X">X</option>
                       <option value="XI">XI</option>
                       <option value="XII">XII</option>
                     </select>
+                    @error('kelas_anggota')
+                      <span class="invalid-feedback">{{$message}}</span>
+                    @enderror
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Jurusan</label>
-                    <select class="custom-select rounded-0" name="jurusan" id="exampleSelectRounded0">
-                      <option selected>Open this select menu</option>
+                    <select class="custom-select rounded-0 @error('jurusan') is-invalid @enderror" name="jurusan" id="exampleSelectRounded0">
+                      <option value="" selected>Open this select menu</option>
                       <option value="PPL">PPL</option>
                       <option value="AKL">AKL</option>
                       <option value="MPL">MPL</option>
@@ -190,10 +202,13 @@
                       <option value="TLM">TLM</option>
                       <option value="TET">TET</option>
                     </select>
+                    @error('jurusan')
+                      <span class="invalid-feedback">{{$message}}</span>
+                    @enderror
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Nama Ekstrakurikuler</label>
-                    <select class="custom-select rounded-0" name="id_eskul" id="exampleSelectRounded0">
+                    <select class="custom-select rounded-0 @error('id_eskul') is-invalid @enderror" name="id_eskul" id="exampleSelectRounded0">
                       @foreach ($data_eskul as $row)
                       
                       @if (auth()->user()->role=='root' || $currentRole['eskul_id'] == $row->id)<!-- Perlihatkan eskul jika user adalah root atau user memiliki eskul tersebut -->
@@ -203,6 +218,9 @@
                       @endforeach
                         
                     </select>
+                    @error('id_eskul')
+                      <span class="invalid-feedback">{{$message}}</span>
+                    @enderror
                   </div>
                   
                   

@@ -159,56 +159,92 @@
                 <h3 class="card-title">Tambah Data</h3>
               </div>
               <!-- /.card-header -->
+              {{-- @foreach ($errors->all() as $error)
+                  <div class="alert alert-danger">{{$error}}</div>
+              @endforeach --}}
               <!-- form start -->
               <form action="/insertdataeskul" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="card-body">
                   <div class="form-group">
                     <label for="exampleInputEmail1">Nama Ekstrakurikuler</label>
-                    <input required type="text" class="form-control" name="nama_eskul" id="exampleInputEmail1" placeholder="Masukan Nama Ekstrakurikuler">
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Slug</label>
-                    <input required type="text" class="form-control" name="slug" id="exampleInputEmail1" placeholder="Masukan Nama Ekstrakurikuler">
-                  </div>
-                  <div class="form-group">
-                      <label for="exampleInputFile">Logo Ekstrakurikuler</label>
-                      <input required type="file" class="form-control" name="logo" >
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputPassword1">Pembina</label>
-                    <input required type="text" class="form-control" name="pembina" id="exampleInputPassword1" placeholder="Masukan Nama Pembina">
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputPassword1">Ketua</label>
-                    <input required type="text" class="form-control" name="ketua" id="exampleInputPassword1" placeholder="Masukan Nama Ketua">
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputPassword1">Wakil Ketua</label>
-                    <input required type="text" class="form-control" name="wakilketua" id="exampleInputPassword1" placeholder="Masukan Jadwal Wakil Ketua">
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputPassword1">Jadwal Ekstrakurikuler</label>
-                    <input required type="text" class="form-control" name="jadwal_kumpulan" id="exampleInputPassword1" placeholder="Masukan Nama Ekstrakurikuler, Contoh (Senin dan Jumat)">
-                  </div>
-                  <div class="form-floating">
-                      <label for="floatingTextarea2">Visi</label>
-                      <textarea class="form-control" name="visi"  placeholder="Masukkan Visi (Setiap garis baru tambahkan <br>)" id="floatingTextarea2" style="height: 100px"></textarea>
-                  </div>
-                  <div class="form-floating">
-                      <label for="floatingTextarea2">Misi</label>
-                      <textarea class="form-control" name="misi_eskul"  placeholder="Masukkan Misi (Setiap garis baru tambahkan <br>)" id="floatingTextarea2" style="height: 100px"></textarea>
-                  </div>
-                  <div class="form-floating">
-                      <label for="floatingTextarea2">Program Kerja</label>
-                      <textarea class="form-control" name="program_kerja"  placeholder="Masukkan Program Kerja Ekstrakurikuler (Setiap garis baru tambahkan <br>)" id="floatingTextarea2" style="height: 100px"></textarea>
-                  </div>
-                  
-                  
-                  
-                  <div class="form-group">
-                    <label for="exampleInputPassword1">Instagram</label>
-                    <input required type="text" class="form-control" name="nama_instagram" id="exampleInputPassword1" placeholder="Masukan Nama Instagram Contoh (@eskul)">
+                    <input  type="text" class="form-control @error('nama_eskul') is-invalid @enderror" name="nama_eskul" id="exampleInputEmail1" placeholder="Masukan Nama Ekstrakurikuler">
+                    @error('nama_eskul')
+                    <span class="invalid-feedback">{{$message}}</span>
+                  @enderror
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Slug</label>
+                  <input  type="text" class="form-control @error('slug') is-invalid @enderror" name="slug" id="exampleInputEmail1" placeholder="Masukan Nama slug">
+                  @error('slug')
+                  <span class="invalid-feedback">{{$message}}</span>
+                @enderror
+              </div>
+              <div class="form-group">
+                <label for="exampleInputFile">Logo Ekstrakurikuler</label>
+                <input  type="file" class="form-control @error('logo') is-invalid @enderror" name="logo" >
+                @error('logo')
+                <span class="invalid-feedback">{{$message}}</span>
+              @enderror
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Pembina</label>
+              <input  type="text" class="form-control @error('pembina') is-invalid @enderror" name="pembina" id="exampleInputPassword1" placeholder="Masukan Nama Pembina">
+              @error('pembina')
+              <span class="invalid-feedback">{{$message}}</span>
+            @enderror
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Ketua</label>
+            <input  type="text" class="form-control @error('ketua') is-invalid @enderror" name="ketua" id="exampleInputPassword1" placeholder="Masukan Nama Ketua">
+            @error('ketua')
+            <span class="invalid-feedback">{{$message}}</span>
+          @enderror
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Wakil Ketua</label>
+          <input  type="text" class="form-control @error('wakilketua') is-invalid @enderror" name="wakilketua" id="exampleInputPassword1" placeholder="Masukan Nama Wakil Ketua">
+          @error('wakilketua')
+          <span class="invalid-feedback">{{$message}}</span>
+        @enderror
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Jadwal Ekstrakurikuler</label>
+        <input  type="text" class="form-control @error('jadwal_kumpulan') is-invalid @enderror" name="jadwal_kumpulan" id="exampleInputPassword1" placeholder="Masukan Jadwal Ekstrakurikuler">
+        @error('jadwal_kumpulan')
+        <span class="invalid-feedback">{{$message}}</span>
+      @enderror
+    </div>
+    <div class="form-floating">
+      <label for="floatingTextarea2">Visi</label>
+      <textarea class="form-control @error('visi') is-invalid @enderror" name="visi"  placeholder="Masukkan Visi (Setiap garis baru tambahkan <br>)" id="floatingTextarea2" style="height: 100px"></textarea>
+      @error('visi')
+      <span class="invalid-feedback">{{$message}}</span>
+    @enderror
+  </div>
+  <div class="form-floating">
+    <label for="floatingTextarea2">Misi</label>
+    <textarea class="form-control @error('misi_eskul') is-invalid @enderror" name="misi_eskul"  placeholder="Masukkan Misi (Setiap garis baru tambahkan <br>)" id="floatingTextarea2" style="height: 100px"></textarea>
+    @error('misi_eskul')
+    <span class="invalid-feedback">{{$message}}</span>
+  @enderror
+</div>
+<div class="form-floating">
+  <label for="floatingTextarea2">Program Kerja</label>
+  <textarea class="form-control @error('program_kerja') is-invalid @enderror" name="program_kerja"  placeholder="Masukkan Program Kerja Ekstrakurikuler (Setiap garis baru tambahkan <br>)" id="floatingTextarea2" style="height: 100px"></textarea>
+  @error('program_kerja')
+  <span class="invalid-feedback">{{$message}}</span>
+  @enderror
+</div>
+
+
+
+<div class="form-group">
+  <label for="exampleInputPassword1">Instagram</label>
+  <input  type="text" class="form-control @error('nama_instagram') is-invalid @enderror" name="nama_instagram" id="exampleInputPassword1" placeholder="Masukan Nama Instagram ">
+  @error('nama_instagram')
+  <span class="invalid-feedback">{{$message}}</span>
+  @enderror
                   </div>
                   <!-- <div class="form-check">
                     <input type="checkbox" class="form-check-input" id="exampleCheck1">

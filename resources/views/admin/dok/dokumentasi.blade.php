@@ -145,15 +145,18 @@
                 <div class="card-body">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Nama Kegiatan</label>
-                        <input required type="text" class="form-control" name="nama_kegiatan" id="exampleInputEmail1" placeholder="Masukan Nama Kegiatan">
+                        <input  type="text" class="form-control @error('nama_kegiatan') is-invalid @enderror" name="nama_kegiatan" id="exampleInputEmail1" placeholder="Masukan Nama Kegiatan">
+                        @error('nama_kegiatan')
+                          <span class="invalid-feedback">{{$message}}</span>
+                        @enderror
                     </div>
                     {{-- <div class="form-group">
                         <label for="exampleInputFile">Logo Ekstrakurikuler</label>
-                        <input required type="file" class="form-control" name="logo" >
+                        <input  type="file" class="form-control" name="logo" >
                     </div> --}}
                     <div class="form-group">
                         <label for="exampleInputPassword1">Penyelenggara</label>
-                        <select class="custom-select rounded-0" name="penyelenggara" id="exampleSelectRounded0">
+                        <select class="custom-select rounded-0 @error('penyelenggara') is-invalid @enderror" name="penyelenggara" id="exampleSelectRounded0">
                          
                           @foreach ($data_eskul as $row)
                           @if (auth()->user()->role=='root' || $currentRole['eskul_id'] == $row->id)<!-- Perlihatkan eskul jika user adalah root atau user memiliki eskul tersebut -->
@@ -161,11 +164,17 @@
                           @endif
                           @endforeach
                         </select>
-                        {{-- <input required type="text" class="form-control" name="penyelenggara" id="exampleInputPassword1" placeholder="Masukan Penyelenggara"> --}}
+                        @error('penyelenggara')
+                          <span class="invalid-feedback">{{$message}}</span>
+                        @enderror
+                        {{-- <input  type="text" class="form-control" name="penyelenggara" id="exampleInputPassword1" placeholder="Masukan Penyelenggara"> --}}
                     </div>
                     <div class="form-group">
                         <label for="exampleInputFile">Foto Kegiatan</label>
-                        <input required type="file" class="form-control" name="foto_kegiatan" >
+                        <input  type="file" class="form-control @error('foto_kegiatan') is-invalid @enderror" name="foto_kegiatan" >
+                        @error('foto_kegiatan')
+                          <span class="invalid-feedback">{{$message}}</span>
+                        @enderror
                     </div>
                     
                 </div>

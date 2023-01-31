@@ -45,7 +45,8 @@
                     <input required type="text" class="form-control" value="{{$data->nama_kepsek}}" name="nama_kepsek" id="exampleInputEmail1" placeholder="Masukan Nama Kegiatan">
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputFile">Foto Kepala Sekolah</label>
+                  <label for="exampleInputFile">Foto Kepala Sekolah</label>
+                  <img src="{{asset('images/foto-kepsek/'.$data->foto_kepsek)}}" alt="{{$data->foto_kepsek}}" width="200px" class="d-block mb-2">
                     <input type="file" class="form-control" value="{{$data->foto_kepsek}}" name="foto_kepsek" >
                 </div>
                 <div class="form-group">

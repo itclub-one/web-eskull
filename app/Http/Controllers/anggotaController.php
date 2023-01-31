@@ -30,7 +30,7 @@ class anggotaController extends Controller
                 $anggota = anggota::paginate(10);
             } else {
 
-                $anggota = anggota::where('id_eskul', '=', $currentRole['eskul_id'])->get();
+                $anggota = anggota::where('id_eskul', '=', $currentRole['eskul_id'])->paginate(10);
             }
         }
 
@@ -60,8 +60,8 @@ class anggotaController extends Controller
             'nis' => 'required|unique:anggotas',
             'nama_anggota' => 'required',
             'kelas_anggota' => 'required',
-            'id_eskul' => 'required',
             'jurusan' => 'required',
+            'id_eskul' => 'required',
         ]);
         $data = anggota::create($request->all());
         $data->save();

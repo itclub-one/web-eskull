@@ -66,6 +66,11 @@ class dokumentasiController extends Controller
 
     public function insertdatadokumentasi(Request $request)
     {
+        $request->validate([
+            'nama_kegiatan' => 'required',
+            'penyelenggara' => 'required',
+            'foto_kegiatan' => 'required',
+        ]);
         $data = dokumentasi::create($request->all());
         if ($request->hasfile('logo')) {
             $nama_baru = Str::random(10) . '.' . $request->file('logo')->extension();
@@ -87,6 +92,7 @@ class dokumentasiController extends Controller
     public function editdokumentasi($id)
     {
         $data = dokumentasi::find($id);
+        // dd($data->foto_kegiatan);
         $data_eskul = eskul::all();
 
         return view('admin.dok.editdokumentasi', compact('data', 'data_eskul'));

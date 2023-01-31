@@ -63,6 +63,19 @@ class eskulController extends Controller
     }
 
     public function insertdataeskul(Request $request){
+        $request->validate([
+            'nama_eskul' => 'required',
+            'slug' => 'required|unique:eskuls',
+            'logo' => 'required',
+            'pembina' => 'required',
+            'ketua' => 'required',
+            'wakilketua' => 'required',
+            'jadwal_kumpulan' => 'required',
+            'visi' => 'required',
+            'misi_eskul' => 'required',
+            'program_kerja' => 'required',
+            'nama_instagram' => 'required',
+        ]);
         $data = eskul::create($request->all());
         if($request->hasfile('logo')){
             $nama_baru = Str::random(10) . '.' . $request->file('logo')->extension();

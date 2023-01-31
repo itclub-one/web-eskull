@@ -40,10 +40,10 @@
               <form action="/updateeskul/{{$data->id}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="card-body">
-                  <div class="form-group">
+                  {{-- <div class="form-group">
                     <label for="exampleInputEmail1">id</label>
                     <input type="text" class="form-control" value="{{$data->id}}" name="id" id="exampleInputEmail1" placeholder="Masukan id">
-                  </div>
+                  </div> --}}
                   <div class="form-group">
                     <label for="exampleInputEmail1">Nama Ekstrakurikuler</label>
                     <input type="text" class="form-control" value="{{$data->nama_eskul}}" name="nama_eskul" id="exampleInputEmail1" placeholder="Masukan Nama Ekstrakurikuler">
@@ -53,7 +53,8 @@
                     <input type="text" class="form-control" value="{{$data->slug}}" name="slug" id="exampleInputEmail1" placeholder="Masukan Nama Ekstrakurikuler">
                   </div>
                   <div class="form-group">
-                      <label for="exampleInputFile">Logo Ekstrakurikuler</label>
+                    <label for="exampleInputFile">Logo Ekstrakurikuler</label>
+                    <img src="{{asset('images/logo-eskul/'.$data->logo)}}" alt="{{$data->logo}}" width="100px" class="d-block border mb-2">
                       <input type="file" class="form-control" value="{{$data->logo}}" name="logo" >
                   </div>
                   <div class="form-group">

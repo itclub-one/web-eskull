@@ -59,7 +59,8 @@
                     <input type="text" class="form-control" value="{{$data->role}}" name="role" id="exampleInputPassword1" placeholder="Masukan Nama Penyelenggara">
                   </div>
                   <div class="form-group">
-                      <label for="exampleInputFile">Foto User</label>
+                    <label for="exampleInputFile">Foto User</label>
+                    <img src="{{asset('images/foto-user/'.$data->foto)}}" alt="{{$data->foto}}" width="150px" class="d-block mb-2">
                       <input type="file" class="form-control"  value="{{$data->foto}}" name="foto" >
                   </div>
                   
