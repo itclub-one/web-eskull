@@ -13,7 +13,7 @@
             </div>
 
             <div data-anim="slide-up delay-2">
-              <p class="page-header__text">We’re on a mission to deliver engaging, curated<br> courses at a reasonable price.</p>
+              <p class="page-header__text">Jangan pernah berhenti belajar,<br> karena hidup tak pernah berhenti mengajarkan</p>
             </div>
           </div>
         </div>
@@ -25,15 +25,35 @@
     <div data-anim-wrap class="container">
       <div class="row y-gap-50 justify-between">
         <div class="col-xl-5 col-lg-6">
-          <h3 class="text-24 lh-1 fw-500">Our offices</h3>
+          <h3 class="text-24 lh-1 fw-500">Motivasi</h3>
           <div class="row y-gap-30 pt-40">
 
             <div class="col-sm-6">
-              <div class="text-20 fw-500 text-dark-1">London</div>
+              {{-- <div class="text-20 fw-500 text-dark-1">London</div> --}}
               <div class="y-gap-10 pt-15">
-                <a href="#" class="d-block">328 Queensberry Street, North Melbourne VIC 3051, Australia.</a>
-                <a href="#" class="d-block">+(1) 123 456 7890</a>
-                <a href="#" class="d-block">hi@educrat.com</a>
+                <p class="d-block">Belajar memang melelahkan,<br> namun akan lebih melelahkan lagi jika saat ini kamu tidak belajar.</p>
+                
+              </div>
+            </div>
+            <div class="col-sm-6">
+              {{-- <div class="text-20 fw-500 text-dark-1">London</div> --}}
+              <div class="y-gap-10 pt-15">
+                <p class="d-block">Berjuang itu capek,<br> namun kesuksesan butuh perjuangan.</p>
+                
+              </div>
+            </div>
+            <div class="col-sm-6">
+              {{-- <div class="text-20 fw-500 text-dark-1">London</div> --}}
+              <div class="y-gap-10 pt-15">
+                <p class="d-block">Orang hebat tidak dihasilkan dari kemudahan, kesenangan, dan kenyamanan.<br> Mereka dibentuk melalui kesulitan, tantangan, dan air mata.</p>
+                
+              </div>
+            </div>
+            <div class="col-sm-6">
+              {{-- <div class="text-20 fw-500 text-dark-1">London</div> --}}
+              <div class="y-gap-10 pt-15">
+                <p class="d-block">Orang bijak belajar ketika mereka bisa.<br> Orang bodoh belajar ketika mereka terpaksa.</p>
+                
               </div>
             </div>
 
@@ -45,7 +65,7 @@
         <div class="col-lg-6">
           <div class="px-40 py-40 bg-white border-light shadow-1 rounded-8 contact-form-to-top">
             <h3 class="text-24 fw-500">Masukan Data anda</h3>
-            <p class="mt-25">Pilih Ekstrakurikuler sesuai dengan kemauan anda<br> tincidunt egetnvallis.</p>
+            <p class="mt-25">Pilih Ekstrakurikuler sesuai dengan kemauan anda</p>
 
             
                 @foreach ($on as $item)

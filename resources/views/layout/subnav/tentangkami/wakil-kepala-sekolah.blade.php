@@ -39,7 +39,7 @@
 
             <div data-anim="slide-up delay-2">
 
-              <p class="page-header__text">Sambutan dari wakil kepala sekolah SMKN 1 Garut</p>
+              <p class="page-header__text">Sambutan dari Wakil Kepala Sekolah SMKN 1 Garut</p>
 
             </div>
           </div>

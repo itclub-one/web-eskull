@@ -57,15 +57,13 @@
                     </div>
                     @endif
                     <div class="head">
-                      <h3></h3>
-                      <i class='bx bx-search' ></i>
-                      <i class='bx bx-filter' ></i>
-                      <div class="form-group col-4">
+                      <div class="form-group col-lg-4 col-8">
                         <form action="anggota" method="GET">
                           <input  type="search" class="form-control" name="search"  placeholder="Cari Nama Anggota">
                         </form>
                       </div>
                     </div>
+                    <a href="#tambahdata" class="btn btn-primary mb-3">Tambah Data</a>
                   <table id="example2" class="table table-bordered table-hover">
                     <thead>
                       <tr>
@@ -127,7 +125,9 @@
                     
                   </table>
 
-                
+                  <div class="linkss mt-3">
+                    {{$anggota->links()}}
+                  </div>
                 </div>
                 
               </div>
@@ -144,7 +144,7 @@
 
 
 
-      <div class="container-fluid">
+      <div id="tambahdata" class="container-fluid">
         <div class="row">
           <!-- left column -->
           <div class="col-md-12 mb-5">

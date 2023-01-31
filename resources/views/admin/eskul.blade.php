@@ -9,12 +9,12 @@
       <div class="container-fluid">
         <div class="row mb-2 ">
           <div class="col-sm-6">
-            <h1 class="m-0">Data Esktrakurikuler</h1>
+            <h1 class="m-0">Esktrakurikuler</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Data Ekstrakurikuler</li>
+              <li class="breadcrumb-item active">Ekstrakurikuler</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -29,7 +29,7 @@
             <div class="col-12">
               <div class="card">
                 <div class="card-header">
-                  <h3 class="card-title">DataTable with minimal features & hover style</h3>
+                  <h3 class="card-title">DataTable Ekstrakulikuler</h3>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
@@ -56,24 +56,21 @@
                   <div class="table-data">
                     <div class="order">
                       <div class="head">
-                        <h3>Recent Orders</h3>
-                        <i class='bx bx-search' ></i>
-                        <i class='bx bx-filter' ></i>
                         @if (auth()->user()->role=='root')
-                        <div class="form-group col-4">
+                        <div class="form-group col-lg-4 col-8">
                           <form action="administrator" method="GET">
                             <input  type="search" class="form-control" name="search"  placeholder="Cari Nama Ekstrakurikuler">
                           </form>
                         </div>
                         @endif
                       </div>
+                      <a href="#tambahdata" class="btn btn-primary mb-3">Tambah Data</a>
                       <table id="example2" class="table table-bordered table-hover">
                         <thead>
                           <tr>
-                        <th>no</th>
+                        <th>No</th>
                         <th>Ekstrakurikuler</th>
                         <th>Slug</th>
-                        <th>id</th>
                         <th>Logo Eskul</th>
                         <th>Pembina</th>
                         <th>Ketua</th>
@@ -102,7 +99,6 @@
                             {{-- @endif --}}
                         <td>{{$row->nama_eskul}}</td>
                         <td>{{$row->slug}}</td>
-                        <td>{{$row->id}}</td>
                         <td>
                           <img src="{{asset('images/logo-eskul/'.$row->logo)}}" width="70px" alt="">
                         </td>
@@ -153,7 +149,7 @@
 
       @if (auth()->user()->role=='root')
       
-      <div class="container-fluid">
+      <div id="tambahdata" class="container-fluid">
         <div class="row">
           <!-- left column -->
           <div class="col-md-12 mb-5">

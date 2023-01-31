@@ -41,9 +41,9 @@
 
               <div class="sectionTitle ">
 
-                <h2 class="sectionTitle__title ">Ekstrakulikuler</h2>
+                <h2 class="sectionTitle__title ">List Ekstrakulikuler</h2>
 
-                <p class="sectionTitle__text ">Terdiri dari 34 Ekstrakulikuler yang ada di SMKN 1 Garut!</p>
+                <p class="sectionTitle__text ">Cari Ekstrakulikuler yang Anda pilih ketika mendaftar!</p>
 
               </div>
 

@@ -27,7 +27,7 @@ class anggotaController extends Controller
             }
         } else {
             if (auth()->user()->role == "root") {
-                $anggota = anggota::all();
+                $anggota = anggota::paginate(10);
             } else {
 
                 $anggota = anggota::where('id_eskul', '=', $currentRole['eskul_id'])->get();

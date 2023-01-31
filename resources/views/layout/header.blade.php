@@ -252,19 +252,19 @@
     
                   <div class="mobile-socials mt-10">
     
-                    <a href="#" class="d-flex items-center justify-center rounded-full size-40">
+                    <a href="https://www.facebook.com/SmkNegeri1Garut" class="d-flex items-center justify-center rounded-full size-40">
                       <i class="fa fa-facebook"></i>
                     </a>
     
-                    <a href="#" class="d-flex items-center justify-center rounded-full size-40">
+                    <a href="https://twitter.com/smkn1garut" class="d-flex items-center justify-center rounded-full size-40">
                       <i class="fa fa-twitter"></i>
                     </a>
     
-                    <a href="#" class="d-flex items-center justify-center rounded-full size-40">
+                    <a href="https://www.instagram.com/official_smkn1garut/?igshid=ezu05n0c45lv" class="d-flex items-center justify-center rounded-full size-40">
                       <i class="fa fa-instagram"></i>
                     </a>
     
-                    <a href="#" class="d-flex items-center justify-center rounded-full size-40">
+                    <a href="https://www.linkedin.com/company/smk-negeri-1-garut" class="d-flex items-center justify-center rounded-full size-40">
                       <i class="fa fa-linkedin"></i>
                     </a>
     
@@ -360,19 +360,19 @@
                         </div>
                         <div class="footer-social-icon">
                             <span>Follow us</span>
-                            <a href="#" class="items-center justify-center rounded-full size-40">
+                            <a href="https://www.facebook.com/SmkNegeri1Garut" class="items-center justify-center rounded-full size-40">
                               <i class="fa fa-facebook"></i>
                             </a>
             
-                            <a href="#" class="items-center justify-center rounded-full size-40">
+                            <a href="https://twitter.com/smkn1garut" class="items-center justify-center rounded-full size-40">
                               <i class="fa fa-twitter"></i>
                             </a>
             
-                            <a href="#" class="items-center justify-center rounded-full size-40">
+                            <a href="https://www.instagram.com/official_smkn1garut/?igshid=ezu05n0c45lv" class="items-center justify-center rounded-full size-40">
                               <i class="fa fa-instagram"></i>
                             </a>
             
-                            <a href="#" class="items-center justify-center rounded-full size-40">
+                            <a href="https://www.linkedin.com/company/smk-negeri-1-garut" class="items-center justify-center rounded-full size-40">
                               <i class="fa fa-linkedin"></i>
                             </a>
                         </div>
@@ -398,7 +398,7 @@
                             <h3>Informasi</h3>
                         </div>
                         <div class="footer-text mb-25">
-                            <p>Don’t miss to subscribe to our new feeds, kindly fill the form below.</p>
+                            <p>Web ini diperuntukan untuk memudahkan Siswa dan Siswi SMK Negeri 1 Garut melihat berbagai kegiatan seluruh Ekstrakulikuler di SMK Negeri 1 Garut.</p>
                         </div>
                         
                     </div>

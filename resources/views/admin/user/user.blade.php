@@ -8,12 +8,12 @@
       <div class="container-fluid">
         <div class="row mb-2 ">
           <div class="col-sm-6">
-            <h1 class="m-0">Dokumentasi</h1>
+            <h1 class="m-0">Users</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Dokumentasi</li>
+              <li class="breadcrumb-item active">Users</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -28,10 +28,9 @@
             <div class="col-12">
               <div class="card">
                 <div class="card-header">
-                  <a href="register" class="button__create btn btn-primary">Tambah Data</a>
-                  {{-- <h3 class="card-title">DataTable with minimal features & hover style</h3> --}}
+                  <h3 class="card-title">DataTable Users</h3>
                 </div>
-
+                
                 
                 <!-- /.card-header -->
                 <div class="table-data">
@@ -46,17 +45,15 @@
                     </div>
                     @endif
                     <div class="head">
-                      <h3>Recent Orders</h3>
-                      <i class='bx bx-search' ></i>
-                      <i class='bx bx-filter' ></i>
-                      <div class="form-group col-4">
-                        <form action="administrator" method="GET">
-                          <input  type="search" class="form-control" name="search"  placeholder="Cari Nama Ekstrakurikuler">
+                      <div class="form-group col-8 col-lg-4">
+                        <form action="users" method="GET">
+                          <input  type="search" class="form-control" name="search"  placeholder="Cari Nama User">
                         </form>
                       </div>
                     </div>
-                  <table id="example2" class="table table-bordered table-hover">
-                    <thead>
+                    <a href="register" class="btn btn-primary mb-2">Tambah Data</a>
+                    <table id="example2" class="table table-bordered table-hover">
+                      <thead>
                       <tr>
                         <th>no</th>
                         <th>Foto</th>

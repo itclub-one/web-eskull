@@ -8,7 +8,7 @@
       <div class="container-fluid">
         <div class="row mb-2 ">
           <div class="col-sm-6">
-            <h1 class="m-0">Data Kepala Sekolah</h1>
+            <h1 class="m-0">Kepala Sekolah</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -28,7 +28,7 @@
             <div class="col-12">
               <div class="card">
                 <div class="card-header">
-                  <h3 class="card-title">DataTable with minimal features & hover style</h3>
+                  <h3 class="card-title">DataTable Kepala Sekolah</h3>
                 </div>
                 <!-- /.card-header -->
                 <div class="table-data">
@@ -42,20 +42,12 @@
                       </div>
                     </div>
                     @endif
-                    <div class="head">
-                      <h3>Recent Orders</h3>
-                      <i class='bx bx-search' ></i>
-                      <i class='bx bx-filter' ></i>
-                      <div class="form-group col-4">
-                        <form action="administrator" method="GET">
-                          <input  type="search" class="form-control" name="search"  placeholder="Cari Nama Ekstrakurikuler">
-                        </form>
-                      </div>
-                    </div>
+                    
+                    <a href="#tambahdata" class="btn btn-primary mb-3">Tambah Data</a>
                   <table id="example2" class="table table-bordered table-hover">
                     <thead>
                       <tr>
-                        <th>no</th>
+                        <th>No</th>
                         <th>Nama Kepala Sekolah</th>
                         <th>Foto Kepala Sekolah</th>
                         <th>Pembuka Sambutan</th>
@@ -118,7 +110,7 @@
 
 
 
-      <div class="container-fluid">
+      <div id="tambahdata" class="container-fluid">
         <div class="row">
           <!-- left column -->
           <div class="col-md-12 mb-5">
