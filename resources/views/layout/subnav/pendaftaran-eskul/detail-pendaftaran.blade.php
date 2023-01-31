@@ -63,7 +63,7 @@
 
               
 
-                  <div data-anim="slide-up delay-3" class="row justify-center data_anggota">
+                  <div data-anim="slide-up delay-3" class="row data_anggota">
                     <table id="data_anggota" class="table table-striped " style="width:100%">
                       <thead>
                           <tr>

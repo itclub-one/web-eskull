@@ -59,28 +59,28 @@
               <div class="col-md-3 col-sm-6">
                 <div class="shopCompleted-info__item">
                   <div class="subtitle">PEMBINA</div>
-                  <div class="title text-purple-1 mt-5">{{$data->pembina}}</div>
+                  <div class="title text-purple-1">{{$data->pembina}}</div>
                 </div>
               </div>
 
               <div class="col-md-3 col-sm-6">
                 <div class="shopCompleted-info__item">
                   <div class="subtitle">KETUA</div>
-                  <div class="title text-purple-1 mt-5">{{$data->ketua}}</div>
+                  <div class="title text-purple-1">{{$data->ketua}}</div>
                 </div>
               </div>
 
               <div class="col-md-3 col-sm-6">
                 <div class="shopCompleted-info__item">
                   <div class="subtitle">WAKIL KETUA</div>
-                  <div class="title text-purple-1 mt-5">{{$data->wakilketua}}</div>
+                  <div class="title text-purple-1">{{$data->wakilketua}}</div>
                 </div>
               </div>
 
               <div class="col-md-3 col-sm-6">
                 <div class="shopCompleted-info__item">
                   <div class="subtitle">JADWAL KUMPULAN</div>
-                  <div class="title text-purple-1 mt-5">{{$data->jadwal_kumpulan}}</div>
+                  <div class="title text-purple-1">{{$data->jadwal_kumpulan}}</div>
                 </div>
               </div>
             </div>
@@ -124,7 +124,7 @@
                 Anggota {{$data->nama_eskul}}
               </h2>
               </center>
-              <div data-anim="slide-up delay-3" class="row justify-center">
+              <div data-anim="slide-up delay-3" class="row data_anggota">
                 <table id="data_anggota" class="table table-striped data_anggota" style="width:100%">
                   <thead>
                       <tr>

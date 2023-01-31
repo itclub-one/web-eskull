@@ -40,6 +40,7 @@ use App\Http\Controllers\userController;
 //     return view('welcome');
 // });
 
+
 // Route::get('/tentang-web-ini', [tentangwebController::class, 'tentangweb'])->name('tentangweb');
 Route::get('/tentang-web-ini', function () {
     return view('layout.subnav.tentangkami.tentang-web-ini');
