@@ -111,12 +111,39 @@
             <p class="sectionTitle__text ">Karya siswa SMK Negeri 1 Garut</p>
 
           </div>
-
+          
         </div>
       </div>
-
+      
       <div class="row y-gap-30 pt-50">
-
+        
+        <div class="col-lg-3 col-sm-6">
+          <div  class="teamCard -type-1 -teamCard-hover">
+            <div class="teamCard__image">
+              <img style="width: 300px; height: 350px;" src="{{asset('images/tentang-web/naufal.png')}}" alt="image">
+              <div class="teamCard__socials">
+                <div class="d-flex x-gap-20 y-gap-10 justify-center items-center h-100">
+                  <a href="#"><i class="icon-facebook text-white"></i></a>
+                  <a href="#"><i class="icon-twitter text-white"></i></a>
+                  <a href="#"><i class="icon-instagram text-white"></i></a>
+                  <a href="#"><i class="icon-linkedin text-white"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="teamCard__content">
+              <h4 class="teamCard__title">Naufal</h4>
+              <p class="teamCard__text">Penanggung Jawab & Designer</p>
+  
+            </div>
+            <div class="teamCard-footer">
+              <div class="teamCard-footer__author">
+                <img src="{{asset('images/logo-eskul/itclub.png')}}" alt="Pengembang">
+                <div>IT-Club</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
         <div class="col-lg-3 col-sm-6">
           <div  class="teamCard -type-1 -teamCard-hover">
             <div class="teamCard__image">
@@ -132,7 +159,7 @@
             </div>
             <div class="teamCard__content">
               <h4 class="teamCard__title">Mochammad Ikhsan Nawawi</h4>
-              <p class="teamCard__text">Backend Develover</p>
+              <p class="teamCard__text">Fullstack Develover</p>
 
             </div>
             <div class="teamCard-footer">
@@ -171,37 +198,11 @@
           </div>
         </div>
         
-        <div class="col-lg-3 col-sm-6">
-          <div  class="teamCard -type-1 -teamCard-hover">
-            <div class="teamCard__image">
-              <img style="width: 300px; height: 350px;" src="{{asset('images/tentang-web/naufal.png')}}" alt="image">
-              <div class="teamCard__socials">
-                <div class="d-flex x-gap-20 y-gap-10 justify-center items-center h-100">
-                  <a href="#"><i class="icon-facebook text-white"></i></a>
-                  <a href="#"><i class="icon-twitter text-white"></i></a>
-                  <a href="#"><i class="icon-instagram text-white"></i></a>
-                  <a href="#"><i class="icon-linkedin text-white"></i></a>
-                </div>
-              </div>
-            </div>
-            <div class="teamCard__content">
-              <h4 class="teamCard__title">Naufal</h4>
-              <p class="teamCard__text">Frontend Develover</p>
-
-            </div>
-            <div class="teamCard-footer">
-              <div class="teamCard-footer__author">
-                <img src="{{asset('images/logo-eskul/itclub.png')}}" alt="Pengembang">
-                <div>IT-Club</div>
-              </div>
-            </div>
-          </div>
-        </div>
         
         <div class="col-lg-3 col-sm-6">
           <div  class="teamCard -type-1 -teamCard-hover">
             <div class="teamCard__image">
-              <img style="width: 300px; height: 350px;" src="{{asset('images/tentang-web/')}}" alt="image">
+              <img style="width: 300px; height: 350px;" src="{{asset('images/tentang-web/ilham.png')}}" alt="image">
               <div class="teamCard__socials">
                 <div class="d-flex x-gap-20 y-gap-10 justify-center items-center h-100">
                   <a href="#"><i class="icon-facebook text-white"></i></a>
