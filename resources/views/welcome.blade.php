@@ -169,7 +169,7 @@
   
                   <h2 class="sectionTitle__title ">Dokumentasi</h2>
   
-                  <p class="sectionTitle__text ">Lihat dokumentasi dari semua ekstrakulikuler di sini!</p>
+                  <p class="sectionTitle__text ">Geser untuk melihat dokumentasi dari semua ekstrakulikuler di sini!</p>
   
               </div>
   
@@ -230,14 +230,16 @@
               </div>
   
   
-              <button class="section-slider-nav -prev -dark-bg-dark-2 -outline-dark-1 -absolute-out size-50 rounded-full xl:d-none js-courses-prev">
+              {{-- <button class="section-slider-nav -prev -dark-bg-dark-2 -outline-dark-1 -absolute-out size-50 rounded-full xl:d-none js-courses-prev">
               <i class="icon icon-arrow-left text-24"></i>
               </button>
   
               <button class="section-slider-nav -next -dark-bg-dark-2 -outline-dark-1 -absolute-out size-50 rounded-full xl:d-none js-courses-next">
               <i class="icon icon-arrow-right text-24"></i>
-              </button>
+              </button> --}}
   
+              
+
           </div>
           </div>
       </section>
