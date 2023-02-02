@@ -26,8 +26,9 @@ class authController extends Controller
         }
         
         return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
-        ])->onlyInput('email');
+            // 'email' => 'The provided credentials do not match our records.',
+            'password' => 'Password tidak sesuai!!!',
+        ])->onlyInput(['email','password']);
     }
 
     public function logout(){

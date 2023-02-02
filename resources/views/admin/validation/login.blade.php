@@ -26,7 +26,7 @@
 <!-- Button Mixin-->
 <!-- Pen Title-->
 <div class="pen-title">
-  <h1>Flat Login Form</h1>
+  <h1>Login Form</h1>
 </div>
 <!-- Form Module-->
 <div class="module form-module">
@@ -34,12 +34,18 @@
     <div class="tooltip">Click Me</div>
   </div>
   <div class="form">
-    <h2>Login to your account</h2>
+    <h2>Login ke akun Ekstrakulikuler</h2>
     <form action="loginproses" method="POST">
       @csrf
-      <input type="text" name="email" placeholder="Email" autofocus required />
-      <input type="password" name="password" placeholder="Password" required/>
-      <button>Login</button>
+      <input class="@error('email') is-invalid @enderror" type="text" name="email" placeholder="Email" autofocus required />
+      @error('email')
+        <span class="invalid-feedback bg-danger text-center">{{$message}}</span>
+      @enderror
+      <input class="@error('password') is-invalid @enderror mt-3" type="password" name="password" placeholder="Password" required/>
+      @error('password')
+        <span class="invalid-feedback bg-danger text-center">{{$message}}</span>
+      @enderror
+      <button class="mt-3">Login</button>
     </form>
   </div>
   
