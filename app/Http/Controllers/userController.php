@@ -13,8 +13,8 @@ class userController extends Controller
 {
     public function index(Request $request){
         if($request->has('search')){
-            $data = user::where('slug','like', '%' .$request->search. '%')->
-            orWhere('nama_eskul','like', '%' .$request->search. '%')->paginate(5);
+            $data = user::where('name','like', '%' .$request->search. '%')->
+            orWhere('role','like', '%' .$request->search. '%')->paginate(5);
         }else{
             $data = user::paginate(5);
         }
