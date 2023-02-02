@@ -22,7 +22,7 @@ class eskulController extends Controller
         if ($request->has('search')) {
             if (auth()->user()->role == "root") {
                 $eskul = eskul::where('nama_eskul', 'like', '%' . $request->search . '%')
-                    ->orWhere('id', 'like', '%' . $request->search . '%')->paginate(5);
+                    ->orWhere('slug', 'like', '%' . $request->search . '%')->paginate(5);
             } else {
                 $eskul = eskul::where('id_eskul', '=', $currentRole['eskul_id'])->where('nama_eskul', 'like', '%' . $request->search . '%')
                     ->orWhere('id', 'like', '%' . $request->search . '%')->paginate(5);
