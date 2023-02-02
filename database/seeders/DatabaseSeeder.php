@@ -553,7 +553,7 @@ class DatabaseSeeder extends Seeder
                 'name' => $row['nama_eskul'],
                 'role' => $role_id,
                 'email' => $row['slug'] . '@smknegeri1garut.sch.id',
-                'password' => bcrypt($row['slug']),
+                'password' => bcrypt('Cimanuk309A'),
                 'foto' => $row['logo'],
                 'remember_token' => Str::random(60),
             ]);
