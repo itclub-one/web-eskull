@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('title')</title>
+{{--------------------------------------------------------------------------------------------------------- 
+    
+-                                          Mochammad Ikhsan Nawawi                                        -
+
+-                                instagram : https://instagram.com/sanbray_                               -
+
+----------------------------------------------------------------------------------------------------------}}
     <style>
         *, :before, :after {
   box-sizing: border-box;
@@ -155,6 +162,13 @@ $border: $size/15;
         <p>@yield('massage')</p>
         <div class="buttons"><a href="/">home</a><br/><span>Help me out</span></div>
       </div>
+      {{--------------------------------------------------------------------------------------------------------- 
+    
+-                                          Mochammad Ikhsan Nawawi                                        -
+
+-                                instagram : https://instagram.com/sanbray_                               -
+
+----------------------------------------------------------------------------------------------------------}}
       <div class="space">
         <div class="blackhole"></div>
         <div class="ship"></div>

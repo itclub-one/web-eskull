@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="">
+{{--------------------------------------------------------------------------------------------------------- 
+    
+-                                          Mochammad Ikhsan Nawawi                                        -
 
+-                                instagram : https://instagram.com/sanbray_                               -
+
+----------------------------------------------------------------------------------------------------------}}
 
 
 <head>
@@ -190,7 +196,13 @@
                 </div>
               </div>
             </div>
-            
+            {{--------------------------------------------------------------------------------------------------------- 
+    
+-                                          Mochammad Ikhsan Nawawi                                        -
+
+-                                instagram : https://instagram.com/sanbray_                               -
+
+----------------------------------------------------------------------------------------------------------}}
             <div class="header-menu js-mobile-menu-toggle pl-30 xl:pl-20">
               <div class="header-menu__content">
                 <div class="mobile-bg js-mobile-bg"></div>
@@ -310,7 +322,13 @@
   @yield('content')
   @yield('dokumentasi')
 
+{{--------------------------------------------------------------------------------------------------------- 
+    
+-                                          Mochammad Ikhsan Nawawi                                        -
 
+-                                instagram : https://instagram.com/sanbray_                               -
+
+----------------------------------------------------------------------------------------------------------}}
 
   <footer class="footer-section bg-light-9">
     <div class="container">
@@ -430,7 +448,13 @@
     </div>
 </footer>
   
+{{--------------------------------------------------------------------------------------------------------- 
+    
+-                                          Mochammad Ikhsan Nawawi                                        -
 
+-                                instagram : https://instagram.com/sanbray_                               -
+
+----------------------------------------------------------------------------------------------------------}}
 
   {{-- <footer class="footer -type-1 -dark bg-light-9">
     <div class="container">

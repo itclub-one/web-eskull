@@ -4,7 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Administrator | Dashboard </title>
+{{--------------------------------------------------------------------------------------------------------- 
+    
+-                                          Mochammad Ikhsan Nawawi                                        -
 
+-                                instagram : https://instagram.com/sanbray_                               -
+
+----------------------------------------------------------------------------------------------------------}}
   <!-- Google Font: Source Sans Pro -->
   
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -65,7 +71,13 @@
         </div>
       </li>
 
-      
+      {{--------------------------------------------------------------------------------------------------------- 
+    
+-                                          Mochammad Ikhsan Nawawi                                        -
+
+-                                instagram : https://instagram.com/sanbray_                               -
+
+----------------------------------------------------------------------------------------------------------}}
       <li class="nav-item">
         <a class="nav-link" data-widget="fullscreen" href="#" role="button">
           <i class="fas fa-expand-arrows-alt"></i>
@@ -100,7 +112,13 @@
         </div>
       </div>
 
-      
+ {{--------------------------------------------------------------------------------------------------------- 
+    
+-                                          Mochammad Ikhsan Nawawi                                        -
+
+-                                instagram : https://instagram.com/sanbray_                               -
+
+----------------------------------------------------------------------------------------------------------}}     
 
       <!-- Sidebar Menu -->
       <nav class="mt-2">
@@ -211,7 +229,13 @@
 
   
   
-  
+  {{--------------------------------------------------------------------------------------------------------- 
+    
+-                                          Mochammad Ikhsan Nawawi                                        -
+
+-                                instagram : https://instagram.com/sanbray_                               -
+
+----------------------------------------------------------------------------------------------------------}}
   @yield('content')
 
   
@@ -266,4 +290,10 @@
 
 @stack('script')
 
+{{--------------------------------------------------------------------------------------------------------- 
+    
+-                                          Mochammad Ikhsan Nawawi                                        -
 
+-                                instagram : https://instagram.com/sanbray_                               -
+
+----------------------------------------------------------------------------------------------------------}}

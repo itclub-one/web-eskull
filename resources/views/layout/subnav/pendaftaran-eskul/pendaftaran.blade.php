@@ -20,7 +20,13 @@
       </div>
     </div>
   </section>
+{{--------------------------------------------------------------------------------------------------------- 
+    
+-                                          Mochammad Ikhsan Nawawi                                        -
 
+-                                instagram : https://instagram.com/sanbray_                               -
+
+----------------------------------------------------------------------------------------------------------}}
   <section class="layout-pt-md layout-pb-lg">
     <div data-anim-wrap class="container">
       <div class="row y-gap-50 justify-between">
@@ -166,7 +172,13 @@
                     <h3 class="my-5 text-center"><strong>Pendaftaran ditutup</strong></h3>
               @endif
             @endforeach
+{{--------------------------------------------------------------------------------------------------------- 
+    
+-                                          Mochammad Ikhsan Nawawi                                        -
 
+-                                instagram : https://instagram.com/sanbray_                               -
+
+----------------------------------------------------------------------------------------------------------}}
           </div>
         </div>
       </div>

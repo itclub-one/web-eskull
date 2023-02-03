@@ -1,5 +1,11 @@
 @extends ('layout.header')
-  
+{{--------------------------------------------------------------------------------------------------------- 
+    
+-                                          Mochammad Ikhsan Nawawi                                        -
+
+-                                instagram : https://instagram.com/sanbray_                               -
+
+----------------------------------------------------------------------------------------------------------}}  
 @section('content') 
 <section data-anim="fade" class="breadcrumbs ">
     <div class="container">
@@ -48,7 +54,13 @@
     </div>
   </section>
 
-  
+{{--------------------------------------------------------------------------------------------------------- 
+    
+-                                          Mochammad Ikhsan Nawawi                                        -
+
+-                                instagram : https://instagram.com/sanbray_                               -
+
+----------------------------------------------------------------------------------------------------------}}  
   <section class="layout-pt-md layout-pb-md">
     <div data-anim-wrap class="container">
       <div class="row y-gap-50 justify-between items-center">
