@@ -239,6 +239,10 @@
                     <li class="{{ (request()->is('tentang-web-ini')) ? 'active' : '' }}"><a class=" dropdown-item" href="/tentang-web-ini">Tentang Web</a></li>
                     
                     <li class="{{ (request()->is('pendaftaran')) ? 'active' : '' }}"><a class=" dropdown-item" href="/pendaftaran">Daftar Ekstrakurikuler</a></li>
+                    
+                    <li class="{{ (request()->is('login')) ? 'active' : '' }}"><a class=" dropdown-item" href="/login">Login</a></li>
+                    
+                    
                     {{-- <li class="menu-item-has-children dropdown {{ (request()->is('pendaftaran','-')) ? 'active' : '' }}" >
                       <a data-barba  href="#">Daftar Ekstrakurikuler <i class="icon-chevron-right dropdown-toggle text-13 ml-10"></i></a>
                       <ul class="subnav dropdown-menu martoppp" >
