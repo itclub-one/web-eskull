@@ -14,10 +14,10 @@ trait HasSlug
      */
     public static function bootHasSlug()
     {
-        static::creating(function (self $model) {
+        static::updating(function (self $model) {
             foreach ($model->slugConfigs() as $column => $target) {
                 if (empty($model->{$column})) {
-                    $model->{$column} = $model->newSlug($column, $target);
+                    $model->{$column} = $model->newSlug($target);
                 }
             }
         });
@@ -27,20 +27,13 @@ trait HasSlug
     /**
      * Generate new slug
      *
-     * @param  mixed $column
      * @param  mixed $target
      * @return string
      */
-    public function newSlug($column, $target): string
+    public function newSlug($target): string
     {
         $slug = Str::slug($this->{$target});
-        $check = DB::table($this->getTable())->where($column, 'like', $slug . '%')->count();
-
-        if ($check) {
-            return sprintf("%s-%d", $slug, $check);
-        }
-
-        return $slug;
+        return sprintf("%s-%s", $slug, uniqid());
     }
 
     /**

@@ -101,6 +101,8 @@ class dokumentasiController extends Controller
     public function updatedokumentasi(Request $request, $id)
     {
         $data = dokumentasi::find($id);
+        $data->slug_berita = Str::slug($request->get('nama_kegiatan')) . '-' . uniqid();
+
         if ($request->hasfile('logo')) {
             if (File_exists(public_path('images/dokumentasi/logo-dokumentasi/' . $data->logo))) { //either you can use file path instead of $data->image
                 unlink(public_path('images/dokumentasi/logo-dokumentasi/' . $data->logo)); //here you can also use path like as ('uploads/media/welcome/'. $data->image)

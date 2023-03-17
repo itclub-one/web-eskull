@@ -55,7 +55,8 @@ class beritaController extends Controller
 
     public function updateberita(Request $request , $id){
         $data = berita::find($id);
-        $data->slug_berita = Str::slug($request->get('judul_berita'));
+        $data->slug_berita = Str::slug($request->get('judul_berita')) . '-' . uniqid();
+
         if($request->hasfile('foto_berita')){
             if(File_exists(public_path('images/foto-berita/'.$data->foto_berita))){ //either you can use file path instead of $data->image
                 unlink(public_path('images/foto-berita/'.$data->foto_berita));//here you can also use path like as ('uploads/media/welcome/'. $data->image)
