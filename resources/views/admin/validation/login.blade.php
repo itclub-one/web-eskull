@@ -26,7 +26,8 @@
 <!-- Button Mixin-->
 <!-- Pen Title-->
 <div class="pen-title">
-  <h1>Login Form</h1>
+  <h1>ADMIN PANEL</h1>
+  <img width="100px" src="{{asset('webex/img/logo/smea.png')}}" alt="">
 </div>
 <!-- Form Module-->
 <div class="module form-module">
