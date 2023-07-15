@@ -70,7 +70,7 @@
                           <tr>
                         <th>No</th>
                         <th>Ekstrakurikuler</th>
-                        <th>Slug</th>
+                        <th>Sekbid</th>
                         <th>Logo Eskul</th>
                         <th>Pembina</th>
                         <th>Ketua</th>
@@ -98,7 +98,7 @@
                             <td>{{$no++}}</td>
                             {{-- @endif --}}
                         <td>{{$row->nama_eskul}}</td>
-                        <td>{{$row->slug}}</td>
+                        <td>{{$row->sekbid }}</td>
                         <td>
                           <img src="{{asset('images/logo-eskul/'.$row->logo)}}" width="70px" alt="">
                         </td>
@@ -174,9 +174,9 @@
                   @enderror
                 </div>
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Slug</label>
-                  <input  type="text" class="form-control @error('slug') is-invalid @enderror" name="slug" id="exampleInputEmail1" placeholder="Masukan Nama slug">
-                  @error('slug')
+                  <label for="exampleInputEmail1">Sekbid</label>
+                  <input  type="text" class="form-control @error('sekbid') is-invalid @enderror" name="sekbid" id="exampleInputEmail1" placeholder="Masukan Sekbid berapa">
+                  @error('sekbid')
                   <span class="invalid-feedback">{{$message}}</span>
                 @enderror
               </div>

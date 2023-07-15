@@ -632,41 +632,49 @@ class DatabaseSeeder extends Seeder
         berita::create([
             'judul_berita' => Str::random(10),
             'foto_berita' => '1.jpg',
+            'slug_berita' => STR::random(10),
             'tanggal_berita' => '2022-11-11'
         ]);
         berita::create([
             'judul_berita' => Str::random(10),
             'foto_berita' => '2.jpg',
+            'slug_berita' => STR::random(10),
             'tanggal_berita' => '2022-11-11'
         ]);
         berita::create([
             'judul_berita' => Str::random(10),
             'foto_berita' => '3.jpg',
+            'slug_berita' => STR::random(10),
             'tanggal_berita' => '2022-11-11'
         ]);
         berita::create([
             'judul_berita' => Str::random(10),
             'foto_berita' => '4.jpg',
+            'slug_berita' => STR::random(10),
             'tanggal_berita' => '2022-11-11'
         ]);
         berita::create([
             'judul_berita' => Str::random(10),
             'foto_berita' => '5.jpg',
+            'slug_berita' => STR::random(10),
             'tanggal_berita' => '2022-11-11'
         ]);
         berita::create([
             'judul_berita' => Str::random(10),
             'foto_berita' => '6.jpg',
+            'slug_berita' => STR::random(10),
             'tanggal_berita' => '2022-11-11'
         ]);
         berita::create([
             'judul_berita' => Str::random(10),
             'foto_berita' => '7.jpg',
+            'slug_berita' => STR::random(10),
             'tanggal_berita' => '2022-11-11'
         ]);
         berita::create([
             'judul_berita' => Str::random(10),
             'foto_berita' => '8.jpg',
+            'slug_berita' => STR::random(10),
             'tanggal_berita' => '2022-11-11'
         ]);
     }

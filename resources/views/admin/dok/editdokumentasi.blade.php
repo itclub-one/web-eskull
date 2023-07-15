@@ -50,15 +50,19 @@
                     <img src="{{asset('images/logo-eskul/'.$data->eskul->logo)}}" alt="{{$data->eskul->logo}}" width="100px" class="d-block mb-2">
                     <select class="custom-select rounded-0" name="penyelenggara" id="exampleSelectRounded0">
                       <option selected value="{{$data->penyelenggara}}">{{$data->eskul->nama_eskul}}</option>
+                    @if (auth()->user()->role == "root") 
                       @foreach ($data_eskul as $data)
                       <option value="{{$data->id}}">{{$data->nama_eskul}}</option>
                       @endforeach
+                    @endif
                     </select>
                     {{-- <input required type="text" class="form-control" name="penyelenggara" id="exampleInputPassword1" placeholder="Masukan Penyelenggara"> --}}
                 </div>
                   <div class="form-group">
                     <label for="exampleInputFile">Foto Kegiatan</label>
-                    <img src="{{asset('images/dokumentasi/foto-kegiatan/'.$data->foto_kegiatan)}}" alt="{{$data->foto_kegiatan}}" width="300px" class="d-block mb-2">
+                    @if (!empty($foto))
+                        <img src="{{asset('images/dokumentasi/foto-kegiatan/'.$foto)}}" alt="{{$foto}}" width="300px" class="d-block mb-2">
+                    @endif
                       <input type="file" class="form-control" value="{{$data->foto_kegiatan}}" name="foto_kegiatan" >
                   </div>
                   

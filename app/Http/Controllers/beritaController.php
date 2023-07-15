@@ -37,7 +37,12 @@ class beritaController extends Controller
     }
 
     public function insertdataberita(Request $request){
-        $data = berita::create($request->all());
+        $data = berita::create([
+            'judul_berita' => $request->judul_berita,
+            'tanggal_berita' => $request->tanggal_berita,
+            'foto_berita' => $request->foto_berita,
+            'slug_berita' => Str::slug($request->judul_berita). '-' . uniqid(), // Tambahkan nilai slug
+        ]);
         if($request->hasfile('foto_berita')){
             $nama_baru = Str::random(10) . '.' . $request->file('foto_berita')->extension();
             $request->file('foto_berita')->move('images/foto-berita/', $nama_baru);

@@ -9,10 +9,16 @@ use Illuminate\Http\Request;
 
 class wakasekController extends Controller
 {
+    
     public function index(){
 
+        if (auth()->user()->role != 'root') {
+            # code...
+            return back();
+        }
         $data = wakasek::all();
         // dd($data);
+        
         return view('admin.wakilkepalasekolah.wakasek', compact('data')) ;
     }
 
@@ -35,6 +41,11 @@ class wakasekController extends Controller
     }
 
     public function editwakasek($id){
+        if (auth()->user()->role != 'root') {
+            # code...
+            return back();
+        }
+
         $data = wakasek::find($id);
         return view('admin.wakilkepalasekolah.editwakasek', compact('data'));
     }
@@ -60,7 +71,8 @@ class wakasekController extends Controller
     public function deletewakasek($id){
         $data = wakasek::find($id);
         if (auth()->user()->role != 'root') {
-            return redirect()->route('wakasek')->with('error', ' Data Gagal Di Delete');
+            # code...
+            return back();
         }
         if(File_exists(public_path('images/foto-wakasek/'.$data->foto_wakasek))){ //either you can use file path instead of $data->image
             unlink(public_path('images/foto-wakasek/'.$data->foto_wakasek));//here you can also use path like as ('uploads/media/welcome/'. $data->image)

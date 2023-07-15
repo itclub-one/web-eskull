@@ -25,92 +25,20 @@
   <link rel="icon" type="image/x-icon" href="{{asset('images/page-loader/smea.ico')}}">
   {{-- font awesome --}}
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  {{-- select2 css --}}
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
 </head>
 <body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
 <div class="wrapper">
 
-  <!-- Preloader -->
-  <div class="preloader flex-column justify-content-center align-items-center">
-    <img class="animation__wobble" src="{{asset('images/page-loader/smea.png')}}" alt="AdminLTELogo" height="180" width="180">
-  </div>
+  
+  @include('admin.layout.preloader')
+  
+  
+  @include('admin.layout.navbar')
 
-  <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand navbar-dark ">
-    <!-- Left navbar links -->
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="/" class="nav-link">Home</a>
-      </li>
-    </ul>
-
-    <!-- Right navbar links -->
-    <ul class="navbar-nav ml-auto">
-      <!-- Navbar Search -->
-      <li class="nav-item">
-        <a class="nav-link" data-widget="navbar-search" href="#" role="button">
-          <i class="fas fa-search"></i>
-        </a>
-        <div class="navbar-search-block">
-          <form class="form-inline">
-            <div class="input-group input-group-sm">
-              <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-              <div class="input-group-append">
-                <button class="btn btn-navbar" type="submit">
-                  <i class="fas fa-search"></i>
-                </button>
-                <button class="btn btn-navbar" type="button" data-widget="navbar-search">
-                  <i class="fas fa-times"></i>
-                </button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </li>
-
-      {{--------------------------------------------------------------------------------------------------------- 
-    
--                                          Mochammad Ikhsan Nawawi                                        -
-
--                                instagram : https://instagram.com/sanbray_                               -
-
-----------------------------------------------------------------------------------------------------------}}
-      <li class="nav-item">
-        <a class="nav-link" data-widget="fullscreen" href="#" role="button">
-          <i class="fas fa-expand-arrows-alt"></i>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
-          <i class="fas fa-th-large"></i>
-        </a>
-      </li>
-    </ul>
-  </nav>
-  <!-- /.navbar -->
-
-  <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <!-- Brand Logo -->
-    <a href="/" class="brand-link">
-      <img src="{{asset('images/page-loader/smea.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">Webeskul</span>
-    </a>
-
-    <!-- Sidebar -->
-    <div class="sidebar">
-      <!-- Sidebar user panel (optional) -->
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
-          <img src="{{asset('images/foto-user/'.Auth::user()->foto)}}" class="img-circle elevation-2" alt="{{Auth::user()->foto}}">
-        </div>
-        <div class="info">
-          <a href="#" class="d-block">{{Auth::user()->name}}</a>
-        </div>
-      </div>
+  
 
  {{--------------------------------------------------------------------------------------------------------- 
     
@@ -120,113 +48,9 @@
 
 ----------------------------------------------------------------------------------------------------------}}     
 
-      <!-- Sidebar Menu -->
-      <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-          
-          <li class="nav-item ">
-            <a href="/administrator" class="nav-link {{request()->is('administrator') ? 'active' : ''}} ">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-                Ekstrakurikuler
-              </p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a href="/anggota" class="nav-link {{request()->is('anggota') ? 'active' : ''}} ">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-                Anggota Ekstrakurikuler
-              </p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a href="/pendaftaran-eskul" class="nav-link {{request()->is('pendaftaran-eskul') ? 'active' : ''}} ">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-                Pendaftaran
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="/dokumentasi" class="nav-link {{request()->is('dokumentasi') ? 'active' : ''}}">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-                Dokumentasi
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="/berita" class="nav-link {{request()->is('berita') ? 'active' : ''}}">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-                Berita
-              </p>
-            </a>
-          </li>
-          @if(auth()->user()->role=='root')
-            <li class="nav-item">
-              <a href="/kepsek" class="nav-link {{request()->is('kepsek') ? 'active' : ''}}">
-                <i class="nav-icon fas fa-th"></i>
-                <p>
-                  kepsek
-                </p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="/wakasek" class="nav-link {{request()->is('wakasek') ? 'active' : ''}}">
-                <i class="nav-icon fas fa-th"></i>
-                <p>
-                  wakasek
-                </p>
-              </a>
-            </li>
-            
-            <li class="nav-item">
-              <a href="/users" class="nav-link {{request()->is('users') ? 'active' : ''}}">
-                <i class="nav-icon fas fa-th"></i>
-                <p>
-                  User Administrator
-                </p>
-              </a>
-            </li>
-            @endif
-          
-          <li class="nav-item">
-            <a href="/logout" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-                Logout
-              </p>
-            </a>
-          </li>
+      
 
-
-          
-          {{-- @foreach ($data as $row) --}}
-
-          {{-- @endforeach --}}
-          
-          
-        </ul>
-
-        
-          
-      </nav>
-      <!-- /.sidebar-menu -->
-    </div>
-    <!-- /.sidebar -->
-  </aside>
-
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-  </aside>
-  <!-- /.control-sidebar -->
-
-
+@include('admin.layout.sidebar')
   
   
   {{--------------------------------------------------------------------------------------------------------- 
@@ -240,16 +64,7 @@
 
   
 
-  <!-- Main Footer -->
-  <footer class="main-footer">
-    <strong>Copyright &copy; 2022 - @php
-        echo  date('Y')
-    @endphp <a href="/">Webex</a> SMK Negeri 1 Garut.</strong>
-    All rights reserved.
-    <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 1.1.0
-    </div>
-  </footer>
+  @include('admin.layout.footer')
 </div>
 <!-- ./wrapper -->
 
@@ -287,6 +102,9 @@
 {{-- <script src="{{asset('template/dist/js/demo.js')}}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{asset('template/dist/js/pages/dashboard2.js')}}"></script> --}}
+
+{{-- select2 js --}}
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
 @stack('script')
 

@@ -12,6 +12,10 @@ use Illuminate\Support\Facades\Auth;
 class userController extends Controller
 {
     public function index(Request $request){
+        if (auth()->user()->role != 'root') {
+            # code...
+            return back();
+        }
         if($request->has('search')){
             $data = user::where('name','like', '%' .$request->search. '%')->
             orWhere('role','like', '%' .$request->search. '%')->paginate(5);
@@ -47,6 +51,10 @@ class userController extends Controller
     }
 
     public function edituser($id){
+        if (auth()->user()->role != 'root') {
+            # code...
+            return back();
+        }
         $data = user::find($id);
         return view('admin.user.edituser', compact('data'));
     }
@@ -78,6 +86,10 @@ class userController extends Controller
     }
 
     public function editpassword($id){
+        if (auth()->user()->role != 'root') {
+            # code...
+            return back();
+        }
         $data = user::find($id);
         return view('admin.user.editpassword', compact('data'));
     }
@@ -101,6 +113,10 @@ class userController extends Controller
     }
 
     public function deleteuser($id){
+        if (auth()->user()->role != 'root') {
+            # code...
+            return back();
+        }
         $data = user::find($id);
         if (auth()->user()->role != 'root') {
             return redirect()->route('users')->with('error', ' Data Gagal Di Delete');

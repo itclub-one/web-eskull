@@ -66,19 +66,19 @@ class dokumentasiController extends Controller
 
     public function insertdatadokumentasi(Request $request)
     {
+        
         $request->validate([
             'nama_kegiatan' => 'required',
             'penyelenggara' => 'required',
             'foto_kegiatan' => 'required',
         ]);
-        $data = dokumentasi::create($request->all());
-        if ($request->hasfile('logo')) {
-            $nama_baru = Str::random(10) . '.' . $request->file('logo')->extension();
-            $request->file('logo')->move('images/dokumentasi/logo-dokumentasi/', $nama_baru);
-            $data->logo = $nama_baru;
-
-            $data->save();
-        }
+        
+        $data = dokumentasi::create([
+            'nama_kegiatan' => $request->nama_kegiatan,
+            'penyelenggara' => $request->penyelenggara,
+            'foto_kegiatan' => $request->foto_kegiatan,
+            'slug_dokumentasi' => Str::slug($request->nama_kegiatan). '-' . uniqid(), // Tambahkan nilai slug
+        ]);
         if ($request->hasfile('foto_kegiatan')) {
             $nama_baru = Str::random(10) . '.' . $request->file('foto_kegiatan')->extension();
             $request->file('foto_kegiatan')->move('images/dokumentasi/foto-kegiatan/', $nama_baru);
@@ -91,17 +91,22 @@ class dokumentasiController extends Controller
 
     public function editdokumentasi($id)
     {
+        
         $data = dokumentasi::find($id);
+        $foto = $data->foto_kegiatan;
         // dd($data->foto_kegiatan);
-        $data_eskul = eskul::all();
+        $currentRole = role::where("role", "=", auth()->user()->role)->first();
 
-        return view('admin.dok.editdokumentasi', compact('data', 'data_eskul'));
+                $data_eskul = eskul::all();
+        
+
+        return view('admin.dok.editdokumentasi', compact('data', 'data_eskul','foto'));
     }
 
     public function updatedokumentasi(Request $request, $id)
     {
         $data = dokumentasi::find($id);
-        $data->slug_berita = Str::slug($request->get('nama_kegiatan')) . '-' . uniqid();
+        $data->slug_dokumentasi = Str::slug($request->get('nama_kegiatan')) . '-' . uniqid();
 
         if ($request->hasfile('logo')) {
             if (File_exists(public_path('images/dokumentasi/logo-dokumentasi/' . $data->logo))) { //either you can use file path instead of $data->image

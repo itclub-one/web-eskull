@@ -71,8 +71,6 @@
                               <th>NIS</th>
                               <th>Nama Calon Anggota</th>
                               <th>Kelas</th>
-                              <th>Email</th>
-                              <th>Nomor Whatsapp</th>
                               <th>Alasan</th>
                           </tr>
                       </thead>
@@ -86,11 +84,8 @@
                             <td>{{$row->nis}}</td>
                             <td>{{$row->nama_calon_anggota}}</td>
                             <td>{{$row->kelas_calon_anggota .' - '.$row->jurusan}}</td>
-                            <td>{{$row->email}}</td>
-                            <td>{{$row->no_wa}}</td>
                             <td>{{$row->alasan}}</td>
                         </tr>
-                        
                         @endforeach
                       </tbody>
                   </table>

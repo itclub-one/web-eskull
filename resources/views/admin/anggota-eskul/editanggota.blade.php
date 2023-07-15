@@ -48,6 +48,14 @@
                     <input required type="text" class="form-control" value="{{$data->nama_anggota}}" name="nama_anggota" id="exampleInputEmail1" placeholder="Masukan Nama Anggota">
                   </div>
                   <div class="form-group">
+                    <label for="exampleInputEmail1">E-Mail Anggota</label>
+                    <input required type="text" class="form-control" value="{{$data->email}}" name="email" id="exampleInputEmail1" placeholder="Masukan E-Mail Anggota">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">No WhatsApp</label>
+                    <input required type="text" class="form-control" value="{{$data->no_wa}}" name="no_wa" id="exampleInputEmail1" placeholder="Masukan No WhatsApp">
+                  </div>
+                  <div class="form-group">
                     <label for="exampleInputPassword1">Kelas Anggota</label>
                     <select class="custom-select rounded-0" name="kelas_anggota" id="exampleSelectRounded0">
                       <option value="{{$data->kelas_anggota}}" selected>{{$data->kelas_anggota}}</option>

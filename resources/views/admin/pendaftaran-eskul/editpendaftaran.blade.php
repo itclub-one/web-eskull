@@ -60,14 +60,14 @@
                     <label for="exampleInputEmail1">Nomor Induk Siswa</label>
                     <input required type="number" class="form-control" value="{{$data->nis}}" name="nis" id="exampleInputEmail1" placeholder="Masukan Nomor Induk Siswa">
                   </div>
-                  {{-- <div class="form-group">
+                  <div class="form-group">
                     <label for="exampleInputEmail1">Email</label>
                     <input required type="email" class="form-control" value="{{$data->email}}" name="email" id="exampleInputEmail1" placeholder="Masukan Email">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Nomor Whatsapp</label>
                     <input required type="number" class="form-control" value="{{$data->no_wa}}" name="no_wa" id="exampleInputEmail1" placeholder="Masukan Nomor Whatsapp">
-                  </div> --}}
+                  </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Nama Ekstrakurikuler</label>
                     <select class="custom-select rounded-0"  name="id_eskul" id="exampleSelectRounded0">

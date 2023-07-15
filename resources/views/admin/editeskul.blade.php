@@ -49,8 +49,8 @@
                     <input type="text" class="form-control" value="{{$data->nama_eskul}}" name="nama_eskul" id="exampleInputEmail1" placeholder="Masukan Nama Ekstrakurikuler">
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Slug</label>
-                    <input type="text" class="form-control" value="{{$data->slug}}" name="slug" id="exampleInputEmail1" placeholder="Masukan Nama Ekstrakurikuler">
+                    <label for="exampleInputEmail1">Sekbid</label>
+                    <input type="text" class="form-control" value="{{$data->sekbid}}" name="sekbid" id="exampleInputEmail1" placeholder="Masukan Sekbid Berapa">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputFile">Logo Ekstrakurikuler</label>

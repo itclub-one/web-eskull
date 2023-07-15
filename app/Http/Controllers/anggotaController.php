@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\DB;
 use App\Models\anggota;
 use App\Models\eskul;
 use App\Models\role;
+use App\Exports\AnggotaExport;
+use Maatwebsite\Excel\Facades\Excel;
+
 
 class anggotaController extends Controller
 {
@@ -84,6 +87,8 @@ class anggotaController extends Controller
             'kelas_anggota' => 'required',
             'id_eskul' => 'required',
             'jurusan' => 'required',
+            'email' => 'required',
+            'no_wa' => 'required',
             
         ]);
         $data = anggota::find($id);
@@ -102,5 +107,10 @@ class anggotaController extends Controller
         }
         $data->delete();
         return redirect()->route('anggota')->with('error', ' Data Berhasil Di Hapus');
+    }
+
+    public function export() 
+    {
+        return Excel::download(new AnggotaExport, 'Anggota-'.auth()->user()->name.'-'.date('d-m-Y').'.xlsx');
     }
 }

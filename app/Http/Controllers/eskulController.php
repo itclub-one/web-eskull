@@ -93,7 +93,7 @@ class eskulController extends Controller
 
     public function updateeskul(Request $request , $id){
         $data = eskul::find($id);
-        $data->slug_berita = Str::slug($request->get('nama_eskul')) . '-' . uniqid();
+        $data->slug = Str::slug($request->get('nama_eskul')) . '-' . uniqid();
 
         if($request->hasfile('logo')){
             if(File_exists(public_path('images/logo-eskul/'.$data->logo))){ //either you can use file path instead of $data->image

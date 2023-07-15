@@ -8,7 +8,7 @@ use App\Models\pendaftaran;
 use Illuminate\Support\Str;
 use App\Models\eskul;
 use Illuminate\Http\Request;
-use App\Exports\daftarCalonAnggota;
+use App\Exports\PendaftaranExport;
 use App\Models\role;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -85,7 +85,7 @@ class pendaftaranController extends Controller
     }
     public function export() 
     {
-            return Excel::download(new daftarCalonAnggota, 'daftar-calon-anggota.xlsx');
+        return Excel::download(new PendaftaranExport, 'Pendaftaran-eskul.xlsx');
     }
     public function insertdatapendaftarantopendaftaran(Request $request){
 
@@ -109,7 +109,7 @@ class pendaftaranController extends Controller
         $data_eskul = eskul::all();
         return view('admin.pendaftaran-eskul.editpendaftaran', compact('data','data_eskul'));
     }
-
+    
     public function updatependaftaran(Request $request , $id){
         $data = pendaftaran::find($id);
     
@@ -124,5 +124,47 @@ class pendaftaranController extends Controller
 
         $data->delete();
         return redirect()->route('pendaftaran')->with('success',' Data Berhasil Di Tolak');
+    }
+
+    public function isExistNIS(Request $request){
+        if($request->ajax()){
+            $pendaftaran = pendaftaran::select("*");
+
+            if(isset($request->nis)){
+                $pendaftaran->where('nis', $request->nis);
+            }
+
+            if(isset($request->id)){
+                $pendaftaran->where('id', '<>', $request->id);
+            }
+
+            $data = [ 'valid' => ( $pendaftaran->count() == 0)  ];
+            if(!empty($pendaftaran)){
+                return $data;
+            }else{
+                return $data;
+            }
+        }
+    }
+
+    public function isExistEmail(Request $request){
+        if($request->ajax()){
+            $pendaftaran = pendaftaran::select("*");
+
+            if(isset($request->email)){
+                $pendaftaran->where('email', $request->email);
+            }
+
+            if(isset($request->id)){
+                $pendaftaran->where('id', '<>', $request->id);
+            }
+
+            $data = [ 'valid' => ( $pendaftaran->count() == 0)  ];
+            if(!empty($pendaftaran)){
+                return $data;
+            }else{
+                return $data;
+            }
+        }
     }
 }

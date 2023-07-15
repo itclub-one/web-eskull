@@ -103,6 +103,9 @@ Route::get('/logout', [authController::class, 'logout'])->name('logout');
     Route::post('/updateanggota/{id}', [anggotaController::class, 'updateanggota'])->name('updateanggota');
     
     Route::get('/deleteanggota/{id}', [anggotaController::class, 'deleteanggota'])->name('deleteanggota');   
+
+    Route::get('/anggota-eskul/export-excel', [anggotaController::class, 'export'])->name('export_pendaftaran_excel')->middleware('auth');
+
     
     
     //pendaftaran
@@ -111,13 +114,15 @@ Route::get('/logout', [authController::class, 'logout'])->name('logout');
        Route::post('/add-pendaftaran/{id}', [pendaftaranController::class, 'add_pendaftaran'])->name('add_pendaftaran')->middleware('auth');
        Route::post('/insertdatapendaftaran', [pendaftaranController::class, 'insertdatapendaftaran'])->name('insertdatapendaftaran');
        Route::post('/insertdatapendaftarantopendaftaran', [pendaftaranController::class, 'insertdatapendaftarantopendaftaran'])->name('insertdatapendaftarantopendaftaran');
-   
+       
        Route::get('/editpendaftaran/{id}', [pendaftaranController::class, 'editpendaftaran'])->name('editpendaftaran')->middleware('auth');
        Route::post('/updatependaftaran/{id}', [pendaftaranController::class, 'updatependaftaran'])->name('updatependaftaran');
        
        Route::get('/deletependaftaran/{id}', [pendaftaranController::class, 'deletependaftaran'])->name('deletependaftaran');   
-
-    
+       
+       Route::post('/pendaftaran/isExistEmail', [pendaftaranController::class, 'isExistEmail'])->name('pendaftaran.isExistEmail');
+       Route::post('/pendaftaran/isExistNIS', [pendaftaranController::class, 'isExistNIS'])->name('pendaftaran.isExistNIS');
+       
     //kepsek
     Route::get('/kepsek', [kepsekController::class, 'index'])->name('kepsek')->middleware('auth');
     Route::post('/insertdatakepsek', [kepsekController::class, 'insertdatakepsek'])->name('insertdatakepsek');

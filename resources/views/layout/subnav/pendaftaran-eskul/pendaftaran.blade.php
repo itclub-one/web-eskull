@@ -76,9 +76,9 @@
             
                 @foreach ($on as $item)
                 @if ($item->on == 1)
-            <a href="/list-eskul-pendaftaran" >Lihat Data Calon Ekstrakurikuler</a>
+            <a class="cursor-pointer" href="/list-eskul-pendaftaran" >Lihat Data Calon Ekstrakurikuler</a>
             
-            <form class="contact-form row y-gap-30  pt-60 lg:pt-40" action="/insertdatapendaftaran" method="POST">
+            <form class="contact-form row y-gap-30 pt-60 lg:pt-40" id="form" action="/insertdatapendaftaran" method="POST">
             @foreach ($errors->all() as $error)
                 <div class="alert alert-danger">{{$error}}</div>
             @endforeach
@@ -106,7 +106,7 @@
               </div>
               <div class="form-group col-12">
                 <label class="text-16 lh-1 fw-500 text-dark-1 mb-10">Nomor Whatsapp</label>
-                <input class="form-check-input @error('no_wa') is-invalid @enderror" type="number" name="no_wa" placeholder="Nomor Whatsapp Siswa dengan format( 62xxxxxxxxxxx )">
+                <input class="form-check-input @error('no_wa') is-invalid @enderror" type="number" name="no_wa" placeholder="Nomor Whatsapp Siswa ">
                 @error('no_wa')
                       <span class="invalid-feedback">{{$message}}</span>
                   @enderror
@@ -162,8 +162,8 @@
                   @enderror
               </div>
               <div class="form-group col-12">
-                <button type="submit" id="submit" class="button -md -purple-1 text-white">
-                  Send Message
+                <button type="submit" id="pendaftaran_eskul_submit" class="button -md -purple-1 text-white">
+                  Daftar
                 </button>
               </div>
             </form>
@@ -185,3 +185,126 @@
     </div>
   </section>
 @endsection
+
+@push('script')
+<script>
+  $(document).ready(function(){
+      const form = document.getElementById("form");
+
+      var validator = FormValidation.formValidation(form, {
+          fields: {
+              nis: {
+                  validators: {
+                      notEmpty: {
+                          message: "Silahkan Isi NIS",
+                      },
+                      remote: {
+                          message: "Kode sudah dipakai",
+                          method: "POST",
+                          url: "{{ route('pendaftaran.isExistNIS') }}",
+                          data: function(){
+                              return {
+                                  _token: "{{ csrf_token() }}",
+                              }
+                          },
+                      },
+                  },
+              },
+              nama_calon_anggota: {
+                  validators: {
+                      notEmpty: {
+                          message: "Silahkan isi Nama",
+                      },
+                  },
+              },
+              no_wa: {
+                  validators: {
+                      notEmpty: {
+                          message: "Silahkan isi No WhatsApp",
+                      },
+                  },
+              },
+              email: {
+                  validators: {
+                      notEmpty: {
+                          message: "Silahkan isi Email",
+                      },
+                      emailAddress: {
+                          message: "Format email tidak valid",
+                      },
+                      remote: {
+                          message: "Email ini sudah dipakai",
+                          method: "POST",
+                          url: "{{ route('pendaftaran.isExistEmail') }}",
+                          data: function(){
+                              return {
+                                  _token: "{{ csrf_token() }}",
+                              }
+                          },
+                      },
+                  },
+              },
+              kelas_calon_anggota: {
+                  validators: {
+                      notEmpty: {
+                          message: "Silahkan isi Kelas",
+                      },
+                  },
+              },
+              jurusan: {
+                  validators: {
+                      notEmpty: {
+                          message: "Silahkan isi Jurusan",
+                      },
+                  },
+              },
+              id_eskul: {
+                  validators: {
+                      notEmpty: {
+                          message: "Silahkan isi Ekstrakurikuler",
+                      },
+                  },
+              },
+              alasan: {
+                  validators: {
+                      notEmpty: {
+                          message: "Silahkan isi Alasan Masuk Ekstrakurikuler tersebut",
+                      },
+                  },
+              },
+          },
+
+          plugins: {
+              trigger: new FormValidation.plugins.Trigger(),
+              bootstrap: new FormValidation.plugins.Bootstrap5({
+                  rowSelector: ".form-group",
+                  eleInvalidClass: "is-invalid",
+                  eleValidClass: "",
+              }),
+          },
+      });
+      const submitButton = document.getElementById("pendaftaran_eskul_submit");
+      submitButton.addEventListener("click", function (e) {
+          e.preventDefault();
+          if (validator) {
+              validator.validate().then(function (status) {
+                  
+                  if (status == "Valid") {
+                      submitButton.setAttribute("data-kt-indicator", "on");
+
+                      submitButton.disabled = true;
+
+                      setTimeout(function () {
+                          submitButton.removeAttribute("data-kt-indicator");
+
+                          submitButton.disabled = false;
+
+                          form.submit();
+                      }, 2000);
+                  }
+              });
+          }
+      });
+  });
+</script>
+@endpush

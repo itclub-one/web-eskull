@@ -63,6 +63,8 @@
                         </form>
                       </div>
                     </div>
+                    <a href="/anggota-eskul/export-excel" class="btn btn-success mb-3">Export Excel</a>
+
                     <a href="#tambahdata" class="btn btn-primary mb-3">Tambah Data</a>
                   <table id="example2" class="table table-bordered table-hover">
                     <thead>
@@ -71,6 +73,8 @@
                         <th>Nama Anggota</th>
                         <th>Kelas Anggota</th>
                         <th>Nomor Induk Siswa</th>
+                        <th>E-Mail</th>
+                        <th>Nomor WhatsApp</th>
                         <th>Ekstrakurikuler</th>
                         <th>Aksi</th>
                       </tr>
@@ -88,6 +92,8 @@
                         <td>{{$row->nama_anggota}}</td>
                         <td>{{$row->kelas_anggota}}</td>
                         <td>{{$row->nis}}</td>
+                        <td>{{$row->email}}</td>
+                        <td>{{$row->no_wa}}</td>
                         
                         <td>
                           <img src="{{asset('images/logo-eskul/'.$row->eskul->logo)}}" width="120px" alt="{{$row->eskul->logo}}">
@@ -165,6 +171,20 @@
                     <label for="exampleInputEmail1">Nama Anggota</label>
                     <input  type="text" class="form-control @error('nama_anggota') is-invalid @enderror" name="nama_anggota" id="exampleInputEmail1" placeholder="Masukan Nama Anggota">
                     @error('nama_anggota')
+                      <span class="invalid-feedback">{{$message}}</span>
+                    @enderror
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">E-Mail Anggota</label>
+                    <input  type="text" class="form-control @error('email') is-invalid @enderror" name="email" id="exampleInputEmail1" placeholder="Masukan Nama Anggota">
+                    @error('email')
+                      <span class="invalid-feedback">{{$message}}</span>
+                    @enderror
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">No WhatsApp</label>
+                    <input  type="text" class="form-control @error('no_wa') is-invalid @enderror" name="no_wa" id="exampleInputEmail1" placeholder="Masukan Nama Anggota">
+                    @error('no_wa')
                       <span class="invalid-feedback">{{$message}}</span>
                     @enderror
                   </div>

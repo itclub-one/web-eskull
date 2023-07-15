@@ -13,6 +13,10 @@ class kepsekController extends Controller
 
         $data = kepsek::all();
         // dd($data);
+        if (auth()->user()->role != 'root') {
+            # code...
+            return back();
+        }
         return view('admin.kepalasekolah.kepsek', compact('data')) ;
     }
 
@@ -35,6 +39,10 @@ class kepsekController extends Controller
     }
 
     public function editkepsek($id){
+        if (auth()->user()->role != 'root') {
+            # code...
+            return back();
+        }
         $data = kepsek::find($id);
         return view('admin.kepalasekolah.editkepsek', compact('data'));
     }
@@ -61,7 +69,8 @@ class kepsekController extends Controller
     public function deletekepsek($id){
         $data = kepsek::find($id);
         if (auth()->user()->role != 'root') {
-            return redirect()->route('kepsek')->with('error', ' Data Gagal Di Delete');
+            # code...
+            return back();
         }
         if(File_exists(public_path('images/foto-kepsek/'.$data->foto_kepsek))){ //either you can use file path instead of $data->image
             unlink(public_path('images/foto-kepsek/'.$data->foto_kepsek));//here you can also use path like as ('uploads/media/welcome/'. $data->image)

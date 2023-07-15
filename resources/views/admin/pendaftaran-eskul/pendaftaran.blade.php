@@ -54,10 +54,10 @@
                         </form>
                       </div>
                     </div>
-                    @if (auth()->user()->role=='root')
                     @foreach ($on as $row)
                     <div class="d-flex">
                       <a href="/pendaftaran-eskul/export-excel" class="btn btn-success mb-2">Export Excel</a>
+                      @if (auth()->user()->role=='root')
                       @if ($row->on == 0)
                       <form action="/add-pendaftaran/{{$row->id}}" class="mb-2 mx-3" method="post">
                         @csrf
@@ -71,9 +71,9 @@
                         <button type="submit" class="btn btn-danger ">Pendaftaran ditutup</button>
                       </form>
                       @endif
-                    </div>
+                      @endif
                       @endforeach
-                    @endif
+                    </div>
                     
                     <table id="example2" class="table table-bordered table-hover">
                       <thead>
