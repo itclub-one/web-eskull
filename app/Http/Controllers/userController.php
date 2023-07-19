@@ -71,7 +71,7 @@ class userController extends Controller
             'email' => $request->email,
             'role' => $request->role,
             // 'foto' => $request->foto,
-            'password' => bcrypt($request->password),
+            // 'password' => bcrypt($request->password),
             'remember_token' => Str::random(60),
         ]);
         if($request->hasfile('foto')){

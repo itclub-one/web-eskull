@@ -145,19 +145,25 @@ class dokumentasiController extends Controller
     public function deletedokumentasi($id)
     {
         $data = dokumentasi::find($id);
-        if (auth()->user()->id != $data['penyelenggara']) {
-            return redirect()->route('dokumentasi')->with('error', ' Data Gagal Di Delete');
+        if (auth()->user()->role != 'root') {
+            # code...
+            if (auth()->user()->id != $data['penyelenggara']) {
+                return redirect()->route('dokumentasi')->with('error', ' Data Gagal Di Delete');
+            }
         }
-        if (File_exists(public_path('images/dokumentasi/logo-dokumentasi' . $data->logo))) { //either you can use file path instead of $data->image
-            unlink(public_path('images/dokumentasi/logo-dokumentasi' . $data->logo)); //here you can also use path like as ('uploads/media/welcome/'. $data->image)
+        if (auth()->user()->role == 'root' || auth()->user()->id == $data['penyelenggara']) {
+            # code...
+            if (File_exists(public_path('images/dokumentasi/logo-dokumentasi' . $data->logo))) { //either you can use file path instead of $data->image
+                unlink(public_path('images/dokumentasi/logo-dokumentasi' . $data->logo)); //here you can also use path like as ('uploads/media/welcome/'. $data->image)
+            }
+            if (File_exists(public_path('images/dokumentasi/foto-kegiatan' . $data->foto_kegiatan))) { //either you can use file path instead of $data->image
+                unlink(public_path('images/dokumentasi/foto-kegiatan' . $data->foto_kegiatan)); //here you can also use path like as ('uploads/media/welcome/'. $data->image)
+            }
+            // unlink(public_path('images/dokumentasi/logo-dokumentasi'.$data->foto_kegiatan));
+            echo public_path('images/dokumentasi/logo-dokumentasi' . $data->foto_kegiatan);
+            echo public_path('images/dokumentasi/foto-kegiatan' . $data->foto_kegiatan);
+            $data->delete();
+            return redirect()->route('dokumentasi')->with('success', ' Data Berhasil Di Delete');
         }
-        if (File_exists(public_path('images/dokumentasi/foto-kegiatan' . $data->foto_kegiatan))) { //either you can use file path instead of $data->image
-            unlink(public_path('images/dokumentasi/foto-kegiatan' . $data->foto_kegiatan)); //here you can also use path like as ('uploads/media/welcome/'. $data->image)
-        }
-        // unlink(public_path('images/dokumentasi/logo-dokumentasi'.$data->foto_kegiatan));
-        echo public_path('images/dokumentasi/logo-dokumentasi' . $data->foto_kegiatan);
-        echo public_path('images/dokumentasi/foto-kegiatan' . $data->foto_kegiatan);
-        $data->delete();
-        return redirect()->route('dokumentasi')->with('success', ' Data Berhasil Di Delete');
     }
 }

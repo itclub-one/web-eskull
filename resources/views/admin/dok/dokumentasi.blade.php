@@ -95,10 +95,8 @@
                         
                          <td>
                           <a href="/editdokumentasi/{{$row->id}}" class="btn btn-warning">Edit</a>
-                          @if (auth()->user()->role == 'root')
                               
-                          <a href="#" class="btn btn-danger delete" data-id="{{$row->id}}" data-nama="{{$row->nama_dokumentasi}}"  id="delete">Delete</a>
-                          @endif
+                          <a href="#" class="btn btn-danger delete" data-id="{{$row->id}}" data-nama="{{$row->nama_kegiatan}}"  id="delete">Delete</a>
 
                         </td>
 
