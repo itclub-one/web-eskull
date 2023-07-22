@@ -143,8 +143,9 @@
                   <tbody>
                     @php
                         $no = 1;
+                        $sortedAnggota = $data->anggota->sortBy('kelas_anggota');
                     @endphp
-                    @foreach ($data->anggota as $row)
+                    @foreach ($sortedAnggota as $row)
                     <tr>
                         <td>{{$no++}}</td>
                         <td>{{$row->nis}}</td>

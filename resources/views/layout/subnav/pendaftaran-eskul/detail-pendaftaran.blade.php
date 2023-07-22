@@ -77,8 +77,9 @@
                       <tbody>
                         @php
                             $no = 1;
+                            $sortedPendaftaran = $data->pendaftaran->sortBy('jurusan');
                         @endphp
-                        @foreach ($data->pendaftaran as $row)
+                        @foreach ($sortedPendaftaran as $row)
                         <tr>
                             <td>{{$no++}}</td>
                             <td>{{$row->nis}}</td>
