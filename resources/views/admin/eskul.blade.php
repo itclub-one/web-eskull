@@ -98,7 +98,7 @@
                             <td>{{$no++}}</td>
                             {{-- @endif --}}
                         <td>{{$row->nama_eskul}}</td>
-                        <td>{{$row->sekbid }}</td>
+                        <td>{{$row->sekbid}}</td>
                         <td>
                           <img src="{{asset('images/logo-eskul/'.$row->logo)}}" width="70px" alt="">
                         </td>
@@ -175,7 +175,7 @@
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Sekbid</label>
-                  <input  type="text" class="form-control @error('sekbid') is-invalid @enderror" name="sekbid" id="exampleInputEmail1" placeholder="Masukan Sekbid berapa">
+                  <input  type="number" class="form-control @error('sekbid') is-invalid @enderror" name="sekbid" id="exampleInputEmail1" placeholder="Masukan Sekbid berapa">
                   @error('sekbid')
                   <span class="invalid-feedback">{{$message}}</span>
                 @enderror

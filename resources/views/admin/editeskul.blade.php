@@ -50,7 +50,7 @@
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Sekbid</label>
-                    <input type="text" class="form-control" value="{{$data->sekbid}}" name="sekbid" id="exampleInputEmail1" placeholder="Masukan Sekbid Berapa">
+                    <input type="number" class="form-control" value="{{$data->sekbid}}" name="sekbid" id="exampleInputEmail1" placeholder="Masukan Sekbid Berapa">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputFile">Logo Ekstrakurikuler</label>

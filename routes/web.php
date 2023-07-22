@@ -45,7 +45,7 @@ use App\Http\Controllers\userController;
 Route::get('/tentang-web-ini', function () {
     return view('layout.subnav.tentangkami.tentang-web-ini');
 });
-Route::get('/', [eskulController::class, 'eskul'])->name('eskul');
+Route::get('/', [eskulController::class, 'eskul'])->name('index');
 
 Route::get('/dokumentasi_', [dokumentasiController::class, 'dokumentasi'])->name('dokumentasi');
 Route::get('/dokumentasi/{slug}', [dokumentasiController::class, 'detail_dokumentasi'])->name('detail_dokumentasi');

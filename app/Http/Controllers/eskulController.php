@@ -41,7 +41,6 @@ class eskulController extends Controller
             'eskul',
         )) ;
     }
-    
     public function visimisisejarah(){
 
         $data = eskul::all();
@@ -65,7 +64,6 @@ class eskulController extends Controller
     public function insertdataeskul(Request $request){
         $request->validate([
             'nama_eskul' => 'required',
-            'slug' => 'required|unique:eskuls',
             'logo' => 'required',
             'pembina' => 'required',
             'ketua' => 'required',
@@ -75,8 +73,22 @@ class eskulController extends Controller
             'misi_eskul' => 'required',
             'program_kerja' => 'required',
             'nama_instagram' => 'required',
+            'sekbid' => 'required',
         ]);
-        $data = eskul::create($request->all());
+        $data = eskul::create([
+            'nama_eskul' => $request->nama_eskul,
+            'pembina' => $request->pembina,
+            'logo' => $request->logo,
+            'ketua' => $request->ketua,
+            'wakilketua' => $request->wakilketua,
+            'jadwal_kumpulan' => $request->jadwal_kumpulan,
+            'visi' => $request->visi,
+            'misi_eskul' => $request->misi_eskul,
+            'program_kerja' => $request->program_kerja,
+            'nama_instagram' => $request->nama_instagram,
+            'slug' => Str::slug($request->nama_kegiatan). '-' . uniqid(), // Tambahkan nilai slug
+        ]);
+        
         if($request->hasfile('logo')){
             $nama_baru = Str::random(10) . '.' . $request->file('logo')->extension();
             $request->file('logo')->move('images/logo-eskul/', $nama_baru);
