@@ -2,23 +2,44 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Str;
+use App\Models\eskul;
 use App\Models\berita;
+use Illuminate\Support\Str;
+use Illuminate\Http\Request;
 
 
 class beritaController extends Controller
 {
     public function index(Request $request ){
+        $userRole = auth()->user()->role;
 
-        
-        if($request->has('search')){
-            $data = berita::where('judul_berita','like', '%' .$request->search. '%')->paginate(5);
-        }else{
-            $data = berita::orderBy('tanggal_berita', 'DESC')->paginate(5);
+        // Base query to retrieve 'berita' data
+        $dataQuery = berita::query();
+    
+        if ($request->has('search')) {
+            // Search query for 'judul_berita' column
+            $searchTerm = '%' . $request->search . '%';
+            $dataQuery->where('judul_berita', 'like', $searchTerm);
         }
-        // dd($data);
-        return view('admin.news.berita', compact('data')) ;
+    
+        if ($userRole != 0) {
+            // Add condition to filter by 'id_eskul' if user's role is not '0' (admin)
+            $dataQuery->where('id_eskul', auth()->user()->id_eskul);
+        }
+    
+        // Retrieve paginated data (max 5 items per page)
+        $data = $dataQuery->orderBy('tanggal_berita', 'DESC')->paginate(5);
+    
+        if ($userRole == 0) {
+            // Get all 'eskul' records if user is admin
+            $data_eskul = eskul::all();
+        } else {
+            // Get 'eskul' record for the authenticated user
+            $eskul = eskul::find(auth()->user()->id_eskul);
+            $data_eskul = $eskul ? collect([$eskul]) : collect();
+        }
+    
+        return view('admin.news.berita', compact('data', 'data_eskul'));
     }
 
     public function berita(){
@@ -42,6 +63,10 @@ class beritaController extends Controller
             'tanggal_berita' => $request->tanggal_berita,
             'foto_berita' => $request->foto_berita,
             'slug_berita' => Str::slug($request->judul_berita). '-' . uniqid(), // Tambahkan nilai slug
+            'deskripsi' => $request->deskripsi,
+            'id_eskul' => $request->id_eskul,
+            'sub_judul' => Str::limit($request->judul_berita,30),
+            'sub_deskripsi' => Str::limit($request->deskripsi,100),
         ]);
         if($request->hasfile('foto_berita')){
             $nama_baru = Str::random(10) . '.' . $request->file('foto_berita')->extension();
@@ -55,12 +80,24 @@ class beritaController extends Controller
 
     public function editberita($id){
         $data = berita::find($id);
-        return view('admin.news.editberita', compact('data'));
+        if (auth()->user()->role == 0) {
+            // Get all 'eskul' records if user is admin
+            $data_eskul = eskul::all();
+        } else {
+            // Get 'eskul' record for the authenticated user
+            $eskul = eskul::find(auth()->user()->id_eskul);
+            $data_eskul = $eskul ? collect([$eskul]) : collect();
+        }
+        return view('admin.news.editberita', compact('data','data_eskul'));
     }
 
     public function updateberita(Request $request , $id){
         $data = berita::find($id);
         $data->slug_berita = Str::slug($request->get('judul_berita')) . '-' . uniqid();
+        $data->sub_deskripsi = Str::limit($request->deskripsi,100);
+        $data->sub_judul = Str::limit($request->judul_berita,30);
+
+
 
         if($request->hasfile('foto_berita')){
             if(File_exists(public_path('images/foto-berita/'.$data->foto_berita))){ //either you can use file path instead of $data->image

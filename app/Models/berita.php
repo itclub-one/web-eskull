@@ -18,4 +18,7 @@ class berita extends Model
             'slug_berita' => 'judul_berita'
         ];
     }
+    public function eskul(){
+        return $this->belongsTo(eskul::class  ,'id_eskul', 'id');
+    }
 }

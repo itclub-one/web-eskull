@@ -74,9 +74,18 @@
                         <img class="w-1/1 rounded-8" src="{{asset('images/foto-berita/'.$row->foto_berita)}}" alt="{{$row->foto_berita}}">
                       </div>
                       <div class="blogCard__content mt-20">
-                        <h4 class="blogCard__title text-20 lh-15 fw-500 mt-5">{{$row->judul_berita}}</h4>
-                        <div class="blogCard__date text-14 mt-5">{{\Carbon\Carbon::parse($row->tanggal_berita)->format('F d, Y')}}</div>
-                      </div>
+                        <h4 class="blogCard__title text-20 lh-15 fw-500 mt-5">{{$row->sub_judul}}</h4>
+                        <p class="blogCard__subtitle text-16">{{$row->sub_deskripsi}}</p> <!-- Tambahkan kode untuk menampilkan sub judul -->
+                        <div class="blogCard__author text-14">
+                          @if($row->eskul)
+                              <img class="rounded-8" width="20px" src="{{ asset('images/logo-eskul/'.$row->eskul->logo) }}" alt="">
+                              {{ $row->eskul->nama_eskul }}
+                          @else
+                              Unknown
+                          @endif
+                        </div>
+                          <div class="blogCard__date text-14 mt-2">{{\Carbon\Carbon::parse($row->tanggal_berita)->format('F d, Y')}}</div>
+                        </div>
                     </a>
                   </div>
                   @endforeach
@@ -89,8 +98,17 @@
                           <img class="w-1/1 rounded-8" src="{{asset('images/foto-berita/'.$row->foto_berita)}}" alt="{{$row->foto_berita}}">
                         </div>
                         <div class="blogCard__content mt-20">
-                          <h4 class="blogCard__title text-20 lh-15 fw-500 mt-5">{{$row->judul_berita}}</h4>
-                          <div class="blogCard__date text-14 mt-5">{{\Carbon\Carbon::parse($row->tanggal_berita)->format('F d, Y')}}</div>
+                        <h4 class="blogCard__title text-20 lh-15 fw-500 mt-5">{{$row->sub_judul}}</h4>
+                        <p class="blogCard__subtitle text-16">{{$row->sub_deskripsi}}</p> <!-- Tambahkan kode untuk menampilkan sub judul -->
+                        <div class="blogCard__author text-14">
+                          @if($row->eskul)
+                              <img class="rounded-8" width="20px" src="{{ asset('images/logo-eskul/'.$row->eskul->logo) }}" alt="">
+                              {{ $row->eskul->nama_eskul }}
+                          @else
+                              Unknown
+                          @endif
+                        </div>
+                          <div class="blogCard__date text-14 mt-2">{{\Carbon\Carbon::parse($row->tanggal_berita)->format('F d, Y')}}</div>
                         </div>
                       </a>
                     </div>
@@ -123,9 +141,18 @@
                         <img class="w-1/1 rounded-8" src="{{asset('images/foto-berita/'.$row->foto_berita)}}" alt="{{$row->foto_berita}}">
                       </div>
                       <div class="blogCard__content mt-20">
-                        <h4 class="blogCard__title text-20 lh-15 fw-500 mt-5">{{$row->judul_berita}}</h4>
-                        <div class="blogCard__date text-14 mt-5">{{\Carbon\Carbon::parse($row->tanggal_berita)->format('F d, Y')}}</div>
-                      </div>
+                        <h4 class="blogCard__title text-20 lh-15 fw-500 mt-5">{{$row->sub_judul}}</h4>
+                        <p class="blogCard__subtitle text-16">{{$row->sub_deskripsi}}</p> <!-- Tambahkan kode untuk menampilkan sub judul -->
+                        <div class="blogCard__author text-14">
+                          @if($row->eskul)
+                              <img class="rounded-8" width="20px" src="{{ asset('images/logo-eskul/'.$row->eskul->logo) }}" alt="">
+                              {{ $row->eskul->nama_eskul }}
+                          @else
+                              Unknown
+                          @endif
+                        </div>
+                          <div class="blogCard__date text-14 mt-2">{{\Carbon\Carbon::parse($row->tanggal_berita)->format('F d, Y')}}</div>
+                        </div>
                     </a>
                   </div>
                   @endforeach

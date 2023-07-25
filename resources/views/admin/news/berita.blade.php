@@ -60,8 +60,12 @@
                       <tr>
                         <th>no</th>
                         <th>Judul Berita</th>
+                        <th>Sub Judul</th>
                         <th>Foto berita</th>
+                        <th>Deskripsi</th>
+                        <th>Sub Deskripsi</th>
                         <th>Tanggal Berita</th>
+                        <th>Ekstrakurikuler</th>
                         <th>Aksi</th>
                       </tr>
                       </thead>
@@ -75,10 +79,21 @@
                       <tr>
                         <td>{{$no++}}</td>
                         <td>{{$row->judul_berita}}</td>
+                        <td>{{$row->sub_judul}}</td>
                         <td>
                           <img src="{{asset('images/foto-berita/'.$row->foto_berita)}}" width="200px" alt="">
                         </td>
+                        <td>{{$row->deskripsi}}</td>
+                        <td>{{$row->sub_deskripsi}}</td>
                         <td>{{$row->tanggal_berita}}</td>
+                        <td>
+                          @if($row->eskul)
+                              <img src="{{ asset('images/logo-eskul/'.$row->eskul->logo) }}" width="200px" alt="">
+                              {{ $row->eskul->nama_eskul }}
+                          @else
+                              No Eskul Data Available
+                          @endif
+                      </td>
                         
 
                         
@@ -140,6 +155,18 @@
                   <div class="form-group">
                     <label for="exampleInputPassword1">Tanggal Berita</label>
                     <input required type="date" class="form-control" name="tanggal_berita" id="exampleInputPassword1" placeholder="Masukan Tanggal Berita">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Deskripsi</label>
+                    <textarea required name="deskripsi" class="form-control" id="exampleInputEmail1" cols="30" rows="10"></textarea>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Ekstrakurikuler</label>
+                    <select required name="id_eskul" class="form-control" id="exampleInputEmail1">
+                      @foreach ($data_eskul as $row)
+                      <option value="{{$row->id}}">{{$row->nama_eskul}}</option>
+                      @endforeach
+                    </select>
                   </div>
                   
 

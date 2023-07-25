@@ -53,6 +53,19 @@
                     <label for="exampleInputPassword1">Tanggal Berita</label>
                     <input type="text" class="form-control" value="{{$data->tanggal_berita}}" name="tanggal_berita" id="exampleInputPassword1" placeholder="Masukan Tanggal Berita">
                   </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Deskripsi</label>
+                    <textarea required name="deskripsi" class="form-control" id="exampleInputEmail1" cols="30" rows="10">{{$data->deskripsi}}</textarea>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Ekstrakurikuler</label>
+                    <select required name="id_eskul" class="form-control" id="exampleInputEmail1">
+                      <option selected value="{{$data->id_eskul}}">{{$data->eskul->nama_eskul}}</option>
+                      @foreach ($data_eskul as $row)
+                      <option value="{{$row->id}}">{{$row->nama_eskul}}</option>
+                      @endforeach
+                    </select>
+                  </div>
                   
                 </div>
                 <!-- /.card-body -->
