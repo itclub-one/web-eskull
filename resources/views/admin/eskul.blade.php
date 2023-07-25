@@ -56,7 +56,7 @@
                   <div class="table-data">
                     <div class="order">
                       <div class="head">
-                        @if (auth()->user()->role=='root')
+                        @if (auth()->user()->role== 0)
                         <div class="form-group col-lg-4 col-8">
                           <form action="administrator" method="GET">
                             <input  type="search" class="form-control" name="search"  placeholder="Cari Nama Ekstrakurikuler">
@@ -64,7 +64,10 @@
                         </div>
                         @endif
                       </div>
+                      @if (auth()->user()->role== 0)
                       <a href="#tambahdata" class="btn btn-primary mb-3">Tambah Data</a>
+                      @endif
+                      
                       <table id="example2" class="table table-bordered table-hover">
                         <thead>
                           <tr>
@@ -81,7 +84,7 @@
                         <th>Program Kerja</th>
                         <th>Instagram</th>
                         
-                        <th>Aksi</th>
+                        <th @if(auth()->user()->role == 0)colspan="2"@endif>Aksi</th>
                           </tr>
                         </thead>
 
@@ -92,7 +95,7 @@
                           
                           @foreach ($eskul as $index => $row)
                           <tr>
-                            {{-- @if (auth()->user()->role=='root') --}}
+                            {{-- @if (auth()->user()->role== 0) --}}
                             {{-- <td>{{$index + $eskul->firstitem()}}</td> --}}
                             {{-- @else --}}
                             <td>{{$no++}}</td>
@@ -115,8 +118,15 @@
                         
                         <td>
                           <a href="/editeskul/{{$row->id}}" class="btn btn-warning">Edit</a>
-                          @if (auth()->user()->role=='root')
+                          @if (auth()->user()->role== 0)
                           <a href="#" class="btn btn-danger delete" data-id="{{$row->id}}" data-nama="{{$row->nama_eskul}}"  id="delete">Delete</a>
+                          <td>
+                            <form action="/registerusernew/{{$row->id}}" method="post">
+                              @csrf
+                              <button type="submit" class="btn btn-secondary">Tambah User</button>
+                            </form>
+                          </td>
+                          
                           @endif
                         </td>
                           </tr>
@@ -124,7 +134,7 @@
                             @endforeach
                         </tbody>
                       </table>
-                      @if (auth()->user()->role=='root')
+                      @if (auth()->user()->role== 0)
                       <div class="linkss mt-3">
                         {{$eskul->links()}}
                       </div>
@@ -147,7 +157,7 @@
       </section>
 
 
-      @if (auth()->user()->role=='root')
+      @if (auth()->user()->role== 0)
       
       <div id="tambahdata" class="container-fluid">
         <div class="row">

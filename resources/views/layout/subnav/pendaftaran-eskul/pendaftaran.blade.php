@@ -72,7 +72,24 @@
           <div class="px-40 py-40 bg-white border-light shadow-1 rounded-8 contact-form-to-top">
             <h3 class="text-24 fw-500">Masukan Data anda</h3>
             <p class="mt-25">Pilih Ekstrakurikuler sesuai dengan kemauan anda</p>
-
+            @if ($message = Session::get('success'))
+            <div  style="width: 500px">
+              <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                <i type="button" class="fa-solid fa-xmark mx-2" style="color: black; "  data-bs-dismiss="alert" aria-label="Close">
+                </i>
+                <p><strong>Success! </strong>{{$message}}</p>
+              </div>
+            </div>
+            @endif
+            @if ($message = Session::get('error'))
+            <div  style="width: 500px">
+              <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <i type="button" class="fa-solid fa-xmark mx-2" style="color: black; "  data-bs-dismiss="alert" aria-label="Close">
+                </i>
+                <p><strong>Error! </strong>{{$message}}</p>
+              </div>
+            </div>
+            @endif
             
                 @foreach ($on as $item)
                 @if ($item->on == 1)
@@ -106,7 +123,7 @@
               </div>
               <div class="form-group col-12">
                 <label class="text-16 lh-1 fw-500 text-dark-1 mb-10">Nomor Whatsapp</label>
-                <input class="form-check-input @error('no_wa') is-invalid @enderror" type="number" name="no_wa" placeholder="Nomor Whatsapp Siswa ">
+                <input class="form-check-input @error('no_wa') is-invalid @enderror" type="text" name="no_wa" placeholder="Nomor Whatsapp Siswa ">
                 @error('no_wa')
                       <span class="invalid-feedback">{{$message}}</span>
                   @enderror

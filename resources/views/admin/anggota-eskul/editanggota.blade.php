@@ -92,11 +92,9 @@
                     <select class="custom-select rounded-0" name="id_eskul" id="exampleSelectRounded0">
                       @foreach ($data_eskul as $row)
                       
-                      @if (auth()->user()->role=='root' || $currentRole['eskul_id'] == $row->id)<!-- Perlihatkan eskul jika user adalah root atau user memiliki eskul tersebut -->
                       <option selected value="{{$data->id_eskul}}">{{$data->eskul->nama_eskul}}</option>
                       
                       <option value="{{$row->id}}">{{$row->nama_eskul}}</option>
-                      @endif
                       @endforeach
                         
                     </select>

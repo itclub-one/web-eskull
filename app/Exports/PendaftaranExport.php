@@ -14,7 +14,7 @@ class PendaftaranExport implements FromCollection, WithMapping, WithHeadings, Sh
 {
     public function collection()
     {
-        if (auth()->user()->role == 'root') {
+        if (auth()->user()->role == 0) {
             $filteredPendaftaran = pendaftaran::all()->sortBy([
                 ['id_eskul', 'asc'],
                 ['kelas_calon_anggota', 'asc'],
@@ -23,7 +23,7 @@ class PendaftaranExport implements FromCollection, WithMapping, WithHeadings, Sh
 
             return $filteredPendaftaran;
         } else {
-            $filteredPendaftaran = pendaftaran::where('id_eskul', '=', auth()->user()->id)
+            $filteredPendaftaran = pendaftaran::where('id_eskul', '=', auth()->user()->id_eskul)
                 ->orderBy('kelas_calon_anggota')
                 ->orderBy('nama_calon_anggota')
                 ->get();
@@ -34,7 +34,7 @@ class PendaftaranExport implements FromCollection, WithMapping, WithHeadings, Sh
 
     public function map($pendaftaran): array
     {
-        if (auth()->user()->role == 'root') {
+        if (auth()->user()->role == 0) {
             return [
                 // Data yang diambil dari kolom tabel database
                 $pendaftaran->nis,
@@ -61,7 +61,7 @@ class PendaftaranExport implements FromCollection, WithMapping, WithHeadings, Sh
 
     public function headings(): array
     {
-        if (auth()->user()->role == 'root') {
+        if (auth()->user()->role == 0) {
             return [
             'NIS',
             'NAMA',

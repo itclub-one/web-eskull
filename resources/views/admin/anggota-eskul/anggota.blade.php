@@ -104,7 +104,9 @@
                         
                         <td>
                           <a href="/editanggota/{{$row->id}}" class="btn btn-warning">Edit</a>
+                          @if (auth()->user()->role != 0)
                           <a href="#" class="btn btn-danger delete" data-id="{{$row->id}}" data-nama="{{$row->nama_anggota}}"  id="delete">Delete</a>
+                          @endif
 
                         </td>
 
@@ -131,9 +133,6 @@
                     
                   </table>
 
-                  {{-- @if (auth()->user()->role == 'root')
-                      
-                  @endif --}}
                   <div class="linkss mt-3">
                     {{$anggota->links()}}
                   </div>
@@ -230,11 +229,7 @@
                     <label for="exampleInputPassword1">Nama Ekstrakurikuler</label>
                     <select class="custom-select rounded-0 @error('id_eskul') is-invalid @enderror" name="id_eskul" id="exampleSelectRounded0">
                       @foreach ($data_eskul as $row)
-                      
-                      @if (auth()->user()->role=='root' || $currentRole['eskul_id'] == $row->id)<!-- Perlihatkan eskul jika user adalah root atau user memiliki eskul tersebut -->
-                      
                       <option value="{{$row->id}}">{{$row->nama_eskul}}</option>
-                      @endif
                       @endforeach
                         
                     </select>

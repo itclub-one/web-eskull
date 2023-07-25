@@ -17,28 +17,31 @@ class anggotaController extends Controller
     public function index(Request $request)
     {
         $anggota = null;
-        $data_eskul = eskul::all();
-        $currentRole = role::where("role", "=", auth()->user()->role)->first();
-
-        if ($request->has('search')) {
-            if (auth()->user()->role == "root") {
-                $anggota = anggota::where('nama_anggota', 'like', '%' . $request->search . '%')
-                    ->orWhere('id_eskul', 'like', '%' . $request->search . '%')->paginate(5);
-            } else {
-                $anggota = anggota::where('id_eskul', '=', $currentRole['eskul_id'])->where('nama_anggota', 'like', '%' . $request->search . '%')
-                    ->orWhere('id_eskul', 'like', '%' . $request->search . '%')->paginate(5);
-            }
+        if (auth()->user()->role == 0) {
+            // Check if the eskul record with the given id exists
+            $data_eskul = eskul::all();
         } else {
-            if (auth()->user()->role == "root") {
-                $anggota = anggota::paginate(10);
-            } else {
-
-                $anggota = anggota::where('id_eskul', '=', $currentRole['eskul_id'])->paginate(10);
-            }
+            $eskul = eskul::where('id','=',auth()->user()->id_eskul)->first();
+            $data_eskul = collect([$eskul]);
         }
 
+        if ($request->has('search')) {
+            $query = anggota::where('nama_anggota', 'like', '%' . $request->search . '%');
+            if (auth()->user()->role != 0) {
+                $query->where('id_eskul', auth()->user()->id_eskul);
+            }
+            $anggota = $query->paginate(5);
+        } else {
+            if (auth()->user()->role == 0) {
+                $anggota = anggota::paginate(10);
+            } else {
+                $anggota = anggota::where('id_eskul', auth()->user()->id_eskul)->paginate(10);
+            }
+        }
+        
+
         // dd($data);
-        return view('admin.anggota-eskul.anggota', compact('anggota', 'data_eskul', 'currentRole'));
+        return view('admin.anggota-eskul.anggota', compact('anggota', 'data_eskul'));
     }
 
     public function anggota()
@@ -60,7 +63,7 @@ class anggotaController extends Controller
     public function insertdataanggota(Request $request)
     {
         $request->validate([
-            'nis' => 'required|unique:anggotas',
+            'nis' => 'required',
             'nama_anggota' => 'required',
             'kelas_anggota' => 'required',
             'jurusan' => 'required',
@@ -73,10 +76,16 @@ class anggotaController extends Controller
 
     public function editanggota($id)
     {   
-        $currentRole = role::where("role", "=", auth()->user()->role)->first();
         $data = anggota::find($id);
-        $data_eskul = eskul::all();
-        return view('admin.anggota-eskul.editanggota', compact('data', 'data_eskul','currentRole'));
+        if (auth()->user()->role == 0) {
+            $data_eskul = eskul::all();
+            # code...
+        } else {
+            $data_eskul = eskul::where('id','=',auth()->user()->id_eskul)->first();
+            # code...
+        }
+        
+        return view('admin.anggota-eskul.editanggota', compact('data', 'data_eskul'));
     }
 
     public function updateanggota(Request $request, $id)

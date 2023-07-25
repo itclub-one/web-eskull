@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Str;
-use Illuminate\Support\Facades\DB;
-use App\Models\eskul;
 use App\Models\role;
-use App\Models\dokumentasi;
+use App\Models\User;
+use App\Models\eskul;
 use App\Models\berita;
+use App\Models\dokumentasi;
+use Illuminate\Support\Str;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 
 class eskulController extends Controller
@@ -17,22 +18,21 @@ class eskulController extends Controller
 
         $eskul = null;
         $data_eskul = eskul::all();
-        $currentRole = role::where("role", "=", auth()->user()->role)->first();
 
         if ($request->has('search')) {
-            if (auth()->user()->role == "root") {
+            if (auth()->user()->role == 0) {
                 $eskul = eskul::where('nama_eskul', 'like', '%' . $request->search . '%')
                     ->orWhere('slug', 'like', '%' . $request->search . '%')->paginate(5);
             } else {
-                $eskul = eskul::where('id_eskul', '=', $currentRole['eskul_id'])->where('nama_eskul', 'like', '%' . $request->search . '%')
+                $eskul = eskul::where('id_eskul', '=', auth()->user()->id_eskul)->where('nama_eskul', 'like', '%' . $request->search . '%')
                     ->orWhere('id', 'like', '%' . $request->search . '%')->paginate(5);
             }
         } else {
-            if (auth()->user()->role == "root") {
+            if (auth()->user()->role == 0) {
                 $eskul = eskul::paginate(2);
             } else {
 
-                $eskul = eskul::where('id', '=', $currentRole['eskul_id'])->get();
+                $eskul = eskul::where('id', '=', auth()->user()->id_eskul)->get();
             }
         }
         
@@ -77,6 +77,7 @@ class eskulController extends Controller
         ]);
         $data = eskul::create([
             'nama_eskul' => $request->nama_eskul,
+            'sekbid' => $request->sekbid,
             'pembina' => $request->pembina,
             'logo' => $request->logo,
             'ketua' => $request->ketua,
@@ -86,7 +87,7 @@ class eskulController extends Controller
             'misi_eskul' => $request->misi_eskul,
             'program_kerja' => $request->program_kerja,
             'nama_instagram' => $request->nama_instagram,
-            'slug' => Str::slug($request->nama_kegiatan). '-' . uniqid(), // Tambahkan nilai slug
+            'slug' => Str::slug($request->nama_eskul). '-' . uniqid(), // Tambahkan nilai slug
         ]);
         
         if($request->hasfile('logo')){
@@ -127,7 +128,7 @@ class eskulController extends Controller
 
     public function deleteeskul($id){
         $data = eskul::find($id);
-        if (auth()->user()->role != 'root') {
+        if (auth()->user()->role != 0) {
             return redirect()->route('eskul')->with('error', ' Data Gagal Di Delete');
         }
         if(File_exists(public_path('images/logo-eskul/'.$data->logo))){ //either you can use file path instead of $data->image

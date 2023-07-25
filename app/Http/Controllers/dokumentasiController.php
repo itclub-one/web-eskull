@@ -12,31 +12,42 @@ class dokumentasiController extends Controller
 {
     public function index(Request $request)
     {
-        $currentRole = role::where("role", "=", auth()->user()->role)->first();
 
-        if (auth()->user()->role == "root") {
-            if ($request->has('search')) {
-                $data = dokumentasi::where('nama_kegiatan', 'like', '%' . $request->search . '%')->paginate(5);
-                $data = dokumentasi::orWhere('penyelenggara', 'like', '%' . $request->search . '%')->paginate(5);
-                // dd($data);
-                $data_eskul = eskul::all();
-            } else {
-                $data = dokumentasi::orderBy('id', 'DESC')->paginate(5);
-                $data_eskul = eskul::all();
-            }
-        } else {
-            if ($request->has('search')) {
-                $data = dokumentasi::where('nama_kegiatan', 'like', '%' . $request->search . '%')->where("penyelenggara", "=", auth()->user()->id)->paginate(5);
-                $data = dokumentasi::orWhere('penyelenggara', 'like', '%' . $request->search . '%')->where("penyelenggara", "=", auth()->user()->id)->paginate(5);
-                // dd($data);
-                $data_eskul = eskul::all();
-            } else {
-                $data = dokumentasi::where("penyelenggara", "=", auth()->user()->id)->orderBy('id', 'DESC')->paginate(5);
-                $data_eskul = eskul::all();
-            }
+        // Assuming 'dokumentasi' and 'eskul' are the correct model names
+
+        // Get the authenticated user's role
+        $userRole = auth()->user()->role;
+
+        // Base query to retrieve 'dokumentasi' data
+        $dataQuery = dokumentasi::query();
+
+        if ($request->has('search')) {
+            // Search query for 'nama_kegiatan' and 'penyelenggara' columns
+            $searchTerm = '%' . $request->search . '%';
+            $dataQuery->where(function ($query) use ($searchTerm) {
+                $query->where('nama_kegiatan', 'like', $searchTerm)
+                    ->orWhere('penyelenggara', 'like', $searchTerm);
+            });
         }
+
+        if ($userRole != 0) {
+            // Add condition to filter by 'penyelenggara' if user's role is not '0' (admin)
+            $dataQuery->where('penyelenggara', auth()->user()->id_eskul);
+        }
+
+        // Retrieve paginated data (max 5 items per page)
+        $data = $dataQuery->orderBy('id', 'DESC')->paginate(5);
+
+        if ($userRole == 0) {
+            // Check if the eskul record with the given id exists
+            $data_eskul = eskul::all();
+        } else {
+            $eskul = eskul::where('id','=',auth()->user()->id_eskul)->first();
+            $data_eskul = collect([$eskul]);
+        }
+
         // dd($data);
-        return view('admin.dok.dokumentasi', compact('data', 'data_eskul', 'currentRole'));
+        return view('admin.dok.dokumentasi', compact('data', 'data_eskul'));
     }
 
     public function dok()
@@ -145,13 +156,13 @@ class dokumentasiController extends Controller
     public function deletedokumentasi($id)
     {
         $data = dokumentasi::find($id);
-        if (auth()->user()->role != 'root') {
+        if (auth()->user()->role != 0) {
             # code...
-            if (auth()->user()->id != $data['penyelenggara']) {
+            if (auth()->user()->id_eskul != $data['penyelenggara']) {
                 return redirect()->route('dokumentasi')->with('error', ' Data Gagal Di Delete');
             }
         }
-        if (auth()->user()->role == 'root' || auth()->user()->id == $data['penyelenggara']) {
+        if (auth()->user()->role == 0 || auth()->user()->id_eskul == $data['penyelenggara']) {
             # code...
             if (File_exists(public_path('images/dokumentasi/logo-dokumentasi' . $data->logo))) { //either you can use file path instead of $data->image
                 unlink(public_path('images/dokumentasi/logo-dokumentasi' . $data->logo)); //here you can also use path like as ('uploads/media/welcome/'. $data->image)

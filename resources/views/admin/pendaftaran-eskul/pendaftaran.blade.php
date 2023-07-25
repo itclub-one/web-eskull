@@ -47,6 +47,15 @@
                       </div>
                     </div>
                     @endif
+                    @if ($message = Session::get('error'))
+                    <div  style="width: 500px">
+                      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <i type="button" class="fa-solid fa-xmark mx-2" style="color: black; "  data-bs-dismiss="alert" aria-label="Close">
+                        </i>
+                        <strong>{{$message}}</strong>
+                      </div>
+                    </div>
+                    @endif
                     <div class="head">
                       <div class="form-group col-lg-4 col-8">
                         <form action="pendaftaran-eskul" method="GET">
@@ -57,7 +66,7 @@
                     @foreach ($on as $row)
                     <div class="d-flex">
                       <a href="/pendaftaran-eskul/export-excel" class="btn btn-success mb-2">Export Excel</a>
-                      @if (auth()->user()->role=='root')
+                      @if (auth()->user()->role==0)
                       @if ($row->on == 0)
                       <form action="/add-pendaftaran/{{$row->id}}" class="mb-2 mx-3" method="post">
                         @csrf
@@ -117,8 +126,17 @@
                         <td>
                           
                           
-                          
-                          <a href="/editpendaftaran/{{$row->id}}" class="btn btn-warning terima" >Terima</a>
+                          <form action="/insertdatapendaftarantopendaftaran/{{$row->id}}" method="post">
+                            @csrf
+                                <input type="hidden" value="{{$row->nama_calon_anggota}}" name="nama_anggota" >
+                                <input type="hidden" value="{{$row->kelas_calon_anggota}}" name="kelas_anggota">
+                                <input type="hidden" value="{{$row->jurusan}}" name="jurusan">
+                                <input type="hidden" value="{{$row->nis}}" name="nis">
+                                <input type="hidden" value="{{$row->email}}" name="email">
+                                <input type="hidden" value="{{$row->no_wa}}" name="no_wa">
+                                <input type="hidden" value="{{$row->id_eskul}}" name="id_eskul">
+                                <button type="submit" class="btn btn-warning terima" >Terima</button>
+                          </form>
                           <a href="#" class="btn btn-danger delete" data-id="{{$row->id}}" data-nama="{{$row->nama_calon_anggota}}"  id="delete">Tidak diterima</a>
                           
                         </td>
@@ -138,7 +156,7 @@
                     
                     
                   </table>
-                  @if (auth()->user()->role == "root")
+                  @if (auth()->user()->role == 0)
                   
                   <div class="linkss mt-3">
                     {{$pendaftaran->links()}}

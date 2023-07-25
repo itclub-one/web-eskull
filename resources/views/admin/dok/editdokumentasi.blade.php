@@ -50,11 +50,9 @@
                     <img src="{{asset('images/logo-eskul/'.$data->eskul->logo)}}" alt="{{$data->eskul->logo}}" width="100px" class="d-block mb-2">
                     <select class="custom-select rounded-0" name="penyelenggara" id="exampleSelectRounded0">
                       <option selected value="{{$data->penyelenggara}}">{{$data->eskul->nama_eskul}}</option>
-                    @if (auth()->user()->role == "root") 
                       @foreach ($data_eskul as $data)
                       <option value="{{$data->id}}">{{$data->nama_eskul}}</option>
                       @endforeach
-                    @endif
                     </select>
                     {{-- <input required type="text" class="form-control" name="penyelenggara" id="exampleInputPassword1" placeholder="Masukan Penyelenggara"> --}}
                 </div>

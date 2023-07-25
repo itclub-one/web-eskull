@@ -157,9 +157,7 @@
                         <select class="custom-select rounded-0 @error('penyelenggara') is-invalid @enderror" name="penyelenggara" id="exampleSelectRounded0">
                          
                           @foreach ($data_eskul as $row)
-                          @if (auth()->user()->role=='root' || $currentRole['eskul_id'] == $row->id)<!-- Perlihatkan eskul jika user adalah root atau user memiliki eskul tersebut -->
                           <option value="{{$row->id}}">{{$row->nama_eskul}}</option>
-                          @endif
                           @endforeach
                         </select>
                         @error('penyelenggara')

@@ -64,7 +64,7 @@
           </p>
         </a>
       </li>
-      @if(auth()->user()->role=='root')
+      @if(auth()->user()->role == 0)
         <li class="nav-item">
           <a href="/kepsek" class="nav-link {{request()->is('kepsek') ? 'active' : ''}}">
             <i class="nav-icon fas fa-th"></i>

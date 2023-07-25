@@ -19,22 +19,21 @@ class pendaftaranController extends Controller
         $pendaftaran = null;
         $data_eskul = eskul::all();
         $on = administrator::all();
-        $currentRole = role::where("role", "=", auth()->user()->role)->first();
 
         if ($request->has('search')) {
-            if (auth()->user()->role == "root") {
+            if (auth()->user()->role == 0) {
                 $pendaftaran = pendaftaran::where('nama_calon_anggota', 'like', '%' . $request->search . '%')
                     ->orWhere('id_eskul', 'like', '%' . $request->search . '%')->paginate(5);
             } else {
-                $pendaftaran = pendaftaran::where('id_eskul', '=', $currentRole['eskul_id'])->where('nama_calon_anggota', 'like', '%' . $request->search . '%')
+                $pendaftaran = pendaftaran::where('id_eskul', '=', auth()->user()->id_eskul)->where('nama_calon_anggota', 'like', '%' . $request->search . '%')
                     ->orWhere('id_eskul', 'like', '%' . $request->search . '%')->paginate(5);
             }
         } else {
-            if (auth()->user()->role == "root") {
+            if (auth()->user()->role == 0) {
                 $pendaftaran = pendaftaran::paginate(10);
             } else {
 
-                $pendaftaran = pendaftaran::where('id_eskul', '=', $currentRole['eskul_id'])->get();
+                $pendaftaran = pendaftaran::where('id_eskul', '=', auth()->user()->id_eskul)->get();
             }
         }
         // dd($data);
@@ -69,29 +68,43 @@ class pendaftaranController extends Controller
 
     public function insertdatapendaftaran(Request $request){
         $request->validate([
-            'nis' => 'required|unique:pendaftarans',
+            'nis' => 'required',
             'nama_calon_anggota' => 'required',
             'kelas_calon_anggota' => 'required',
             'jurusan' => 'required',
             'id_eskul' => 'required',
             'alasan' => 'required',
-            'email' => 'required|unique:pendaftarans',
-            'no_wa' => 'required',
+            'email' => 'required',
+            'no_wa' => 'required|numeric',
         ]);
+        $exist = pendaftaran::where('id_eskul','=',$request->id_eskul)->where('nis','=',$request->nis)->first();
+        $eskul = eskul::where('id','=',$request->id_eskul)->first();
+        if ($exist) {
+            # code...
+            return back()->with('error','Anda tidak bisa daftar dua kali di ekstrakurikuler '.$eskul->nama_eskul);
+        }
         $data = pendaftaran::create($request->all());
         
         $data->save();
-        return redirect()->route('list_eskul')->with('success',' Data Berhasil Di Tambahkan');
+        return redirect()->route('pendaftaran_eskul')->with('success',' Anda telah mendaftar ekstrakurikuler '. $eskul->nama_eskul);
     }
     public function export() 
     {
         return Excel::download(new PendaftaranExport, 'Pendaftaran-eskul.xlsx');
     }
-    public function insertdatapendaftarantopendaftaran(Request $request){
+    public function insertdatapendaftarantopendaftaran(Request $request,$id){
+        $pendaftar = pendaftaran::find($id);
+        $eskul = eskul::where('id','=',$pendaftar->id_eskul)->first();
+        $exist = anggota::where('id_eskul', '=', $pendaftar->id_eskul)->where('nis','=',$pendaftar->nis)->first();
+        if ($exist->count() > 0) {
+            $pendaftar->delete();
 
+            return back()->with('error','Data Sudah terdaftar diekstrakurikuler '.$eskul->nama_eskul);
+        }
         $data = anggota::create($request->all());
         
         $data->save();
+        $pendaftar->delete();
         return redirect()->route('pendaftaran')->with('success',' Data Berhasil Di Pindahkan ke Anggota');
     }
     public function add_pendaftaran(Request $request , $id){

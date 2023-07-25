@@ -92,6 +92,7 @@ Route::get('/logout', [authController::class, 'logout'])->name('logout');
     Route::get('edituser/editpassword/backtoedituser/{id}', [userController::class, 'backtoedituser'])->name('backtoedituser');
     
     
+    Route::post('/registerusernew/{id}', [userController::class, 'registerusernew'])->name('registerusernew');
 
 
 
@@ -113,7 +114,7 @@ Route::get('/logout', [authController::class, 'logout'])->name('logout');
        Route::get('/pendaftaran-eskul', [pendaftaranController::class, 'index'])->name('pendaftaran')->middleware('auth');
        Route::post('/add-pendaftaran/{id}', [pendaftaranController::class, 'add_pendaftaran'])->name('add_pendaftaran')->middleware('auth');
        Route::post('/insertdatapendaftaran', [pendaftaranController::class, 'insertdatapendaftaran'])->name('insertdatapendaftaran');
-       Route::post('/insertdatapendaftarantopendaftaran', [pendaftaranController::class, 'insertdatapendaftarantopendaftaran'])->name('insertdatapendaftarantopendaftaran');
+       Route::post('/insertdatapendaftarantopendaftaran/{id}', [pendaftaranController::class, 'insertdatapendaftarantopendaftaran'])->name('insertdatapendaftarantopendaftaran');
        
        Route::get('/editpendaftaran/{id}', [pendaftaranController::class, 'editpendaftaran'])->name('editpendaftaran')->middleware('auth');
        Route::post('/updatependaftaran/{id}', [pendaftaranController::class, 'updatependaftaran'])->name('updatependaftaran');

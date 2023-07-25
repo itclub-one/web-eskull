@@ -14,7 +14,7 @@ class AnggotaExport implements FromCollection, WithMapping, WithHeadings, Should
 {
     public function collection()
     {
-        if (auth()->user()->role == 'root') {
+        if (auth()->user()->role == 0) {
             $filteredAnggota = anggota::all()->sortBy([
                 ['id_eskul', 'asc'],
                 ['kelas_anggota', 'asc'],
@@ -22,17 +22,17 @@ class AnggotaExport implements FromCollection, WithMapping, WithHeadings, Should
 
             return $filteredAnggota;
         } else {
-            $filteredAnggota = anggota::where('id_eskul', '=', auth()->user()->id)
+            $filteredAnggota = anggota::where('id_eskul', '=', auth()->user()->id_eskul)
                 ->orderBy('kelas_anggota')
                 ->get();
 
-            return $filteredAnggota;
+            return$filteredAnggota ;
         }
     }
 
     public function map($anggota): array
     {
-        if (auth()->user()->role == 'root') {
+        if (auth()->user()->role == 0) {
             return [
                 // Data yang diambil dari kolom tabel database
                 $anggota->nis,
@@ -57,7 +57,7 @@ class AnggotaExport implements FromCollection, WithMapping, WithHeadings, Should
 
     public function headings(): array
     {
-        if (auth()->user()->role == 'root') {
+        if (auth()->user()->role == 0) {
             return [
                 'NIS',
                 'NAMA',

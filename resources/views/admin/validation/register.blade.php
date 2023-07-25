@@ -57,9 +57,14 @@
                     <input type="text" class="form-control"  name="password" id="exampleInputPassword1" placeholder="Masukan Password">
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputPassword1">Role</label>
-                    <input type="text" class="form-control"  name="role" id="exampleInputPassword1" placeholder="Masukan Role">
-                  </div>
+                    <label for="role">Role</label>
+                    <select class="form-control" name="role" id="role">
+                      <option value="">Select this one</option>
+                      @foreach ($role as $row)
+                      <option value="{{$row->id}}">{{$row->role}}</option>
+                      @endforeach
+                    </select>
+                </div>
                   <div class="form-group">
                       <label for="exampleInputFile">Foto User</label>
                       <input type="file" class="form-control"   name="foto" >
