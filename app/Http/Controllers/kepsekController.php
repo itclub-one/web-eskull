@@ -28,6 +28,11 @@ class kepsekController extends Controller
     }
 
     public function insertdatakepsek(Request $request){
+        $existingCount = kepsek::count();
+    
+        if ($existingCount > 0) {
+            return redirect()->route('kepsek')->with('error', 'Data tidak bisa di upload. Karena sudah ada data');
+        }
         $data = kepsek::create($request->all());
         if($request->hasfile('foto_kepsek')){
             $nama_baru = Str::random(10) . '.' . $request->file('foto_kepsek')->extension();

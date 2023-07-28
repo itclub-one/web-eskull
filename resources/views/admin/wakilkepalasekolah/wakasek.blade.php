@@ -42,6 +42,15 @@
                       </div>
                     </div>
                     @endif
+                    @if ($message = Session::get('error'))
+                  <div  style="width: 500px">
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                      <i type="button" class="fa-solid fa-xmark mx-2" style="color: black; "  data-bs-dismiss="alert" aria-label="Close">
+                      </i>
+                      <strong>{{$message}}</strong>
+                    </div>
+                  </div>
+                  @endif
                     
                     <a href="#tambahdata" class="btn btn-primary mb-3">Tambah Data</a>
                   <table id="example2" class="table table-bordered table-hover">
