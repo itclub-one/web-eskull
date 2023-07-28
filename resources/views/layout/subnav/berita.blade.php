@@ -71,20 +71,20 @@
                   <div data-anim-child="slide-up delay-4" class="col-lg-8 md:d-none">
                     <a href="news/{{$row->slug_berita}}" class="blogCard -type-1 texttt">
                       <div class="blogCard__image">
-                        <img class="w-1/1 rounded-8" src="{{asset('images/foto-berita/'.$row->foto_berita)}}" alt="{{$row->foto_berita}}">
+                        <img class="w-1/1 rounded-8" src="{{asset('images/foto-berita/'.$row->foto_berita ?? 'N/A')}}" alt="{{$row->foto_berita ?? 'N/A'}}">
                       </div>
                       <div class="blogCard__content mt-20">
-                        <h4 class="blogCard__title text-20 lh-15 fw-500 mt-5">{{$row->sub_judul}}</h4>
-                        <p class="blogCard__subtitle text-16">{{$row->sub_deskripsi}}</p> <!-- Tambahkan kode untuk menampilkan sub judul -->
+                        <h4 class="blogCard__title text-20 lh-15 fw-500 mt-5">{{$row->sub_judul ?? 'N/A'}}</h4>
+                        <p class="blogCard__subtitle text-16">{{$row->sub_deskripsi ?? 'N/A'}}</p> <!-- Tambahkan kode untuk menampilkan sub judul -->
                         <div class="blogCard__author text-14">
                           @if($row->eskul)
-                              <img class="rounded-8" width="20px" src="{{ asset('images/logo-eskul/'.$row->eskul->logo) }}" alt="">
-                              {{ $row->eskul->nama_eskul }}
+                              <img class="rounded-8" width="20px" src="{{ asset('images/logo-eskul/'.$row->eskul->logo ?? 'N/A') }}" alt="">
+                              {{ $row->eskul->nama_eskul  ?? 'N/A'}}
                           @else
                               Unknown
                           @endif
                         </div>
-                          <div class="blogCard__date text-14 mt-2">{{\Carbon\Carbon::parse($row->tanggal_berita)->format('F d, Y')}}</div>
+                          <div class="blogCard__date text-14 mt-2">{{\Carbon\Carbon::parse($row->tanggal_berita ?? 'N/A')->format('F d, Y')}}</div>
                         </div>
                     </a>
                   </div>
@@ -95,20 +95,20 @@
                     <div data-anim-child="slide-up delay-4" class="col-lg-10 md:d-none">
                       <a href="news/{{$row->slug_berita}}" class="blogCard -type-1 texttt">
                         <div class="blogCard__image">
-                          <img class="w-1/1 rounded-8" src="{{asset('images/foto-berita/'.$row->foto_berita)}}" alt="{{$row->foto_berita}}">
+                          <img class="w-1/1 rounded-8" src="{{asset('images/foto-berita/'.$row->foto_berita ?? 'N/A')}}" alt="{{$row->foto_berita ?? 'N/A'}}">
                         </div>
                         <div class="blogCard__content mt-20">
-                        <h4 class="blogCard__title text-20 lh-15 fw-500 mt-5">{{$row->sub_judul}}</h4>
-                        <p class="blogCard__subtitle text-16">{{$row->sub_deskripsi}}</p> <!-- Tambahkan kode untuk menampilkan sub judul -->
+                        <h4 class="blogCard__title text-20 lh-15 fw-500 mt-5">{{$row->sub_judul ?? 'N/A'}}</h4>
+                        <p class="blogCard__subtitle text-16">{{$row->sub_deskripsi ?? 'N/A'}}</p> <!-- Tambahkan kode untuk menampilkan sub judul -->
                         <div class="blogCard__author text-14">
                           @if($row->eskul)
-                              <img class="rounded-8" width="20px" src="{{ asset('images/logo-eskul/'.$row->eskul->logo) }}" alt="">
-                              {{ $row->eskul->nama_eskul }}
+                              <img class="rounded-8" width="20px" src="{{ asset('images/logo-eskul/'.$row->eskul->logo ?? 'N/A') }}" alt="">
+                              {{ $row->eskul->nama_eskul  ?? 'N/A'}}
                           @else
                               Unknown
                           @endif
                         </div>
-                          <div class="blogCard__date text-14 mt-2">{{\Carbon\Carbon::parse($row->tanggal_berita)->format('F d, Y')}}</div>
+                          <div class="blogCard__date text-14 mt-2">{{\Carbon\Carbon::parse($row->tanggal_berita ?? 'N/A')->format('F d, Y')}}</div>
                         </div>
                       </a>
                     </div>
@@ -138,20 +138,20 @@
                   <div data-anim-child="slide-up delay-4" class="col-lg-4 col-md-6 col-6">
                     <a href="news/{{$row->slug_berita}}" class="blogCard -type-1 texttt">
                       <div class="blogCard__image">
-                        <img class="w-1/1 rounded-8" src="{{asset('images/foto-berita/'.$row->foto_berita)}}" alt="{{$row->foto_berita}}">
+                        <img class="w-1/1 rounded-8" src="{{asset('images/foto-berita/'.$row->foto_berita ?? 'N/A')}}" alt="{{$row->foto_berita ?? 'N/A'}}">
                       </div>
                       <div class="blogCard__content mt-20">
-                        <h4 class="blogCard__title text-20 lh-15 fw-500 mt-5">{{$row->sub_judul}}</h4>
-                        <p class="blogCard__subtitle text-16">{{$row->sub_deskripsi}}</p> <!-- Tambahkan kode untuk menampilkan sub judul -->
+                        <h4 class="blogCard__title text-20 lh-15 fw-500 mt-5">{{$row->sub_judul ?? 'N/A'}}</h4>
+                        <p class="blogCard__subtitle text-16">{{$row->sub_deskripsi ?? 'N/A'}}</p> <!-- Tambahkan kode untuk menampilkan sub judul -->
                         <div class="blogCard__author text-14">
                           @if($row->eskul)
-                              <img class="rounded-8" width="20px" src="{{ asset('images/logo-eskul/'.$row->eskul->logo) }}" alt="">
-                              {{ $row->eskul->nama_eskul }}
+                              <img class="rounded-8" width="20px" src="{{ asset('images/logo-eskul/'.$row->eskul->logo ?? 'N/A') }}" alt="">
+                              {{ $row->eskul->nama_eskul  ?? 'N/A'}}
                           @else
                               Unknown
                           @endif
                         </div>
-                          <div class="blogCard__date text-14 mt-2">{{\Carbon\Carbon::parse($row->tanggal_berita)->format('F d, Y')}}</div>
+                          <div class="blogCard__date text-14 mt-2">{{\Carbon\Carbon::parse($row->tanggal_berita ?? 'N/A')->format('F d, Y')}}</div>
                         </div>
                     </a>
                   </div>

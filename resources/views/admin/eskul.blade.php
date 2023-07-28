@@ -100,19 +100,19 @@
                             {{-- @else --}}
                             <td>{{$no++}}</td>
                             {{-- @endif --}}
-                        <td>{{$row->nama_eskul}}</td>
-                        <td>{{$row->sekbid}}</td>
+                        <td>{{$row->nama_eskul ?? 'N/A'}}</td>
+                        <td>{{$row->sekbid ?? 'N/A'}}</td>
                         <td>
-                          <img src="{{asset('images/logo-eskul/'.$row->logo)}}" width="70px" alt="">
+                          <img src="{{asset('images/logo-eskul/'.$row->logo ?? 'N/A')}}" width="70px" alt="">
                         </td>
-                        <td>{{$row->pembina}}</td>
-                        <td>{{$row->ketua}}</td>
-                        <td>{{$row->wakilketua}}</td>
-                        <td>{{$row->jadwal_kumpulan}}</td>
-                        <td>{{$row->visi}}</td>
-                        <td>{{$row->misi_eskul}}</td>
-                        <td>{{$row->program_kerja}}</td>
-                        <td>{{$row->nama_instagram}}</td>
+                        <td>{{$row->pembina ?? 'N/A'}}</td>
+                        <td>{{$row->ketua ?? 'N/A'}}</td>
+                        <td>{{$row->wakilketua ?? 'N/A'}}</td>
+                        <td>{{$row->jadwal_kumpulan ?? 'N/A'}}</td>
+                        <td>{{$row->visi ?? 'N/A'}}</td>
+                        <td>{{$row->misi_eskul ?? 'N/A'}}</td>
+                        <td>{{$row->program_kerja ?? 'N/A'}}</td>
+                        <td>{{$row->nama_instagram ?? 'N/A'}}</td>
                         
 
                         

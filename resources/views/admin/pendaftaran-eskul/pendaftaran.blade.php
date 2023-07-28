@@ -66,7 +66,7 @@
                     @foreach ($on as $row)
                     <div class="d-flex">
                       <a href="/pendaftaran-eskul/export-excel" class="btn btn-success mb-2">Export Excel</a>
-                      @if (auth()->user()->role_id==1)
+                      @if (auth()->user()->role_id ?? 'N/A'==1)
                       @if ($row->on == 1)
                       <form action="/add-pendaftaran/{{$row->id}}" class="mb-2 mx-3" method="post">
                         @csrf
@@ -108,17 +108,17 @@
                     
                       <tr>
                         <td>{{$no++}}</td>
-                        <td>{{$row->nama_calon_anggota}}</td>
-                        <td>{{$row->kelas_calon_anggota .' - '. $row->jurusan}}</td>
-                        <td>{{$row->nis}}</td>
-                        <td>{{$row->email}}</td>
-                        <td>{{$row->no_wa}}</td>
-                        <td>{{$row->alasan}}</td>
+                        <td>{{$row->nama_calon_anggota ?? 'N/A'}}</td>
+                        <td>{{$row->kelas_calon_anggota ?? 'N/A' .' - '. $row->jurusan ?? 'N/A'}}</td>
+                        <td>{{$row->nis ?? 'N/A'}}</td>
+                        <td>{{$row->email ?? 'N/A'}}</td>
+                        <td>{{$row->no_wa ?? 'N/A'}}</td>
+                        <td>{{$row->alasan ?? 'N/A'}}</td>
 
                         
                         <td>
-                          <img src="{{asset('images/logo-eskul/'.$row->eskul->logo)}}" width="50px" alt="{{$row->eskul->logo}}">
-                          {{$row->eskul->nama_eskul}}
+                          <img src="{{asset('images/logo-eskul/'.$row->eskul->logo ?? 'N/A')}}" width="50px" alt="{{$row->eskul->logo ?? 'N/A'}}">
+                          {{$row->eskul->nama_eskul ?? 'N/A'}}
                         </td>
                         
 
@@ -156,12 +156,12 @@
                     
                     
                   </table>
-                  @if (auth()->user()->role_id == 1)
+                  {{-- @if (auth()->user()->role_id ?? 'N/A' == 1) --}}
                   
                   <div class="linkss mt-3">
                     {{$pendaftaran->links()}}
                   </div>
-                  @endif
+                  {{-- @endif --}}
                 </div>
                 
               </div>

@@ -46,50 +46,50 @@
                   </div> --}}
                   <div class="form-group">
                     <label for="exampleInputEmail1">Nama Ekstrakurikuler</label>
-                    <input type="text" class="form-control" value="{{$data->nama_eskul}}" name="nama_eskul" id="exampleInputEmail1" placeholder="Masukan Nama Ekstrakurikuler">
+                    <input type="text" class="form-control" value="{{$data->nama_eskul ?? 'N/A'}}" name="nama_eskul" id="exampleInputEmail1" placeholder="Masukan Nama Ekstrakurikuler">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Sekbid</label>
-                    <input type="number" class="form-control" value="{{$data->sekbid}}" name="sekbid" id="exampleInputEmail1" placeholder="Masukan Sekbid Berapa">
+                    <input type="number" class="form-control" value="{{$data->sekbid ?? 'N/A'}}" name="sekbid" id="exampleInputEmail1" placeholder="Masukan Sekbid Berapa">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputFile">Logo Ekstrakurikuler</label>
-                    <img src="{{asset('images/logo-eskul/'.$data->logo)}}" alt="{{$data->logo}}" width="100px" class="d-block border mb-2">
-                      <input type="file" class="form-control" value="{{$data->logo}}" name="logo" >
+                    <img src="{{asset('images/logo-eskul/'.$data->logo ?? 'N/A')}}" alt="{{$data->logo ?? 'N/A'}}" width="100px" class="d-block border mb-2">
+                      <input type="file" class="form-control" value="{{$data->logo ?? 'N/A'}}" name="logo" >
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Pembina</label>
-                    <input type="text" class="form-control" value="{{$data->pembina}}" name="pembina" id="exampleInputPassword1" placeholder="Masukan Nama Pembina">
+                    <input type="text" class="form-control" value="{{$data->pembina ?? 'N/A'}}" name="pembina" id="exampleInputPassword1" placeholder="Masukan Nama Pembina">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Ketua</label>
-                    <input type="text" class="form-control" value="{{$data->ketua}}" name="ketua" id="exampleInputPassword1" placeholder="Masukan Nama Ketua">
+                    <input type="text" class="form-control" value="{{$data->ketua ?? 'N/A'}}" name="ketua" id="exampleInputPassword1" placeholder="Masukan Nama Ketua">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Wakil Ketua</label>
-                    <input type="text" class="form-control" value="{{$data->wakilketua}}" name="wakilketua" id="exampleInputPassword1" placeholder="Masukan Jadwal Wakil Ketua">
+                    <input type="text" class="form-control" value="{{$data->wakilketua ?? 'N/A'}}" name="wakilketua" id="exampleInputPassword1" placeholder="Masukan Jadwal Wakil Ketua">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Jadwal Ekstrakurikuler</label>
-                    <input type="text" class="form-control" value="{{$data->jadwal_kumpulan}}" name="jadwal_kumpulan" id="exampleInputPassword1" placeholder="Masukan Nama Ekstrakurikuler, Contoh (Senin dan Jumat)">
+                    <input type="text" class="form-control" value="{{$data->jadwal_kumpulan ?? 'N/A'}}" name="jadwal_kumpulan" id="exampleInputPassword1" placeholder="Masukan Nama Ekstrakurikuler, Contoh (Senin dan Jumat)">
                   </div>
                   <div class="form-floating">
                     <label for="floatingTextarea2">Visi</label>
-                    <textarea class="form-control" name="visi"  placeholder="Masukkan Visi (Setiap garis baru tambahkan <br>)" id="floatingTextarea2" style="height: 100px">{{$data->visi}}</textarea>
+                    <textarea class="form-control" name="visi"  placeholder="Masukkan Visi (Setiap garis baru tambahkan <br>)" id="floatingTextarea2" style="height: 100px">{{$data->visi ?? 'N/A'}}</textarea>
                 </div>
                 <div class="form-floating">
                     <label for="floatingTextarea2">Misi</label>
-                    <textarea class="form-control" name="misi_eskul"  placeholder="Masukkan Misi (Setiap garis baru tambahkan <br>)" id="floatingTextarea2" style="height: 100px">{{$data->misi_eskul}}</textarea>
+                    <textarea class="form-control" name="misi_eskul"  placeholder="Masukkan Misi (Setiap garis baru tambahkan <br>)" id="floatingTextarea2" style="height: 100px">{{$data->misi_eskul ?? 'N/A'}}</textarea>
                 </div>
                 <div class="form-floating">
                     <label for="floatingTextarea2">Program Kerja</label>
-                    <textarea class="form-control" name="program_kerja"  placeholder="Masukkan Program Kerja Ekstrakurikuler (Setiap garis baru tambahkan <br>)" id="floatingTextarea2" style="height: 100px">{{$data->program_kerja}}</textarea>
+                    <textarea class="form-control" name="program_kerja"  placeholder="Masukkan Program Kerja Ekstrakurikuler (Setiap garis baru tambahkan <br>)" id="floatingTextarea2" style="height: 100px">{{$data->program_kerja ?? 'N/A'}}</textarea>
                 </div>
                   
                   
                   <div class="form-group">
                     <label for="exampleInputPassword1">Instagram</label>
-                    <input type="text" class="form-control" value="{{$data->nama_instagram}}" name="nama_instagram" id="exampleInputPassword1" placeholder="Masukan Nama Instagram Contoh (@eskulP)">
+                    <input type="text" class="form-control" value="{{$data->nama_instagram ?? 'N/A'}}" name="nama_instagram" id="exampleInputPassword1" placeholder="Masukan Nama Instagram Contoh (@eskulP)">
                   </div>
                   <!-- <div class="form-check">
                     <input type="checkbox" class="form-check-input" id="exampleCheck1">

@@ -42,36 +42,36 @@
                 <div class="card-body">
                   <div class="form-group">
                     <label for="exampleInputEmail1">Nama Calon Anggota</label>
-                    <input required type="text" class="form-control" value="{{$data->nama_calon_anggota}}" name="nama_anggota" id="exampleInputEmail1" placeholder="Masukan Nama Anggota">
+                    <input required type="text" class="form-control" value="{{$data->nama_calon_anggota ?? 'N/A'}}" name="nama_anggota" id="exampleInputEmail1" placeholder="Masukan Nama Anggota">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Kelas Calon Anggota</label>
                     <select class="custom-select rounded-0" name="kelas_anggota" id="exampleSelectRounded0">
-                      <option value="{{$data->kelas_calon_anggota}}" selected>{{$data->kelas_calon_anggota}}</option>
+                      <option value="{{$data->kelas_calon_anggota ?? 'N/A'}}" selected>{{$data->kelas_calon_anggota ?? 'N/A'}}</option>
                     </select>
                   </div>
                   <div class="form-group">
                     <label class="text-16 lh-1 fw-500 text-dark-1 mb-10" for="exampleInputPassword1">Jurusan</label>
                     <select class="custom-select rounded-0" name="jurusan" id="exampleSelectRounded0">
-                      <option value="{{$data->jurusan}}" selected>{{$data->jurusan}}</option>
+                      <option value="{{$data->jurusan}}" selected>{{$data->jurusan ?? 'N/A'}}</option>
                     </select>
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Nomor Induk Siswa</label>
-                    <input required type="number" class="form-control" value="{{$data->nis}}" name="nis" id="exampleInputEmail1" placeholder="Masukan Nomor Induk Siswa">
+                    <input required type="number" class="form-control" value="{{$data->nis ?? 'N/A'}}" name="nis" id="exampleInputEmail1" placeholder="Masukan Nomor Induk Siswa">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Email</label>
-                    <input required type="email" class="form-control" value="{{$data->email}}" name="email" id="exampleInputEmail1" placeholder="Masukan Email">
+                    <input required type="email" class="form-control" value="{{$data->email ?? 'N/A'}}" name="email" id="exampleInputEmail1" placeholder="Masukan Email">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Nomor Whatsapp</label>
-                    <input required type="number" class="form-control" value="{{$data->no_wa}}" name="no_wa" id="exampleInputEmail1" placeholder="Masukan Nomor Whatsapp">
+                    <input required type="number" class="form-control" value="{{$data->no_wa ?? 'N/A'}}" name="no_wa" id="exampleInputEmail1" placeholder="Masukan Nomor Whatsapp">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Nama Ekstrakurikuler</label>
                     <select class="custom-select rounded-0"  name="id_eskul" id="exampleSelectRounded0">
-                      <option value="{{$data->id_eskul}}" selected>{{$data->eskul->nama_eskul}}</option>
+                      <option value="{{$data->id_eskul ?? 'N/A'}}" selected>{{$data->eskul->nama_eskul ?? 'N/A'}}</option>
                       
                     </select>
                   </div>

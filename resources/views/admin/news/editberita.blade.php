@@ -42,27 +42,27 @@
                 <div class="card-body">
                   <div class="form-group">
                     <label for="exampleInputEmail1">Judul Berita</label>
-                    <input type="text" class="form-control" value="{{$data->judul_berita}}" name="judul_berita" id="exampleInputEmail1" placeholder="Masukan Judul Berita">
+                    <input type="text" class="form-control" value="{{$data->judul_berita ?? 'N/A'}}" name="judul_berita" id="exampleInputEmail1" placeholder="Masukan Judul Berita">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputFile">Foto Berita</label>
-                    <img src="{{asset('images/foto-berita/'.$data->foto_berita)}}" alt="{{$data->foto_berita}}" width="300px" class="d-block mb-2">
-                      <input type="file" class="form-control" value="{{$data->foto_berita}}" name="foto_berita" >
+                    <img src="{{asset('images/foto-berita/'.$data->foto_berita)}}" alt="{{$data->foto_berita ?? 'N/A'}}" width="300px" class="d-block mb-2">
+                      <input type="file" class="form-control" value="{{$data->foto_berita ?? 'N/A'}}" name="foto_berita" >
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Tanggal Berita</label>
-                    <input type="text" class="form-control" value="{{$data->tanggal_berita}}" name="tanggal_berita" id="exampleInputPassword1" placeholder="Masukan Tanggal Berita">
+                    <input type="text" class="form-control" value="{{$data->tanggal_berita ?? 'N/A'}}" name="tanggal_berita" id="exampleInputPassword1" placeholder="Masukan Tanggal Berita">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Deskripsi</label>
-                    <textarea required name="deskripsi" class="form-control" id="exampleInputEmail1" cols="30" rows="10">{{$data->deskripsi}}</textarea>
+                    <textarea required name="deskripsi" class="form-control" id="exampleInputEmail1" cols="30" rows="10">{{$data->deskripsi ?? 'N/A'}}</textarea>
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Ekstrakurikuler</label>
                     <select required name="id_eskul" class="form-control" id="exampleInputEmail1">
-                      <option selected value="{{$data->id_eskul}}">{{$data->eskul->nama_eskul}}</option>
+                      <option selected value="{{$data->id_eskul ?? 'N/A'}}">{{$data->eskul->nama_eskul ?? 'N/A'}}</option>
                       @foreach ($data_eskul as $row)
-                      <option value="{{$row->id}}">{{$row->nama_eskul}}</option>
+                      <option value="{{$row->id ?? 'N/A'}}">{{$row->nama_eskul ?? 'N/A'}}</option>
                       @endforeach
                     </select>
                   </div>

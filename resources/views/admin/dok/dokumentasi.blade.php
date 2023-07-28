@@ -81,13 +81,13 @@
                       <tbody>
                       <tr>
                         <td>{{$no++}}</td>
-                        <td>{{$row->nama_kegiatan}}</td>
+                        <td>{{$row->nama_kegiatan ?? 'N/A'}}</td>
                         <td>
-                          <img src="{{asset('images/logo-eskul/'.$row->eskul->logo)}}" width="120px" alt="">
+                          <img src="{{asset('images/logo-eskul/'.$row->eskul->logo ?? 'N/A')}}" width="120px" alt="">
                         </td>
-                        <td>{{$row->eskul->nama_eskul}}</td>
+                        <td>{{$row->eskul->nama_eskul ?? 'N/A'}}</td>
                         <td>
-                          <img src="{{asset('images/dokumentasi/foto-kegiatan/'.$row->foto_kegiatan)}}" width="120px" alt="">
+                          <img src="{{asset('images/dokumentasi/foto-kegiatan/'.$row->foto_kegiatan ?? 'N/A')}}" width="120px" alt="">
                         </td>
                         
                         

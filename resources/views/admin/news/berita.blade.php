@@ -9,7 +9,7 @@
       <div class="container-fluid">
         <div class="row mb-2 ">
           <div class="col-sm-6">
-            <h1 class="m-0">Berita</h1>
+            <h1 class="m- ?? 'N/A'">Berita</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -78,17 +78,17 @@
                       <tbody>
                       <tr>
                         <td>{{$no++}}</td>
-                        <td>{{$row->judul_berita}}</td>
+                        <td>{{$row->judul_berita ?? 'N/A'}}</td>
                         <td>{{$row->sub_judul}}</td>
                         <td>
-                          <img src="{{asset('images/foto-berita/'.$row->foto_berita)}}" width="200px" alt="">
+                          <img src="{{asset('images/foto-berita/'.$row->foto_berita ?? 'N/A')}}" width="200px" alt="">
                         </td>
-                        <td>{{$row->deskripsi}}</td>
-                        <td>{{$row->sub_deskripsi}}</td>
-                        <td>{{$row->tanggal_berita}}</td>
+                        <td>{{$row->deskripsi ?? 'N/A'}}</td>
+                        <td>{{$row->sub_deskripsi ?? 'N/A'}}</td>
+                        <td>{{$row->tanggal_berita ?? 'N/A'}}</td>
                         <td>
                           @if($row->eskul)
-                              <img src="{{ asset('images/logo-eskul/'.$row->eskul->logo) }}" width="200px" alt="">
+                              <img src="{{ asset('images/logo-eskul/'.$row->eskul->logo ?? 'N/A') }}" width="200px" alt="">
                               {{ $row->eskul->nama_eskul }}
                           @else
                               No Eskul Data Available

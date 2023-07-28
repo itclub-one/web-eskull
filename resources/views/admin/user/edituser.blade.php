@@ -44,11 +44,11 @@
                   <a href="editpassword/{{$data->id}}" class="btn btn-primary mb-3">Edit Password</a>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Username</label>
-                    <input type="text" class="form-control" value="{{$data->name}}" name="name" id="exampleInputEmail1" placeholder="Masukan Nama Ekstrakurikuler">
+                    <input type="text" class="form-control" value="{{$data->name ?? 'N/A'}}" name="name" id="exampleInputEmail1" placeholder="Masukan Nama Ekstrakurikuler">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Email</label>
-                    <input type="text" class="form-control" value="{{$data->email}}" name="email" id="exampleInputPassword1" placeholder="Masukan Nama Penyelenggara">
+                    <input type="text" class="form-control" value="{{$data->email ?? 'N/A'}}" name="email" id="exampleInputPassword1" placeholder="Masukan Nama Penyelenggara">
                   </div>
                   {{-- <div class="form-group">
                     <label for="exampleInputPassword1">Password</label>
@@ -57,9 +57,9 @@
                   <div class="form-group">
                     <label for="role">Role</label>
                     <select class="form-control" name="role" id="role">
-                      <option value="{{$data->role_id}}">{{$data->roles->role}}</option>
+                      <option value="{{$data->role_id ?? 'N/A'}}">{{$data->roles->role ?? 'N/A'}}</option>
                       @foreach ($role as $row)
-                      <option value="{{$row->id}}">{{$row->role}}</option>
+                      <option value="{{$row->id ?? 'N/A'}}">{{$row->role ?? 'N/A'}}</option>
                       @endforeach
                     </select>
                 </div>
@@ -71,14 +71,14 @@
                       <option value="0">root</option>
                       @endif
                       @foreach ($data_eskul as $row)
-                      <option value="{{$row->id}}">{{$row->nama_eskul}}</option>
+                      <option value="{{$row->id}}">{{$row->nama_eskul ?? 'N/A'}}</option>
                       @endforeach
                     </select>
                 </div>
                   <div class="form-group">
                     <label for="exampleInputFile">Foto User</label>
-                    <img src="{{asset('images/foto-user/'.$data->foto)}}" alt="{{$data->foto}}" width="150px" class="d-block mb-2">
-                      <input type="file" class="form-control"  value="{{$data->foto}}" name="foto" >
+                    <img src="{{asset('images/foto-user/'.$data->foto ?? 'N/A')}}" alt="{{$data->foto ?? 'N/A'}}" width="150px" class="d-block mb-2">
+                      <input type="file" class="form-control"  value="{{$data->foto ?? 'N/A'}}" name="foto" >
                   </div>
                   
                   

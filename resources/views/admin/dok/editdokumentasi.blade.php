@@ -42,16 +42,16 @@
                 <div class="card-body">
                   <div class="form-group">
                     <label for="exampleInputEmail1">Nama Kegiatan</label>
-                    <input type="text" class="form-control" value="{{$data->nama_kegiatan}}" name="nama_kegiatan" id="exampleInputEmail1" placeholder="Masukan Nama Ekstrakurikuler">
+                    <input type="text" class="form-control" value="{{$data->nama_kegiatan ?? 'N/A'}}" name="nama_kegiatan" id="exampleInputEmail1" placeholder="Masukan Nama Ekstrakurikuler">
                   </div>
                   
                   <div class="form-group">
                     <label for="exampleInputPassword1">Penyelenggara</label>
-                    <img src="{{asset('images/logo-eskul/'.$data->eskul->logo)}}" alt="{{$data->eskul->logo}}" width="100px" class="d-block mb-2">
+                    <img src="{{asset('images/logo-eskul/'.$data->eskul->logo ?? 'N/A')}}" alt="{{$data->eskul->logo ?? 'N/A'}}" width="100px" class="d-block mb-2">
                     <select class="custom-select rounded-0" name="penyelenggara" id="exampleSelectRounded0">
-                      <option selected value="{{$data->penyelenggara}}">{{$data->eskul->nama_eskul}}</option>
+                      <option selected value="{{$data->penyelenggara ?? 'N/A'}}">{{$data->eskul->nama_eskul ?? 'N/A'}}</option>
                       @foreach ($data_eskul as $data)
-                      <option value="{{$data->id}}">{{$data->nama_eskul}}</option>
+                      <option value="{{$data->id ?? 'N/A'}}">{{$data->nama_eskul ?? 'N/A'}}</option>
                       @endforeach
                     </select>
                     {{-- <input required type="text" class="form-control" name="penyelenggara" id="exampleInputPassword1" placeholder="Masukan Penyelenggara"> --}}
@@ -59,9 +59,9 @@
                   <div class="form-group">
                     <label for="exampleInputFile">Foto Kegiatan</label>
                     @if (!empty($foto))
-                        <img src="{{asset('images/dokumentasi/foto-kegiatan/'.$foto)}}" alt="{{$foto}}" width="300px" class="d-block mb-2">
+                        <img src="{{asset('images/dokumentasi/foto-kegiatan/'.$foto ?? 'N/A')}}" alt="{{$foto}}" width="300px" class="d-block mb-2">
                     @endif
-                      <input type="file" class="form-control" value="{{$data->foto_kegiatan}}" name="foto_kegiatan" >
+                      <input type="file" class="form-control" value="{{$data->foto_kegiatan ?? 'N/A'}}" name="foto_kegiatan" >
                   </div>
                   
                   
