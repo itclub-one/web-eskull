@@ -53,6 +53,12 @@ class userController extends Controller
     }
 
     public function registeruser(Request $request){
+        $exist = eskul::where('id','=',$request->id_eskul)->first();
+        // dd($exist);
+        if ($exist->id == $request->id_eskul) {
+            # code...
+            return redirect()->route('users')->with('error','User Ekstrakurikuler '.$exist->nama_eskul.' sudah ada');    
+        }
         $data = User::create([
             'name' => $request->name,
             'email' => $request->email,

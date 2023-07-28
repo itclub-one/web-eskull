@@ -112,7 +112,7 @@
 
                   <h2 class="sectionTitle__title ">Ekstrakulikuler</h2>
 
-                  <p class="sectionTitle__text ">Terdiri dari {{$total_eskul}} Ekstrakulikuler yang ada di SMKN 1 Garut!</p>
+                  <p class="sectionTitle__text ">Terdiri dari {{$total_eskul}} Ekstrakulikuler yang ada di SMKN 1 Garut! <a href="pendaftaran">klik disini</a> untuk daftar</p>
 
                   <a href="/eskul/all" class="btn btn-primary ">Lihat Semua</a>
 

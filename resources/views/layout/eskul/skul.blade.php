@@ -92,6 +92,10 @@
             </div>
           </div>
 
+          <div>
+            <p class="text-center mt-3"><a href="pendaftaran">klik disini</a> untuk daftar</p>
+          </div>
+
           <div class="shopCompleted-footer bg-light-4 border-light rounded-8">
             <div class="shopCompleted-footer__wrap">
               <center>

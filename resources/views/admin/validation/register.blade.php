@@ -58,7 +58,7 @@
                   </div>
                   <div class="form-group">
                     <label for="role">Role</label>
-                    <select class="form-control" name="role" id="role">
+                    <select class="form-control" name="role_id" id="role">
                       <option value="">Select this one</option>
                       @foreach ($role as $row)
                       <option value="{{$row->id}}">{{$row->role}}</option>

@@ -59,7 +59,7 @@
      
             <div class="header__logo">
               <a>
-                <img style="height: 57px;" src="{{asset('webex/img/general/SMEA.png')}}" alt="logo">
+                <img style="height: 57px;" src="{{asset('images/page-loader/smea.png')}}" alt="logo">
               </a>
             </div>
     

@@ -48,7 +48,7 @@
 
                 <div data-anim="slide-up delay-2">
 
-                  <p class="page-header__text">Ada {{$total_eskul}}++ Ekstrakurikuler di SMK Negeri 1 Garut.</p>
+                  <p class="page-header__text">Ada {{$total_eskul}}++ Ekstrakurikuler di SMK Negeri 1 Garut. <a href="pendaftaran">klik disini</a> untuk daftar</p>
 
                 </div>
               </div>

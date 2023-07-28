@@ -160,7 +160,7 @@ $border: $size/15;
         <h1>@yield('code') </h1>
         <p>@yield('name')</p>
         <p>@yield('massage')</p>
-        <div class="buttons"><a href="/">home</a><br/><span>Help me out</span></div>
+        <div class="buttons"><a href="/">Home</a><br/></div>
       </div>
       {{--------------------------------------------------------------------------------------------------------- 
     

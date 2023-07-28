@@ -56,7 +56,7 @@
                   </div> --}}
                   <div class="form-group">
                     <label for="role">Role</label>
-                    <select class="form-control" name="role" id="role">
+                    <select class="form-control" name="role_id" id="role">
                       <option value="{{$data->role_id ?? 'N/A'}}">{{$data->roles->role ?? 'N/A'}}</option>
                       @foreach ($role as $row)
                       <option value="{{$row->id ?? 'N/A'}}">{{$row->role ?? 'N/A'}}</option>
@@ -65,7 +65,7 @@
                 </div>
                   <div class="form-group">
                     <label for="data_eskul">Ekstrakurikuler</label>
-                    <select class="form-control" name="data_eskul" id="data_eskul">
+                    <select class="form-control" name="id_eskul" id="data_eskul">
                       <option value="{{$data->id_eskul ?? 0}}">{{$data->eskul->nama_eskul ?? 'root'}}</option>
                       @if (auth()->user()->role_id == 1)
                       <option value="0">root</option>
