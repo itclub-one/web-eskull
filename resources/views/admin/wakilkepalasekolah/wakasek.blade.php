@@ -57,8 +57,8 @@
                     <thead>
                       <tr>
                         <th>no</th>
-                        <th>Nama Kepala Sekolah</th>
-                        <th>Foto Kepala Sekolah</th>
+                        <th>Nama</th>
+                        <th>Foto</th>
                         <th>Pembuka Sambutan</th>
                         <th>Isi Sambutan</th>
                         <th>Penutup Sambutan</th>

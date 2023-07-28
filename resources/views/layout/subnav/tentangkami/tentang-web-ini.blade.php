@@ -156,10 +156,8 @@
               <img style="width: 300px; height: 350px;" src="{{asset('images/tentang-web/ikhsan.png')}}" alt="image">
               <div class="teamCard__socials">
                 <div class="d-flex x-gap-20 y-gap-10 justify-center items-center h-100">
-                  <a href="#"><i class="icon-facebook text-white"></i></a>
-                  <a href="#"><i class="icon-twitter text-white"></i></a>
-                  <a href="#"><i class="icon-instagram text-white"></i></a>
-                  <a href="#"><i class="icon-linkedin text-white"></i></a>
+                  <a href="https://instagram.com/ikhsannwwi"><i class="icon-instagram text-white"></i></a>
+                  <a href="https://www.linkedin.com/in/mochammad-ikhsan-nawawi/"><i class="icon-linkedin text-white"></i></a>
                 </div>
               </div>
             </div>
