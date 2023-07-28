@@ -17,7 +17,7 @@ class anggotaController extends Controller
     public function index(Request $request)
     {
         $anggota = null;
-        if (auth()->user()->role == 0) {
+        if (auth()->user()->role_id == 1) {
             // Check if the eskul record with the given id exists
             $data_eskul = eskul::all();
         } else {
@@ -27,12 +27,12 @@ class anggotaController extends Controller
 
         if ($request->has('search')) {
             $query = anggota::where('nama_anggota', 'like', '%' . $request->search . '%');
-            if (auth()->user()->role != 0) {
+            if (auth()->user()->role_id != 1) {
                 $query->where('id_eskul', auth()->user()->id_eskul);
             }
             $anggota = $query->paginate(5);
         } else {
-            if (auth()->user()->role == 0) {
+            if (auth()->user()->role_id == 1) {
                 $anggota = anggota::paginate(10);
             } else {
                 $anggota = anggota::where('id_eskul', auth()->user()->id_eskul)->paginate(10);
@@ -77,7 +77,7 @@ class anggotaController extends Controller
     public function editanggota($id)
     {   
         $data = anggota::find($id);
-        if (auth()->user()->role == 0) {
+        if (auth()->user()->role_id == 1) {
             $data_eskul = eskul::all();
             # code...
         } else {

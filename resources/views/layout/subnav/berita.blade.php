@@ -135,7 +135,7 @@
                 <div class="row y-gap-30">
 
                   @foreach($data as $row)
-                  <div data-anim-child="slide-up delay-4" class="col-lg-4 col-md-6">
+                  <div data-anim-child="slide-up delay-4" class="col-lg-4 col-md-6 col-6">
                     <a href="news/{{$row->slug_berita}}" class="blogCard -type-1 texttt">
                       <div class="blogCard__image">
                         <img class="w-1/1 rounded-8" src="{{asset('images/foto-berita/'.$row->foto_berita)}}" alt="{{$row->foto_berita}}">

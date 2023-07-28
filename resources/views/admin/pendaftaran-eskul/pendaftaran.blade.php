@@ -66,8 +66,8 @@
                     @foreach ($on as $row)
                     <div class="d-flex">
                       <a href="/pendaftaran-eskul/export-excel" class="btn btn-success mb-2">Export Excel</a>
-                      @if (auth()->user()->role==0)
-                      @if ($row->on == 0)
+                      @if (auth()->user()->role_id==1)
+                      @if ($row->on == 1)
                       <form action="/add-pendaftaran/{{$row->id}}" class="mb-2 mx-3" method="post">
                         @csrf
                         <input class="d-none" name="on" value="1">
@@ -156,7 +156,7 @@
                     
                     
                   </table>
-                  @if (auth()->user()->role == 0)
+                  @if (auth()->user()->role_id == 1)
                   
                   <div class="linkss mt-3">
                     {{$pendaftaran->links()}}

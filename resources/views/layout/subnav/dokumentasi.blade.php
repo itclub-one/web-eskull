@@ -68,7 +68,7 @@
           <div class="row y-gap-30">
             @foreach ($data as $row)
 
-            <div class="col-xl-3 col-lg-4 col-md-6">
+            <div class="col-xl-3 col-lg-4 col-md-6 col-6">
               <a href="/dokumentasi/{{$row->slug_dokumentasi}}" class="coursesCard -type-1 texttt">
                 <div class="relative">
                   <div class="coursesCard__image overflow-hidden rounded-8">

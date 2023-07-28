@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\role;
+use App\Models\eskul;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
@@ -46,7 +47,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    public function role(){
-        return $this->belongsTo(role::class  ,'id_eskul', 'id');
+    public function roles(){
+        return $this->belongsTo(role::class  ,'role_id', 'id');
+    }
+    public function eskul(){
+        return $this->belongsTo(eskul::class  ,'id_eskul', 'id');
     }
 }

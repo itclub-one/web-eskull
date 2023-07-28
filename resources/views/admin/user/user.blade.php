@@ -60,6 +60,7 @@
                         <th>Username</th>
                         <th>Role</th>
                         <th>Email</th>
+                        <th>Ekstrakurikuler</th>
                         <th>Password</th>
                         <th>Aksi</th>
                       </tr>
@@ -77,8 +78,9 @@
                           <img src="{{asset('images/foto-user/'.$row->foto)}}" width="120px" alt="{{$row->foto}}">
                         </td>
                         <td>{{$row->name}}</td>
-                        <td>{{$row->role}}</td>
+                        <td>{{ $row->roles->role ?? 'N/A'  }}</td>
                         <td>{{$row->email}}</td>
+                        <td>{{$row->eskul->nama_eskul ?? 'N/A'}}</td>
                         <td>{{$row->password}}</td>
                         
                         

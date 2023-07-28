@@ -66,6 +66,18 @@
                     </select>
                 </div>
                   <div class="form-group">
+                    <label for="data_eskul">Ekstrakurikuler</label>
+                    <select class="form-control" name="id_eskul" id="data_eskul">
+                      <option value="">Select this one</option>
+                      @if (auth()->user()->role_id == 1)
+                      <option value="0">root</option>
+                      @endif
+                      @foreach ($data_eskul as $row)
+                      <option value="{{$row->id}}">{{$row->nama_eskul}}</option>
+                      @endforeach
+                    </select>
+                </div>
+                  <div class="form-group">
                       <label for="exampleInputFile">Foto User</label>
                       <input type="file" class="form-control"   name="foto" >
                   </div>

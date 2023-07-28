@@ -20,7 +20,7 @@ class eskulController extends Controller
         $data_eskul = eskul::all();
 
         if ($request->has('search')) {
-            if (auth()->user()->role == 0) {
+            if (auth()->user()->role_id == 1) {
                 $eskul = eskul::where('nama_eskul', 'like', '%' . $request->search . '%')
                     ->orWhere('slug', 'like', '%' . $request->search . '%')->paginate(5);
             } else {
@@ -28,7 +28,7 @@ class eskulController extends Controller
                     ->orWhere('id', 'like', '%' . $request->search . '%')->paginate(5);
             }
         } else {
-            if (auth()->user()->role == 0) {
+            if (auth()->user()->role_id == 1) {
                 $eskul = eskul::paginate(2);
             } else {
 
@@ -51,6 +51,7 @@ class eskulController extends Controller
     public function eskul(){
 
         $data = eskul::all();
+        $total_eskul = $data->count();
         
         $dok = dokumentasi::inRandomOrder()->get();
 
@@ -58,7 +59,17 @@ class eskulController extends Controller
         $news = berita::inRandomOrder()->limit(3)->get();
         $news2 = berita::inRandomOrder()->limit(5)->get();
         // dd($data);
-        return view('welcome', compact('data', 'dok', 'news','news1','news2')) ;
+        return view('welcome', compact('data', 'dok', 'news','news1','news2','total_eskul')) ;
+    }
+    
+    public function eskul_all(){
+
+        $data = eskul::orderBy('id','ASC')->paginate(12);
+
+        $total = eskul::all();
+        $total_eskul = $total->count();
+        
+        return view('layout.eskul.list-eskul', compact('data','total_eskul')) ;
     }
 
     public function insertdataeskul(Request $request){
@@ -128,7 +139,7 @@ class eskulController extends Controller
 
     public function deleteeskul($id){
         $data = eskul::find($id);
-        if (auth()->user()->role != 0) {
+        if (auth()->user()->role_id != 1) {
             return redirect()->route('eskul')->with('error', ' Data Gagal Di Delete');
         }
         if(File_exists(public_path('images/logo-eskul/'.$data->logo))){ //either you can use file path instead of $data->image

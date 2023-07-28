@@ -131,7 +131,7 @@
                 </div>
     
                 <div class="mobile-footer px-20 py-20 border-top-light js-mobile-footer">
-                  <div class="mobile-footer__number">
+                  {{-- <div class="mobile-footer__number">
                     <div class="text-17 fw-500 text-dark-1">Hubungi Kami</div>
                     <div class="text-17 fw-500 text-purple-1">(0262) 233316</div>
                   </div>
@@ -159,7 +159,7 @@
                       <i class="fa fa-linkedin"></i>
                     </a>
     
-                  </div>
+                  </div> --}}
                 </div>
               </div>
     

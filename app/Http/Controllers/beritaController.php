@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 class beritaController extends Controller
 {
     public function index(Request $request ){
-        $userRole = auth()->user()->role;
+        $userRole = auth()->user()->role_id;
 
         // Base query to retrieve 'berita' data
         $dataQuery = berita::query();
@@ -22,7 +22,7 @@ class beritaController extends Controller
             $dataQuery->where('judul_berita', 'like', $searchTerm);
         }
     
-        if ($userRole != 0) {
+        if ($userRole != 1) {
             // Add condition to filter by 'id_eskul' if user's role is not '0' (admin)
             $dataQuery->where('id_eskul', auth()->user()->id_eskul);
         }
@@ -30,7 +30,7 @@ class beritaController extends Controller
         // Retrieve paginated data (max 5 items per page)
         $data = $dataQuery->orderBy('tanggal_berita', 'DESC')->paginate(5);
     
-        if ($userRole == 0) {
+        if ($userRole == 1) {
             // Get all 'eskul' records if user is admin
             $data_eskul = eskul::all();
         } else {
@@ -80,7 +80,7 @@ class beritaController extends Controller
 
     public function editberita($id){
         $data = berita::find($id);
-        if (auth()->user()->role == 0) {
+        if (auth()->user()->role_id == 1) {
             // Get all 'eskul' records if user is admin
             $data_eskul = eskul::all();
         } else {
@@ -119,7 +119,7 @@ class beritaController extends Controller
 
     public function deleteberita($id){
         $data = berita::find($id);  
-        if (auth()->user()->role != 'root') {
+        if (auth()->user()->role_id != 'root') {
             return redirect()->route('berita')->with('error', ' Data Gagal Di Delete');
         }
 

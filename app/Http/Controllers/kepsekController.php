@@ -13,7 +13,7 @@ class kepsekController extends Controller
 
         $data = kepsek::all();
         // dd($data);
-        if (auth()->user()->role != 'root') {
+        if (auth()->user()->role_id != 1) {
             # code...
             return back();
         }
@@ -39,7 +39,7 @@ class kepsekController extends Controller
     }
 
     public function editkepsek($id){
-        if (auth()->user()->role != 'root') {
+        if (auth()->user()->role_id != 1) {
             # code...
             return back();
         }
@@ -68,7 +68,7 @@ class kepsekController extends Controller
 
     public function deletekepsek($id){
         $data = kepsek::find($id);
-        if (auth()->user()->role != 'root') {
+        if (auth()->user()->role_id != 1) {
             # code...
             return back();
         }

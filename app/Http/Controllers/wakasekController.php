@@ -12,7 +12,7 @@ class wakasekController extends Controller
     
     public function index(){
 
-        if (auth()->user()->role != 'root') {
+        if (auth()->user()->role_id != 1) {
             # code...
             return back();
         }
@@ -41,7 +41,7 @@ class wakasekController extends Controller
     }
 
     public function editwakasek($id){
-        if (auth()->user()->role != 'root') {
+        if (auth()->user()->role_id != 1) {
             # code...
             return back();
         }
@@ -70,7 +70,7 @@ class wakasekController extends Controller
 
     public function deletewakasek($id){
         $data = wakasek::find($id);
-        if (auth()->user()->role != 'root') {
+        if (auth()->user()->role_id != 1) {
             # code...
             return back();
         }

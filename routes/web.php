@@ -46,6 +46,7 @@ Route::get('/tentang-web-ini', function () {
     return view('layout.subnav.tentangkami.tentang-web-ini');
 });
 Route::get('/', [eskulController::class, 'eskul'])->name('index');
+Route::get('/eskul/all', [eskulController::class, 'eskul_all'])->name('eskul.all');
 
 Route::get('/dokumentasi_', [dokumentasiController::class, 'dokumentasi'])->name('dokumentasi');
 Route::get('/dokumentasi/{slug}', [dokumentasiController::class, 'detail_dokumentasi'])->name('detail_dokumentasi');

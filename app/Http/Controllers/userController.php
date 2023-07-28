@@ -14,15 +14,15 @@ use Illuminate\Support\Facades\Auth;
 class userController extends Controller
 {
     public function index(Request $request){
-        if (auth()->user()->role != 0) {
+        if (auth()->user()->role_id != 1) {
             # code...
             return back();
         }
         if($request->has('search')){
             $data = user::where('name','like', '%' .$request->search. '%')->
-            orWhere('role','like', '%' .$request->search. '%')->paginate(5);
+            orWhere('email','like', '%' .$request->search. '%')->paginate(5);
         }else{
-            $data = user::paginate(5);
+            $data = user::with('roles')->paginate(5);
         }
 
         return view('admin.user.user', compact('data'));
@@ -30,16 +30,35 @@ class userController extends Controller
 
     
     public function register(){
-        $role = role::all();
-        return view('admin.validation.register',compact('role'));
+        $RoleUser = auth()->user()->role_id ;
+
+        if ($RoleUser == 1) {
+            // Check if the eskul record with the given id exists
+            $role = role::all();
+        } else {
+            $roles = role::where('id','=',auth()->user()->role_id)->first();
+            $role = collect([$roles]);
+        }
+
+        if ($RoleUser == 1) {
+            // Check if the eskul record with the given id exists
+            $data_eskul = eskul::all();
+        } else {
+            $eskul = eskul::where('id','=',auth()->user()->id_eskul)->first();
+            $data_eskul = collect([$eskul]);
+        }
+        // dd($data_eskul);
+
+        return view('admin.validation.register',compact('role','data_eskul'));
     }
 
     public function registeruser(Request $request){
         $data = User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'role' => $request->role,
+            'role_id' => $request->role_id,
             'foto' => $request->foto,
+            'id_eskul' => $request->id_eskul,
             'password' => bcrypt($request->password),
             'remember_token' => Str::random(60) ,
         ]);
@@ -55,14 +74,14 @@ class userController extends Controller
     }
     public function registerusernew(Request $request, $id){
         $data_eskul = eskul::find($id);
-        if (User::where('id_eskul', '=', $data_eskul->id)->count() > 0 || auth()->user()->role != 0) {
+        if (User::where('id_eskul', '=', $data_eskul->id)->count() > 0 || auth()->user()->role_id != 1) {
             # code...
             return back()->with('error','User sudah terdaftar');
         }
         $data = User::create([
             'name' => $data_eskul->nama_eskul,
             'email' => Str::slug($data_eskul->nama_eskul) . '@smknegeri1garut.sch.id',
-            'role' => 1,
+            'role_id' => 1,
             'foto' => $data_eskul->logo,
             'id_eskul' => $data_eskul->id,
             'password' => bcrypt('Cimanuk309A'),
@@ -87,12 +106,30 @@ class userController extends Controller
     }
 
     public function edituser($id){
-        if (auth()->user()->role != 0) {
+        $RoleUser = auth()->user()->role_id ;
+        if ($RoleUser != 1) {
             # code...
             return back();
         }
         $data = user::find($id);
-        return view('admin.user.edituser', compact('data'));
+
+        
+        if ($RoleUser == 1) {
+            // Check if the eskul record with the given id exists
+            $role = role::all();
+        } else {
+            $roles = role::where('id','=',auth()->user()->role_id)->first();
+            $role = collect([$roles]);
+        }
+
+        if ($RoleUser == 1) {
+            // Check if the eskul record with the given id exists
+            $data_eskul = eskul::all();
+        } else {
+            $eskul = eskul::where('id','=',auth()->user()->id_eskul)->first();
+            $data_eskul = collect([$eskul]);
+        }
+        return view('admin.user.edituser', compact('data','role','data_eskul'));
     }
 
     public function updateuser(Request $request , $id){
@@ -105,7 +142,7 @@ class userController extends Controller
         $data->update([
             'name' => $request->name,
             'email' => $request->email,
-            'role' => $request->role,
+            'role_id' => $request->role_id,
             // 'foto' => $request->foto,
             // 'password' => bcrypt($request->password),
             'remember_token' => Str::random(60),
@@ -122,7 +159,7 @@ class userController extends Controller
     }
 
     public function editpassword($id){
-        if (auth()->user()->role != 0) {
+        if (auth()->user()->role_id != 1) {
             # code...
             return back();
         }
@@ -149,12 +186,12 @@ class userController extends Controller
     }
 
     public function deleteuser($id){
-        if (auth()->user()->role != 0) {
+        if (auth()->user()->role_id != 1) {
             # code...
             return back();
         }
         $data = user::find($id);
-        if (auth()->user()->role != 0) {
+        if (auth()->user()->role_id != 1) {
             return redirect()->route('users')->with('error', ' Data Gagal Di Delete');
         }
         if(File_exists(public_path('images/foto-user/'.$data->foto))){ //either you can use file path instead of $data->image

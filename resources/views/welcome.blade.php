@@ -47,7 +47,7 @@
                         <img src="{{asset('webex/img/masthead/1.svg')}}" alt="icon">
                       </div>
                       <div class="ml-20">
-                        <div class="text-orange-1 text-16 fw-500 lh-1">34+</div>
+                        <div class="text-orange-1 text-16 fw-500 lh-1">{{$total_eskul}}+</div>
                         <div class="mt-3">Ekstrakulikuler</div>
                       </div>
                     </div>
@@ -112,7 +112,9 @@
 
                   <h2 class="sectionTitle__title ">Ekstrakulikuler</h2>
 
-                  <p class="sectionTitle__text ">Terdiri dari 34 Ekstrakulikuler yang ada di SMKN 1 Garut!</p>
+                  <p class="sectionTitle__text ">Terdiri dari {{$total_eskul}} Ekstrakulikuler yang ada di SMKN 1 Garut!</p>
+
+                  <a href="/eskul/all" class="btn btn-primary ">Lihat Semua</a>
 
                 </div>
 
@@ -176,52 +178,54 @@
                   <h2 class="sectionTitle__title ">Dokumentasi</h2>
   
                   <p class="sectionTitle__text ">Geser untuk melihat dokumentasi dari semua ekstrakulikuler di sini!</p>
-  
+
+                  <a href="/dokumentasi_" class="btn btn-primary ">Lihat Semua</a>
+                  
+                </div>
+                
               </div>
-  
-              </div>
-          </div>
-  
-          <div class="relative">
+            </div>
+            
+            <div class="relative">
               <div class="overflow-hidden pt-60 lg:pt-50 js-section-slider" data-gap="30" data-loop data-pagination data-nav-prev="js-courses-prev" data-nav-next="js-courses-next" data-slider-cols="xl-4 lg-3 md-2 sm-2">
-              <div class="swiper-wrapper">
+                <div class="swiper-wrapper">
   
                   @foreach ($dok as $row)
-                      
+                  
                   
                   <div class="swiper-slide">
-                  <div data-anim-child="slide-up delay-1">
-  
+                    <div data-anim-child="slide-up delay-1">
+                      
                       <a href="/dokumentasi/{{$row->slug_dokumentasi}}" class=" coursesCard -type-1 px-10 py-10 border-light bg-white rounded-8">
-                      <div class="relative">
+                        <div class="relative">
                           <div class="coursesCard__image overflow-hidden rounded-8">
-                          <img class="w-1/1" src="{{asset('images/dokumentasi/foto-kegiatan/'.$row->foto_kegiatan)}}" alt="{{$row->foto_kegiatan}}">
-                          <div class="coursesCard__image_overlay rounded-8"></div>
+                            <img class="w-1/1" src="{{asset('images/dokumentasi/foto-kegiatan/'.$row->foto_kegiatan)}}" alt="{{$row->foto_kegiatan}}">
+                            <div class="coursesCard__image_overlay rounded-8"></div>
                           </div>
                           <div class="d-flex justify-between py-10 px-10 absolute-full-center z-3">
-  
+                            
                           </div>
-                      </div>
-  
-                      <div class="h-100 px-10 pt-10">
-  
+                        </div>
+                        
+                        <div class="h-100 px-10 pt-10">
+                          
                           <div class="text-17 lh-15 fw-500 text-dark-1 mt-10">{{$row->nama_kegiatan}}</div>
-  
+                          
                           <div class="d-flex x-gap-10 items-center pt-10">
-  
-                          <div class="d-flex items-center">
+                            
+                            <div class="d-flex items-center">
                               <div class="mr-2">
                               </div>
                               <div class="text-14 lh-1">{{$row->eskul->nama_eskul}}</div>
+                            </div>
+                            
                           </div>
-  
-                          </div>
-  
+                          
                           <div class="coursesCard-footer">
-                          <div class="coursesCard-footer__author">
+                            <div class="coursesCard-footer__author">
                               <img src="{{asset('images/logo-eskul/'.$row->eskul->logo)}}" alt="{{$row->eskul->logo}}">
                               <div>{{$row->eskul->nama_eskul}}</div>
-                          </div>
+                            </div>
                           </div>
                       </div>
                       </a>
@@ -229,53 +233,54 @@
                   </div>
                   </div>
                   @endforeach
-  {{--------------------------------------------------------------------------------------------------------- 
+                  {{--------------------------------------------------------------------------------------------------------- 
     
--                                          Mochammad Ikhsan Nawawi                                        -
-
+                    -                                          Mochammad Ikhsan Nawawi                                        -
+                    
 -                                instagram : https://instagram.com/sanbray_                               -
 
 ----------------------------------------------------------------------------------------------------------}}
-                  
-  
-              </div>
-              </div>
-  
-  
-              {{-- <button class="section-slider-nav -prev -dark-bg-dark-2 -outline-dark-1 -absolute-out size-50 rounded-full xl:d-none js-courses-prev">
-              <i class="icon icon-arrow-left text-24"></i>
-              </button>
-  
-              <button class="section-slider-nav -next -dark-bg-dark-2 -outline-dark-1 -absolute-out size-50 rounded-full xl:d-none js-courses-next">
-              <i class="icon icon-arrow-right text-24"></i>
-              </button> --}}
-  
+
+
+</div>
+</div>
+
+
+{{-- <button class="section-slider-nav -prev -dark-bg-dark-2 -outline-dark-1 -absolute-out size-50 rounded-full xl:d-none js-courses-prev">
+  <i class="icon icon-arrow-left text-24"></i>
+</button>
+
+<button class="section-slider-nav -next -dark-bg-dark-2 -outline-dark-1 -absolute-out size-50 rounded-full xl:d-none js-courses-next">
+  <i class="icon icon-arrow-right text-24"></i>
+</button> --}}
+
               
 
           </div>
           </div>
-      </section>
-
+        </section>
         
-
-
-      <section class="layout-pt-lg layout-pb-lg">
-        <div data-anim-wrap class="container">
-          <div data-anim-child="slide-left delay-1" class="row y-gap-20 justify-between items-center">
-            <div class="col-lg-6">
-    
-              <div class="sectionTitle ">
-    
-                <h2 class="sectionTitle__title ">Berita Terkini</h2>
-    
-                <p class="sectionTitle__text ">Lihat berita terbaru dari SMKN 1 Garut di sini!</p>
-    
+        
+        
+        
+        <section class="layout-pt-lg layout-pb-lg">
+          <div data-anim-wrap class="container">
+            <div data-anim-child="slide-left delay-1" class="row y-gap-20 justify-between items-center">
+              <div class="col-lg-6">
+                
+                <div class="sectionTitle ">
+                  
+                  <h2 class="sectionTitle__title ">Berita Terkini</h2>
+                  
+                  <p class="sectionTitle__text ">Lihat berita terbaru dari SMKN 1 Garut di sini!</p>
+                  
+                  <a href="/news" class="btn btn-primary ">Lihat Semua</a>
+                </div>
+                
               </div>
-    
             </div>
-          </div>
-
-
+            
+            
     
           <div class="row y-gap-30 pt-50">
 

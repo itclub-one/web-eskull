@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
         
         User::create([
             'name' => 'Moderator',
-            'role' => 0,
+            'role_id' => 1,
             'email' =>  'moderator@smknegeri1garut.sch.id',
             'password' => bcrypt('moderatorsmknegeri1garut'),
             'foto' => 'smea.png',
@@ -30,7 +30,7 @@ class UserSeeder extends Seeder
         foreach(eskul::all() as $row){
             User::create([
                 'name' => $row['nama_eskul'],
-                'role' => 1,
+                'role_id' => 2,
                 'email' => Str::slug($row['nama_eskul']) . '@smknegeri1garut.sch.id',
                 'password' => bcrypt('Cimanuk309A'),
                 'foto' => $row['logo'],

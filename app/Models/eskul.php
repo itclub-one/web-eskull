@@ -2,9 +2,10 @@
 
 namespace App\Models;
 
+use App\Models\User;
 use App\Traits\HasSlug;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class eskul extends Model
 {
@@ -32,5 +33,8 @@ class eskul extends Model
     }
     public function pendaftaran(){
         return $this->hasMany(pendaftaran::class, 'id_eskul');
+    }
+    public function user(){
+        return $this->hasMany(User::class, 'id_eskul');
     }
 }

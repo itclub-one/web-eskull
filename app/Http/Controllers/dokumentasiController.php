@@ -16,7 +16,7 @@ class dokumentasiController extends Controller
         // Assuming 'dokumentasi' and 'eskul' are the correct model names
 
         // Get the authenticated user's role
-        $userRole = auth()->user()->role;
+        $userRole = auth()->user()->role_id;
 
         // Base query to retrieve 'dokumentasi' data
         $dataQuery = dokumentasi::query();
@@ -30,7 +30,7 @@ class dokumentasiController extends Controller
             });
         }
 
-        if ($userRole != 0) {
+        if ($userRole != 1) {
             // Add condition to filter by 'penyelenggara' if user's role is not '0' (admin)
             $dataQuery->where('penyelenggara', auth()->user()->id_eskul);
         }
@@ -38,7 +38,7 @@ class dokumentasiController extends Controller
         // Retrieve paginated data (max 5 items per page)
         $data = $dataQuery->orderBy('id', 'DESC')->paginate(5);
 
-        if ($userRole == 0) {
+        if ($userRole == 1) {
             // Check if the eskul record with the given id exists
             $data_eskul = eskul::all();
         } else {
@@ -106,7 +106,7 @@ class dokumentasiController extends Controller
         $data = dokumentasi::find($id);
         $foto = $data->foto_kegiatan;
         // dd($data->foto_kegiatan);
-        $currentRole = role::where("role", "=", auth()->user()->role)->first();
+        $currentRole = role::where("role", "=", auth()->user()->role_id)->first();
 
                 $data_eskul = eskul::all();
         
@@ -156,13 +156,13 @@ class dokumentasiController extends Controller
     public function deletedokumentasi($id)
     {
         $data = dokumentasi::find($id);
-        if (auth()->user()->role != 0) {
+        if (auth()->user()->role_id != 1) {
             # code...
             if (auth()->user()->id_eskul != $data['penyelenggara']) {
                 return redirect()->route('dokumentasi')->with('error', ' Data Gagal Di Delete');
             }
         }
-        if (auth()->user()->role == 0 || auth()->user()->id_eskul == $data['penyelenggara']) {
+        if (auth()->user()->role_id == 0 || auth()->user()->id_eskul == $data['penyelenggara']) {
             # code...
             if (File_exists(public_path('images/dokumentasi/logo-dokumentasi' . $data->logo))) { //either you can use file path instead of $data->image
                 unlink(public_path('images/dokumentasi/logo-dokumentasi' . $data->logo)); //here you can also use path like as ('uploads/media/welcome/'. $data->image)

@@ -21,7 +21,7 @@ class pendaftaranController extends Controller
         $on = administrator::all();
 
         if ($request->has('search')) {
-            if (auth()->user()->role == 0) {
+            if (auth()->user()->role_id == 1) {
                 $pendaftaran = pendaftaran::where('nama_calon_anggota', 'like', '%' . $request->search . '%')
                     ->orWhere('id_eskul', 'like', '%' . $request->search . '%')->paginate(5);
             } else {
@@ -29,7 +29,7 @@ class pendaftaranController extends Controller
                     ->orWhere('id_eskul', 'like', '%' . $request->search . '%')->paginate(5);
             }
         } else {
-            if (auth()->user()->role == 0) {
+            if (auth()->user()->role_id == 1) {
                 $pendaftaran = pendaftaran::paginate(10);
             } else {
 
@@ -54,7 +54,7 @@ class pendaftaranController extends Controller
     }
     public function list_eskul(){
 
-        $data = eskul::all();
+        $data = eskul::paginate(12);
         // dd($detail);
         return view('layout.subnav.pendaftaran-eskul.list-eskul', compact('data')) ;
     }
@@ -96,7 +96,7 @@ class pendaftaranController extends Controller
         $pendaftar = pendaftaran::find($id);
         $eskul = eskul::where('id','=',$pendaftar->id_eskul)->first();
         $exist = anggota::where('id_eskul', '=', $pendaftar->id_eskul)->where('nis','=',$pendaftar->nis)->first();
-        if ($exist->count() > 0) {
+        if ($exist && $exist->count() > 0) {
             $pendaftar->delete();
 
             return back()->with('error','Data Sudah terdaftar diekstrakurikuler '.$eskul->nama_eskul);
@@ -151,7 +151,7 @@ class pendaftaranController extends Controller
                 $pendaftaran->where('id', '<>', $request->id);
             }
 
-            $data = [ 'valid' => ( $pendaftaran->count() == 0)  ];
+            $data = [ 'valid' => ( $pendaftaran->count() == 1)  ];
             if(!empty($pendaftaran)){
                 return $data;
             }else{
@@ -172,7 +172,7 @@ class pendaftaranController extends Controller
                 $pendaftaran->where('id', '<>', $request->id);
             }
 
-            $data = [ 'valid' => ( $pendaftaran->count() == 0)  ];
+            $data = [ 'valid' => ( $pendaftaran->count() == 1)  ];
             if(!empty($pendaftaran)){
                 return $data;
             }else{

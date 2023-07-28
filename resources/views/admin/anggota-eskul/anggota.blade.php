@@ -89,22 +89,22 @@
                     
                       <tr>
                         <td>{{$no++}}</td>
-                        <td>{{$row->nama_anggota}}</td>
-                        <td>{{$row->kelas_anggota}}</td>
-                        <td>{{$row->nis}}</td>
-                        <td>{{$row->email}}</td>
-                        <td>{{$row->no_wa}}</td>
+                        <td>{{$row->nama_anggota ?? 'N/A'}}</td>
+                        <td>{{$row->kelas_anggota ?? 'N/A'}}</td>
+                        <td>{{$row->nis ?? 'N/A'}}</td>
+                        <td>{{$row->email ?? 'N/A'}}</td>
+                        <td>{{$row->no_wa ?? 'N/A'}}</td>
                         
                         <td>
-                          <img src="{{asset('images/logo-eskul/'.$row->eskul->logo)}}" width="120px" alt="{{$row->eskul->logo}}">
-                          {{$row->eskul->nama_eskul}}
+                          <img src="{{asset('images/logo-eskul/'.$row->eskul->logo ?? 'default_logo')}}" width="120px" alt="{{$row->eskul->logo ?? N/A}}">
+                          {{$row->eskul->nama_eskul ?? N/A}}
                         </td>
                         
 
                         
                         <td>
                           <a href="/editanggota/{{$row->id}}" class="btn btn-warning">Edit</a>
-                          @if (auth()->user()->role != 0)
+                          @if (auth()->user()->role_id != 1)
                           <a href="#" class="btn btn-danger delete" data-id="{{$row->id}}" data-nama="{{$row->nama_anggota}}"  id="delete">Delete</a>
                           @endif
 

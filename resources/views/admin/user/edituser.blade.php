@@ -55,9 +55,26 @@
                     <input type="text" class="form-control" value="{{$data->password}}" name="password" id="exampleInputPassword1" placeholder="Masukan Nama Penyelenggara">
                   </div> --}}
                   <div class="form-group">
-                    <label for="exampleInputPassword1">Role</label>
-                    <input type="text" class="form-control" value="{{$data->role}}" name="role" id="exampleInputPassword1" placeholder="Masukan Nama Penyelenggara">
-                  </div>
+                    <label for="role">Role</label>
+                    <select class="form-control" name="role" id="role">
+                      <option value="{{$data->role_id}}">{{$data->roles->role}}</option>
+                      @foreach ($role as $row)
+                      <option value="{{$row->id}}">{{$row->role}}</option>
+                      @endforeach
+                    </select>
+                </div>
+                  <div class="form-group">
+                    <label for="data_eskul">Ekstrakurikuler</label>
+                    <select class="form-control" name="data_eskul" id="data_eskul">
+                      <option value="{{$data->id_eskul ?? 0}}">{{$data->eskul->nama_eskul ?? 'root'}}</option>
+                      @if (auth()->user()->role_id == 1)
+                      <option value="0">root</option>
+                      @endif
+                      @foreach ($data_eskul as $row)
+                      <option value="{{$row->id}}">{{$row->nama_eskul}}</option>
+                      @endforeach
+                    </select>
+                </div>
                   <div class="form-group">
                     <label for="exampleInputFile">Foto User</label>
                     <img src="{{asset('images/foto-user/'.$data->foto)}}" alt="{{$data->foto}}" width="150px" class="d-block mb-2">
