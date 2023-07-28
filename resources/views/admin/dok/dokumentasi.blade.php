@@ -66,9 +66,8 @@
                       <tr>
                         <th>No</th>
                         <th>Nama Kegiatan</th>
-                        <th>Logo dokumentasi</th>
-                        <th>Penyelenggara</th>
                         <th>Foto Kegiatan</th>
+                        <th>Penyelenggara</th>
                         <th>Aksi</th>
                       </tr>
                       </thead>
@@ -83,11 +82,13 @@
                         <td>{{$no++}}</td>
                         <td>{{$row->nama_kegiatan ?? 'N/A'}}</td>
                         <td>
-                          <img src="{{asset('images/logo-eskul/'.$row->eskul->logo ?? 'N/A')}}" width="120px" alt="">
                         </td>
-                        <td>{{$row->eskul->nama_eskul ?? 'N/A'}}</td>
                         <td>
                           <img src="{{asset('images/dokumentasi/foto-kegiatan/'.$row->foto_kegiatan ?? 'N/A')}}" width="120px" alt="">
+                        </td>
+                        <td>
+                          <img src="{{asset('images/logo-eskul/'.$row->eskul->logo ?? 'N/A')}}" width="120px" alt="">
+                          {{$row->eskul->nama_eskul ?? 'N/A'}}
                         </td>
                         
                         

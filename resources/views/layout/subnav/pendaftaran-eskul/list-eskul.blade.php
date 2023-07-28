@@ -63,7 +63,7 @@
                 <div class="row y-gap-30">
                     @foreach ($data as $row)
                         <div class="col-xl-3 col-lg-4 col-md-6 col-6">
-                            <a class="" href="/eskul/{{$row->slug}}">
+                            <a class="" href="/pendaftaran/{{$row->slug}}">
                                 <div class="infoCard -type-1">
                                     <div class="infoCard__image">
                                         <img style="width: 100px; height: 99px;" src="{{asset('images/logo-eskul/'.$row->logo)}}" alt="{{$row->logo}}">

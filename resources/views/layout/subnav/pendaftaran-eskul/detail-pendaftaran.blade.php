@@ -39,6 +39,9 @@
 
               <h1 class="page-header__title">{{$data->nama_eskul}}</h1>
 
+              <div class="shopCompleted-header mt-5">
+                <img src="{{asset('images/logo-eskul/'.$data->logo)}}" alt="{{$data->logo}}" width="500px">
+              </div>
             </div>
           </div>
         </div>

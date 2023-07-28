@@ -96,10 +96,9 @@ class pendaftaranController extends Controller
         $pendaftar = pendaftaran::find($id);
         $eskul = eskul::where('id','=',$pendaftar->id_eskul)->first();
         $exist = anggota::where('id_eskul', '=', $pendaftar->id_eskul)->where('nis','=',$pendaftar->nis)->first();
-        if ($exist && $exist->count() > 0) {
+        if (isset($exist) && $exist->count() > 0) {
             $pendaftar->delete();
-
-            return back()->with('error','Data Sudah terdaftar diekstrakurikuler '.$eskul->nama_eskul);
+            return back()->with('error', 'Data Sudah terdaftar diekstrakurikuler ' . $eskul->nama_eskul);
         }
         $data = anggota::create($request->all());
         
@@ -139,45 +138,4 @@ class pendaftaranController extends Controller
         return redirect()->route('pendaftaran')->with('success',' Data Berhasil Di Tolak');
     }
 
-    public function isExistNIS(Request $request){
-        if($request->ajax()){
-            $pendaftaran = pendaftaran::select("*");
-
-            if(isset($request->nis)){
-                $pendaftaran->where('nis', $request->nis);
-            }
-
-            if(isset($request->id)){
-                $pendaftaran->where('id', '<>', $request->id);
-            }
-
-            $data = [ 'valid' => ( $pendaftaran->count() == 1)  ];
-            if(!empty($pendaftaran)){
-                return $data;
-            }else{
-                return $data;
-            }
-        }
-    }
-
-    public function isExistEmail(Request $request){
-        if($request->ajax()){
-            $pendaftaran = pendaftaran::select("*");
-
-            if(isset($request->email)){
-                $pendaftaran->where('email', $request->email);
-            }
-
-            if(isset($request->id)){
-                $pendaftaran->where('id', '<>', $request->id);
-            }
-
-            $data = [ 'valid' => ( $pendaftaran->count() == 1)  ];
-            if(!empty($pendaftaran)){
-                return $data;
-            }else{
-                return $data;
-            }
-        }
-    }
 }
