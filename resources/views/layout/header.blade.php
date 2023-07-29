@@ -31,10 +31,10 @@
   <!-- Stylesheets -->
   <link rel="stylesheet" href="{{asset('webex/css/main.css')}}">
   <link rel="stylesheet" href="{{asset('webex/css/vendors.css')}}">
-
-  <title>Home - Webex | SMKN 1 Garut</title>
-
+  
   @stack('css')
+  <title>{{$title ?? 'Home - Webex | SMKN 1 Garut'}}</title>
+
 </head>
 
 <body class="preloader-visible" data-barba="wrapper">
