@@ -53,7 +53,7 @@ class eskulController extends Controller
         $data = eskul::all();
         $total_eskul = $data->count();
         
-        $dok = dokumentasi::inRandomOrder()->get();
+        $dok = dokumentasi::inRandomOrder()->limit(8)->get();
 
         $news1 = berita::inRandomOrder()->limit(1)->get();
         $news = berita::inRandomOrder()->limit(3)->get();

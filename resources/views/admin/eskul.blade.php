@@ -90,15 +90,14 @@
 
                         <tbody>
                           @php
-                            $no = 1;
-                            @endphp
-                          
+                              $no = $eskul->firstitem();
+                          @endphp
                           @foreach ($eskul as $index => $row)
                           <tr>
                             {{-- @if (auth()->user()->role_id== 1) --}}
                             {{-- <td>{{$index + $eskul->firstitem()}}</td> --}}
                             {{-- @else --}}
-                            <td>{{$no++}}</td>
+                            <td>{{$no}}</td>
                             {{-- @endif --}}
                         <td>{{$row->nama_eskul ?? 'N/A'}}</td>
                         <td>{{$row->sekbid ?? 'N/A'}}</td>
@@ -131,6 +130,9 @@
                         </td>
                           </tr>
                           <tr>
+                            @php
+                                $no++;
+                            @endphp
                             @endforeach
                         </tbody>
                       </table>

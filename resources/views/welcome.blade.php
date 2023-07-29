@@ -197,7 +197,7 @@
                     <div data-anim-child="slide-up delay-1">
                       
                       <a href="/dokumentasi/{{$row->slug_dokumentasi}}" class=" coursesCard -type-1 px-10 py-10 border-light bg-white rounded-8">
-                        <div class="relative">
+                        <div class="relative d-flex flex-column h-100">
                           <div class="coursesCard__image overflow-hidden rounded-8">
                             <img class="w-1/1" src="{{asset('images/dokumentasi/foto-kegiatan/'.$row->foto_kegiatan)}}" alt="{{$row->foto_kegiatan}}">
                             <div class="coursesCard__image_overlay rounded-8"></div>

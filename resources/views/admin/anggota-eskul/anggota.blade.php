@@ -82,13 +82,11 @@
 
                       <tbody>
            
-                    @php
-                      $no = 1;
-                    @endphp
-                    @foreach ($anggota as $row)
                     
+                        <?php $no = $anggota->firstItem(); ?>
+                    @foreach ($anggota as $row)
                       <tr>
-                        <td>{{$no++}}</td>
+                        <td>{{$no}}</td>
                         <td>{{$row->nama_anggota ?? 'N/A'}}</td>
                         <td>{{$row->kelas_anggota ?? 'N/A'}}</td>
                         <td>{{$row->nis ?? 'N/A'}}</td>
@@ -112,6 +110,9 @@
 
 
                       </tr>
+                      @php
+                            $no++
+                        @endphp
                     @endforeach
                 
 

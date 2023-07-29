@@ -112,3 +112,14 @@
   </main>
 
   @endsection
+
+  @push('css')
+  <style>
+    /* Add this CSS to set a fixed height for the activity card container */
+    .coursesCard {
+        height: 100%; /* Set a fixed height for the card */
+        display: flex;
+        flex-direction: column;
+    }
+</style>
+  @endpush

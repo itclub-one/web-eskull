@@ -72,17 +72,16 @@
                       </tr>
                       </thead>
 
-                    @php
-                      $no = 1;
-                    @endphp
+                      @php
+                      $no = $data->firstitem();
+                  @endphp
                     @foreach ($data as $row)
                     
                       <tbody>
                       <tr>
                         <td>{{$no++}}</td>
                         <td>{{$row->nama_kegiatan ?? 'N/A'}}</td>
-                        <td>
-                        </td>
+                        
                         <td>
                           <img src="{{asset('images/dokumentasi/foto-kegiatan/'.$row->foto_kegiatan ?? 'N/A')}}" width="120px" alt="">
                         </td>
@@ -103,7 +102,7 @@
 
 
                       </tr>
-                    @endforeach
+                      @endforeach
 
                     
                     

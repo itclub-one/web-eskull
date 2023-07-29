@@ -65,7 +65,7 @@ class beritaController extends Controller
             'slug_berita' => Str::slug($request->judul_berita). '-' . uniqid(), // Tambahkan nilai slug
             'deskripsi' => $request->deskripsi,
             'id_eskul' => $request->id_eskul,
-            'sub_judul' => Str::limit($request->judul_berita,30),
+            'sub_judul' => Str::limit($request->judul_berita,70),
             'sub_deskripsi' => Str::limit($request->deskripsi,100),
         ]);
         if($request->hasfile('foto_berita')){
@@ -95,7 +95,7 @@ class beritaController extends Controller
         $data = berita::find($id);
         $data->slug_berita = Str::slug($request->get('judul_berita')) . '-' . uniqid();
         $data->sub_deskripsi = Str::limit($request->deskripsi,100);
-        $data->sub_judul = Str::limit($request->judul_berita,30);
+        $data->sub_judul = Str::limit($request->judul_berita,70);
 
 
 

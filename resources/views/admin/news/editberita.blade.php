@@ -60,9 +60,9 @@
                   <div class="form-group">
                     <label for="exampleInputEmail1">Ekstrakurikuler</label>
                     <select required name="id_eskul" class="form-control" id="exampleInputEmail1">
-                      <option selected value="{{$data->id_eskul ?? 'N/A'}}">{{$data->eskul->nama_eskul ?? 'N/A'}}</option>
+                      <option selected value="{{$data->id_eskul ?? ''}}">{{$data->eskul->nama_eskul ?? 'N/A'}}</option>
                       @foreach ($data_eskul as $row)
-                      <option value="{{$row->id ?? 'N/A'}}">{{$row->nama_eskul ?? 'N/A'}}</option>
+                      <option value="{{$row->id ?? ''}}">{{$row->nama_eskul ?? 'N/A'}}</option>
                       @endforeach
                     </select>
                   </div>

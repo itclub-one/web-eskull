@@ -75,9 +75,9 @@
                       </tr>
                       </thead>
 
-                    @php
-                      $no = 1;
-                    @endphp
+                      @php
+                      $no = $data->firstitem();
+                  @endphp
                     @foreach ($data as $row)
                     
                       <tbody>

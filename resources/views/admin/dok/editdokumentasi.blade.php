@@ -51,7 +51,7 @@
                     <select class="custom-select rounded-0" name="penyelenggara" id="exampleSelectRounded0">
                       <option selected value="{{$data->penyelenggara ?? 'N/A'}}">{{$data->eskul->nama_eskul ?? 'N/A'}}</option>
                       @foreach ($data_eskul as $data)
-                      <option value="{{$data->id ?? 'N/A'}}">{{$data->nama_eskul ?? 'N/A'}}</option>
+                      <option value="{{$data->id ?? ''}}">{{$data->nama_eskul ?? 'N/A'}}</option>
                       @endforeach
                     </select>
                     {{-- <input required type="text" class="form-control" name="penyelenggara" id="exampleInputPassword1" placeholder="Masukan Penyelenggara"> --}}

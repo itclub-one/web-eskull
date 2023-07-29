@@ -101,9 +101,9 @@
 
                     <tbody>
                       
-                    @php
-                      $no = 1;
-                    @endphp
+                      @php
+                      $no = $pendaftaran->firstitem();
+                  @endphp
                     @foreach ($pendaftaran as $row)
                     
                       <tr>
