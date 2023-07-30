@@ -51,7 +51,7 @@
         <div class="dropdown-divider"></div>
         @foreach ($dataByNotif as $row)
         <div class="dropdown-divider"></div>
-        <a href="{{$row->url}}" class="dropdown-item">
+        <a href="/pendaftaran-eskul" class="dropdown-item">
           <p class=" text-sm">{{$row->message}}
             <p class="float-right text-muted text-sm">{{$row->created_at->diffForHumans()}}</p>
             </p>

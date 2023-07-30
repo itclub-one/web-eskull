@@ -103,7 +103,7 @@
                       <tr>
                         <td>{{$no}}</td>
                         <td>{{$row->nama_anggota ?? 'N/A'}}</td>
-                        <td>{{$row->kelas_anggota ?? 'N/A'}}</td>
+                        <td>{{$row->kelas_anggota .'-'. $row->jurusan ?? 'N/A'}}</td>
                         <td>{{$row->nis ?? 'N/A'}}</td>
                         <td>{{$row->email ?? 'N/A'}}</td>
                         <td>{{$row->no_wa ?? 'N/A'}}</td>

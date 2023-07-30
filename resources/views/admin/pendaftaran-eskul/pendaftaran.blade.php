@@ -63,18 +63,16 @@
                       }, 8000); // Adjust the time (in milliseconds) as needed
                     </script>
 
-                    <div class="head">
-                      <div class="form-group col-lg-4 col-8">
-                        <form action="pendaftaran-eskul" method="GET" id="search-form">
-                          <div class="input-group">
-                            <input type="search" class="form-control" name="search" placeholder="Cari Nama Pendaftar" value="{{ request('search') }}" id="search-input">
-                            <div class="input-group-append">
-                              <button type="submit" class="btn btn-primary">Search</button>
-                              <button type="reset" class="btn btn-secondary">Reset</button>
-                            </div>
+                    <div class="form-group col-lg-4 col-8">
+                      <form action="pendaftaran-eskul" method="GET" id="search-form">
+                        <div class="input-group">
+                          <input type="search" class="form-control" name="search" placeholder="Cari Nama Pendaftar" value="{{ request('search') }}" id="search-input">
+                          <div class="input-group-append">
+                            <button type="submit" class="btn btn-primary">Search</button>
+                            <button type="reset" class="btn btn-secondary">Reset</button>
                           </div>
-                        </form>
-                      </div>
+                        </div>
+                      </form>
                     </div>
                     <script>
                       document.addEventListener('DOMContentLoaded', function () {
@@ -88,6 +86,7 @@
                         });
                       });
                     </script>
+                    <div class="head">
 
                     @foreach ($on as $row)
                       <div class="d-flex">
