@@ -4,7 +4,10 @@ namespace Database\Seeders;
 
 use App\Models\User;
 use App\Models\eskul;
+use App\Models\anggota;
+use App\Models\pendaftaran;
 use Illuminate\Support\Str;
+use App\Models\Notification;
 use Illuminate\Database\Seeder;
 
 class UserSeeder extends Seeder
@@ -16,7 +19,10 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        user::truncate();
+        User::truncate();
+        anggota::truncate();
+        pendaftaran::truncate();
+        Notification::truncate();
         
         User::create([
             'name' => 'Moderator',
