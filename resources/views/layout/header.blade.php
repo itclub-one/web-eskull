@@ -14,6 +14,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <meta name="author" content="Mochammad Ikhsan Nawawi">
+  <meta name="robots" content="index">
+  <meta name="keywords" content="webex, smk negeri 1 garut, smea,smknegeri1garut, ekstrakurikuler">
+  <meta name="title" content="Webex Smk Negeri 1 Garut">
+  <meta name="description" content="Webex adalah Web Ekstrakurikuler Smk Negeri 1 Garut untuk mengelola ekstrakurikuler">
+
   <!-- Google fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com/index.html">
   <link rel="preconnect" href="https://fonts.gstatic.com/index.html" crossorigin>
