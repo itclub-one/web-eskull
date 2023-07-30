@@ -109,8 +109,8 @@
                         <td>{{$row->no_wa ?? 'N/A'}}</td>
                         
                         <td>
-                          <img src="{{asset('images/logo-eskul/'.$row->eskul->logo ?? 'default_logo')}}" width="120px" alt="{{$row->eskul->logo ?? N/A}}">
-                          {{$row->eskul->nama_eskul ?? N/A}}
+                          <img src="{{asset('images/logo-eskul/'.$row->eskul->logo ?? 'default_logo')}}" width="120px" alt="{{$row->eskul->logo ?? 'N/A'}}">
+                          {{$row->eskul->nama_eskul ?? 'N/A'}}
                         </td>
                         
 
