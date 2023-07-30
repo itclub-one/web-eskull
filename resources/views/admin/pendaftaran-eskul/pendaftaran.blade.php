@@ -40,7 +40,7 @@
                   <div class="order">
                     @if ($message = Session::get('success'))
                     <div  style="width: 500px">
-                      <div class="alert alert-success alert-dismissible fade show" role="alert">
+                      <div id="fm" class="alert alert-success alert-dismissible fade show" role="alert">
                         <i type="button" class="fa-solid fa-xmark mx-2" style="color: black; "  data-bs-dismiss="alert" aria-label="Close">
                         </i>
                         <strong>{{$message}}</strong>
@@ -49,39 +49,74 @@
                     @endif
                     @if ($message = Session::get('error'))
                     <div  style="width: 500px">
-                      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                      <div id="fm" class="alert alert-danger alert-dismissible fade show" role="alert">
                         <i type="button" class="fa-solid fa-xmark mx-2" style="color: black; "  data-bs-dismiss="alert" aria-label="Close">
                         </i>
                         <strong>{{$message}}</strong>
                       </div>
                     </div>
                     @endif
+                    <script>
+                      // Set a timeout of 5 seconds (5000 milliseconds)
+                      setTimeout(function () {
+                        document.getElementById('fm').style.display = 'none';
+                      }, 8000); // Adjust the time (in milliseconds) as needed
+                    </script>
+
                     <div class="head">
                       <div class="form-group col-lg-4 col-8">
-                        <form action="pendaftaran-eskul" method="GET">
-                          <input  type="search" class="form-control" name="search"  placeholder="Cari Nama Pendaftar">
+                        <form action="pendaftaran-eskul" method="GET" id="search-form">
+                          <div class="input-group">
+                            <input type="search" class="form-control" name="search" placeholder="Cari Nama Pendaftar" value="{{ request('search') }}" id="search-input">
+                            <div class="input-group-append">
+                              <button type="submit" class="btn btn-primary">Search</button>
+                              <button type="reset" class="btn btn-secondary">Reset</button>
+                            </div>
+                          </div>
                         </form>
                       </div>
                     </div>
+                    <script>
+                      document.addEventListener('DOMContentLoaded', function () {
+                        const searchInput = document.getElementById('search-input');
+                        const searchForm = document.getElementById('search-form');
+                    
+                        // Handle the click event of the "Reset" button
+                        document.querySelector('#search-form button[type="reset"]').addEventListener('click', function () {
+                          searchInput.value = ''; // Clear the search input value
+                          searchForm.submit(); // Submit the form to perform the reset
+                        });
+                      });
+                    </script>
+
                     @foreach ($on as $row)
-                    <div class="d-flex">
-                      <a href="/pendaftaran-eskul/export-excel" class="btn btn-success mb-2">Export Excel</a>
-                      @if (auth()->user()->role_id ?? 'N/A'==1)
-                      @if ($row->on == 1)
-                      <form action="/add-pendaftaran/{{$row->id}}" class="mb-2 mx-3" method="post">
-                        @csrf
-                        <input class="d-none" name="on" value="1">
-                        <button type="submit" class="btn btn-primary ">Pendaftaran dibuka</button>
-                      </form>
-                      @else
-                      <form action="/add-pendaftaran/{{$row->id}}" class="mb-2 mx-3" method="post">
-                        @csrf
-                        <input class="d-none" name="on" value="0">
-                        <button type="submit" class="btn btn-danger ">Pendaftaran ditutup</button>
-                      </form>
-                      @endif
-                      @endif
+                      <div class="d-flex">
+                        <a href="/pendaftaran-eskul/export-excel" class="btn btn-success mb-2">Export Excel</a>
+                        @if (auth()->user()->role_id == 1 ?? 'N/A')
+                          <form id="form-{{$row->id}}" action="/add-pendaftaran/{{$row->id}}" class="mb-2 mx-3" method="post">
+                            @csrf
+                            @if ($row->on == 0)
+                            <input type="hidden" name="on" value="{{ $row->on ? '0' : '1'  }}">
+                            @else
+                            <input type="hidden" name="on" value="{{ $row->on ? '0' : '1'  }}">
+                            @endif
+                            <label class="switch">
+                              <input type="checkbox" {{ $row->on ? 'checked' : '' }} onchange="document.getElementById('form-{{$row->id}}').submit()">
+                              <span class="slider round"></span>
+                            </label>
+                            <span>
+                              @if ($row->on == 0)
+                                  Pendaftaran ditutup
+                                  @else
+                                  Pendaftaran dibuka
+                              @endif
+                            </span>
+                          </form>
+                        @endif
+                      </div>
                       @endforeach
+
+
                     </div>
                     
                     <table id="example2" class="table table-bordered table-hover">
@@ -109,7 +144,7 @@
                       <tr>
                         <td>{{$no++}}</td>
                         <td>{{$row->nama_calon_anggota ?? 'N/A'}}</td>
-                        <td>{{$row->kelas_calon_anggota ?? 'N/A' .' - '. $row->jurusan ?? 'N/A'}}</td>
+                        <td>{{$row->kelas_calon_anggota .'-'.$row->jurusan  ?? 'N?A'}}</td>
                         <td>{{$row->nis ?? 'N/A'}}</td>
                         <td>{{$row->email ?? 'N/A'}}</td>
                         <td>{{$row->no_wa ?? 'N/A'}}</td>
@@ -179,7 +214,9 @@
       </section>
 
 
+      @endsection
       @push('script')
+      
               <script>
                 $('.delete').click(function () {
                     var kepsekid = $(this).attr('data-id');
@@ -213,4 +250,70 @@
               @endpush
 
 
-@endsection
+              @push('css')
+                  <style>
+                    /* The container (the outer circle) */
+              .switch {
+                position: relative;
+                display: inline-block;
+                width: 40px;
+                height: 20px;
+              }
+              
+              /* Hide default checkbox */
+              .switch input {
+                opacity: 0;
+                width: 0;
+                height: 0;
+              }
+              
+              /* The slider (the inner circle) */
+              .slider {
+                position: absolute;
+                cursor: pointer;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: #ccc;
+                -webkit-transition: .4s;
+                transition: .4s;
+                border-radius: 20px;
+              }
+              
+              /* The slider (the inner circle) - when checked */
+              .slider.round {
+                background-color: #707579;
+              }
+              
+              /* Style the slider's appearance on checkbox checked */
+              .slider.round:before {
+                position: absolute;
+                content: "";
+                height: 14px;
+                width: 14px;
+                left: 3px;
+                bottom: 3px;
+                background-color: white;
+                -webkit-transform: translateX(0);
+                -ms-transform: translateX(0);
+                transform: translateX(0);
+                border-radius: 50%;
+                -webkit-transition: .4s;
+                transition: .4s;
+              }
+              
+              /* Move the slider to the right when checked */
+              input:checked + .slider {
+                background-color: #2196F3;
+              }
+              
+              /* Move the slider's inner circle to the right when checked */
+              input:checked + .slider:before {
+                -webkit-transform: translateX(20px);
+                -ms-transform: translateX(20px);
+                transform: translateX(20px);
+              }
+              
+                  </style>
+              @endpush

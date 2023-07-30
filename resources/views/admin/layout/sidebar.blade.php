@@ -64,7 +64,7 @@
           </p>
         </a>
       </li>
-      @if(auth()->user()->role == 0)
+      @if(auth()->user()->role_id == 1)
         <li class="nav-item">
           <a href="/kepsek" class="nav-link {{request()->is('kepsek') ? 'active' : ''}}">
             <i class="nav-icon fas fa-th"></i>
@@ -92,15 +92,6 @@
         </li>
         @endif
       
-      <li class="nav-item">
-        <a href="/logout" class="nav-link">
-          <i class="nav-icon fas fa-th"></i>
-          <p>
-            Logout
-          </p>
-        </a>
-      </li>
-
 
       
       {{-- @foreach ($data as $row) --}}

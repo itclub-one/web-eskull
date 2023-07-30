@@ -35,7 +35,7 @@
                   <div class="order">
                     @if ($message = Session::get('success'))
                     <div  style="width: 500px">
-                      <div class="alert alert-success alert-dismissible fade show" role="alert">
+                      <div id="fm" class="alert alert-success alert-dismissible fade show" role="alert">
                         <i type="button" class="fa-solid fa-xmark mx-2" style="color: black; "  data-bs-dismiss="alert" aria-label="Close">
                         </i>
                         <strong>{{$message}}</strong>
@@ -43,14 +43,20 @@
                     </div>
                     @endif
                     @if ($message = Session::get('error'))
-                  <div  style="width: 500px">
-                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                      <i type="button" class="fa-solid fa-xmark mx-2" style="color: black; "  data-bs-dismiss="alert" aria-label="Close">
-                      </i>
-                      <strong>{{$message}}</strong>
+                    <div  style="width: 500px">
+                      <div id="fm" class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <i type="button" class="fa-solid fa-xmark mx-2" style="color: black; "  data-bs-dismiss="alert" aria-label="Close">
+                        </i>
+                        <strong>{{$message}}</strong>
+                      </div>
                     </div>
-                  </div>
-                  @endif
+                    @endif
+                    <script>
+                      // Set a timeout of 5 seconds (5000 milliseconds)
+                      setTimeout(function () {
+                        document.getElementById('fm').style.display = 'none';
+                      }, 8000); // Adjust the time (in milliseconds) as needed
+                    </script>
                     
                     <a href="#tambahdata" class="btn btn-primary mb-3">Tambah Data</a>
                   <table id="example2" class="table table-bordered table-hover">

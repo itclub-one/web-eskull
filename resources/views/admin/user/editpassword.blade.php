@@ -53,9 +53,12 @@
                         <label for="exampleInputPassword1">Password</label>
                         <input type="text" class="form-control"  name="password" id="exampleInputPassword1" placeholder="Masukan Password Baru">
                     </div>
+                    @if (auth()->user()->role_id == 1)
                     <div class="mt-3">
-                        <a href="backtoedituser/{{$data->id}}" class="mt-5">tidak akan merubah password? Kembali ke halaman Users</a>
-                    </div>
+                      <a href="backtoedituser/{{$data->id}}" class="mt-5">tidak akan merubah password? Kembali ke halaman Users</a>
+                  </div>
+                    @endif
+                    
                   
                   
                   

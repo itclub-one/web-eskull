@@ -34,34 +34,58 @@
                 <!-- /.card-header -->
                 <div class="card-body">
                   @if ($message = Session::get('success'))
-                  <div  style="width: 500px">
-                    <div class="alert alert-success alert-dismissible fade show" role="alert">
-                      <i type="button" class="fa-solid fa-xmark mx-2" style="color: black; "  data-bs-dismiss="alert" aria-label="Close">
-                      </i>
-                      <strong>{{$message}}</strong>
+                    <div  style="width: 500px">
+                      <div id="fm" class="alert alert-success alert-dismissible fade show" role="alert">
+                        <i type="button" class="fa-solid fa-xmark mx-2" style="color: black; "  data-bs-dismiss="alert" aria-label="Close">
+                        </i>
+                        <strong>{{$message}}</strong>
+                      </div>
                     </div>
-                  </div>
-                  @endif
-                  @if ($message = Session::get('error'))
-                  <div  style="width: 500px">
-                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                      <i type="button" class="fa-solid fa-xmark mx-2" style="color: black; "  data-bs-dismiss="alert" aria-label="Close">
-                      </i>
-                      <strong>{{$message}}</strong>
+                    @endif
+                    @if ($message = Session::get('error'))
+                    <div  style="width: 500px">
+                      <div id="fm" class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <i type="button" class="fa-solid fa-xmark mx-2" style="color: black; "  data-bs-dismiss="alert" aria-label="Close">
+                        </i>
+                        <strong>{{$message}}</strong>
+                      </div>
                     </div>
-                  </div>
-                  @endif
+                    @endif
+                    <script>
+                      // Set a timeout of 5 seconds (5000 milliseconds)
+                      setTimeout(function () {
+                        document.getElementById('fm').style.display = 'none';
+                      }, 8000); // Adjust the time (in milliseconds) as needed
+                    </script>
                   
 
                   <div class="table-data">
                     <div class="order">
                       <div class="head">
                         @if (auth()->user()->role_id== 1)
-                        <div class="form-group col-lg-4 col-8">
-                          <form action="administrator" method="GET">
-                            <input  type="search" class="form-control" name="search"  placeholder="Cari Nama Ekstrakurikuler">
-                          </form>
-                        </div>
+                          <div class="form-group col-lg-4 col-8">
+                            <form action="administrator" method="GET" id="search-form">
+                              <div class="input-group">
+                                <input type="search" class="form-control" name="search" placeholder="Cari Nama Ekstrakurikuler" value="{{ request('search') }}" id="search-input">
+                                <div class="input-group-append">
+                                  <button type="submit" class="btn btn-primary">Search</button>
+                                  <button type="reset" class="btn btn-secondary">Reset</button>
+                                </div>
+                              </div>
+                            </form>
+                          </div>
+                          <script>
+                          document.addEventListener('DOMContentLoaded', function () {
+                            const searchInput = document.getElementById('search-input');
+                            const searchForm = document.getElementById('search-form');
+                        
+                            // Handle the click event of the "Reset" button
+                            document.querySelector('#search-form button[type="reset"]').addEventListener('click', function () {
+                              searchInput.value = ''; // Clear the search input value
+                              searchForm.submit(); // Submit the form to perform the reset
+                            });
+                          });
+                        </script>
                         @endif
                       </div>
                       @if (auth()->user()->role_id== 1)
@@ -90,7 +114,12 @@
 
                         <tbody>
                           @php
-                              $no = $eskul->firstitem();
+                          if (auth()->user()->role_id == 1) {
+                            # code...
+                            $no = $eskul->firstitem();
+                          }
+                          $no = 1;
+                          $no = $no++
                           @endphp
                           @foreach ($eskul as $index => $row)
                           <tr>

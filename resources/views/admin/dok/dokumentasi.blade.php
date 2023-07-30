@@ -37,7 +37,7 @@
                   <div class="order">
                     @if ($message = Session::get('success'))
                     <div  style="width: 500px">
-                      <div class="alert alert-success alert-dismissible fade show" role="alert">
+                      <div id="fm" class="alert alert-success alert-dismissible fade show" role="alert">
                         <i type="button" class="fa-solid fa-xmark mx-2" style="color: black; "  data-bs-dismiss="alert" aria-label="Close">
                         </i>
                         <strong>{{$message}}</strong>
@@ -46,20 +46,35 @@
                     @endif
                     @if ($message = Session::get('error'))
                     <div  style="width: 500px">
-                      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                      <div id="fm" class="alert alert-danger alert-dismissible fade show" role="alert">
                         <i type="button" class="fa-solid fa-xmark mx-2" style="color: black; "  data-bs-dismiss="alert" aria-label="Close">
                         </i>
                         <strong>{{$message}}</strong>
                       </div>
                     </div>
                     @endif
+                    <script>
+                      // Set a timeout of 5 seconds (5000 milliseconds)
+                      setTimeout(function () {
+                        document.getElementById('fm').style.display = 'none';
+                      }, 8000); // Adjust the time (in milliseconds) as needed
+                    </script>
+
                     <div class="head">
                       <div class="form-group col-lg-4 col-8">
-                        <form action="dokumentasi" method="GET">
-                          <input  type="search" class="form-control" name="search"  placeholder="Cari Nama Kegiatan">
+                        <form action="dokumentasi" method="GET" id="search-form">
+                          <div class="input-group">
+                            <input type="search" class="form-control" name="search" placeholder="Cari Nama Kegiatan" value="{{ request('search') }}" id="search-input">
+                            <div class="input-group-append">
+                              <button type="submit" class="btn btn-primary">Search</button>
+                              <button type="reset" class="btn btn-secondary">Reset</button>
+                            </div>
+                          </div>
                         </form>
                       </div>
                     </div>
+
+                    
                     <a href="#tambahdata" class="btn btn-primary mb-3">Tambah Data</a>
                   <table id="example2" class="table table-bordered table-hover">
                     <thead>
@@ -211,6 +226,19 @@
                 toastr.success("{{ Session::get('success') }}")
                 @endif
               </script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const searchInput = document.getElementById('search-input');
+    const searchForm = document.getElementById('search-form');
+
+    // Handle the click event of the "Reset" button
+    document.querySelector('#search-form button[type="reset"]').addEventListener('click', function () {
+      searchInput.value = ''; // Clear the search input value
+      searchForm.submit(); // Submit the form to perform the reset
+    });
+  });
+</script>
               @endpush
               
 @endsection

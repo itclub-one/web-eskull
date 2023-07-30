@@ -28,6 +28,12 @@
   {{-- select2 css --}}
   <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
+  <style>
+    .nav-link::after {
+  display: none; /* Hide the dropdown indicator */
+}
+  </style>
+  @stack('css')
 </head>
 <body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
 <div class="wrapper">

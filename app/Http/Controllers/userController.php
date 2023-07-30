@@ -165,12 +165,13 @@ class userController extends Controller
     }
 
     public function editpassword($id){
-        if (auth()->user()->role_id != 1) {
+        $data = user::find($id);
+        if ($data->id == auth()->user()->id || auth()->user()->role_id == 1) {
             # code...
+            return view('admin.user.editpassword', compact('data'));
+        }else if ($data->id != auth()->user()->id){
             return back();
         }
-        $data = user::find($id);
-        return view('admin.user.editpassword', compact('data'));
     }
 
     public function updatepassword(Request $request , $id){
@@ -180,8 +181,14 @@ class userController extends Controller
             'password' => bcrypt($request->password),
             'remember_token' => Str::random(60),
         ]);
+        $data->save();
 
-        return redirect()->route('users')->with('success',' Data Berhasil Di Update');
+        if (auth()->user()->role_id == 1) {
+            # code...
+            return redirect()->route('users')->with('success',' Password Berhasil diperbarui');
+        }else if (auth()->user()->role_id == 2){
+            return redirect()->route('anggota')->with('success',' Password Berhasil diperbarui');
+        }
 
     }
 

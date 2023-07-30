@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\administrator;
+use App\Models\role;
+use App\Models\eskul;
 use App\Models\anggota;
 use App\Models\pendaftaran;
 use Illuminate\Support\Str;
-use App\Models\eskul;
+use App\Models\Notification;
 use Illuminate\Http\Request;
+use App\Models\administrator;
 use App\Exports\PendaftaranExport;
-use App\Models\role;
 use Maatwebsite\Excel\Facades\Excel;
 
 class pendaftaranController extends Controller
@@ -23,17 +24,17 @@ class pendaftaranController extends Controller
         if ($request->has('search')) {
             if (auth()->user()->role_id == 1) {
                 $pendaftaran = pendaftaran::where('nama_calon_anggota', 'like', '%' . $request->search . '%')
-                    ->orWhere('id_eskul', 'like', '%' . $request->search . '%')->paginate(5);
+                    ->orWhere('id_eskul', 'like', '%' . $request->search . '%')->orderBy('updated_at','DESC')->paginate(5);
             } else {
                 $pendaftaran = pendaftaran::where('id_eskul', '=', auth()->user()->id_eskul)->where('nama_calon_anggota', 'like', '%' . $request->search . '%')
-                    ->orWhere('id_eskul', 'like', '%' . $request->search . '%')->paginate(5);
+                    ->orWhere('id_eskul', 'like', '%' . $request->search . '%')->orderBy('updated_at','DESC')->paginate(5);
             }
         } else {
             if (auth()->user()->role_id == 1) {
-                $pendaftaran = pendaftaran::paginate(10);
+                $pendaftaran = pendaftaran::orderBy('updated_at','DESC')->paginate(10);
             } else {
 
-                $pendaftaran = pendaftaran::where('id_eskul', '=', auth()->user()->id_eskul)->get();
+                $pendaftaran = pendaftaran::where('id_eskul', '=', auth()->user()->id_eskul)->orderBy('updated_at','DESC')->get();
             }
         }
         // dd($data);
@@ -86,6 +87,19 @@ class pendaftaranController extends Controller
         $data = pendaftaran::create($request->all());
         
         $data->save();
+
+        
+
+        // Create a notification when a new pendaftaran is added
+        $notificationMessage = 'Ada Pendaftar baru: ' . $data->nama_calon_anggota . ' ' .$data->kelas_calon_anggota.'-'.$data->jurusan;
+        $notificationUrl = '/pendaftaran-eskul/detail/' . $data->id; // Replace with the correct URL for pendaftaran details
+        $notification = new Notification([
+            'id_eskul' => $data->id_eskul, // Adjust this to the user receiving the notification
+            'message' => $notificationMessage,
+            'url' => $notificationUrl,
+            'read' => false, // Mark as unread by default
+        ]);
+        $notification->save();
         return redirect()->route('pendaftaran_eskul')->with('success',' Anda telah mendaftar ekstrakurikuler '. $eskul->nama_eskul);
     }
     public function export() 
@@ -110,9 +124,19 @@ class pendaftaranController extends Controller
         $data = administrator::find($id);
     
         $data->update($request->all());
+
+        if ($data->on == 0) {
+            $message = 'Pendaftaran ditutup';
+            $status = 'error';
+        } else {
+            $message = 'Pendaftaran dibuka';
+            $status = 'success';
+            # code...
+        }
+        
         
         $data->save();
-        return redirect()->route('pendaftaran')->with('success',' Pendaftaran dibuka/ditutup');
+        return redirect()->route('pendaftaran')->with($status,$message);
     }
 
     public function editpendaftaran($id){
