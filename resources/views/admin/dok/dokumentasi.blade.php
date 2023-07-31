@@ -25,6 +25,48 @@
     <section class="content">
         <div class="container-fluid">
           <div class="row">
+            {{-- @foreach ($data as $row)
+            <div class="col-lg-4">
+              <div class="card">
+                <div class="card-header">
+                  <h4 class="card-title">{{$row->nama_kegiatan}}</h4>
+                  <div class="card-tools">
+                    <!-- Replace label with dropdown -->
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">
+                        Edit
+                      </button>
+                      <div class="dropdown-menu">
+                        <a href="/editdokumentasi/{{$row->id}}" class="dropdown-item">Edit</a>
+                        <a href="#" class="dropdown-item delete" data-id="{{$row->id}}" data-nama="{{$row->nama_kegiatan}}"  id="delete">Delete</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div class="card-image-container">
+                    <img src="{{asset('images/dokumentasi/foto-kegiatan/'.$row->foto_kegiatan ?? 'N/A')}}" width="100%" alt="">
+                    <div class="empty-image" style="background-image: url({{ asset('images/empty-image.jpg') }});"></div>
+                  </div>
+                </div>
+                <div class="card-footer">
+                  @if($row->eskul)
+                  <img src="{{ asset('images/logo-eskul/'.$row->eskul->logo ?? 'N/A') }}" width="20px" alt="">
+                  {{ $row->eskul->nama_eskul }}
+                  @else
+                  No Eskul Data Available
+                  @endif
+                </div>
+              </div>
+            </div>
+            @endforeach
+
+
+            <div class="col-12">
+              <div class="linkss mt-3">
+                {{$data->links()}}
+              </div>
+            </div> --}}
             <div class="col-12">
               <div class="card">
                 <div class="card-header">
@@ -64,7 +106,7 @@
                       <div class="form-group col-lg-4 col-8">
                         <form action="dokumentasi" method="GET" id="search-form">
                           <div class="input-group">
-                            <input type="search" class="form-control" name="search" placeholder="Cari Nama Kegiatan" value="{{ request('search') }}" id="search-input">
+                            <input autocomplete="off" type="search" class="form-control" name="search" placeholder="Cari Nama Kegiatan" value="{{ request('search') }}" id="search-input">
                             <div class="input-group-append">
                               <button type="submit" class="btn btn-primary">Search</button>
                               <button type="reset" class="btn btn-secondary">Reset</button>
@@ -88,7 +130,12 @@
                       </thead>
 
                       @php
-                      $no = $data->firstitem();
+                      if ($data->count() > 1) {
+                        # code...
+                        $no = $data->firstitem();
+                        } else {
+                          $no = 1;
+                        }
                   @endphp
                     @foreach ($data as $row)
                     
@@ -101,9 +148,13 @@
                           <img src="{{asset('images/dokumentasi/foto-kegiatan/'.$row->foto_kegiatan ?? 'N/A')}}" width="120px" alt="">
                         </td>
                         <td>
-                          <img src="{{asset('images/logo-eskul/'.$row->eskul->logo ?? 'N/A')}}" width="120px" alt="">
-                          {{$row->eskul->nama_eskul ?? 'N/A'}}
-                        </td>
+                          @if($row->eskul)
+                              <img src="{{ asset('images/logo-eskul/'.$row->eskul->logo ?? 'N/A') }}" width="200px" alt="">
+                              {{ $row->eskul->nama_eskul }}
+                          @else
+                              No Eskul Data Available
+                          @endif
+                      </td>
                         
                         
 
@@ -158,14 +209,14 @@
                 <div class="card-body">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Nama Kegiatan</label>
-                        <input  type="text" class="form-control @error('nama_kegiatan') is-invalid @enderror" name="nama_kegiatan" id="exampleInputEmail1" placeholder="Masukan Nama Kegiatan">
+                        <input autocomplete="off"  type="text" class="form-control @error('nama_kegiatan') is-invalid @enderror" name="nama_kegiatan" id="exampleInputEmail1" placeholder="Masukan Nama Kegiatan">
                         @error('nama_kegiatan')
                           <span class="invalid-feedback">{{$message}}</span>
                         @enderror
                     </div>
                     {{-- <div class="form-group">
                         <label for="exampleInputFile">Logo Ekstrakurikuler</label>
-                        <input  type="file" class="form-control" name="logo" >
+                        <input autocomplete="off"  type="file" class="form-control" name="logo" >
                     </div> --}}
                     <div class="form-group">
                         <label for="exampleInputPassword1">Penyelenggara</label>
@@ -178,11 +229,11 @@
                         @error('penyelenggara')
                           <span class="invalid-feedback">{{$message}}</span>
                         @enderror
-                        {{-- <input  type="text" class="form-control" name="penyelenggara" id="exampleInputPassword1" placeholder="Masukan Penyelenggara"> --}}
+                        {{-- <input autocomplete="off"  type="text" class="form-control" name="penyelenggara" id="exampleInputPassword1" placeholder="Masukan Penyelenggara"> --}}
                     </div>
                     <div class="form-group">
                         <label for="exampleInputFile">Foto Kegiatan</label>
-                        <input  type="file" class="form-control @error('foto_kegiatan') is-invalid @enderror" name="foto_kegiatan" >
+                        <input autocomplete="off"  type="file" class="form-control @error('foto_kegiatan') is-invalid @enderror" name="foto_kegiatan" >
                         @error('foto_kegiatan')
                           <span class="invalid-feedback">{{$message}}</span>
                         @enderror

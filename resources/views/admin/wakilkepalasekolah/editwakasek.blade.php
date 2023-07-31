@@ -42,24 +42,24 @@
                 <div class="card-body">
                   <div class="form-group">
                     <label for="exampleInputEmail1">Nama Wakil Kepala Sekolah</label>
-                    <input required type="text" class="form-control" value="{{$data->nama_wakasek}}" name="nama_wakasek" id="exampleInputEmail1" placeholder="Masukan Nama Kegiatan">
+                    <input autocomplete="off" required type="text" class="form-control" value="{{$data->nama_wakasek}}" name="nama_wakasek" id="exampleInputEmail1" placeholder="Masukan Nama Kegiatan">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputFile">Foto Wakil Kepala Sekolah</label>
                   <img src="{{asset('images/foto-wakasek/'.$data->foto_wakasek)}}" alt="{{$data->foto_wakasek}}" width="200px" class="d-block mb-2">
-                    <input  type="file" class="form-control" value="{{$data->foto_wakasek}}" name="foto_wakasek" >
+                    <input autocomplete="off"  type="file" class="form-control" value="{{$data->foto_wakasek}}" name="foto_wakasek" >
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Pembuka Sambutan</label>
-                    <input required type="text" class="form-control" value="{{$data->pembuka_sambutan}}" name="pembuka_sambutan" id="exampleInputPassword1" placeholder="Masukan Pembuka Sambutan">
+                    <input autocomplete="off" required type="text" class="form-control" value="{{$data->pembuka_sambutan}}" name="pembuka_sambutan" id="exampleInputPassword1" placeholder="Masukan Pembuka Sambutan">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Isi Sambutan</label>
-                    <input required type="text" class="form-control" value="{{$data->isi_sambutan}}" name="isi_sambutan" id="exampleInputPassword1" placeholder="Masukan Isi Sambutan">
+                    <input autocomplete="off" required type="text" class="form-control" value="{{$data->isi_sambutan}}" name="isi_sambutan" id="exampleInputPassword1" placeholder="Masukan Isi Sambutan">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Penutup Sambutan</label>
-                    <input required type="text" class="form-control" value="{{$data->penutup_sambutan}}" name="penutup_sambutan" id="exampleInputPassword1" placeholder="Masukan Penutup Sambutan">
+                    <input autocomplete="off" required type="text" class="form-control" value="{{$data->penutup_sambutan}}" name="penutup_sambutan" id="exampleInputPassword1" placeholder="Masukan Penutup Sambutan">
                 </div>
                   
                   

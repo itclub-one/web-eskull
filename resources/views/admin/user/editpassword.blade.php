@@ -51,7 +51,7 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Password</label>
-                        <input type="text" class="form-control"  name="password" id="exampleInputPassword1" placeholder="Masukan Password Baru">
+                        <input autocomplete="off" type="text" class="form-control"  name="password" id="exampleInputPassword1" placeholder="Masukan Password Baru">
                     </div>
                     @if (auth()->user()->role_id == 1)
                     <div class="mt-3">

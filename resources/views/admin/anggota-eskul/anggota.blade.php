@@ -67,7 +67,7 @@
                       <div class="form-group col-lg-4 col-8">
                         <form action="anggota" method="GET" id="search-form">
                           <div class="input-group">
-                            <input type="search" class="form-control" name="search" placeholder="Cari Nama Anggota" value="{{ request('search') }}" id="search-input">
+                            <input autocomplete="off" type="search" class="form-control" name="search" placeholder="Cari Nama Anggota" value="{{ request('search') }}" id="search-input">
                             <div class="input-group-append">
                               <button type="submit" class="btn btn-primary">Search</button>
                               <button type="reset" class="btn btn-secondary">Reset</button>
@@ -98,7 +98,14 @@
                       <tbody>
            
                     
-                        <?php $no = $anggota->firstItem(); ?>
+                        <?php 
+                          if ($anggota->count() > 1) {
+                        # code...
+                        $no = $anggota->firstitem();
+                        } else {
+                          $no = 1;
+                        }
+                          ?>
                     @foreach ($anggota as $row)
                       <tr>
                         <td>{{$no}}</td>
@@ -107,11 +114,15 @@
                         <td>{{$row->nis ?? 'N/A'}}</td>
                         <td>{{$row->email ?? 'N/A'}}</td>
                         <td>{{$row->no_wa ?? 'N/A'}}</td>
-                        
                         <td>
-                          <img src="{{asset('images/logo-eskul/'.$row->eskul->logo ?? 'default_logo')}}" width="120px" alt="{{$row->eskul->logo ?? 'N/A'}}">
-                          {{$row->eskul->nama_eskul ?? 'N/A'}}
+                          @if($row->eskul)
+                          <img src="{{ asset('images/logo-eskul/'.$row->eskul->logo ?? 'N/A') }}" width="200px" alt="">
+                          {{ $row->eskul->nama_eskul }}
+                      @else
+                          No Eskul Data Available
+                      @endif
                         </td>
+                       
                         
 
                         
@@ -184,28 +195,28 @@
                 <div class="card-body">
                   <div class="form-group">
                     <label for="exampleInputEmail1">Nama Anggota</label>
-                    <input  type="text" class="form-control @error('nama_anggota') is-invalid @enderror" name="nama_anggota" id="exampleInputEmail1" placeholder="Masukan Nama Anggota">
+                    <input autocomplete="off"  type="text" class="form-control @error('nama_anggota') is-invalid @enderror" name="nama_anggota" id="exampleInputEmail1" placeholder="Masukan Nama Anggota">
                     @error('nama_anggota')
                       <span class="invalid-feedback">{{$message}}</span>
                     @enderror
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">E-Mail Anggota</label>
-                    <input  type="text" class="form-control @error('email') is-invalid @enderror" name="email" id="exampleInputEmail1" placeholder="Masukan Nama Anggota">
+                    <input autocomplete="off"  type="text" class="form-control @error('email') is-invalid @enderror" name="email" id="exampleInputEmail1" placeholder="Masukan Nama Anggota">
                     @error('email')
                       <span class="invalid-feedback">{{$message}}</span>
                     @enderror
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">No WhatsApp</label>
-                    <input  type="text" class="form-control @error('no_wa') is-invalid @enderror" name="no_wa" id="exampleInputEmail1" placeholder="Masukan Nama Anggota">
+                    <input autocomplete="off"  type="text" class="form-control @error('no_wa') is-invalid @enderror" name="no_wa" id="exampleInputEmail1" placeholder="Masukan Nama Anggota">
                     @error('no_wa')
                       <span class="invalid-feedback">{{$message}}</span>
                     @enderror
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Nomor Induk Siswa</label>
-                    <input  type="number" class="form-control @error('nis') is-invalid @enderror" name="nis" id="exampleInputEmail1" placeholder="Masukan Nomor Induk Siswa">
+                    <input autocomplete="off"  type="number" class="form-control @error('nis') is-invalid @enderror" name="nis" id="exampleInputEmail1" placeholder="Masukan Nomor Induk Siswa">
                     @error('nis')
                       <span class="invalid-feedback">{{$message}}</span>
                     @enderror

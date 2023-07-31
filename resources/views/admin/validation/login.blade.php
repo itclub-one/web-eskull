@@ -38,11 +38,11 @@
     <h2>Login ke akun Ekstrakulikuler</h2>
     <form action="loginproses" method="POST">
       @csrf
-      <input class="@error('email') is-invalid @enderror" type="text" name="email" placeholder="Email" autofocus required />
+      <input autocomplete="off" class="@error('email') is-invalid @enderror" type="text" name="email" placeholder="Email" autofocus required />
       @error('email')
         <span class="invalid-feedback bg-danger text-center">{{$message}}</span>
       @enderror
-      <input class="@error('password') is-invalid @enderror mt-3" type="password" name="password" placeholder="Password" required/>
+      <input autocomplete="off" class="@error('password') is-invalid @enderror mt-3" type="password" name="password" placeholder="Password" required/>
       @error('password')
         <span class="invalid-feedback bg-danger text-center">{{$message}}</span>
       @enderror

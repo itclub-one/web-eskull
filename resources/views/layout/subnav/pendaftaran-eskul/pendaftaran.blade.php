@@ -102,28 +102,28 @@
               @csrf
               <div class="form-group col-12 form-control">
                 <label  class="text-16 lh-1 fw-500 text-dark-1 mb-10">Nomor Induk Siswa</label>
-                <input  class="form-check-input @error('nis') is-invalid @enderror" type="number" name="nis" placeholder="Nomor Induk Siswa...">
+                <input autocomplete="off"  class="form-check-input @error('nis') is-invalid @enderror" type="number" name="nis" placeholder="Nomor Induk Siswa...">
                 @error('nis')
                     <span class="invalid-feedback">{{$message}}</span>
                 @enderror
               </div>
               <div class="form-group col-12">
                 <label class="text-16 lh-1 fw-500 text-dark-1 mb-10">Nama Siswa</label>
-                <input class="form-check-input @error('nama_calon_anggota') is-invalid @enderror" type="text" name="nama_calon_anggota" placeholder="Nama Siswa...">
+                <input autocomplete="off" class="form-check-input @error('nama_calon_anggota') is-invalid @enderror" type="text" name="nama_calon_anggota" placeholder="Nama Siswa...">
                 @error('nama_calon_anggota')
                       <span class="invalid-feedback">{{$message}}</span>
                   @enderror
               </div>
               <div class="form-group col-12">
                 <label class="text-16 lh-1 fw-500 text-dark-1 mb-10">Email</label>
-                <input class="form-check-input @error('email') is-invalid @enderror" type="text" name="email" placeholder="Email Siswa...">
+                <input autocomplete="off" class="form-check-input @error('email') is-invalid @enderror" type="text" name="email" placeholder="Email Siswa...">
                 @error('email')
                       <span class="invalid-feedback">{{$message}}</span>
                   @enderror
               </div>
               <div class="form-group col-12">
                 <label class="text-16 lh-1 fw-500 text-dark-1 mb-10">Nomor Whatsapp</label>
-                <input class="form-check-input @error('no_wa') is-invalid @enderror" type="text" name="no_wa" placeholder="Nomor Whatsapp Siswa ">
+                <input autocomplete="off" class="form-check-input @error('no_wa') is-invalid @enderror" type="text" name="no_wa" placeholder="Nomor Whatsapp Siswa ">
                 @error('no_wa')
                       <span class="invalid-feedback">{{$message}}</span>
                   @enderror

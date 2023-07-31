@@ -95,6 +95,7 @@ Route::get('/logout', [authController::class, 'logout'])->name('logout');
     
     Route::post('/registerusernew/{id}', [userController::class, 'registerusernew'])->name('registerusernew');
 
+    Route::get('/users/export-excel', [userController::class, 'export'])->name('export_user_excel')->middleware('auth');
 
 
  //anggota
@@ -106,7 +107,7 @@ Route::get('/logout', [authController::class, 'logout'])->name('logout');
     
     Route::get('/deleteanggota/{id}', [anggotaController::class, 'deleteanggota'])->name('deleteanggota');   
 
-    Route::get('/anggota-eskul/export-excel', [anggotaController::class, 'export'])->name('export_pendaftaran_excel')->middleware('auth');
+    Route::get('/anggota-eskul/export-excel', [anggotaController::class, 'export'])->name('export_anggota_excel')->middleware('auth');
 
     
     

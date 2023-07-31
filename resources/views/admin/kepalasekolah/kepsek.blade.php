@@ -73,7 +73,12 @@
                       </thead>
 
                       @php
+                      if ($data->count() > 1) {
+                        # code...
                       $no = $data->firstitem();
+                      } else {
+                        $no = 1;
+                      }
                   @endphp
                     @foreach ($data as $row)
                     
@@ -141,23 +146,23 @@
                 <div class="card-body">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Nama Kepala Sekolah</label>
-                        <input required type="text" class="form-control" name="nama_kepsek" id="exampleInputEmail1" placeholder="Masukan Nama Kegiatan">
+                        <input autocomplete="off" required type="text" class="form-control" name="nama_kepsek" id="exampleInputEmail1" placeholder="Masukan Nama Kegiatan">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputFile">Foto Kepala Sekolah</label>
-                        <input required type="file" class="form-control" name="foto_kepsek" >
+                        <input autocomplete="off" required type="file" class="form-control" name="foto_kepsek" >
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Pembuka Sambutan</label>
-                        <input required type="text" class="form-control" name="pembuka_sambutan" id="exampleInputPassword1" placeholder="Masukan Pembuka Sambutan">
+                        <input autocomplete="off" required type="text" class="form-control" name="pembuka_sambutan" id="exampleInputPassword1" placeholder="Masukan Pembuka Sambutan">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Isi Sambutan</label>
-                        <input required type="text" class="form-control" name="isi_sambutan" id="exampleInputPassword1" placeholder="Masukan Isi Sambutan">
+                        <input autocomplete="off" required type="text" class="form-control" name="isi_sambutan" id="exampleInputPassword1" placeholder="Masukan Isi Sambutan">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Penutup Sambutan</label>
-                        <input required type="text" class="form-control" name="penutup_sambutan" id="exampleInputPassword1" placeholder="Masukan Penutup Sambutan">
+                        <input autocomplete="off" required type="text" class="form-control" name="penutup_sambutan" id="exampleInputPassword1" placeholder="Masukan Penutup Sambutan">
                     </div>
                     
                     

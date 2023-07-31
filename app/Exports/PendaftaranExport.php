@@ -14,7 +14,7 @@ class PendaftaranExport implements FromCollection, WithMapping, WithHeadings, Sh
 {
     public function collection()
     {
-        if (auth()->user()->role == 0) {
+        if (auth()->user()->role_id == 1) {
             $filteredPendaftaran = pendaftaran::all()->sortBy([
                 ['id_eskul', 'asc'],
                 ['kelas_calon_anggota', 'asc'],
@@ -33,53 +33,59 @@ class PendaftaranExport implements FromCollection, WithMapping, WithHeadings, Sh
     }
 
     public function map($pendaftaran): array
-    {
-        if (auth()->user()->role == 0) {
-            return [
-                // Data yang diambil dari kolom tabel database
-                $pendaftaran->nis,
-                $pendaftaran->nama_calon_anggota,
-                [$pendaftaran->kelas_calon_anggota,
-                $pendaftaran->jurusan],
-                $pendaftaran->email,
-                $pendaftaran->no_wa,
-                $pendaftaran->alasan,
-                $pendaftaran->eskul->nama_eskul,
-            ];
-        }
+{
+    if (auth()->user()->role_id == 1) {
         return [
             // Data yang diambil dari kolom tabel database
-            $pendaftaran->nis,
-            $pendaftaran->nama_calon_anggota,
-            [$pendaftaran->kelas_calon_anggota,
-            $pendaftaran->jurusan],
-            $pendaftaran->email,
-            $pendaftaran->no_wa,
-            $pendaftaran->alasan,
+            $pendaftaran->nis ?? 'N/A',
+            $pendaftaran->nama_calon_anggota ?? 'N/A',
+            [$pendaftaran->kelas_calon_anggota ?? 'N/A',
+            $pendaftaran->jurusan ?? 'N/A'],
+            $pendaftaran->email ?? 'N/A',
+            $pendaftaran->no_wa ?? 'N/A',
+            $pendaftaran->eskul->nama_eskul ?? 'N/A', // This line might cause the error
+            $pendaftaran->alasan ?? 'N/A',
         ];
     }
 
+    // For non-admin users, handle the null case for $pendaftaran->eskul
+    $nama_eskul = $pendaftaran->eskul ? $pendaftaran->eskul->nama_eskul : 'N/A';
+
+    return [
+        // Data yang diambil dari kolom tabel database
+        $pendaftaran->nis ?? 'N/A',
+        $pendaftaran->nama_calon_anggota ?? 'N/A',
+        [$pendaftaran->kelas_calon_anggota ?? 'N/A',
+        $pendaftaran->jurusan ?? 'N/A'],
+        $pendaftaran->email ?? 'N/A',
+        $pendaftaran->no_wa ?? 'N/A',
+        $nama_eskul, // Use the variable that holds the value or 'N/A'
+        $pendaftaran->alasan ?? 'N/A',
+    ];
+}
+
+
     public function headings(): array
     {
-        if (auth()->user()->role == 0) {
+        if (auth()->user()->role_id == 1) {
             return [
             'NIS',
-            'NAMA',
-            'KELAS',
-            'EMAIL',
-            'NO WHATSAPP',
-            'ALASAN',
-            'EKSTRAKURIKULER',
+            'Nama',
+            'Kelas',
+            'E-Mail',
+            'No WhatsApp',
+            'Ekstrakurikuler',
+            'Alasan',
         ];
         }
             return [
             'NIS',
-            'NAMA',
-            'KELAS',
-            'EMAIL',
-            'NO WHATSAPP',
-            'ALASAN',
-            'KEHADIRAN',
+            'Nama',
+            'Kelas',
+            'E-Mail',
+            'No WhatsApp',
+            'Ekstrakurikuler',
+            'Alasan',
         ];
     }
 

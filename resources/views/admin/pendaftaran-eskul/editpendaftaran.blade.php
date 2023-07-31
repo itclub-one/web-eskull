@@ -42,7 +42,7 @@
                 <div class="card-body">
                   <div class="form-group">
                     <label for="exampleInputEmail1">Nama Calon Anggota</label>
-                    <input required type="text" class="form-control" value="{{$data->nama_calon_anggota ?? 'N/A'}}" name="nama_anggota" id="exampleInputEmail1" placeholder="Masukan Nama Anggota">
+                    <input autocomplete="off" required type="text" class="form-control" value="{{$data->nama_calon_anggota ?? 'N/A'}}" name="nama_anggota" id="exampleInputEmail1" placeholder="Masukan Nama Anggota">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Kelas Calon Anggota</label>
@@ -58,15 +58,15 @@
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Nomor Induk Siswa</label>
-                    <input required type="number" class="form-control" value="{{$data->nis ?? 'N/A'}}" name="nis" id="exampleInputEmail1" placeholder="Masukan Nomor Induk Siswa">
+                    <input autocomplete="off" required type="number" class="form-control" value="{{$data->nis ?? 'N/A'}}" name="nis" id="exampleInputEmail1" placeholder="Masukan Nomor Induk Siswa">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Email</label>
-                    <input required type="email" class="form-control" value="{{$data->email ?? 'N/A'}}" name="email" id="exampleInputEmail1" placeholder="Masukan Email">
+                    <input autocomplete="off" required type="email" class="form-control" value="{{$data->email ?? 'N/A'}}" name="email" id="exampleInputEmail1" placeholder="Masukan Email">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Nomor Whatsapp</label>
-                    <input required type="number" class="form-control" value="{{$data->no_wa ?? 'N/A'}}" name="no_wa" id="exampleInputEmail1" placeholder="Masukan Nomor Whatsapp">
+                    <input autocomplete="off" required type="number" class="form-control" value="{{$data->no_wa ?? 'N/A'}}" name="no_wa" id="exampleInputEmail1" placeholder="Masukan Nomor Whatsapp">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Nama Ekstrakurikuler</label>

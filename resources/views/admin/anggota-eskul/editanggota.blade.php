@@ -45,15 +45,15 @@
                 <div class="card-body">
                   <div class="form-group">
                     <label for="exampleInputEmail1">Nama Anggota</label>
-                    <input required type="text" class="form-control" value="{{$data->nama_anggota}}" name="nama_anggota" id="exampleInputEmail1" placeholder="Masukan Nama Anggota">
+                    <input autocomplete="off" required type="text" class="form-control" value="{{$data->nama_anggota}}" name="nama_anggota" id="exampleInputEmail1" placeholder="Masukan Nama Anggota">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">E-Mail Anggota</label>
-                    <input required type="text" class="form-control" value="{{$data->email}}" name="email" id="exampleInputEmail1" placeholder="Masukan E-Mail Anggota">
+                    <input autocomplete="off" required type="text" class="form-control" value="{{$data->email}}" name="email" id="exampleInputEmail1" placeholder="Masukan E-Mail Anggota">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">No WhatsApp</label>
-                    <input required type="text" class="form-control" value="{{$data->no_wa}}" name="no_wa" id="exampleInputEmail1" placeholder="Masukan No WhatsApp">
+                    <input autocomplete="off" required type="text" class="form-control" value="{{$data->no_wa}}" name="no_wa" id="exampleInputEmail1" placeholder="Masukan No WhatsApp">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Kelas Anggota</label>
@@ -66,7 +66,7 @@
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Nomor Induk Siswa</label>
-                    <input required type="number" class="form-control" value="{{$data->nis}}" name="nis" id="exampleInputEmail1" placeholder="Masukan Nomor Induk Siswa">
+                    <input autocomplete="off" required type="number" class="form-control" value="{{$data->nis}}" name="nis" id="exampleInputEmail1" placeholder="Masukan Nomor Induk Siswa">
                   </div>
                   <div class="form-group">
                 <label class="text-16 lh-1 fw-500 text-dark-1 mb-10" for="exampleInputPassword1">Jurusan</label>

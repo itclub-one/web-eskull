@@ -42,36 +42,36 @@
                 <div class="card-body">
                   {{-- <div class="form-group">
                     <label for="exampleInputEmail1">id</label>
-                    <input type="text" class="form-control" value="{{$data->id}}" name="id" id="exampleInputEmail1" placeholder="Masukan id">
+                    <input autocomplete="off" type="text" class="form-control" value="{{$data->id}}" name="id" id="exampleInputEmail1" placeholder="Masukan id">
                   </div> --}}
                   <div class="form-group">
                     <label for="exampleInputEmail1">Nama Ekstrakurikuler</label>
-                    <input type="text" class="form-control" value="{{$data->nama_eskul ?? 'N/A'}}" name="nama_eskul" id="exampleInputEmail1" placeholder="Masukan Nama Ekstrakurikuler">
+                    <input autocomplete="off" type="text" class="form-control" value="{{$data->nama_eskul ?? 'N/A'}}" name="nama_eskul" id="exampleInputEmail1" placeholder="Masukan Nama Ekstrakurikuler">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Sekbid</label>
-                    <input type="number" class="form-control" value="{{$data->sekbid ?? 'N/A'}}" name="sekbid" id="exampleInputEmail1" placeholder="Masukan Sekbid Berapa">
+                    <input autocomplete="off" type="number" class="form-control" value="{{$data->sekbid ?? 'N/A'}}" name="sekbid" id="exampleInputEmail1" placeholder="Masukan Sekbid Berapa">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputFile">Logo Ekstrakurikuler</label>
                     <img src="{{asset('images/logo-eskul/'.$data->logo ?? 'N/A')}}" alt="{{$data->logo ?? 'N/A'}}" width="100px" class="d-block border mb-2">
-                      <input type="file" class="form-control" value="{{$data->logo ?? 'N/A'}}" name="logo" >
+                      <input autocomplete="off" type="file" class="form-control" value="{{$data->logo ?? 'N/A'}}" name="logo" >
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Pembina</label>
-                    <input type="text" class="form-control" value="{{$data->pembina ?? 'N/A'}}" name="pembina" id="exampleInputPassword1" placeholder="Masukan Nama Pembina">
+                    <input autocomplete="off" type="text" class="form-control" value="{{$data->pembina ?? 'N/A'}}" name="pembina" id="exampleInputPassword1" placeholder="Masukan Nama Pembina">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Ketua</label>
-                    <input type="text" class="form-control" value="{{$data->ketua ?? 'N/A'}}" name="ketua" id="exampleInputPassword1" placeholder="Masukan Nama Ketua">
+                    <input autocomplete="off" type="text" class="form-control" value="{{$data->ketua ?? 'N/A'}}" name="ketua" id="exampleInputPassword1" placeholder="Masukan Nama Ketua">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Wakil Ketua</label>
-                    <input type="text" class="form-control" value="{{$data->wakilketua ?? 'N/A'}}" name="wakilketua" id="exampleInputPassword1" placeholder="Masukan Jadwal Wakil Ketua">
+                    <input autocomplete="off" type="text" class="form-control" value="{{$data->wakilketua ?? 'N/A'}}" name="wakilketua" id="exampleInputPassword1" placeholder="Masukan Jadwal Wakil Ketua">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Jadwal Ekstrakurikuler</label>
-                    <input type="text" class="form-control" value="{{$data->jadwal_kumpulan ?? 'N/A'}}" name="jadwal_kumpulan" id="exampleInputPassword1" placeholder="Masukan Nama Ekstrakurikuler, Contoh (Senin dan Jumat)">
+                    <input autocomplete="off" type="text" class="form-control" value="{{$data->jadwal_kumpulan ?? 'N/A'}}" name="jadwal_kumpulan" id="exampleInputPassword1" placeholder="Masukan Nama Ekstrakurikuler, Contoh (Senin dan Jumat)">
                   </div>
                   <div class="form-floating">
                     <label for="floatingTextarea2">Visi</label>
@@ -89,10 +89,10 @@
                   
                   <div class="form-group">
                     <label for="exampleInputPassword1">Instagram</label>
-                    <input type="text" class="form-control" value="{{$data->nama_instagram ?? 'N/A'}}" name="nama_instagram" id="exampleInputPassword1" placeholder="Masukan Nama Instagram Contoh (@eskulP)">
+                    <input autocomplete="off" type="text" class="form-control" value="{{$data->nama_instagram ?? 'N/A'}}" name="nama_instagram" id="exampleInputPassword1" placeholder="Masukan Nama Instagram Contoh (@eskulP)">
                   </div>
                   <!-- <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <input autocomplete="off" type="checkbox" class="form-check-input" id="exampleCheck1">
                     <label class="form-check-label" for="exampleCheck1">Check me out</label>
                   </div> -->
                 </div>

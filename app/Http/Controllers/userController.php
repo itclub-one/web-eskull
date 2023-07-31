@@ -8,6 +8,8 @@ use App\Models\eskul;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Exports\UsersExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 
 
@@ -215,5 +217,9 @@ class userController extends Controller
 
         $data->delete();
         return redirect()->route('users')->with('success',' Data Berhasil Di Delete');
+    }
+    public function export() 
+    {
+        return Excel::download(new UsersExport, 'Daftar User Webex'.'_'.date('d-m-Y').'.xlsx');
     }
 }

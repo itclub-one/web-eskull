@@ -42,19 +42,19 @@
               <div class="card-body">
                   <div class="form-group">
                       <label for="exampleInputEmail1">Nama Kegiatan</label>
-                      <input required type="text" class="form-control" name="nama_kegiatan" id="exampleInputEmail1" placeholder="Masukan Nama Kegiatan">
+                      <input autocomplete="off" required type="text" class="form-control" name="nama_kegiatan" id="exampleInputEmail1" placeholder="Masukan Nama Kegiatan">
                   </div>
                   <div class="form-group">
                       <label for="exampleInputFile">Logo Ekstrakurikuler</label>
-                      <input required type="file" class="form-control" name="logo" >
+                      <input autocomplete="off" required type="file" class="form-control" name="logo" >
                   </div>
                   <div class="form-group">
                       <label for="exampleInputPassword1">Penyelenggara</label>
-                      <input required type="text" class="form-control" name="penyelenggara" id="exampleInputPassword1" placeholder="Masukan Penyelenggara">
+                      <input autocomplete="off" required type="text" class="form-control" name="penyelenggara" id="exampleInputPassword1" placeholder="Masukan Penyelenggara">
                   </div>
                   <div class="form-group">
                       <label for="exampleInputFile">Foto Kegiatan</label>
-                      <input required type="file" class="form-control" name="foto_kegiatan" >
+                      <input autocomplete="off" required type="file" class="form-control" name="foto_kegiatan" >
                   </div>
                   
               </div>

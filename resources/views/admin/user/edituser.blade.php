@@ -44,15 +44,15 @@
                   <a href="editpassword/{{$data->id}}" class="btn btn-primary mb-3">Edit Password</a>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Username</label>
-                    <input type="text" class="form-control" value="{{$data->name ?? 'N/A'}}" name="name" id="exampleInputEmail1" placeholder="Masukan Nama Ekstrakurikuler">
+                    <input autocomplete="off" type="text" class="form-control" value="{{$data->name ?? 'N/A'}}" name="name" id="exampleInputEmail1" placeholder="Masukan Nama Ekstrakurikuler">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Email</label>
-                    <input type="text" class="form-control" value="{{$data->email ?? 'N/A'}}" name="email" id="exampleInputPassword1" placeholder="Masukan Nama Penyelenggara">
+                    <input autocomplete="off" type="text" class="form-control" value="{{$data->email ?? 'N/A'}}" name="email" id="exampleInputPassword1" placeholder="Masukan Nama Penyelenggara">
                   </div>
                   {{-- <div class="form-group">
                     <label for="exampleInputPassword1">Password</label>
-                    <input type="text" class="form-control" value="{{$data->password}}" name="password" id="exampleInputPassword1" placeholder="Masukan Nama Penyelenggara">
+                    <input autocomplete="off" type="text" class="form-control" value="{{$data->password}}" name="password" id="exampleInputPassword1" placeholder="Masukan Nama Penyelenggara">
                   </div> --}}
                   <div class="form-group">
                     <label for="role">Role</label>
@@ -78,7 +78,7 @@
                   <div class="form-group">
                     <label for="exampleInputFile">Foto User</label>
                     <img src="{{asset('images/foto-user/'.$data->foto ?? 'N/A')}}" alt="{{$data->foto ?? 'N/A'}}" width="150px" class="d-block mb-2">
-                      <input type="file" class="form-control"  value="{{$data->foto ?? 'N/A'}}" name="foto" >
+                      <input autocomplete="off" type="file" class="form-control"  value="{{$data->foto ?? 'N/A'}}" name="foto" >
                   </div>
                   
                   

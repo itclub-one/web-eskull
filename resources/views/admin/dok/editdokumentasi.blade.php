@@ -42,7 +42,7 @@
                 <div class="card-body">
                   <div class="form-group">
                     <label for="exampleInputEmail1">Nama Kegiatan</label>
-                    <input type="text" class="form-control" value="{{$data->nama_kegiatan ?? 'N/A'}}" name="nama_kegiatan" id="exampleInputEmail1" placeholder="Masukan Nama Ekstrakurikuler">
+                    <input autocomplete="off" type="text" class="form-control" value="{{$data->nama_kegiatan ?? 'N/A'}}" name="nama_kegiatan" id="exampleInputEmail1" placeholder="Masukan Nama Ekstrakurikuler">
                   </div>
                   
                   <div class="form-group">
@@ -54,14 +54,14 @@
                       <option value="{{$data->id ?? ''}}">{{$data->nama_eskul ?? 'N/A'}}</option>
                       @endforeach
                     </select>
-                    {{-- <input required type="text" class="form-control" name="penyelenggara" id="exampleInputPassword1" placeholder="Masukan Penyelenggara"> --}}
+                    {{-- <input autocomplete="off" required type="text" class="form-control" name="penyelenggara" id="exampleInputPassword1" placeholder="Masukan Penyelenggara"> --}}
                 </div>
                   <div class="form-group">
                     <label for="exampleInputFile">Foto Kegiatan</label>
                     @if (!empty($foto))
                         <img src="{{asset('images/dokumentasi/foto-kegiatan/'.$foto ?? 'N/A')}}" alt="{{$foto}}" width="300px" class="d-block mb-2">
                     @endif
-                      <input type="file" class="form-control" value="{{$data->foto_kegiatan ?? 'N/A'}}" name="foto_kegiatan" >
+                      <input autocomplete="off" type="file" class="form-control" value="{{$data->foto_kegiatan ?? 'N/A'}}" name="foto_kegiatan" >
                   </div>
                   
                   

@@ -14,7 +14,7 @@ class AnggotaExport implements FromCollection, WithMapping, WithHeadings, Should
 {
     public function collection()
     {
-        if (auth()->user()->role == 0) {
+        if (auth()->user()->role_id == 1) {
             $filteredAnggota = anggota::all()->sortBy([
                 ['id_eskul', 'asc'],
                 ['kelas_anggota', 'asc'],
@@ -32,48 +32,47 @@ class AnggotaExport implements FromCollection, WithMapping, WithHeadings, Should
 
     public function map($anggota): array
     {
-        if (auth()->user()->role == 0) {
+        if (auth()->user()->role_id == 1) {
             return [
                 // Data yang diambil dari kolom tabel database
-                $anggota->nis,
-                $anggota->nama_anggota,
-                [$anggota->kelas_anggota,
-                $anggota->jurusan],
-                $anggota->email,
-                $anggota->no_wa,
-                $anggota->eskul->nama_eskul,
+                $anggota->nis ?? 'N/A',
+                $anggota->nama_anggota ?? 'N/A',
+                [$anggota->kelas_anggota ?? 'N/A',
+                $anggota->jurusan ?? 'N/A'],
+                $anggota->email ?? 'N/A',
+                $anggota->no_wa ?? 'N/A',
+                $anggota->eskul->nama_eskul ?? 'N/A',
             ];
         }
         return [
             // Data yang diambil dari kolom tabel database
-            $anggota->nis,
-            $anggota->nama_anggota,
-            [$anggota->kelas_anggota,
-            $anggota->jurusan],
-            $anggota->email,
-            $anggota->no_wa,
+            $anggota->nis ?? 'N/A',
+            $anggota->nama_anggota ?? 'N/A',
+            [$anggota->kelas_anggota ?? 'N/A',
+            $anggota->jurusan ?? 'N/A'],
+            $anggota->email ?? 'N/A',
+            $anggota->no_wa ?? 'N/A',
         ];
     }
 
     public function headings(): array
     {
-        if (auth()->user()->role == 0) {
+        if (auth()->user()->role_id == 1) {
             return [
                 'NIS',
-                'NAMA',
-                'KELAS',
+                'Nama',
+                'Kelas',
                 'E-Mail',
-                'NO WHATSAPP',
+                'No WhatsApp',
                 'Ekstrakurikuler',
             ];
         }
         return [
             'NIS',
-            'NAMA',
-            'KELAS',
+            'Nama',
+            'Kelas',
             'E-Mail',
-            'NO WHATSAPP',
-            'KEHADIRAN',
+            'No WhatsApp',
         ];
     }
 

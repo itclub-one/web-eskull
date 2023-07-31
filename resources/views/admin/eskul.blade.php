@@ -66,7 +66,7 @@
                           <div class="form-group col-lg-4 col-8">
                             <form action="administrator" method="GET" id="search-form">
                               <div class="input-group">
-                                <input type="search" class="form-control" name="search" placeholder="Cari Nama Ekstrakurikuler" value="{{ request('search') }}" id="search-input">
+                                <input autocomplete="off" type="search" class="form-control" name="search" placeholder="Cari Nama Ekstrakurikuler" value="{{ request('search') }}" id="search-input">
                                 <div class="input-group-append">
                                   <button type="submit" class="btn btn-primary">Search</button>
                                   <button type="reset" class="btn btn-secondary">Reset</button>
@@ -114,19 +114,20 @@
 
                         <tbody>
                           @php
-                          if (auth()->user()->role_id == 1) {
-                            # code...
-                            $no = $eskul->firstitem();
+                          if ($eskul->count() > 1) {
+                          # code...
+                          $no = $eskul->firstitem();
+                          } else {
+                            $no = 1;
                           }
-                          $no = 1;
-                          $no = $no++
+                          
                           @endphp
-                          @foreach ($eskul as $index => $row)
+                          @foreach ($eskul as $row)
                           <tr>
                             {{-- @if (auth()->user()->role_id== 1) --}}
                             {{-- <td>{{$index + $eskul->firstitem()}}</td> --}}
                             {{-- @else --}}
-                            <td>{{$no}}</td>
+                            <td>{{$no++}}</td>
                             {{-- @endif --}}
                         <td>{{$row->nama_eskul ?? 'N/A'}}</td>
                         <td>{{$row->sekbid ?? 'N/A'}}</td>
@@ -209,49 +210,49 @@
                 <div class="card-body">
                   <div class="form-group">
                     <label for="exampleInputEmail1">Nama Ekstrakurikuler</label>
-                    <input  type="text" class="form-control @error('nama_eskul') is-invalid @enderror" name="nama_eskul" id="exampleInputEmail1" placeholder="Masukan Nama Ekstrakurikuler">
+                    <input autocomplete="off"  type="text" class="form-control @error('nama_eskul') is-invalid @enderror" name="nama_eskul" id="exampleInputEmail1" placeholder="Masukan Nama Ekstrakurikuler">
                     @error('nama_eskul')
                     <span class="invalid-feedback">{{$message}}</span>
                   @enderror
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Sekbid</label>
-                  <input  type="number" class="form-control @error('sekbid') is-invalid @enderror" name="sekbid" id="exampleInputEmail1" placeholder="Masukan Sekbid berapa">
+                  <input autocomplete="off"  type="number" class="form-control @error('sekbid') is-invalid @enderror" name="sekbid" id="exampleInputEmail1" placeholder="Masukan Sekbid berapa">
                   @error('sekbid')
                   <span class="invalid-feedback">{{$message}}</span>
                 @enderror
               </div>
               <div class="form-group">
                 <label for="exampleInputFile">Logo Ekstrakurikuler</label>
-                <input  type="file" class="form-control @error('logo') is-invalid @enderror" name="logo" >
+                <input autocomplete="off"  type="file" class="form-control @error('logo') is-invalid @enderror" name="logo" >
                 @error('logo')
                 <span class="invalid-feedback">{{$message}}</span>
               @enderror
             </div>
             <div class="form-group">
               <label for="exampleInputPassword1">Pembina</label>
-              <input  type="text" class="form-control @error('pembina') is-invalid @enderror" name="pembina" id="exampleInputPassword1" placeholder="Masukan Nama Pembina">
+              <input autocomplete="off"  type="text" class="form-control @error('pembina') is-invalid @enderror" name="pembina" id="exampleInputPassword1" placeholder="Masukan Nama Pembina">
               @error('pembina')
               <span class="invalid-feedback">{{$message}}</span>
             @enderror
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Ketua</label>
-            <input  type="text" class="form-control @error('ketua') is-invalid @enderror" name="ketua" id="exampleInputPassword1" placeholder="Masukan Nama Ketua">
+            <input autocomplete="off"  type="text" class="form-control @error('ketua') is-invalid @enderror" name="ketua" id="exampleInputPassword1" placeholder="Masukan Nama Ketua">
             @error('ketua')
             <span class="invalid-feedback">{{$message}}</span>
           @enderror
         </div>
         <div class="form-group">
           <label for="exampleInputPassword1">Wakil Ketua</label>
-          <input  type="text" class="form-control @error('wakilketua') is-invalid @enderror" name="wakilketua" id="exampleInputPassword1" placeholder="Masukan Nama Wakil Ketua">
+          <input autocomplete="off"  type="text" class="form-control @error('wakilketua') is-invalid @enderror" name="wakilketua" id="exampleInputPassword1" placeholder="Masukan Nama Wakil Ketua">
           @error('wakilketua')
           <span class="invalid-feedback">{{$message}}</span>
         @enderror
       </div>
       <div class="form-group">
         <label for="exampleInputPassword1">Jadwal Ekstrakurikuler</label>
-        <input  type="text" class="form-control @error('jadwal_kumpulan') is-invalid @enderror" name="jadwal_kumpulan" id="exampleInputPassword1" placeholder="Masukan Jadwal Ekstrakurikuler">
+        <input autocomplete="off"  type="text" class="form-control @error('jadwal_kumpulan') is-invalid @enderror" name="jadwal_kumpulan" id="exampleInputPassword1" placeholder="Masukan Jadwal Ekstrakurikuler">
         @error('jadwal_kumpulan')
         <span class="invalid-feedback">{{$message}}</span>
       @enderror
@@ -282,13 +283,13 @@
 
 <div class="form-group">
   <label for="exampleInputPassword1">Instagram</label>
-  <input  type="text" class="form-control @error('nama_instagram') is-invalid @enderror" name="nama_instagram" id="exampleInputPassword1" placeholder="Masukan Nama Instagram ">
+  <input autocomplete="off"  type="text" class="form-control @error('nama_instagram') is-invalid @enderror" name="nama_instagram" id="exampleInputPassword1" placeholder="Masukan Nama Instagram ">
   @error('nama_instagram')
   <span class="invalid-feedback">{{$message}}</span>
   @enderror
                   </div>
                   <!-- <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <input autocomplete="off" type="checkbox" class="form-check-input" id="exampleCheck1">
                     <label class="form-check-label" for="exampleCheck1">Check me out</label>
                   </div> -->
                 </div>

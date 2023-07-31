@@ -87,7 +87,9 @@
                       });
                     </script>
 
-                    <a href="register" class="btn btn-primary mb-2">Tambah Data</a>
+                    <a href="/users/export-excel" class="btn btn-success mb-3">Export Excel</a>
+
+                    <a href="register" class="btn btn-primary mb-3">Tambah Data</a>
                     <table id="example2" class="table table-bordered table-hover">
                       <thead>
                       <tr>
@@ -103,7 +105,12 @@
                       </thead>
 
                       @php
-                      $no = $data->firstitem();
+                      if ($data->count() > 1) {
+                        # code...
+                        $no = $data->firstitem();
+                        } else {
+                          $no = 1;
+                        }
                   @endphp
                     @foreach ($data as $row)
                     
@@ -116,7 +123,14 @@
                         <td>{{$row->name ?? 'N/A'}}</td>
                         <td>{{ $row->roles->role ?? 'N/A'  }}</td>
                         <td>{{$row->email ?? 'N/A'}}</td>
-                        <td>{{$row->eskul->nama_eskul ?? 'N/A'}}</td>
+                        <td>
+                          @if($row->eskul)
+                          <img src="{{ asset('images/logo-eskul/'.$row->eskul->logo ?? 'N/A') }}" width="200px" alt="">
+                          {{ $row->eskul->nama_eskul }}
+                      @else
+                          No Eskul Data Available
+                      @endif
+                        </td>
                         <td>{{$row->password ?? 'N/A'}}</td>
                         
                         

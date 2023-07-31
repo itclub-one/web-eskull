@@ -48,12 +48,30 @@
                     </div>
                     @endif
                     <div class="head">
-                      <div class="form-group col-lg-4 col-8">
-                        <form action="berita" method="GET">
-                          <input  type="search" class="form-control" name="search"  placeholder="Cari Judul Berita">
+                      <div class="form-group col-lg-4 col-10">
+                        <form action="berita" method="GET" id="search-form">
+                          <div class="input-group">
+                            <input autocomplete="off" type="text" class="form-control" name="search" placeholder="Cari Judul Berita" value="{{ request('search') }}" id="search-input">
+                            <div class="input-group-append">
+                              <button type="submit" class="btn btn-primary">Search</button>
+                              <button type="reset" class="btn btn-secondary">Reset</button>
+                            </div>
+                          </div>
                         </form>
                       </div>
                     </div>
+                    <script>
+                      document.addEventListener('DOMContentLoaded', function () {
+                        const searchInput = document.getElementById('search-input');
+                        const searchForm = document.getElementById('search-form');
+                    
+                        // Handle the click event of the "Reset" button
+                        document.querySelector('#search-form button[type="reset"]').addEventListener('click', function () {
+                          searchInput.value = ''; // Clear the search input value
+                          searchForm.submit(); // Submit the form to perform the reset
+                        });
+                      });
+                    </script>
                     <a href="#tambahdata" class="btn btn-primary mb-3">Tambah Data</a>
                   <table id="example2" class="table table-bordered table-hover">
                     <thead>
@@ -71,7 +89,12 @@
                       </thead>
 
                       @php
-                      $no = $data->firstitem();
+                      if ($data->count() > 1) {
+                        # code...
+                        $no = $data->firstitem();
+                        } else {
+                          $no = 1;
+                        }
                   @endphp
                     @foreach ($data as $row)
                     
@@ -146,15 +169,15 @@
                 <div class="card-body">
                   <div class="form-group">
                     <label for="exampleInputEmail1">Judul Berita</label>
-                    <input required type="text" class="form-control" name="judul_berita" id="exampleInputEmail1" placeholder="Masukan Judul Berita">
+                    <input autocomplete="off" required type="text" class="form-control" name="judul_berita" id="exampleInputEmail1" placeholder="Masukan Judul Berita">
                   </div>
                   <div class="form-group">
                       <label for="exampleInputFile">Foto Berita</label>
-                      <input required type="file" class="form-control" name="foto_berita" >
+                      <input autocomplete="off" required type="file" class="form-control" name="foto_berita" >
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Tanggal Berita</label>
-                    <input required type="date" class="form-control" name="tanggal_berita" id="exampleInputPassword1" placeholder="Masukan Tanggal Berita">
+                    <input autocomplete="off" required type="date" class="form-control" name="tanggal_berita" id="exampleInputPassword1" placeholder="Masukan Tanggal Berita">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Deskripsi</label>

@@ -33,7 +33,7 @@
       <form action="loginproses" method="post">
             @csrf
         <div class="input-group mb-3">
-          <input type="email" class="form-control" @error('email')
+          <input autocomplete="off" type="email" class="form-control" @error('email')
               is-invalid
           @enderror name="email" placeholder="Email" autofocus required value="{{ old('email')}}">
           <div class="input-group-append">
@@ -48,7 +48,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" name="password" placeholder="Password" required>
+          <input autocomplete="off" type="password" class="form-control" name="password" placeholder="Password" required>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>

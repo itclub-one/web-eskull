@@ -42,16 +42,16 @@
                 <div class="card-body">
                   <div class="form-group">
                     <label for="exampleInputEmail1">Judul Berita</label>
-                    <input type="text" class="form-control" value="{{$data->judul_berita ?? 'N/A'}}" name="judul_berita" id="exampleInputEmail1" placeholder="Masukan Judul Berita">
+                    <input autocomplete="off" type="text" class="form-control" value="{{$data->judul_berita ?? 'N/A'}}" name="judul_berita" id="exampleInputEmail1" placeholder="Masukan Judul Berita">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputFile">Foto Berita</label>
                     <img src="{{asset('images/foto-berita/'.$data->foto_berita)}}" alt="{{$data->foto_berita ?? 'N/A'}}" width="300px" class="d-block mb-2">
-                      <input type="file" class="form-control" value="{{$data->foto_berita ?? 'N/A'}}" name="foto_berita" >
+                      <input autocomplete="off" type="file" class="form-control" value="{{$data->foto_berita ?? 'N/A'}}" name="foto_berita" >
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Tanggal Berita</label>
-                    <input type="text" class="form-control" value="{{$data->tanggal_berita ?? 'N/A'}}" name="tanggal_berita" id="exampleInputPassword1" placeholder="Masukan Tanggal Berita">
+                    <input autocomplete="off" type="text" class="form-control" value="{{$data->tanggal_berita ?? 'N/A'}}" name="tanggal_berita" id="exampleInputPassword1" placeholder="Masukan Tanggal Berita">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Deskripsi</label>

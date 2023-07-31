@@ -61,12 +61,13 @@
                       setTimeout(function () {
                         document.getElementById('fm').style.display = 'none';
                       }, 8000); // Adjust the time (in milliseconds) as needed
-                    </script>
+                      </script>
 
-                    <div class="form-group col-lg-4 col-8">
+                  <div class="head">
+                    <div class="form-group col-lg-4 col-10">
                       <form action="pendaftaran-eskul" method="GET" id="search-form">
                         <div class="input-group">
-                          <input type="search" class="form-control" name="search" placeholder="Cari Nama Pendaftar" value="{{ request('search') }}" id="search-input">
+                          <input autocomplete="off" type="search" class="form-control" name="search" placeholder="Cari Nama Pendaftar" value="{{ request('search') }}" id="search-input">
                           <div class="input-group-append">
                             <button type="submit" class="btn btn-primary">Search</button>
                             <button type="reset" class="btn btn-secondary">Reset</button>
@@ -86,7 +87,6 @@
                         });
                       });
                     </script>
-                    <div class="head">
 
                     @foreach ($on as $row)
                       <div class="d-flex">
@@ -95,12 +95,12 @@
                           <form id="form-{{$row->id}}" action="/add-pendaftaran/{{$row->id}}" class="mb-2 mx-3" method="post">
                             @csrf
                             @if ($row->on == 0)
-                            <input type="hidden" name="on" value="{{ $row->on ? '0' : '1'  }}">
+                            <input autocomplete="off" type="hidden" name="on" value="{{ $row->on ? '0' : '1'  }}">
                             @else
-                            <input type="hidden" name="on" value="{{ $row->on ? '0' : '1'  }}">
+                            <input autocomplete="off" type="hidden" name="on" value="{{ $row->on ? '0' : '1'  }}">
                             @endif
                             <label class="switch">
-                              <input type="checkbox" {{ $row->on ? 'checked' : '' }} onchange="document.getElementById('form-{{$row->id}}').submit()">
+                              <input autocomplete="off" type="checkbox" {{ $row->on ? 'checked' : '' }} onchange="document.getElementById('form-{{$row->id}}').submit()">
                               <span class="slider round"></span>
                             </label>
                             <span>
@@ -136,7 +136,12 @@
                     <tbody>
                       
                       @php
-                      $no = $pendaftaran->firstitem();
+                      if ($pendaftaran->count() > 1) {
+                        # code...
+                        $no = $pendaftaran->firstitem();
+                        } else {
+                          $no = 1;
+                        }
                   @endphp
                     @foreach ($pendaftaran as $row)
                     
@@ -151,9 +156,13 @@
 
                         
                         <td>
-                          <img src="{{asset('images/logo-eskul/'.$row->eskul->logo ?? 'N/A')}}" width="50px" alt="{{$row->eskul->logo ?? 'N/A'}}">
-                          {{$row->eskul->nama_eskul ?? 'N/A'}}
-                        </td>
+                          @if($row->eskul)
+                              <img src="{{ asset('images/logo-eskul/'.$row->eskul->logo ?? 'N/A') }}" width="200px" alt="">
+                              {{ $row->eskul->nama_eskul }}
+                          @else
+                              No Eskul Data Available
+                          @endif
+                      </td>
                         
 
                         
@@ -162,13 +171,13 @@
                           
                           <form action="/insertdatapendaftarantopendaftaran/{{$row->id}}" method="post">
                             @csrf
-                                <input type="hidden" value="{{$row->nama_calon_anggota}}" name="nama_anggota" >
-                                <input type="hidden" value="{{$row->kelas_calon_anggota}}" name="kelas_anggota">
-                                <input type="hidden" value="{{$row->jurusan}}" name="jurusan">
-                                <input type="hidden" value="{{$row->nis}}" name="nis">
-                                <input type="hidden" value="{{$row->email}}" name="email">
-                                <input type="hidden" value="{{$row->no_wa}}" name="no_wa">
-                                <input type="hidden" value="{{$row->id_eskul}}" name="id_eskul">
+                                <input autocomplete="off" type="hidden" value="{{$row->nama_calon_anggota}}" name="nama_anggota" >
+                                <input autocomplete="off" type="hidden" value="{{$row->kelas_calon_anggota}}" name="kelas_anggota">
+                                <input autocomplete="off" type="hidden" value="{{$row->jurusan}}" name="jurusan">
+                                <input autocomplete="off" type="hidden" value="{{$row->nis}}" name="nis">
+                                <input autocomplete="off" type="hidden" value="{{$row->email}}" name="email">
+                                <input autocomplete="off" type="hidden" value="{{$row->no_wa}}" name="no_wa">
+                                <input autocomplete="off" type="hidden" value="{{$row->id_eskul}}" name="id_eskul">
                                 <button type="submit" class="btn btn-warning terima" >Terima</button>
                           </form>
                           <a href="#" class="btn btn-danger delete" data-id="{{$row->id}}" data-nama="{{$row->nama_calon_anggota}}"  id="delete">Tidak diterima</a>
