@@ -24,10 +24,14 @@ class dokumentasiController extends Controller
         if ($request->has('search')) {
             // Search query for 'nama_kegiatan' and 'penyelenggara' columns
             $searchTerm = '%' . $request->search . '%';
-            $dataQuery->where(function ($query) use ($searchTerm) {
-                $query->where('nama_kegiatan', 'like', $searchTerm)
-                    ->orWhere('penyelenggara', 'like', $searchTerm);
-            });
+            if ($userRole != 1) {
+                $dataQuery->where(function ($query) use ($searchTerm) {
+                    $query->where('nama_kegiatan', 'like', $searchTerm)
+                        ->where('penyelenggara', auth()->user()->id_eskul);
+                });
+            } else {
+                $dataQuery->where('nama_kegiatan', 'like', $searchTerm);
+            }
         }
 
         if ($userRole != 1) {
@@ -36,7 +40,7 @@ class dokumentasiController extends Controller
         }
 
         // Retrieve paginated data (max 5 items per page)
-        $data = $dataQuery->orderBy('id', 'DESC')->paginate(5);
+        $data = $dataQuery->orderBy('id', 'DESC')->paginate(10);
 
         if ($userRole == 1) {
             // Check if the eskul record with the given id exists

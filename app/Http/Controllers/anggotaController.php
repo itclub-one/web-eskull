@@ -28,7 +28,7 @@ class anggotaController extends Controller
         if ($request->has('search')) {
             $query = anggota::where('nama_anggota', 'like', '%' . $request->search . '%');
             if (auth()->user()->role_id != 1) {
-                $query->where('id_eskul', auth()->user()->id_eskul);
+                $query->where('id_eskul', auth()->user()->id_eskul)->paginate(5);
             }
             $anggota = $query->paginate(5);
         } else {

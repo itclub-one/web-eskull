@@ -19,12 +19,19 @@ class beritaController extends Controller
         if ($request->has('search')) {
             // Search query for 'judul_berita' column
             $searchTerm = '%' . $request->search . '%';
-            $dataQuery->where('judul_berita', 'like', $searchTerm);
+            if ($userRole != 1) {
+                # code...
+                $dataQuery->where('judul_berita', 'like', $searchTerm)
+                ->where('id_eskul', auth()->user()->id_eskul)
+                ->paginate(5);
+            }
+            $dataQuery->where('judul_berita', 'like', $searchTerm)->paginate(5);
+            
         }
     
         if ($userRole != 1) {
             // Add condition to filter by 'id_eskul' if user's role is not '0' (admin)
-            $dataQuery->where('id_eskul', auth()->user()->id_eskul);
+            $dataQuery->where('id_eskul', auth()->user()->id_eskul)->paginate(10);
         }
     
         // Retrieve paginated data (max 5 items per page)

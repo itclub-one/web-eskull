@@ -34,7 +34,8 @@ class pendaftaranController extends Controller
                 $pendaftaran = pendaftaran::orderBy('updated_at','DESC')->paginate(10);
             } else {
 
-                $pendaftaran = pendaftaran::where('id_eskul', '=', auth()->user()->id_eskul)->orderBy('updated_at','DESC')->get();
+                $pendaftaran = pendaftaran::where('id_eskul', '=', auth()->user()->id_eskul)->orderBy('updated_at','DESC')
+                ->paginate(10);
             }
         }
         // dd($data);

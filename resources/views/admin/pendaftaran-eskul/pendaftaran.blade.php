@@ -86,7 +86,8 @@
                           searchForm.submit(); // Submit the form to perform the reset
                         });
                       });
-                    </script>
+                      </script>
+                      </div>
 
                     @foreach ($on as $row)
                       <div class="d-flex">
@@ -116,7 +117,6 @@
                       @endforeach
 
 
-                    </div>
                     
                     <table id="example2" class="table table-bordered table-hover">
                       <thead>
