@@ -23,9 +23,9 @@ class beritaController extends Controller
                 # code...
                 $dataQuery->where('judul_berita', 'like', $searchTerm)
                 ->where('id_eskul', auth()->user()->id_eskul)
-                ->paginate(5);
+                ->paginate(10);
             }
-            $dataQuery->where('judul_berita', 'like', $searchTerm)->paginate(5);
+            $dataQuery->where('judul_berita', 'like', $searchTerm)->paginate(10);
             
         }
     
@@ -34,8 +34,8 @@ class beritaController extends Controller
             $dataQuery->where('id_eskul', auth()->user()->id_eskul)->paginate(10);
         }
     
-        // Retrieve paginated data (max 5 items per page)
-        $data = $dataQuery->orderBy('tanggal_berita', 'DESC')->paginate(5);
+        // Retrieve paginated data (max 10 items per page)
+        $data = $dataQuery->orderBy('tanggal_berita', 'DESC')->paginate(10);
     
         if ($userRole == 1) {
             // Get all 'eskul' records if user is admin

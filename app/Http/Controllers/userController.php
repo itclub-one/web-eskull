@@ -22,9 +22,9 @@ class userController extends Controller
         }
         if($request->has('search')){
             $data = user::where('name','like', '%' .$request->search. '%')->
-            orWhere('email','like', '%' .$request->search. '%')->paginate(5);
+            orWhere('email','like', '%' .$request->search. '%')->paginate(10);
         }else{
-            $data = user::with('roles')->paginate(5);
+            $data = user::with('roles')->paginate(10);
         }
 
         return view('admin.user.user', compact('data'));

@@ -24,10 +24,10 @@ class pendaftaranController extends Controller
         if ($request->has('search')) {
             if (auth()->user()->role_id == 1) {
                 $pendaftaran = pendaftaran::where('nama_calon_anggota', 'like', '%' . $request->search . '%')
-                    ->orWhere('id_eskul', 'like', '%' . $request->search . '%')->orderBy('updated_at','DESC')->paginate(5);
+                    ->orWhere('id_eskul', 'like', '%' . $request->search . '%')->orderBy('updated_at','DESC')->paginate(10);
             } else {
                 $pendaftaran = pendaftaran::where('id_eskul', '=', auth()->user()->id_eskul)->where('nama_calon_anggota', 'like', '%' . $request->search . '%')
-                    ->orWhere('id_eskul', 'like', '%' . $request->search . '%')->orderBy('updated_at','DESC')->paginate(5);
+                    ->orWhere('id_eskul', 'like', '%' . $request->search . '%')->orderBy('updated_at','DESC')->paginate(10);
             }
         } else {
             if (auth()->user()->role_id == 1) {

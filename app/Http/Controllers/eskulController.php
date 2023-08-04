@@ -22,10 +22,10 @@ class eskulController extends Controller
         if ($request->has('search')) {
             if (auth()->user()->role_id == 1) {
                 $eskul = eskul::where('nama_eskul', 'like', '%' . $request->search . '%')
-                    ->orWhere('slug', 'like', '%' . $request->search . '%')->paginate(5);
+                    ->orWhere('slug', 'like', '%' . $request->search . '%')->paginate(10);
             } else {
                 $eskul = eskul::where('id_eskul', '=', auth()->user()->id_eskul)->where('nama_eskul', 'like', '%' . $request->search . '%')
-                    ->orWhere('id', 'like', '%' . $request->search . '%')->paginate(5);
+                    ->orWhere('id', 'like', '%' . $request->search . '%')->paginate(10);
             }
         } else {
             if (auth()->user()->role_id == 1) {
